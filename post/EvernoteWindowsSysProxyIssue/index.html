@@ -1,0 +1,296 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Wonder Space 🚀</title>
+<meta name="description" content="不可勝在己，可勝在敵。" />
+<link rel="shortcut icon" href="https://leonwong0609.github.io/favicon.ico?v=1581341614029">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link href="https://cdn.remixicon.com/releases/v1.3.1/remixicon.css" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+
+<link rel="stylesheet" href="https://leonwong0609.github.io/styles/main.css">
+<link rel="alternate" type="application/atom+xml" title="Wonder Space 🚀 - Atom Feed" href="https://leonwong0609.github.io/atom.xml">
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-156553722-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-156553722-1');
+</script>
+
+
+  </head>
+  <body>
+    <div id="app" class="main px-4 flex flex-col lg:flex-row">
+      <div id="sidebar" class="sidebar-wrapper lg:static lg:w-1/4">
+  <div class="lg:sticky top-0">
+    <div class="sidebar-content">
+      <div class="flex lg:block p-4 lg:px-0 items-center fixed lg:static lg:block top-0 right-0 left-0 bg-white z-50">
+        <i class="remixicon-menu-2-line lg:mt-4 text-2xl cursor-pointer animated fadeIn" onclick="openMenu()"></i>
+        <a href="https://leonwong0609.github.io">
+          <img class="animated fadeInLeft avatar rounded-lg mx-4 lg:mt-32 lg:mx-0 mt-0 lg:w-24 lg:h-24 w-12 w-12" src="https://leonwong0609.github.io/images/avatar.png?v=1581341614029" alt="">
+        </a>
+        <h1 class="animated fadeInLeft lg:text-4xl font-extrabold lg:mt-8 mt-0 text-xl" style="animation-delay: 0.2s">Wonder Space 🚀</h1>
+      </div>
+      
+        <div class="animated fadeInLeft" style="animation-delay: 0.4s">
+          <p class="my-4 text-gray-600 font-light hidden lg:block">
+            文章目录
+          </p>
+          <div class="toc-container hidden lg:block">
+            <ul class="markdownIt-TOC">
+<li><a href="#%E5%8F%91%E7%8E%B0%E9%97%AE%E9%A2%98">发现问题</a></li>
+<li><a href="#%E5%AF%BB%E6%89%BE%E9%97%AE%E9%A2%98">寻找问题</a></li>
+<li><a href="#%E8%A7%A3%E5%86%B3%E9%97%AE%E9%A2%98">解决问题</a></li>
+<li><a href="#summary">Summary</a></li>
+</ul>
+
+          </div>
+        </div>
+      
+    </div>
+  </div>
+</div>
+
+<div class="menu-container">
+  <i class="remixicon-arrow-left-line text-2xl cursor-pointer animated fadeIn close-menu-btn" onclick="closeMenu()"></i>
+  <div>
+    
+      
+        <a href="/" class="menu" style="animation-delay: 0s">
+          🏠 首页
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu" style="animation-delay: 0.2s">
+          🏷️ 标签
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu" style="animation-delay: 0.4s">
+          📬 归档
+        </a>
+      
+    
+      
+        <a href="/post/about" class="menu" style="animation-delay: 0.6000000000000001s">
+          😶 关于
+        </a>
+      
+    
+  </div>
+  <div class="site-footer">
+    <div class="py-4 text-gray-700">Powered by lovely&nbsp;<a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>&nbsp;❤️</div>
+    <a class="rss" href="https://leonwong0609.github.io/atom.xml" target="_blank">RSS</a>
+  </div>
+</div>
+<div class="mask" onclick="closeMenu()">
+</div>
+      <div class="content-wrapper py-32 lg:p-8 lg:w-3/4 post-detail animated fadeIn">
+        <h1 class="text-3xl font-bold lg:mt-16">顽皮的 Evernote Windows</h1>
+        <div class="text-sm text-gray-700 lg:my-8">
+          02-10-2020 / 6 min read
+        </div>
+        
+          <img class="post-feature-image rounded-lg mx-auto my-4" src="https://leonwong0609.github.io/post-images/EvernoteWindowsSysProxyIssue.png" alt="">
+        
+        <div class="post-content yue">
+          <p>最近几天代理频繁断连，刚开始一位是某虚拟砖块堆砌物又高了，后来发现背后另有原因。</p>
+<!-- more -->
+<h1 id="发现问题">发现问题</h1>
+<p>最近这几天人不在宿舍，没有路由器加持，只能使用电脑中的客户端进行国际互连，可是使用时流量总是断断续续。正好 2 月 1 日左右来了一波墙，我以为是不可抗因素，因此也没有过于在意。可是蹊跷的是我手机上使用 Pharos Pro 客户端连接 Maying 的节点却没有问题，iPad 上使用 Quantumualt X 连接 Maying 也没有问题。Maying 全站都是 ShadowsocksR 协议，据说流量特征已经被识别，理论上更容易被影响，但是却能正常使用，证明节点是没有问题的。而在电脑上，就算使用 V2Ray 也是断断续续。而电脑在手边，自然不会将就使用手机平板做正事，所以今天坐下来想着把这个事情解决。</p>
+<h1 id="寻找问题">寻找问题</h1>
+<p>首先我电脑上常用的客户端是 Clash For Windows，但是替换了 ClashR 的内核。使用 DoubleDou 提供的 V2Ray，然而时断时续。每次打开开关的一小段时间内是连接正常的，网页可以快速打开，代理 IP 也显示正常。然而只要过一段时间（谷歌搜索出结果后点开维基百科连接）连接就会断开，再看浏览器上 whatismyproxy.com 的显示也是 Not connected。</p>
+<p>因此我猜测可能是 ClashR 的问题，于是又去 Github 下载了最新的 Clash For Windows 0.8.11，再次尝试后问题相同。</p>
+<p>于是我退出 Clash For Windows，使用 V2RayN，同样存在只有开启 HTTP 代理的一小段时间内代理有效的问题。</p>
+<p>同样的问题出现在两个客户端身上，排除节点问题后，自然是我本机设置的问题了。于是我打开本机设置的代理设置，发现虽然我的 Clash / V2RayN 客户端中代理是打开的，系统设置中的代理却是关闭状态。重复尝试几次后发现果然如此：每次在客户端开启代理的瞬间，系统设置中的代理开关是打开的，而只要重新打开设置，就会发现代理开关又被关闭了。</p>
+<figure data-type="image" tabindex="1"><img src="https://leonwong0609.github.io/post-images/1581340009765.png" alt="系统代理设置" loading="lazy"></figure>
+<p>这样我已经可以大概确定问题了，大概是有其他应用在影响系统设置中的代理设置。</p>
+<p>我开始是一位我电脑中各种代理客户端太多，进程关不干净之类的原因影响。于是我删除了大部分不用的代理软件，只留下 Clash For Windows 和 ShadowsocksR，并在 cmd.exe 中执行 <code>netsh winsock reset</code>，并重启电脑。</p>
+<p>然而在我只使用 Clash For Windows，确保后台没有其他代理客户端时，同样的问题仍然存在。</p>
+<p>此时我已经折腾了快一下午，再这样胡乱尝试下去也不是办法。当下主要目的就是：找出具体是什么软件在频繁更改我本机的系统代理设置。</p>
+<p>经过网上搜索后，我知道了系统代理在注册表中的位置是 <code>HKCU\Software\Microsoft\Windows\CurrentVersion\Internet Settings\ProxyEnable</code>，内容看起来是 0 或 1。现在只要想办法确定是什么应用更改了这个注册表值即可。</p>
+<p>这时候就要请出我在数字安全入门课程上认识的一个神器：Process Monitor，一个有些类似任务管理器的软件。我们已经确定了我们是要查看进程对注册表中的某一项的更改，因此我们可以在 Process Monitor 中设置 <code>Filter</code>。在 <code>Filter</code> | <code>Filter...</code> 中或者使用快捷键 <code>Ctrl</code> - <code>L</code> 可以打开过滤设置。</p>
+<figure data-type="image" tabindex="2"><img src="https://leonwong0609.github.io/post-images/1581340048022.png" alt="过滤设置打开方式" loading="lazy"></figure>
+<p>增加两个过滤条件：</p>
+<ol>
+<li>只看注册表修改：<code>Opertion</code> is <code>RegSetValue</code> then <code>Include</code>；</li>
+<li>只看规定的注册表项目：<code>Path</code> is <code>HKCU\Software\Microsoft\Windows\CurrentVersion\Internet Settings\ProxyEnable</code> then <code>Include</code>。</li>
+</ol>
+<figure data-type="image" tabindex="3"><img src="https://leonwong0609.github.io/post-images/1581340062624.png" alt="添加的过滤条件" loading="lazy"></figure>
+<p>此时我们就能看到所有修改了系统代理设置的进程了，我们发现除了我们使用的代理客户端外，还有 Evernote！</p>
+<figure data-type="image" tabindex="4"><img src="https://leonwong0609.github.io/post-images/1581340080959.png" alt="抓住你了 Evernote！" loading="lazy"></figure>
+<p>终于找出问题所在，可能是 Evernote 在连接失败后就会尝试调整系统的代理设置。而 Evernote 我是最近才开始使用，所以「断连」的情况也是最近才出现的。</p>
+<p>我尝试彻底退出 Evernote，发现网络终于正常了，不得不说 Evernote 这样的静默处理让我对他的好感度又减少了一分（之所以说是「又」是因为它的 Windows 端做得实在太丑了）。</p>
+<h1 id="解决问题">解决问题</h1>
+<p>当下就是要想办法阻止 Evernote 对代理的修改。这里我没有找到具体的方法，于是我开始自己摸索尝试。</p>
+<p>我首先想到的是使用火绒的自定义防护。但是最后并不成功，虽然在自定义防护中设定了相关的规则，但是对 Evernote 修改系统代理的行为并不能加以阻止，因此只要点击一次同步，Evernote 仍然会 toggle 我的代理设置。所以具体的方法在这里就不赘述了。</p>
+<p>最后的解决办法，我只能使用国内版的「印象笔记」客户端，在登陆时切换到「Evernote International」。这种算不上办法的办法我也很无语，但是换上印象笔记后，确实在 Process Monitor 中捕捉不到修改系统代理设置的操作了。</p>
+<p>最后我还以外发现印象笔记可以使用 Markdown 功能，并且能够正常同步，在我 Android 手机上的 Evernote 也能正常读取选然后的 Markdown 笔记。算是一个以外收获吧。</p>
+<h1 id="summary">Summary</h1>
+<p>这次折腾给我的一个最大的体验就是「经典 ≠ 好」。Evernote 在云笔记笔记类软件中可以算得上是鼻祖，地位自然不必多言。然而就是这样一个连我妈都在用的软件却没有给我想象中的体验，同步感觉并没有比 OneNote 方便，Windows 客户端做得更是一言难尽。最后尝试了网页端的 Evernote，发现网页端的写作体验比远生客户端优秀太多，所以还是暂时选择使用网页端吧。</p>
+<figure data-type="image" tabindex="5"><img src="https://leonwong0609.github.io/post-images/1581340475737.png" alt="体验还算不错的网页端" loading="lazy"></figure>
+
+        </div>
+
+        
+          <a class="animated fadeInUp p-2 items-center text-sm text-gray-700 border hover:bg-gray-300 leading-none rounded-full flex lg:inline-flex m-4 " href="https://leonwong0609.github.io/tag/djRIW_izT">
+            <span class="flex-auto">软件</span>
+          </a>
+        
+
+
+        <div class="flex justify-between py-8">
+          
+
+          
+            <div class="next-post">
+              <a href="https://leonwong0609.github.io/post/2019-ncov">
+                <h3 class="post-title">
+                  关于 2019-nCoV 的闲谈
+                  <i class="remixicon-arrow-right-line"></i>
+                </h3>
+              </a>
+            </div>
+          
+        </div>
+
+        
+          
+            <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+
+<div id="gitalk-container"></div>
+
+<script>
+
+  var gitalk = new Gitalk({
+    clientID: '71c9095550a821a30374',
+    clientSecret: '96a303782883ab7dc77209618d79ad5d29a342af',
+    repo: 'LeonWong0609.github.io',
+    owner: 'LeonWong0609',
+    admin: ['LeonWong0609'],
+    id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+    distractionFreeMode: false  // Facebook-like distraction free mode
+  })
+
+  gitalk.render('gitalk-container')
+
+</script>
+
+          
+
+          
+        
+
+      </div>
+    </div>
+
+    <script src="https://leonwong0609.github.io/media/prism.js"></script>  
+<script>
+
+Prism.highlightAll()
+
+let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+
+// This should probably be throttled.
+// Especially because it triggers during smooth scrolling.
+// https://lodash.com/docs/4.17.10#throttle
+// You could do like...
+// window.addEventListener("scroll", () => {
+//    _.throttle(doThatStuff, 100);
+// });
+// Only not doing it here to keep this Pen dependency-free.
+
+window.addEventListener("scroll", event => {
+  let fromTop = window.scrollY;
+
+  mainNavLinks.forEach((link, index) => {
+    let section = document.getElementById(decodeURI(link.hash).substring(1));
+    let nextSection = null
+    if (mainNavLinks[index + 1]) {
+      nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
+    }
+    if (section.offsetTop <= fromTop) {
+      if (nextSection) {
+        if (nextSection.offsetTop > fromTop) {
+          link.classList.add("current");
+        } else {
+          link.classList.remove("current");    
+        }
+      } else {
+        link.classList.add("current");
+      }
+    } else {
+      link.classList.remove("current");
+    }
+  });
+});
+
+
+document.addEventListener("DOMContentLoaded", function() {
+  var lazyImages = [].slice.call(document.querySelectorAll(".post-feature-image.lazy"));
+
+  if ("IntersectionObserver" in window) {
+    let lazyImageObserver = new IntersectionObserver(function(entries, observer) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          let lazyImage = entry.target
+          lazyImage.style.backgroundImage = `url(${lazyImage.dataset.bg})`
+          lazyImage.classList.remove("lazy")
+          lazyImageObserver.unobserve(lazyImage)
+        }
+      });
+    });
+
+    lazyImages.forEach(function(lazyImage) {
+      lazyImageObserver.observe(lazyImage)
+    })
+  } else {
+    // Possibly fall back to a more compatible method here
+  }
+});
+
+const menuContainer = document.querySelector('.menu-container')
+const menus = document.querySelectorAll('.menu-container .menu')
+const mask = document.querySelector('.mask')
+const contentWrapper = document.querySelector('.content-wrapper')
+const latestArticle = document.querySelector('.latest-article')
+const readMore = document.querySelector('.read-more')
+const indexPage = document.querySelector('.index-page')
+
+const isHome = location.pathname === '/'
+if (latestArticle) {
+  latestArticle.style.display = isHome ? 'block' : 'none'
+  readMore.style.display = isHome ? 'block' : 'none'
+  indexPage.style.display = isHome ? 'none' : 'block'
+}
+
+const openMenu = () => {
+  menuContainer.classList.add('open')
+  menus.forEach(menu => {
+    menu.classList.add('animated', 'fadeInLeft')
+  })
+  mask.classList.add('open')
+  contentWrapper.classList.add('is-second')
+}
+
+const closeMenu = () => {
+  menuContainer.classList.remove('open')
+  menus.forEach(menu => {
+    menu.classList.remove('animated', 'fadeInLeft')
+  })
+  mask.classList.remove('open')
+  contentWrapper.classList.remove('is-second')
+}
+</script>
+  
+  </body>
+</html>
