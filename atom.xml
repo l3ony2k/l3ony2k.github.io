@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://leonwong0609.github.io</id>
     <title>Wonder Space 🚀</title>
-    <updated>2020-02-10T13:33:45.692Z</updated>
+    <updated>2020-02-11T07:06:32.935Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://leonwong0609.github.io"/>
     <link rel="self" href="https://leonwong0609.github.io/atom.xml"/>
@@ -16,33 +16,34 @@
         <link href="https://leonwong0609.github.io/post/EvernoteWindowsSysProxyIssue">
         </link>
         <updated>2020-02-10T13:02:57.000Z</updated>
-        <summary type="html"><![CDATA[<p>最近几天代理频繁断连，刚开始一位是某虚拟砖块堆砌物又高了，后来发现背后另有原因。</p>
+        <summary type="html"><![CDATA[<p>简言之，这几天国际互联不稳定，刚开始发现是 Evernote 修改系统代理设置，后来发现是我的手机由于开着 Pharos Pro 热点有问题。</p>
 ]]></summary>
-        <content type="html"><![CDATA[<p>最近几天代理频繁断连，刚开始一位是某虚拟砖块堆砌物又高了，后来发现背后另有原因。</p>
+        <content type="html"><![CDATA[<p>简言之，这几天国际互联不稳定，刚开始发现是 Evernote 修改系统代理设置，后来发现是我的手机由于开着 Pharos Pro 热点有问题。</p>
 <!-- more -->
 <h1 id="发现问题">发现问题</h1>
-<p>最近这几天人不在宿舍，没有路由器加持，只能使用电脑中的客户端进行国际互连，可是使用时流量总是断断续续。正好 2 月 1 日左右来了一波墙，我以为是不可抗因素，因此也没有过于在意。可是蹊跷的是我手机上使用 Pharos Pro 客户端连接 Maying 的节点却没有问题，iPad 上使用 Quantumualt X 连接 Maying 也没有问题。Maying 全站都是 ShadowsocksR 协议，据说流量特征已经被识别，理论上更容易被影响，但是却能正常使用，证明节点是没有问题的。而在电脑上，就算使用 V2Ray 也是断断续续。而电脑在手边，自然不会将就使用手机平板做正事，所以今天坐下来想着把这个事情解决。</p>
+<p>最近这几天人不在宿舍，没有路由器加持，上网全靠手机热点。只能使用电脑中的客户端进行国际互连，可是使用时流量总是断断续续。正好 2 月 1 日左右来了一波墙，我以为是不可抗因素，因此也没有过于在意。可是蹊跷的是我手机上使用 Pharos Pro 客户端连接 Maying 的节点却没有问题，iPad 上使用 Quantumualt X 连接 Maying 也没有问题。Maying 全站都是 ShadowsocksR 协议，据说流量特征已经被识别，理论上更容易被影响，但是却能正常使用，证明节点是没有问题的。而在电脑上，就算使用 V2Ray 也是断断续续。而电脑在手边，自然不会将就使用手机平板做正事，所以今天坐下来想着把这个事情解决。</p>
 <h1 id="寻找问题">寻找问题</h1>
 <p>首先我电脑上常用的客户端是 Clash For Windows，但是替换了 ClashR 的内核。使用 DoubleDou 提供的 V2Ray，然而时断时续。每次打开开关的一小段时间内是连接正常的，网页可以快速打开，代理 IP 也显示正常。然而只要过一段时间（谷歌搜索出结果后点开维基百科连接）连接就会断开，再看浏览器上 whatismyproxy.com 的显示也是 Not connected。</p>
 <p>因此我猜测可能是 ClashR 的问题，于是又去 Github 下载了最新的 Clash For Windows 0.8.11，再次尝试后问题相同。</p>
 <p>于是我退出 Clash For Windows，使用 V2RayN，同样存在只有开启 HTTP 代理的一小段时间内代理有效的问题。</p>
 <p>同样的问题出现在两个客户端身上，排除节点问题后，自然是我本机设置的问题了。于是我打开本机设置的代理设置，发现虽然我的 Clash / V2RayN 客户端中代理是打开的，系统设置中的代理却是关闭状态。重复尝试几次后发现果然如此：每次在客户端开启代理的瞬间，系统设置中的代理开关是打开的，而只要重新打开设置，就会发现代理开关又被关闭了。</p>
-<figure data-type="image" tabindex="1"><img src="https://leonwong0609.github.io/post-images/1581340009765.png" alt="系统代理设置" loading="lazy"></figure>
+<figure data-type="image" tabindex="1"><img src="https://leonwong0609.github.io/post-images/1581404315207.png" alt="系统代理设置" loading="lazy"></figure>
 <p>这样我已经可以大概确定问题了，大概是有其他应用在影响系统设置中的代理设置。</p>
 <p>我开始是一位我电脑中各种代理客户端太多，进程关不干净之类的原因影响。于是我删除了大部分不用的代理软件，只留下 Clash For Windows 和 ShadowsocksR，并在 cmd.exe 中执行 <code>netsh winsock reset</code>，并重启电脑。</p>
 <p>然而在我只使用 Clash For Windows，确保后台没有其他代理客户端时，同样的问题仍然存在。</p>
 <p>此时我已经折腾了快一下午，再这样胡乱尝试下去也不是办法。当下主要目的就是：找出具体是什么软件在频繁更改我本机的系统代理设置。</p>
-<p>经过网上搜索后，我知道了系统代理在注册表中的位置是 <code>HKCU\Software\Microsoft\Windows\CurrentVersion\Internet Settings\ProxyEnable</code>，内容看起来是 0 或 1。现在只要想办法确定是什么应用更改了这个注册表值即可。</p>
-<p>这时候就要请出我在数字安全入门课程上认识的一个神器：Process Monitor，一个有些类似任务管理器的软件。我们已经确定了我们是要查看进程对注册表中的某一项的更改，因此我们可以在 Process Monitor 中设置 <code>Filter</code>。在 <code>Filter</code> | <code>Filter...</code> 中或者使用快捷键 <code>Ctrl</code> - <code>L</code> 可以打开过滤设置。</p>
-<figure data-type="image" tabindex="2"><img src="https://leonwong0609.github.io/post-images/1581340048022.png" alt="过滤设置打开方式" loading="lazy"></figure>
+<p>经过网上搜索后，我知道了系统代理在注册表中的位置是 <code>HKCU\Software\Microsoft\Windows\CurrentVersion\Internet Settings\ProxyEnable</code>，内容看起来是 <code>0</code> 或 <code>1</code>。现在只要想办法确定是什么应用更改了这个注册表值即可。</p>
+<figure data-type="image" tabindex="2"><img src="https://leonwong0609.github.io/post-images/1581404340631.png" alt="注册表" loading="lazy"></figure>
+<p>这时候就要请出我在数字安全入门课程上认识的一个神器：Process Monitor，一个有些类似任务管理器的软件。我们已经确定了我们是要查看进程对注册表中的某一项的更改，因此我们可以在 Process Monitor 中设置 Filter。在 <code>Filter</code> | <code>Filter...</code> 中或者使用快捷键 <code>Ctrl</code> - <code>L</code> 可以打开过滤设置。</p>
+<figure data-type="image" tabindex="3"><img src="https://leonwong0609.github.io/post-images/1581404371692.png" alt="过滤条件设置入口" loading="lazy"></figure>
 <p>增加两个过滤条件：</p>
 <ol>
-<li>只看注册表修改：<code>Opertion</code> is <code>RegSetValue</code> then <code>Include</code>；</li>
-<li>只看规定的注册表项目：<code>Path</code> is <code>HKCU\Software\Microsoft\Windows\CurrentVersion\Internet Settings\ProxyEnable</code> then <code>Include</code>。</li>
+<li>只看注册表修改：<code>Opertion</code> <code>is</code> <code>RegSetValue</code> then <code>Include</code>；</li>
+<li>只看规定的注册表项目：<code>Path</code> <code>is</code> <code>HKCU\Software\Microsoft\Windows\CurrentVersion\Internet Settings\ProxyEnable</code> then <code>Include</code>。</li>
 </ol>
-<figure data-type="image" tabindex="3"><img src="https://leonwong0609.github.io/post-images/1581340062624.png" alt="添加的过滤条件" loading="lazy"></figure>
+<figure data-type="image" tabindex="4"><img src="https://leonwong0609.github.io/post-images/1581404395439.png" alt="设置过滤条件" loading="lazy"></figure>
 <p>此时我们就能看到所有修改了系统代理设置的进程了，我们发现除了我们使用的代理客户端外，还有 Evernote！</p>
-<figure data-type="image" tabindex="4"><img src="https://leonwong0609.github.io/post-images/1581340080959.png" alt="抓住你了 Evernote！" loading="lazy"></figure>
+<figure data-type="image" tabindex="5"><img src="https://leonwong0609.github.io/post-images/1581404410545.png" alt="抓住你了！Evernote！" loading="lazy"></figure>
 <p>终于找出问题所在，可能是 Evernote 在连接失败后就会尝试调整系统的代理设置。而 Evernote 我是最近才开始使用，所以「断连」的情况也是最近才出现的。</p>
 <p>我尝试彻底退出 Evernote，发现网络终于正常了，不得不说 Evernote 这样的静默处理让我对他的好感度又减少了一分（之所以说是「又」是因为它的 Windows 端做得实在太丑了）。</p>
 <h1 id="解决问题">解决问题</h1>
@@ -50,9 +51,14 @@
 <p>我首先想到的是使用火绒的自定义防护。但是最后并不成功，虽然在自定义防护中设定了相关的规则，但是对 Evernote 修改系统代理的行为并不能加以阻止，因此只要点击一次同步，Evernote 仍然会 toggle 我的代理设置。所以具体的方法在这里就不赘述了。</p>
 <p>最后的解决办法，我只能使用国内版的「印象笔记」客户端，在登陆时切换到「Evernote International」。这种算不上办法的办法我也很无语，但是换上印象笔记后，确实在 Process Monitor 中捕捉不到修改系统代理设置的操作了。</p>
 <p>最后我还以外发现印象笔记可以使用 Markdown 功能，并且能够正常同步，在我 Android 手机上的 Evernote 也能正常读取选然后的 Markdown 笔记。算是一个以外收获吧。</p>
-<h1 id="summary">Summary</h1>
+<h1 id="summary">summary</h1>
 <p>这次折腾给我的一个最大的体验就是「经典 ≠ 好」。Evernote 在云笔记笔记类软件中可以算得上是鼻祖，地位自然不必多言。然而就是这样一个连我妈都在用的软件却没有给我想象中的体验，同步感觉并没有比 OneNote 方便，Windows 客户端做得更是一言难尽。最后尝试了网页端的 Evernote，发现网页端的写作体验比远生客户端优秀太多，所以还是暂时选择使用网页端吧。</p>
-<figure data-type="image" tabindex="5"><img src="https://leonwong0609.github.io/post-images/1581340475737.png" alt="体验还算不错的网页端" loading="lazy"></figure>
+<h1 id="第二日-2-月-11-日更新真正解决问题">第二日（ 2 月 11 日）更新：真正解决问题</h1>
+<p>昨天晚上写完博客之后上传又失败了几次，也就是说网络环境还是不稳定的。我干脆将电脑中的 Evernote 和印象笔记都用 Uninstalltool 完全卸载干净，然后重置了一次 IE 设置，又运行了一次 <code>netsh winsock reset</code>，然后关机睡觉了。</p>
+<p>今天早上起来，我重新尝试国际互连，发现还是断断续续。我回顾了一次昨天的折腾，觉得基本上可以排除本机的问题了。回忆以往都可以用手机热点正常使用代理服务器的，最近新引入的因素除了电脑上的 Evernote 之外，只有手机上的 Pharos Pro 了。于是我在手机上关闭了 Pharos Pro 后重新尝试，竟然在我关闭的一瞬间电脑网页重新加载并且加载成功了。</p>
+<p>我又持续测试了大约半小时，连接一直是正常的。Pharos Pro 目前还是测试阶段，功能还没有完善，我无法在应用内查看手机的本地端口之类的信息，也没有继续折腾的力气了，暂时就到这里吧，以后给电脑开热点的时候 Pharos Pro 要关上就是了。</p>
+<p>这里不得不说，Pharos Pro 这个软件实在是做得太无感了，我给它忽略了电池优化后基本上就一直开着没管过，没有遇到之前任何微信图片加载或者 Instagram 刷新失败的问题，过于低调以至于我一直忽略了这个因素。希望 Pharos Pro 能早日正式发布，相信到彼时 Android 端代理软件一定会多一个优秀的选择。</p>
+<p>接下来打算将我的 Evernote 装回来，试试在网络正常的情况下 Evernote 还会不会有修改系统代理设置的动作。</p>
 ]]></content>
     </entry>
     <entry>
