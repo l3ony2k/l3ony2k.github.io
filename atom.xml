@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://leonwong0609.github.io</id>
     <title>Wonder Space 🚀</title>
-    <updated>2020-02-13T05:26:14.936Z</updated>
+    <updated>2020-02-14T07:14:31.898Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://leonwong0609.github.io"/>
     <link rel="self" href="https://leonwong0609.github.io/atom.xml"/>
@@ -10,6 +10,30 @@
     <logo>https://leonwong0609.github.io/images/avatar.png</logo>
     <icon>https://leonwong0609.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, Wonder Space 🚀</rights>
+    <entry>
+        <title type="html"><![CDATA[「中性色」收集]]></title>
+        <id>https://leonwong0609.github.io/post/midtone</id>
+        <link href="https://leonwong0609.github.io/post/midtone">
+        </link>
+        <updated>2020-02-14T06:20:28.000Z</updated>
+        <summary type="html"><![CDATA[<p>收集能同时适应暗色背景和亮色背景的颜色。</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>收集能同时适应暗色背景和亮色背景的颜色。</p>
+<!-- more -->
+<p>最近 Android 端的微信开始支持暗色模式，同时在微信内置浏览器中内禁用腾讯 X5 内核后，浏览微信文章也能支持暗色模式了。</p>
+<p>但是在正常的排版中，只有文字才会自动调整为浅色适应暗色背景，图片素材是不可能会自动变换的。苹果的 App Store 首页故事在适配深浅色背景上采用了将简单的图片都变成透明背景的办法。这种办法在微信文章上也可以借鉴，在制作图片素材时尽量制作背景透明的 PNG 图片，避免深色背景下出现一大块白色的情况。</p>
+<p>解决背景问题后就要考虑非透明部分使用什么颜色了。在白色背景中，使用高饱和、低明度的颜色相对更抢眼，也不会造成不适。然而在暗色背景下，使用同样的配色将很难和背景区分开来。因此，为了使用<strong>静态</strong>的颜色<strong>动态适应</strong>深浅色的背景，我们只有选择明度居中、饱和度相对较低的「中性色」。以下都是实践过程中发现的效果不错的「中性色」，收集在这里：</p>
+<h2 id="cfcfcf">#cfcfcf</h2>
+<figure data-type="image" tabindex="1"><img src="https://leonwong0609.github.io/post-images/1581663351003.png" alt="#cfcfcf" loading="lazy"></figure>
+<p>一个相对较浅的灰色，在白色下比较柔和，在暗色下比较显眼。</p>
+<h2 id="a6a6a6">#a6a6a6</h2>
+<figure data-type="image" tabindex="2"><img src="https://leonwong0609.github.io/post-images/1581663421324.png" alt="#a6a6a6" loading="lazy"></figure>
+<p>同样是一种灰色，深浅色下表现比较平衡。</p>
+<h2 id="da272a">#da272a</h2>
+<figure data-type="image" tabindex="3"><img src="https://leonwong0609.github.io/post-images/1581663492405.png" alt="#da272a" loading="lazy"></figure>
+<p>一种醒目的红色，深浅色下均较显眼，可以用来做强调色或小面积点缀。</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[顽皮的 Evernote Windows 与低调的 Pharos Pro]]></title>
         <id>https://leonwong0609.github.io/post/EvernoteWindowsSysProxyIssue</id>

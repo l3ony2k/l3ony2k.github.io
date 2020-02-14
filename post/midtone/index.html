@@ -40,50 +40,19 @@
       
         <div class="animated fadeInLeft" style="animation-delay: 0.4s">
           <p class="my-4 text-gray-600 font-light hidden lg:block">
-            不可勝在己，可勝在敵。
+            文章目录
           </p>
-          <div class="animated fadeInLeft social-container hidden lg:block" style="animation-delay: 0.6s">
-            
-              
-            
-              
-                <a href="https://twitter.com/WBoy0609" target="_blank" class="mr-4 text-xl text-gray-400 font-light hover:text-gray-900">
-                  <i class="remixicon-twitter-line"></i>
-                </a>
-              
-            
-              
-                <a href="https://weibo.com/6168268889/profile?rightmod=1&amp;wvr=6&amp;mod=personinfo" target="_blank" class="mr-4 text-xl text-gray-400 font-light hover:text-gray-900">
-                  <i class="remixicon-weibo-line"></i>
-                </a>
-              
-            
-              
-                <a href="https://www.zhihu.com/people/leo0609/activities" target="_blank" class="mr-4 text-xl text-gray-400 font-light hover:text-gray-900">
-                  <i class="remixicon-zhihu-line"></i>
-                </a>
-              
-            
-              
-            
-              
-                <a href="https://t.me/wonderboy0609" target="_blank" class="mr-4 text-xl text-gray-400 font-light hover:text-gray-900">
-                  <i class="remixicon-telegram-line"></i>
-                </a>
-              
-            
-              
-            
-              
-                <a href="https://www.instagram.com/wonderboy0609/" target="_blank" class="mr-4 text-xl text-gray-400 font-light hover:text-gray-900">
-                  <i class="remixicon-instagram-line"></i>
-                </a>
-              
-            
-              
-            
-              
-            
+          <div class="toc-container hidden lg:block">
+            <ul class="markdownIt-TOC">
+<li>
+<ul>
+<li><a href="#cfcfcf">#cfcfcf</a></li>
+<li><a href="#a6a6a6">#a6a6a6</a></li>
+<li><a href="#da272a">#da272a</a></li>
+</ul>
+</li>
+</ul>
+
           </div>
         </div>
       
@@ -127,67 +96,81 @@
 </div>
 <div class="mask" onclick="closeMenu()">
 </div>
-      <div class="content-wrapper py-32 lg:p-8 lg:w-3/4">
-        <h2 class="text-lg text-gray-700 mb-8">
-          <i class="remixicon-bookmark-line"></i> 博客
-        </h2>
-        
-  <section class="post-item md:flex pb-12 animated fadeIn" :style="{ 'animation-delay': `${0 * 0.2}s` }">
-    
-      <a href="https://leonwong0609.github.io/post/hello-world" class="feature-image-wrapper bg-gray-100 rounded-lg flex-shrink-0 mr-8 w-full h-56 h-32 md:w-56 md:h-40">
-        <div class="post-feature-image lazy w-full h-56 h-32 md:w-56 md:h-40" data-bg="'https://leonwong0609.github.io/post-images/hello-world.jpeg'">
+      <div class="content-wrapper py-32 lg:p-8 lg:w-3/4 post-detail animated fadeIn">
+        <h1 class="text-3xl font-bold lg:mt-16">「中性色」收集</h1>
+        <div class="text-sm text-gray-700 lg:my-8">
+          02-14-2020 / 2 min read
         </div>
-      </a>
-    
-    <div class="content">
-      <a href="https://leonwong0609.github.io/post/hello-world">
-        <h2 class="post-title text-xl font-extrabold mt-5 md:mt-0">Hello World!</h2>
-      </a>
-      <div class="post-abstract text-gray-700 font-light my-4">
-        <p>今天是 2020 年 1 月 18 日星期六，农历腊月廿四，在一个平常的寒冷而无聊的寒假一天，Wonder Space 问世了。</p>
-
-      </div>
-      <div class="text-gray-400 text-sm font-light">01-18-2020 / 6 min read</div>
-    </div>
-  </section>
-
-  <section class="post-item md:flex pb-12 animated fadeIn" :style="{ 'animation-delay': `${1 * 0.2}s` }">
-    
-    <div class="content">
-      <a href="https://leonwong0609.github.io/post/about">
-        <h2 class="post-title text-xl font-extrabold mt-5 md:mt-0">关于</h2>
-      </a>
-      <div class="post-abstract text-gray-700 font-light my-4">
         
-      </div>
-      <div class="text-gray-400 text-sm font-light">01-25-2019 / 2 min read</div>
-    </div>
-  </section>
+          <img class="post-feature-image rounded-lg mx-auto my-4" src="https://leonwong0609.github.io/post-images/midtone.png" alt="">
+        
+        <div class="post-content yue">
+          <p>收集能同时适应暗色背景和亮色背景的颜色。</p>
+<!-- more -->
+<p>最近 Android 端的微信开始支持暗色模式，同时在微信内置浏览器中内禁用腾讯 X5 内核后，浏览微信文章也能支持暗色模式了。</p>
+<p>但是在正常的排版中，只有文字才会自动调整为浅色适应暗色背景，图片素材是不可能会自动变换的。苹果的 App Store 首页故事在适配深浅色背景上采用了将简单的图片都变成透明背景的办法。这种办法在微信文章上也可以借鉴，在制作图片素材时尽量制作背景透明的 PNG 图片，避免深色背景下出现一大块白色的情况。</p>
+<p>解决背景问题后就要考虑非透明部分使用什么颜色了。在白色背景中，使用高饱和、低明度的颜色相对更抢眼，也不会造成不适。然而在暗色背景下，使用同样的配色将很难和背景区分开来。因此，为了使用<strong>静态</strong>的颜色<strong>动态适应</strong>深浅色的背景，我们只有选择明度居中、饱和度相对较低的「中性色」。以下都是实践过程中发现的效果不错的「中性色」，收集在这里：</p>
+<h2 id="cfcfcf">#cfcfcf</h2>
+<figure data-type="image" tabindex="1"><img src="https://leonwong0609.github.io/post-images/1581663351003.png" alt="#cfcfcf" loading="lazy"></figure>
+<p>一个相对较浅的灰色，在白色下比较柔和，在暗色下比较显眼。</p>
+<h2 id="a6a6a6">#a6a6a6</h2>
+<figure data-type="image" tabindex="2"><img src="https://leonwong0609.github.io/post-images/1581663421324.png" alt="#a6a6a6" loading="lazy"></figure>
+<p>同样是一种灰色，深浅色下表现比较平衡。</p>
+<h2 id="da272a">#da272a</h2>
+<figure data-type="image" tabindex="3"><img src="https://leonwong0609.github.io/post-images/1581663492405.png" alt="#da272a" loading="lazy"></figure>
+<p>一种醒目的红色，深浅色下均较显眼，可以用来做强调色或小面积点缀。</p>
 
-  <section class="post-item md:flex pb-12 animated fadeIn" :style="{ 'animation-delay': `${2 * 0.2}s` }">
-    
-      <a href="https://leonwong0609.github.io/post/hello-gridea" class="feature-image-wrapper bg-gray-100 rounded-lg flex-shrink-0 mr-8 w-full h-56 h-32 md:w-56 md:h-40">
-        <div class="post-feature-image lazy w-full h-56 h-32 md:w-56 md:h-40" data-bg="'https://leonwong0609.github.io/post-images/hello-gridea.png'">
         </div>
-      </a>
-    
-    <div class="content">
-      <a href="https://leonwong0609.github.io/post/hello-gridea">
-        <h2 class="post-title text-xl font-extrabold mt-5 md:mt-0">Hello Gridea</h2>
-      </a>
-      <div class="post-abstract text-gray-700 font-light my-4">
-        <p>👏  欢迎使用 <strong>Gridea</strong> ！<br>
-✍️  <strong>Gridea</strong> 一个静态博客写作客户端。你可以用它来记录你的生活、心情、知识、笔记、创意... ...</p>
 
-      </div>
-      <div class="text-gray-400 text-sm font-light">12-12-2018 / 2 min read</div>
-    </div>
-  </section>
+        
+          <a class="animated fadeInUp p-2 items-center text-sm text-gray-700 border hover:bg-gray-300 leading-none rounded-full flex lg:inline-flex m-4 " href="https://leonwong0609.github.io/tag/7u1KtwPL8">
+            <span class="flex-auto">设计</span>
+          </a>
+        
 
-        <div class="pagination-container animated fadeIn">
-  
-  
-</div>
+
+        <div class="flex justify-between py-8">
+          
+
+          
+            <div class="next-post">
+              <a href="https://leonwong0609.github.io/post/EvernoteWindowsSysProxyIssue">
+                <h3 class="post-title">
+                  顽皮的 Evernote Windows 与低调的 Pharos Pro
+                  <i class="remixicon-arrow-right-line"></i>
+                </h3>
+              </a>
+            </div>
+          
+        </div>
+
+        
+          
+            <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+
+<div id="gitalk-container"></div>
+
+<script>
+
+  var gitalk = new Gitalk({
+    clientID: '71c9095550a821a30374',
+    clientSecret: '96a303782883ab7dc77209618d79ad5d29a342af',
+    repo: 'LeonWong0609.github.io',
+    owner: 'LeonWong0609',
+    admin: ['LeonWong0609'],
+    id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+    distractionFreeMode: false  // Facebook-like distraction free mode
+  })
+
+  gitalk.render('gitalk-container')
+
+</script>
+
+          
+
+          
+        
 
       </div>
     </div>
