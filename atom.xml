@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://leonwong0609.github.io</id>
     <title>Wonder Space 🚀</title>
-    <updated>2020-02-14T07:21:28.703Z</updated>
+    <updated>2020-02-16T09:59:10.317Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://leonwong0609.github.io"/>
     <link rel="self" href="https://leonwong0609.github.io/atom.xml"/>
@@ -12,8 +12,8 @@
     <rights>All rights reserved 2020, Wonder Space 🚀</rights>
     <entry>
         <title type="html"><![CDATA[「中性色」收集]]></title>
-        <id>https://leonwong0609.github.io/post/midtone</id>
-        <link href="https://leonwong0609.github.io/post/midtone">
+        <id>https://leonwong0609.github.io/post/midtone/</id>
+        <link href="https://leonwong0609.github.io/post/midtone/">
         </link>
         <updated>2020-02-14T06:20:28.000Z</updated>
         <summary type="html"><![CDATA[<p>收集能同时适应暗色背景和亮色背景的颜色。</p>
@@ -36,8 +36,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[顽皮的 Evernote Windows 与低调的 Pharos Pro]]></title>
-        <id>https://leonwong0609.github.io/post/EvernoteWindowsSysProxyIssue</id>
-        <link href="https://leonwong0609.github.io/post/EvernoteWindowsSysProxyIssue">
+        <id>https://leonwong0609.github.io/post/EvernoteWindowsSysProxyIssue/</id>
+        <link href="https://leonwong0609.github.io/post/EvernoteWindowsSysProxyIssue/">
         </link>
         <updated>2020-02-10T13:02:57.000Z</updated>
         <summary type="html"><![CDATA[<p>简言之，这几天国际互联不稳定，刚开始发现是 Evernote 修改系统代理设置，后来发现是我的手机由于开着 Pharos Pro 热点有问题。</p>
@@ -87,8 +87,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[关于 2019-nCoV 的闲谈]]></title>
-        <id>https://leonwong0609.github.io/post/2019-ncov</id>
-        <link href="https://leonwong0609.github.io/post/2019-ncov">
+        <id>https://leonwong0609.github.io/post/2019-ncov/</id>
+        <link href="https://leonwong0609.github.io/post/2019-ncov/">
         </link>
         <updated>2020-02-06T08:45:18.000Z</updated>
         <summary type="html"><![CDATA[<p>一九、二〇两年交会时，一场疫情席卷了中国，口罩脱销，居民被建议留在家中，武汉封城，湖北陆续封锁，开学返工时间延迟，抢购双黄连，湖北红十字会丑闻，大理截胡口罩……各种事件陆陆续续发生，我每天在老家追着各种消息，有一种自己在历史长河中顺流而下的感觉。吸收着各种信息，总要有所思考，特记录在此。</p>
@@ -140,8 +140,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[使用 Markdown Nice 简化微信公众号文章排版过程]]></title>
-        <id>https://leonwong0609.github.io/post/markdown-nice</id>
-        <link href="https://leonwong0609.github.io/post/markdown-nice">
+        <id>https://leonwong0609.github.io/post/markdown-nice/</id>
+        <link href="https://leonwong0609.github.io/post/markdown-nice/">
         </link>
         <updated>2020-02-05T08:27:56.000Z</updated>
         <summary type="html"><![CDATA[<p>Markdown Nice 是一款在线、开源、轻便的小工具。它能帮助你使用 Markdown 语法快速产生一篇排版优美的微信文章，从而让你留出更多的精力放在内容上。</p>
@@ -196,8 +196,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[为了爱，我们能做多少？—— YOU 安眠书店观剧笔记]]></title>
-        <id>https://leonwong0609.github.io/post/you-review</id>
-        <link href="https://leonwong0609.github.io/post/you-review">
+        <id>https://leonwong0609.github.io/post/you-review/</id>
+        <link href="https://leonwong0609.github.io/post/you-review/">
         </link>
         <updated>2020-01-19T07:47:52.000Z</updated>
         <summary type="html"><![CDATA[<blockquote>
@@ -289,8 +289,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[Hello World!]]></title>
-        <id>https://leonwong0609.github.io/post/hello-world</id>
-        <link href="https://leonwong0609.github.io/post/hello-world">
+        <id>https://leonwong0609.github.io/post/hello-world/</id>
+        <link href="https://leonwong0609.github.io/post/hello-world/">
         </link>
         <updated>2020-01-18T06:40:17.000Z</updated>
         <summary type="html"><![CDATA[<p>今天是 2020 年 1 月 18 日星期六，农历腊月廿四，在一个平常的寒冷而无聊的寒假一天，Wonder Space 问世了。</p>
