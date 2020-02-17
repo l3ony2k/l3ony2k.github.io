@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://leonwong0609.github.io</id>
     <title>Wonder Space 🚀</title>
-    <updated>2020-02-16T16:32:47.181Z</updated>
+    <updated>2020-02-17T06:19:03.414Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://leonwong0609.github.io"/>
     <link rel="self" href="https://leonwong0609.github.io/atom.xml"/>
@@ -75,7 +75,7 @@
 <p>我首先想到的是使用火绒的自定义防护。但是最后并不成功，虽然在自定义防护中设定了相关的规则，但是对 Evernote 修改系统代理的行为并不能加以阻止，因此只要点击一次同步，Evernote 仍然会 toggle 我的代理设置。所以具体的方法在这里就不赘述了。</p>
 <p>最后的解决办法，我只能使用国内版的「印象笔记」客户端，在登陆时切换到「Evernote International」。这种算不上办法的办法我也很无语，但是换上印象笔记后，确实在 Process Monitor 中捕捉不到修改系统代理设置的操作了。</p>
 <p>最后我还以外发现印象笔记可以使用 Markdown 功能，并且能够正常同步，在我 Android 手机上的 Evernote 也能正常读取选然后的 Markdown 笔记。算是一个以外收获吧。</p>
-<h1 id="summary">summary</h1>
+<h1 id="summary">Summary</h1>
 <p>这次折腾给我的一个最大的体验就是「经典 ≠ 好」。Evernote 在云笔记笔记类软件中可以算得上是鼻祖，地位自然不必多言。然而就是这样一个连我妈都在用的软件却没有给我想象中的体验，同步感觉并没有比 OneNote 方便，Windows 客户端做得更是一言难尽。最后尝试了网页端的 Evernote，发现网页端的写作体验比远生客户端优秀太多，所以还是暂时选择使用网页端吧。</p>
 <h1 id="第二日-2-月-11-日更新真正解决问题">第二日（ 2 月 11 日）更新：真正解决问题</h1>
 <p>昨天晚上写完博客之后上传又失败了几次，也就是说网络环境还是不稳定的。我干脆将电脑中的 Evernote 和印象笔记都用 Uninstalltool 完全卸载干净，然后重置了一次 IE 设置，又运行了一次 <code>netsh winsock reset</code>，然后关机睡觉了。</p>
