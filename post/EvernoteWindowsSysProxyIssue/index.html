@@ -1,107 +1,117 @@
 <html>
-<head>
-    <meta charset="utf-8"/>
-<meta name="description" content=""/>
-<meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>顽皮的 Evernote Windows 与低调的 Pharos Pro | Wonder Space 🚀</title>
-<link rel="shortcut icon" href="https://leonwong0609.github.io/favicon.ico?v=1581929905904">
-<link href="https://cdn.bootcss.com/font-awesome/5.11.2/css/all.css" rel="stylesheet">
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Wonder Space 🚀</title>
+<meta name="description" content="不可勝在己，可勝在敵。" />
+<link rel="shortcut icon" href="https://leonwong0609.github.io/favicon.ico?v=1582009630463">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+
 <link rel="stylesheet" href="https://leonwong0609.github.io/styles/main.css">
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-
-<script src="https://cdn.bootcss.com/highlight.js/9.15.10/highlight.min.js"></script>
-<script src="https://cdn.bootcss.com/highlight.js/9.15.10/languages/dockerfile.min.js"></script>
-<script src="https://cdn.bootcss.com/highlight.js/9.15.10/languages/dart.min.js"></script>
-<script src="https://cdn.bootcss.com/highlight.js/9.15.10/languages/go.min.js"></script>
-<script src="https://cdn.bootcss.com/moment.js/2.23.0/moment.min.js"></script>
-<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
-        crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-        crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
-        crossorigin="anonymous"></script>
-
-<!-- DEMO JS -->
-<script src="media/scripts/index.js"></script>
 
 
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-156553722-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
-</head>
-<body>
-<div class="main gt-bg-theme-color-first">
-    <nav class="navbar navbar-expand-lg">
-    <div class="navbar-brand">
-        <img class="user-avatar" src="/images/avatar.png" alt="头像">
-        <div class="site-name gt-c-content-color-first">
-            Wonder Space 🚀
+  gtag('config', 'UA-156553722-1');
+</script>
+
+
+  </head>
+  <body>
+    <div id="app" class="main px-4 flex flex-col lg:flex-row">
+      <div id="sidebar" class="sidebar-wrapper lg:static lg:w-1/4">
+  <div class="lg:sticky top-0">
+    <div class="sidebar-content">
+      <div class="flex lg:block p-4 lg:px-0 items-center fixed lg:static lg:block top-0 right-0 left-0 bg-white z-50">
+        <i class="ri-menu-2-line lg:mt-4 text-2xl cursor-pointer animated fadeIn" onclick="openMenu()"></i>
+        <a href="https://leonwong0609.github.io">
+          <img class="animated fadeInLeft avatar rounded-lg mx-4 lg:mt-32 lg:mx-0 mt-0 lg:w-24 lg:h-24 w-12 w-12" src="https://leonwong0609.github.io/images/avatar.png?v=1582009630463" alt="">
+        </a>
+        <h1 class="animated fadeInLeft lg:text-4xl font-extrabold lg:mt-8 mt-0 text-xl" style="animation-delay: 0.2s">Wonder Space 🚀</h1>
+      </div>
+      
+        <div class="animated fadeInLeft" style="animation-delay: 0.4s">
+          <p class="my-4 text-gray-600 font-light hidden lg:block">
+            文章目录
+          </p>
+          <div class="toc-container hidden lg:block">
+            <ul class="markdownIt-TOC">
+<li><a href="#%E5%8F%91%E7%8E%B0%E9%97%AE%E9%A2%98">发现问题</a></li>
+<li><a href="#%E5%AF%BB%E6%89%BE%E9%97%AE%E9%A2%98">寻找问题</a></li>
+<li><a href="#%E8%A7%A3%E5%86%B3%E9%97%AE%E9%A2%98">解决问题</a></li>
+<li><a href="#summary">Summary</a></li>
+<li><a href="#%E7%AC%AC%E4%BA%8C%E6%97%A5-2-%E6%9C%88-11-%E6%97%A5%E6%9B%B4%E6%96%B0%E7%9C%9F%E6%AD%A3%E8%A7%A3%E5%86%B3%E9%97%AE%E9%A2%98">第二日（ 2 月 11 日）更新：真正解决问题</a></li>
+</ul>
+
+          </div>
         </div>
+      
     </div>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <i class="fas fa-bars gt-c-content-color-first" style="font-size: 18px"></i>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <div class="navbar-nav mr-auto" style="text-align: center">
-            
-                <div class="nav-item">
-                    
-                        <a href="/" class="menu gt-a-link">
-                            🏠 首页
-                        </a>
-                    
-                </div>
-            
-                <div class="nav-item">
-                    
-                        <a href="/tags" class="menu gt-a-link">
-                            🏷️ 标签
-                        </a>
-                    
-                </div>
-            
-                <div class="nav-item">
-                    
-                        <a href="/archives" class="menu gt-a-link">
-                            📬 归档
-                        </a>
-                    
-                </div>
-            
-                <div class="nav-item">
-                    
-                        <a href="/post/about" class="menu gt-a-link">
-                            😶 关于
-                        </a>
-                    
-                </div>
-            
+  </div>
+</div>
+
+<div class="menu-container">
+  <i class="ri-arrow-left-line text-2xl cursor-pointer animated fadeIn close-menu-btn" onclick="closeMenu()"></i>
+  <div>
+    
+      
+        <a href="/" class="menu" style="animation-delay: 0s">
+          🏠 首页
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu" style="animation-delay: 0.2s">
+          🏷️ 标签
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu" style="animation-delay: 0.4s">
+          📬 归档
+        </a>
+      
+    
+      
+        <a href="/post/about" class="menu" style="animation-delay: 0.6000000000000001s">
+          😶 关于
+        </a>
+      
+    
+  </div>
+  <div class="site-footer">
+    <div class="py-4 text-gray-700">Powered by lovely&nbsp;<a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>&nbsp;❤️</div>
+    <a class="rss" href="https://leonwong0609.github.io/atom.xml" target="_blank">RSS</a>
+  </div>
+</div>
+<div class="mask" onclick="closeMenu()">
+</div>
+      <div class="content-wrapper py-32 lg:p-8 lg:w-3/4 post-detail animated fadeIn">
+        <h1 class="text-3xl font-bold lg:mt-16">顽皮的 Evernote Windows 与低调的 Pharos Pro</h1>
+        <div class="text-sm text-gray-700 lg:my-8">
+          02-10-2020 / 8 min read
         </div>
-    </div>
-</nav>
-    <div class="post-container">
-        <div class="post-detail gt-bg-theme-color-second">
-            <article class="gt-post-content">
-                <h2 class="post-title">
-                    顽皮的 Evernote Windows 与低调的 Pharos Pro
-                </h2>
-                <div class="post-info">
-                    <time class="post-time gt-c-content-color-first">
-                        · 02-10-2020 ·
-                    </time>
-                    
-                        <a href="https://leonwong0609.github.io/tag/djRIW_izT/" class="post-tags">
-                            # 软件
-                        </a>
-                    
-                </div>
-                <div class="post-content">
-                    <p>简言之，这几天国际互联不稳定，刚开始发现是 Evernote 修改系统代理设置，后来发现是我的手机由于开着 Pharos Pro 热点有问题。</p>
+        
+          <img class="post-feature-image rounded-lg mx-auto my-4" src="https://leonwong0609.github.io/post-images/EvernoteWindowsSysProxyIssue.png" alt="">
+        
+        <div class="post-content yue">
+          <p>简言之，这几天国际互联不稳定，刚开始发现是 Evernote 修改系统代理设置，后来发现是我的手机由于开着 Pharos Pro 热点有问题。</p>
 <!-- more -->
+<p><ul class="markdownIt-TOC">
+<li><a href="#%E5%8F%91%E7%8E%B0%E9%97%AE%E9%A2%98">发现问题</a></li>
+<li><a href="#%E5%AF%BB%E6%89%BE%E9%97%AE%E9%A2%98">寻找问题</a></li>
+<li><a href="#%E8%A7%A3%E5%86%B3%E9%97%AE%E9%A2%98">解决问题</a></li>
+<li><a href="#summary">Summary</a></li>
+<li><a href="#%E7%AC%AC%E4%BA%8C%E6%97%A5-2-%E6%9C%88-11-%E6%97%A5%E6%9B%B4%E6%96%B0%E7%9C%9F%E6%AD%A3%E8%A7%A3%E5%86%B3%E9%97%AE%E9%A2%98">第二日（ 2 月 11 日）更新：真正解决问题</a></li>
+</ul>
+</p>
 <h1 id="发现问题">发现问题</h1>
 <p>最近这几天人不在宿舍，没有路由器加持，上网全靠手机热点。只能使用电脑中的客户端进行国际互连，可是使用时流量总是断断续续。正好 2 月 1 日左右来了一波墙，我以为是不可抗因素，因此也没有过于在意。可是蹊跷的是我手机上使用 Pharos Pro 客户端连接 Maying 的节点却没有问题，iPad 上使用 Quantumualt X 连接 Maying 也没有问题。Maying 全站都是 ShadowsocksR 协议，据说流量特征已经被识别，理论上更容易被影响，但是却能正常使用，证明节点是没有问题的。而在电脑上，就算使用 V2Ray 也是断断续续。而电脑在手边，自然不会将就使用手机平板做正事，所以今天坐下来想着把这个事情解决。</p>
 <h1 id="寻找问题">寻找问题</h1>
@@ -142,22 +152,42 @@
 <p>这里不得不说，Pharos Pro 这个软件实在是做得太无感了，我给它忽略了电池优化后基本上就一直开着没管过，没有遇到之前任何微信图片加载或者 Instagram 刷新失败的问题，过于低调以至于我一直忽略了这个因素。希望 Pharos Pro 能早日正式发布，相信到彼时 Android 端代理软件一定会多一个优秀的选择。</p>
 <p>接下来打算将我的 Evernote 装回来，试试在网络正常的情况下 Evernote 还会不会有修改系统代理设置的动作。</p>
 
-                </div>
-            </article>
         </div>
 
         
-            <div class="next-post">
-                <div class="next gt-c-content-color-first">下一篇</div>
-                <a href="https://leonwong0609.github.io/post/2019-ncov/" class="post-title gt-a-link">
-                    关于 2019-nCoV 的闲谈
-                </a>
-            </div>
+          <a class="animated fadeInUp p-2 items-center text-sm text-gray-700 border hover:bg-gray-300 leading-none rounded-full flex lg:inline-flex m-4 " href="https://leonwong0609.github.io/tag/djRIW_izT/">
+            <span class="flex-auto">软件</span>
+          </a>
         
 
+
+        <div class="flex justify-between py-8">
+          
+            <div class="prev-post">
+              <a href="https://leonwong0609.github.io/post/midtone/">
+                <h3 class="post-title">
+                  <i class="ri-arrow-left-line"></i>
+                  「中性色」收集
+                </h3>
+              </a>
+            </div>
+          
+
+          
+            <div class="next-post">
+              <a href="https://leonwong0609.github.io/post/2019-ncov/">
+                <h3 class="post-title">
+                  关于 2019-nCoV 的闲谈
+                  <i class="ri-arrow-right-line"></i>
+                </h3>
+              </a>
+            </div>
+          
+        </div>
+
         
-            
-                <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+          
+            <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
 <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
 
 <div id="gitalk-container"></div>
@@ -170,7 +200,7 @@
     repo: 'LeonWong0609.github.io',
     owner: 'LeonWong0609',
     admin: ['LeonWong0609'],
-    id: location.pathname,      // Ensure uniqueness and length less than 50
+    id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
     distractionFreeMode: false  // Facebook-like distraction free mode
   })
 
@@ -178,49 +208,111 @@
 
 </script>
 
-            
+          
 
-            
+          
         
 
-        <div class="site-footer gt-c-content-color-first">
-    <div class="slogan gt-c-content-color-first">不可勝在己，可勝在敵。</div>
-    <div class="social-container">
-        
-            
-        
-            
-                <a href="https://twitter.com/WBoy0609" target="_blank">
-                    <i class="fab fa-twitter gt-c-content-color-first"></i>
-                </a>
-            
-        
-            
-                <a href="https://www.weibo.com/6168268889/profile?topnav=1&amp;wvr=6" target="_blank">
-                    <i class="fab fa-weibo gt-c-content-color-first"></i>
-                </a>
-            
-        
-            
-                <a href="https://www.zhihu.com/people/leo0609" target="_blank">
-                    <i class="fab fa-zhihu gt-c-content-color-first"></i>
-                </a>
-            
-        
-            
-        
-            
-        
+      </div>
     </div>
-    Powered by lovely&nbsp;<a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>&nbsp;❤️ | <a href="https://leonwong0609.github.io/atom.xml" target="_blank">RSS</a>
-</div>
 
+    <script src="https://leonwong0609.github.io/media/prism.js"></script>  
 <script>
-    hljs.initHighlightingOnLoad()
+
+Prism.highlightAll()
+let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+
+// This should probably be throttled.
+// Especially because it triggers during smooth scrolling.
+// https://lodash.com/docs/4.17.10#throttle
+// You could do like...
+// window.addEventListener("scroll", () => {
+//    _.throttle(doThatStuff, 100);
+// });
+// Only not doing it here to keep this Pen dependency-free.
+
+window.addEventListener("scroll", event => {
+  let fromTop = window.scrollY;
+
+  mainNavLinks.forEach((link, index) => {
+    let section = document.getElementById(decodeURI(link.hash).substring(1));
+    let nextSection = null
+    if (mainNavLinks[index + 1]) {
+      nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
+    }
+    if (section.offsetTop <= fromTop) {
+      if (nextSection) {
+        if (nextSection.offsetTop > fromTop) {
+          link.classList.add("current");
+        } else {
+          link.classList.remove("current");    
+        }
+      } else {
+        link.classList.add("current");
+      }
+    } else {
+      link.classList.remove("current");
+    }
+  });
+});
+
+
+document.addEventListener("DOMContentLoaded", function() {
+  var lazyImages = [].slice.call(document.querySelectorAll(".post-feature-image.lazy"));
+
+  if ("IntersectionObserver" in window) {
+    let lazyImageObserver = new IntersectionObserver(function(entries, observer) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          let lazyImage = entry.target
+          lazyImage.style.backgroundImage = `url(${lazyImage.dataset.bg})`
+          lazyImage.classList.remove("lazy")
+          lazyImageObserver.unobserve(lazyImage)
+        }
+      });
+    });
+
+    lazyImages.forEach(function(lazyImage) {
+      lazyImageObserver.observe(lazyImage)
+    })
+  } else {
+    // Possibly fall back to a more compatible method here
+  }
+});
+
+const menuContainer = document.querySelector('.menu-container')
+const menus = document.querySelectorAll('.menu-container .menu')
+const mask = document.querySelector('.mask')
+const contentWrapper = document.querySelector('.content-wrapper')
+const latestArticle = document.querySelector('.latest-article')
+const readMore = document.querySelector('.read-more')
+const indexPage = document.querySelector('.index-page')
+
+const isHome = location.pathname === '/'
+if (latestArticle) {
+  latestArticle.style.display = isHome ? 'block' : 'none'
+  readMore.style.display = isHome ? 'block' : 'none'
+  indexPage.style.display = isHome ? 'none' : 'block'
+}
+
+const openMenu = () => {
+  menuContainer.classList.add('open')
+  menus.forEach(menu => {
+    menu.classList.add('animated', 'fadeInLeft')
+  })
+  mask.classList.add('open')
+  contentWrapper.classList.add('is-second')
+}
+
+const closeMenu = () => {
+  menuContainer.classList.remove('open')
+  menus.forEach(menu => {
+    menu.classList.remove('animated', 'fadeInLeft')
+  })
+  mask.classList.remove('open')
+  contentWrapper.classList.remove('is-second')
+}
 </script>
-
-
-    </div>
-</div>
-</body>
+  
+  </body>
 </html>
