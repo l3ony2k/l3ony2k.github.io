@@ -1,361 +1,318 @@
 <html>
-  <head>
-    <meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
+<head>
+    <meta charset="utf-8"/>
+<meta name="description" content=""/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>Wonder Space 🚀</title>
-<meta name="description" content="不可勝在己，可勝在敵。" />
-<link rel="shortcut icon" href="https://leonwong0609.github.io/favicon.ico?v=1582009630463">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
-<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
-
+<link rel="shortcut icon" href="https://leonwong0609.github.io/favicon.ico?v=1582011700498">
+<link href="https://cdn.bootcss.com/font-awesome/5.11.2/css/all.css" rel="stylesheet">
 <link rel="stylesheet" href="https://leonwong0609.github.io/styles/main.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+<script src="https://cdn.bootcss.com/highlight.js/9.15.10/highlight.min.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.15.10/languages/dockerfile.min.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.15.10/languages/dart.min.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.15.10/languages/go.min.js"></script>
+<script src="https://cdn.bootcss.com/moment.js/2.23.0/moment.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+
+<!-- DEMO JS -->
+<script src="media/scripts/index.js"></script>
 
 
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-156553722-1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
 
-  gtag('config', 'UA-156553722-1');
-</script>
-
-
-  </head>
-  <body>
-    <div class="main px-4 flex flex-col lg:flex-row">
-      <div id="sidebar" class="sidebar-wrapper lg:static lg:w-1/4">
-  <div class="lg:sticky top-0">
-    <div class="sidebar-content">
-      <div class="flex lg:block p-4 lg:px-0 items-center fixed lg:static lg:block top-0 right-0 left-0 bg-white z-50">
-        <i class="ri-menu-2-line lg:mt-4 text-2xl cursor-pointer animated fadeIn" onclick="openMenu()"></i>
-        <a href="https://leonwong0609.github.io">
-          <img class="animated fadeInLeft avatar rounded-lg mx-4 lg:mt-32 lg:mx-0 mt-0 lg:w-24 lg:h-24 w-12 w-12" src="https://leonwong0609.github.io/images/avatar.png?v=1582009630463" alt="">
-        </a>
-        <h1 class="animated fadeInLeft lg:text-4xl font-extrabold lg:mt-8 mt-0 text-xl" style="animation-delay: 0.2s">Wonder Space 🚀</h1>
-      </div>
-      
-        <div class="animated fadeInLeft" style="animation-delay: 0.4s">
-          <p class="my-4 text-gray-600 font-light hidden lg:block">
-            不可勝在己，可勝在敵。
-          </p>
-          <div class="animated fadeInLeft social-container hidden lg:block" style="animation-delay: 0.6s">
-            
-              
-            
-              
-                <a href="https://twitter.com/WBoy0609" target="_blank" class="mr-4 text-xl text-gray-400 font-light hover:text-gray-900">
-                  <i class="ri-twitter-line"></i>
-                </a>
-              
-            
-              
-                <a href="https://weibo.com/6168268889/profile?rightmod=1&amp;wvr=6&amp;mod=personinfo" target="_blank" class="mr-4 text-xl text-gray-400 font-light hover:text-gray-900">
-                  <i class="ri-weibo-line"></i>
-                </a>
-              
-            
-              
-                <a href="https://www.zhihu.com/people/leo0609/activities" target="_blank" class="mr-4 text-xl text-gray-400 font-light hover:text-gray-900">
-                  <i class="ri-zhihu-line"></i>
-                </a>
-              
-            
-              
-            
-              
-                <a href="https://t.me/wonderboy0609" target="_blank" class="mr-4 text-xl text-gray-400 font-light hover:text-gray-900">
-                  <i class="ri-telegram-line"></i>
-                </a>
-              
-            
-              
-            
-              
-                <a href="https://www.instagram.com/wonderboy0609/" target="_blank" class="mr-4 text-xl text-gray-400 font-light hover:text-gray-900">
-                  <i class="ri-instagram-line"></i>
-                </a>
-              
-            
-              
-            
-              
-            
-          </div>
+</head>
+<body>
+<div class="main gt-bg-theme-color-first">
+    <div class="main-content">
+        <nav class="navbar navbar-expand-lg">
+    <div class="navbar-brand">
+        <img class="user-avatar" src="/images/avatar.png" alt="头像">
+        <div class="site-name gt-c-content-color-first">
+            Wonder Space 🚀
         </div>
-      
     </div>
-  </div>
-</div>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="fas fa-bars gt-c-content-color-first" style="font-size: 18px"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <div class="navbar-nav mr-auto" style="text-align: center">
+            
+                <div class="nav-item">
+                    
+                        <a href="/" class="menu gt-a-link">
+                            🏠 首页
+                        </a>
+                    
+                </div>
+            
+                <div class="nav-item">
+                    
+                        <a href="/tags" class="menu gt-a-link">
+                            🏷️ 标签
+                        </a>
+                    
+                </div>
+            
+                <div class="nav-item">
+                    
+                        <a href="/archives" class="menu gt-a-link">
+                            📬 归档
+                        </a>
+                    
+                </div>
+            
+                <div class="nav-item">
+                    
+                        <a href="/post/about" class="menu gt-a-link">
+                            😶 关于
+                        </a>
+                    
+                </div>
+            
+        </div>
+    </div>
+</nav>
 
-<div class="menu-container">
-  <i class="ri-arrow-left-line text-2xl cursor-pointer animated fadeIn close-menu-btn" onclick="closeMenu()"></i>
-  <div>
-    
-      
-        <a href="/" class="menu" style="animation-delay: 0s">
-          🏠 首页
-        </a>
-      
-    
-      
-        <a href="/tags" class="menu" style="animation-delay: 0.2s">
-          🏷️ 标签
-        </a>
-      
-    
-      
-        <a href="/archives" class="menu" style="animation-delay: 0.4s">
-          📬 归档
-        </a>
-      
-    
-      
-        <a href="/post/about" class="menu" style="animation-delay: 0.6000000000000001s">
-          😶 关于
-        </a>
-      
-    
-  </div>
-  <div class="site-footer">
-    <div class="py-4 text-gray-700">Powered by lovely&nbsp;<a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>&nbsp;❤️</div>
-    <a class="rss" href="https://leonwong0609.github.io/atom.xml" target="_blank">RSS</a>
-  </div>
-</div>
-<div class="mask" onclick="closeMenu()">
-</div>
-      <div class="content-wrapper py-32 lg:p-8 lg:w-3/4">
-        <h2 class="latest-article text-lg text-gray-700 mb-8">
-          <i class="ri-article-line"></i>
-          最新文章
-        </h2>
+        <div class="post-list-container">
+    <div class="post-inner">
         
-  <section class="post-item md:flex pb-12 animated fadeIn" :style="{ 'animation-delay': `${0 * 0.2}s` }">
-    
-      <a href="https://leonwong0609.github.io/post/midtone/" class="feature-image-wrapper bg-gray-100 rounded-lg flex-shrink-0 mr-8 w-full h-56 h-32 md:w-56 md:h-40">
-        <div class="post-feature-image lazy w-full h-56 h-32 md:w-56 md:h-40" data-bg="'https://leonwong0609.github.io/post-images/midtone.png'">
-        </div>
-      </a>
-    
-    <div class="content">
-      <a href="https://leonwong0609.github.io/post/midtone/">
-        <h2 class="post-title text-xl font-extrabold mt-5 md:mt-0">「中性色」收集</h2>
-      </a>
-      <div class="post-abstract text-gray-700 font-light my-4">
-        <p>收集能同时适应暗色背景和亮色背景的颜色。</p>
+            <div class="post gt-bg-theme-color-second">
+                <div class="post-left">
+                    <div>
+                        
+                        <a href="https://leonwong0609.github.io/post/midtone/">
+                            <span class="post-title gt-c-content-color-first">「中性色」收集</span>
+                        </a>
+                    </div>
+                    <div class="gt-post-content post-abstract gt-c-content-color-second">
+                        <p>收集能同时适应暗色背景和亮色背景的颜色。</p>
 
-      </div>
-      <div class="text-gray-400 text-sm font-light">02-14-2020 / 2 min read</div>
+                    </div>
+                    <div class="post-info">
+                        <time class="post-time gt-c-content-color-first">
+                            发布于 · 02-14-2020 ·
+                        </time>
+                        
+                            <a href="https://leonwong0609.github.io/tag/7u1KtwPL8/" class="post-tag">
+                                # 设计
+                            </a>
+                        
+                    </div>
+                </div>
+                
+                    <a href="https://leonwong0609.github.io/post/midtone/" class="post-feature-image"
+                       style="background-image: url('https://leonwong0609.github.io/post-images/midtone.png')">
+                    </a>
+                
+            </div>
+        
+            <div class="post gt-bg-theme-color-second">
+                <div class="post-left">
+                    <div>
+                        
+                        <a href="https://leonwong0609.github.io/post/EvernoteWindowsSysProxyIssue/">
+                            <span class="post-title gt-c-content-color-first">顽皮的 Evernote Windows 与低调的 Pharos Pro</span>
+                        </a>
+                    </div>
+                    <div class="gt-post-content post-abstract gt-c-content-color-second">
+                        <p>简言之，这几天国际互联不稳定，刚开始发现是 Evernote 修改系统代理设置，后来发现是我的手机由于开着 Pharos Pro 热点有问题。</p>
+
+                    </div>
+                    <div class="post-info">
+                        <time class="post-time gt-c-content-color-first">
+                            发布于 · 02-10-2020 ·
+                        </time>
+                        
+                            <a href="https://leonwong0609.github.io/tag/djRIW_izT/" class="post-tag">
+                                # 软件
+                            </a>
+                        
+                    </div>
+                </div>
+                
+                    <a href="https://leonwong0609.github.io/post/EvernoteWindowsSysProxyIssue/" class="post-feature-image"
+                       style="background-image: url('https://leonwong0609.github.io/post-images/EvernoteWindowsSysProxyIssue.png')">
+                    </a>
+                
+            </div>
+        
+            <div class="post gt-bg-theme-color-second">
+                <div class="post-left">
+                    <div>
+                        
+                        <a href="https://leonwong0609.github.io/post/2019-ncov/">
+                            <span class="post-title gt-c-content-color-first">关于 2019-nCoV 的闲谈</span>
+                        </a>
+                    </div>
+                    <div class="gt-post-content post-abstract gt-c-content-color-second">
+                        <p>一九、二〇两年交会时，一场疫情席卷了中国，口罩脱销，居民被建议留在家中，武汉封城，湖北陆续封锁，开学返工时间延迟，抢购双黄连，湖北红十字会丑闻，大理截胡口罩……各种事件陆陆续续发生，我每天在老家追着各种消息，有一种自己在历史长河中顺流而下的感觉。吸收着各种信息，总要有所思考，特记录在此。</p>
+
+                    </div>
+                    <div class="post-info">
+                        <time class="post-time gt-c-content-color-first">
+                            发布于 · 02-06-2020 ·
+                        </time>
+                        
+                            <a href="https://leonwong0609.github.io/tag/j-eTEsIS5/" class="post-tag">
+                                # 随笔
+                            </a>
+                        
+                    </div>
+                </div>
+                
+                    <a href="https://leonwong0609.github.io/post/2019-ncov/" class="post-feature-image"
+                       style="background-image: url('https://leonwong0609.github.io/post-images/2019-ncov.jfif')">
+                    </a>
+                
+            </div>
+        
+            <div class="post gt-bg-theme-color-second">
+                <div class="post-left">
+                    <div>
+                        
+                        <a href="https://leonwong0609.github.io/post/markdown-nice/">
+                            <span class="post-title gt-c-content-color-first">使用 Markdown Nice 简化微信公众号文章排版过程</span>
+                        </a>
+                    </div>
+                    <div class="gt-post-content post-abstract gt-c-content-color-second">
+                        <p>Markdown Nice 是一款在线、开源、轻便的小工具。它能帮助你使用 Markdown 语法快速产生一篇排版优美的微信文章，从而让你留出更多的精力放在内容上。</p>
+
+                    </div>
+                    <div class="post-info">
+                        <time class="post-time gt-c-content-color-first">
+                            发布于 · 02-05-2020 ·
+                        </time>
+                        
+                            <a href="https://leonwong0609.github.io/tag/djRIW_izT/" class="post-tag">
+                                # 软件
+                            </a>
+                        
+                    </div>
+                </div>
+                
+                    <a href="https://leonwong0609.github.io/post/markdown-nice/" class="post-feature-image"
+                       style="background-image: url('https://leonwong0609.github.io/post-images/markdown-nice.png')">
+                    </a>
+                
+            </div>
+        
+            <div class="post gt-bg-theme-color-second">
+                <div class="post-left">
+                    <div>
+                        
+                        <a href="https://leonwong0609.github.io/post/you-review/">
+                            <span class="post-title gt-c-content-color-first">为了爱，我们能做多少？—— YOU 安眠书店观剧笔记</span>
+                        </a>
+                    </div>
+                    <div class="gt-post-content post-abstract gt-c-content-color-second">
+                        <p>What would you do for love?</p>
+
+                    </div>
+                    <div class="post-info">
+                        <time class="post-time gt-c-content-color-first">
+                            发布于 · 01-19-2020 ·
+                        </time>
+                        
+                            <a href="https://leonwong0609.github.io/tag/F0pojKz0f/" class="post-tag">
+                                # 影音娱乐
+                            </a>
+                        
+                    </div>
+                </div>
+                
+                    <a href="https://leonwong0609.github.io/post/you-review/" class="post-feature-image"
+                       style="background-image: url('https://leonwong0609.github.io/post-images/you-review.png')">
+                    </a>
+                
+            </div>
+        
+            <div class="post gt-bg-theme-color-second">
+                <div class="post-left">
+                    <div>
+                        
+                        <a href="https://leonwong0609.github.io/post/hello-world/">
+                            <span class="post-title gt-c-content-color-first">Hello World!</span>
+                        </a>
+                    </div>
+                    <div class="gt-post-content post-abstract gt-c-content-color-second">
+                        <p>今天是 2020 年 1 月 18 日星期六，农历腊月廿四，在一个平常的寒冷而无聊的寒假一天，Wonder Space 问世了。</p>
+
+                    </div>
+                    <div class="post-info">
+                        <time class="post-time gt-c-content-color-first">
+                            发布于 · 01-18-2020 ·
+                        </time>
+                        
+                            <a href="https://leonwong0609.github.io/tag/86oOp5QCV/" class="post-tag">
+                                # 博客
+                            </a>
+                        
+                    </div>
+                </div>
+                
+                    <a href="https://leonwong0609.github.io/post/hello-world/" class="post-feature-image"
+                       style="background-image: url('https://leonwong0609.github.io/post-images/hello-world.jpeg')">
+                    </a>
+                
+            </div>
+        
     </div>
-  </section>
-
-  <section class="post-item md:flex pb-12 animated fadeIn" :style="{ 'animation-delay': `${1 * 0.2}s` }">
-    
-      <a href="https://leonwong0609.github.io/post/EvernoteWindowsSysProxyIssue/" class="feature-image-wrapper bg-gray-100 rounded-lg flex-shrink-0 mr-8 w-full h-56 h-32 md:w-56 md:h-40">
-        <div class="post-feature-image lazy w-full h-56 h-32 md:w-56 md:h-40" data-bg="'https://leonwong0609.github.io/post-images/EvernoteWindowsSysProxyIssue.png'">
-        </div>
-      </a>
-    
-    <div class="content">
-      <a href="https://leonwong0609.github.io/post/EvernoteWindowsSysProxyIssue/">
-        <h2 class="post-title text-xl font-extrabold mt-5 md:mt-0">顽皮的 Evernote Windows 与低调的 Pharos Pro</h2>
-      </a>
-      <div class="post-abstract text-gray-700 font-light my-4">
-        <p>简言之，这几天国际互联不稳定，刚开始发现是 Evernote 修改系统代理设置，后来发现是我的手机由于开着 Pharos Pro 热点有问题。</p>
-
-      </div>
-      <div class="text-gray-400 text-sm font-light">02-10-2020 / 8 min read</div>
-    </div>
-  </section>
-
-  <section class="post-item md:flex pb-12 animated fadeIn" :style="{ 'animation-delay': `${2 * 0.2}s` }">
-    
-      <a href="https://leonwong0609.github.io/post/2019-ncov/" class="feature-image-wrapper bg-gray-100 rounded-lg flex-shrink-0 mr-8 w-full h-56 h-32 md:w-56 md:h-40">
-        <div class="post-feature-image lazy w-full h-56 h-32 md:w-56 md:h-40" data-bg="'https://leonwong0609.github.io/post-images/2019-ncov.jfif'">
-        </div>
-      </a>
-    
-    <div class="content">
-      <a href="https://leonwong0609.github.io/post/2019-ncov/">
-        <h2 class="post-title text-xl font-extrabold mt-5 md:mt-0">关于 2019-nCoV 的闲谈</h2>
-      </a>
-      <div class="post-abstract text-gray-700 font-light my-4">
-        <p>一九、二〇两年交会时，一场疫情席卷了中国，口罩脱销，居民被建议留在家中，武汉封城，湖北陆续封锁，开学返工时间延迟，抢购双黄连，湖北红十字会丑闻，大理截胡口罩……各种事件陆陆续续发生，我每天在老家追着各种消息，有一种自己在历史长河中顺流而下的感觉。吸收着各种信息，总要有所思考，特记录在此。</p>
-
-      </div>
-      <div class="text-gray-400 text-sm font-light">02-06-2020 / 10 min read</div>
-    </div>
-  </section>
-
-  <section class="post-item md:flex pb-12 animated fadeIn" :style="{ 'animation-delay': `${3 * 0.2}s` }">
-    
-      <a href="https://leonwong0609.github.io/post/markdown-nice/" class="feature-image-wrapper bg-gray-100 rounded-lg flex-shrink-0 mr-8 w-full h-56 h-32 md:w-56 md:h-40">
-        <div class="post-feature-image lazy w-full h-56 h-32 md:w-56 md:h-40" data-bg="'https://leonwong0609.github.io/post-images/markdown-nice.png'">
-        </div>
-      </a>
-    
-    <div class="content">
-      <a href="https://leonwong0609.github.io/post/markdown-nice/">
-        <h2 class="post-title text-xl font-extrabold mt-5 md:mt-0">使用 Markdown Nice 简化微信公众号文章排版过程</h2>
-      </a>
-      <div class="post-abstract text-gray-700 font-light my-4">
-        <p>Markdown Nice 是一款在线、开源、轻便的小工具。它能帮助你使用 Markdown 语法快速产生一篇排版优美的微信文章，从而让你留出更多的精力放在内容上。</p>
-
-      </div>
-      <div class="text-gray-400 text-sm font-light">02-05-2020 / 8 min read</div>
-    </div>
-  </section>
-
-  <section class="post-item md:flex pb-12 animated fadeIn" :style="{ 'animation-delay': `${4 * 0.2}s` }">
-    
-      <a href="https://leonwong0609.github.io/post/you-review/" class="feature-image-wrapper bg-gray-100 rounded-lg flex-shrink-0 mr-8 w-full h-56 h-32 md:w-56 md:h-40">
-        <div class="post-feature-image lazy w-full h-56 h-32 md:w-56 md:h-40" data-bg="'https://leonwong0609.github.io/post-images/you-review.png'">
-        </div>
-      </a>
-    
-    <div class="content">
-      <a href="https://leonwong0609.github.io/post/you-review/">
-        <h2 class="post-title text-xl font-extrabold mt-5 md:mt-0">为了爱，我们能做多少？—— YOU 安眠书店观剧笔记</h2>
-      </a>
-      <div class="post-abstract text-gray-700 font-light my-4">
-        <p>What would you do for love?</p>
-
-      </div>
-      <div class="text-gray-400 text-sm font-light">01-19-2020 / 20 min read</div>
-    </div>
-  </section>
-
-  <section class="post-item md:flex pb-12 animated fadeIn" :style="{ 'animation-delay': `${5 * 0.2}s` }">
-    
-      <a href="https://leonwong0609.github.io/post/hello-world/" class="feature-image-wrapper bg-gray-100 rounded-lg flex-shrink-0 mr-8 w-full h-56 h-32 md:w-56 md:h-40">
-        <div class="post-feature-image lazy w-full h-56 h-32 md:w-56 md:h-40" data-bg="'https://leonwong0609.github.io/post-images/hello-world.jpeg'">
-        </div>
-      </a>
-    
-    <div class="content">
-      <a href="https://leonwong0609.github.io/post/hello-world/">
-        <h2 class="post-title text-xl font-extrabold mt-5 md:mt-0">Hello World!</h2>
-      </a>
-      <div class="post-abstract text-gray-700 font-light my-4">
-        <p>今天是 2020 年 1 月 18 日星期六，农历腊月廿四，在一个平常的寒冷而无聊的寒假一天，Wonder Space 问世了。</p>
-
-      </div>
-      <div class="text-gray-400 text-sm font-light">01-18-2020 / 6 min read</div>
-    </div>
-  </section>
-
-        <div class="read-more">
-          
-        </div>
-        <div class="index-page">
-          <div class="pagination-container animated fadeIn">
-  
-  
 </div>
 
-        </div>
-      </div>
+        <div class="pagination-container">
+    
+    
+</div>
+
+
+        <div class="site-footer gt-c-content-color-first">
+    <div class="slogan gt-c-content-color-first">不可勝在己，可勝在敵。</div>
+    <div class="social-container">
+        
+            
+        
+            
+                <a href="https://twitter.com/WBoy0609" target="_blank">
+                    <i class="fab fa-twitter gt-c-content-color-first"></i>
+                </a>
+            
+        
+            
+                <a href="https://www.weibo.com/6168268889/profile?topnav=1&amp;wvr=6" target="_blank">
+                    <i class="fab fa-weibo gt-c-content-color-first"></i>
+                </a>
+            
+        
+            
+                <a href="https://www.zhihu.com/people/leo0609" target="_blank">
+                    <i class="fab fa-zhihu gt-c-content-color-first"></i>
+                </a>
+            
+        
+            
+        
+            
+        
     </div>
+    Powered by lovely&nbsp;<a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>&nbsp;❤️ | <a href="https://leonwong0609.github.io/atom.xml" target="_blank">RSS</a>
+</div>
 
-    <script src="https://leonwong0609.github.io/media/prism.js"></script>  
 <script>
-
-Prism.highlightAll()
-let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
-
-// This should probably be throttled.
-// Especially because it triggers during smooth scrolling.
-// https://lodash.com/docs/4.17.10#throttle
-// You could do like...
-// window.addEventListener("scroll", () => {
-//    _.throttle(doThatStuff, 100);
-// });
-// Only not doing it here to keep this Pen dependency-free.
-
-window.addEventListener("scroll", event => {
-  let fromTop = window.scrollY;
-
-  mainNavLinks.forEach((link, index) => {
-    let section = document.getElementById(decodeURI(link.hash).substring(1));
-    let nextSection = null
-    if (mainNavLinks[index + 1]) {
-      nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
-    }
-    if (section.offsetTop <= fromTop) {
-      if (nextSection) {
-        if (nextSection.offsetTop > fromTop) {
-          link.classList.add("current");
-        } else {
-          link.classList.remove("current");    
-        }
-      } else {
-        link.classList.add("current");
-      }
-    } else {
-      link.classList.remove("current");
-    }
-  });
-});
-
-
-document.addEventListener("DOMContentLoaded", function() {
-  var lazyImages = [].slice.call(document.querySelectorAll(".post-feature-image.lazy"));
-
-  if ("IntersectionObserver" in window) {
-    let lazyImageObserver = new IntersectionObserver(function(entries, observer) {
-      entries.forEach(function(entry) {
-        if (entry.isIntersecting) {
-          let lazyImage = entry.target
-          lazyImage.style.backgroundImage = `url(${lazyImage.dataset.bg})`
-          lazyImage.classList.remove("lazy")
-          lazyImageObserver.unobserve(lazyImage)
-        }
-      });
-    });
-
-    lazyImages.forEach(function(lazyImage) {
-      lazyImageObserver.observe(lazyImage)
-    })
-  } else {
-    // Possibly fall back to a more compatible method here
-  }
-});
-
-const menuContainer = document.querySelector('.menu-container')
-const menus = document.querySelectorAll('.menu-container .menu')
-const mask = document.querySelector('.mask')
-const contentWrapper = document.querySelector('.content-wrapper')
-const latestArticle = document.querySelector('.latest-article')
-const readMore = document.querySelector('.read-more')
-const indexPage = document.querySelector('.index-page')
-
-const isHome = location.pathname === '/'
-if (latestArticle) {
-  latestArticle.style.display = isHome ? 'block' : 'none'
-  readMore.style.display = isHome ? 'block' : 'none'
-  indexPage.style.display = isHome ? 'none' : 'block'
-}
-
-const openMenu = () => {
-  menuContainer.classList.add('open')
-  menus.forEach(menu => {
-    menu.classList.add('animated', 'fadeInLeft')
-  })
-  mask.classList.add('open')
-  contentWrapper.classList.add('is-second')
-}
-
-const closeMenu = () => {
-  menuContainer.classList.remove('open')
-  menus.forEach(menu => {
-    menu.classList.remove('animated', 'fadeInLeft')
-  })
-  mask.classList.remove('open')
-  contentWrapper.classList.remove('is-second')
-}
+    hljs.initHighlightingOnLoad()
 </script>
-  
-  </body>
+
+    </div>
+</div>
+</body>
 </html>
