@@ -3,7 +3,7 @@
     <meta charset="utf-8"/>
 <meta name="description" content=""/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>「中性色」收集 | Wonder Space 🚀</title>
+<title>用自定义 CSS 解决文章内单词词内折行问题 | Wonder Space 🚀</title>
 <link rel="shortcut icon" href="https://leonwong0609.github.io/favicon.ico?v=1582042364637">
 <link href="https://cdn.bootcss.com/font-awesome/5.11.2/css/all.css" rel="stylesheet">
 <link rel="stylesheet" href="https://leonwong0609.github.io/styles/main.css">
@@ -87,43 +87,74 @@
         <div class="post-detail gt-bg-theme-color-second">
             <article class="gt-post-content">
                 <h2 class="post-title">
-                    「中性色」收集
+                    用自定义 CSS 解决文章内单词词内折行问题
                 </h2>
                 <div class="post-info">
                     <time class="post-time gt-c-content-color-first">
-                        · 02-14-2020 ·
+                        · 02-18-2020 ·
                     </time>
                     
-                        <a href="https://leonwong0609.github.io/tag/7u1KtwPL8/" class="post-tags">
-                            # 设计
+                        <a href="https://leonwong0609.github.io/tag/86oOp5QCV/" class="post-tags">
+                            # 博客
                         </a>
                     
                 </div>
                 <div class="post-content">
-                    <p>收集能同时适应暗色背景和亮色背景的颜色。</p>
+                    <p>最近给博客换了身新皮，叫做 Pure，主题设计得特别赞，整体简洁大方，细节也十分到位，一些小动画也特别顺畅优雅。之前的主题 Walker 存在 <code>Title</code> 一直不会变的问题，换上这个主题就没有发现这个问题了。然而使用过程中发现另外一个问题，英文单词会行内折行，而且也没有折行的连字符。</p>
 <!-- more -->
-<p><ul class="markdownIt-TOC">
-<li>
-<ul>
-<li><a href="#cfcfcf">#cfcfcf</a></li>
-<li><a href="#a6a6a6">#a6a6a6</a></li>
-<li><a href="#da272a">#da272a</a></li>
-</ul>
-</li>
-</ul>
-</p>
-<p>最近 Android 端的微信开始支持暗色模式，同时在微信内置浏览器中内禁用腾讯 X5 内核后，浏览微信文章也能支持暗色模式了。</p>
-<p>但是在正常的排版中，只有文字才会自动调整为浅色适应暗色背景，图片素材是不可能会自动变换的。苹果的 App Store 首页故事在适配深浅色背景上采用了将简单的图片都变成透明背景的办法。这种办法在微信文章上也可以借鉴，在制作图片素材时尽量制作背景透明的 PNG 图片，避免深色背景下出现一大块白色的情况。</p>
-<p>解决背景问题后就要考虑非透明部分使用什么颜色了。在白色背景中，使用高饱和、低明度的颜色相对更抢眼，也不会造成不适。然而在暗色背景下，使用同样的配色将很难和背景区分开来。因此，为了使用<strong>静态</strong>的颜色<strong>动态适应</strong>深浅色的背景，我们只有选择明度居中、饱和度相对较低的「中性色」。以下都是实践过程中发现的效果不错的「中性色」，收集在这里：</p>
-<h2 id="cfcfcf">#cfcfcf</h2>
-<figure data-type="image" tabindex="1"><img src="https://leonwong0609.github.io/post-images/1581663351003.png" alt="#cfcfcf" loading="lazy"></figure>
-<p>一个相对较浅的灰色，在白色下比较柔和，在暗色下比较显眼。</p>
-<h2 id="a6a6a6">#a6a6a6</h2>
-<figure data-type="image" tabindex="2"><img src="https://leonwong0609.github.io/post-images/1581663421324.png" alt="#a6a6a6" loading="lazy"></figure>
-<p>同样是一种灰色，深浅色下表现比较平衡。</p>
-<h2 id="da272a">#da272a</h2>
-<figure data-type="image" tabindex="3"><img src="https://leonwong0609.github.io/post-images/1581663492405.png" alt="#da272a" loading="lazy"></figure>
-<p>一种醒目的红色，深浅色下均较显眼，可以用来做强调色或小面积点缀。</p>
+<p>如下图：</p>
+<p><img src="https://leonwong0609.github.io/post-images/1582039747497.png" alt="存在词内折行问题的正文内容" loading="lazy"><br>
+<small>* 第三行末尾的 Markd-own</small></p>
+<p>上网查阅后发现可以用 CSS 来规定英文单词的换行规则，正常情况下会让单词内不折行，直接整个单词排到下一行，所以我们只在 CSS 中加上 <code>word-break: normal;</code> 就可以了。具体在这个主题中，对正文内容生效，也就是：</p>
+<pre><code class="language-CSS">.gt-post-content {
+word-break: normal;
+}
+</code></pre>
+<p>我们将这段 CSS 片段加入自定义 CSS 中，效果如下：</p>
+<figure data-type="image" tabindex="1"><img src="https://leonwong0609.github.io/post-images/1582040070916.png" alt="词内折行问题解决" loading="lazy"></figure>
+<p>虽然效果有点粗暴，但是起码是更加符合规范了。</p>
+<p>前后对比图：</p>
+<figure data-type="image" tabindex="2"><img src="https://leonwong0609.github.io/post-images/1582042028701.png" alt="" loading="lazy"></figure>
+<p>我们在 w3school 上可以看到更多有关 <code>word-break</code> 的属性，摘录部分如下：</p>
+<p><strong>CSS Syntax</strong></p>
+<pre><code class="language-CSS">word-break: normal|break-all|keep-all|break-word|initial|inherit;
+</code></pre>
+<p><strong>Property Values</strong></p>
+<table>
+<thead>
+<tr>
+<th>Value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>normal</code></td>
+<td>Default value. Uses default line break rules</td>
+</tr>
+<tr>
+<td><code>break-all</code></td>
+<td>To prevent overflow, word may be broken at any character</td>
+</tr>
+<tr>
+<td><code>keep-all</code></td>
+<td>Word breaks should not be used for Chinese/Japanese/Korean (CJK) text. Non-CJK text behavior is the same as value &quot;normal&quot;</td>
+</tr>
+<tr>
+<td><code>break-word</code></td>
+<td>To prevent overflow, word may be broken at arbitrary points</td>
+</tr>
+<tr>
+<td><code>initial</code></td>
+<td>Sets this property to its default value. <a href="https://www.w3schools.com/cssref/css_initial.asp">Read about <code>initial</code></a></td>
+</tr>
+<tr>
+<td><code>inherit</code></td>
+<td>Inherits this property from its parent element. <a href="https://www.w3schools.com/cssref/css_inherit.asp">Read about <code>inherit</code></a></td>
+</tr>
+</tbody>
+</table>
+<p>后来在主题作者的博客摸到作者的微博，从微博简介中发现，这个主题的作者竟然就是我初中时候就在用的那个天气应用 Pure 天气的开发者。虽然看到这个主题名字就应该能猜到，但只有真的看到时才会觉得原来如此、理所当然。不知是这个圈子真小还是缘分真的奇妙呢。</p>
 
                 </div>
             </article>
@@ -132,8 +163,8 @@
         
             <div class="next-post">
                 <div class="next gt-c-content-color-first">下一篇</div>
-                <a href="https://leonwong0609.github.io/post/EvernoteWindowsSysProxyIssue/" class="post-title gt-a-link">
-                    顽皮的 Evernote Windows 与低调的 Pharos Pro
+                <a href="https://leonwong0609.github.io/post/midtone/" class="post-title gt-a-link">
+                    「中性色」收集
                 </a>
             </div>
         
