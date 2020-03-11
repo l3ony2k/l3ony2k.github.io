@@ -1,0 +1,235 @@
+<html>
+<head>
+    <meta charset="utf-8"/>
+<meta name="description" content=""/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>《发哨子的人》随想：IPFS、审查制度与自信 | Wonder Space 🚀</title>
+<link rel="shortcut icon" href="https://leonwong0609.github.io/favicon.ico?v=1583950369011">
+<link href="https://cdn.bootcss.com/font-awesome/5.11.2/css/all.css" rel="stylesheet">
+<link rel="stylesheet" href="https://leonwong0609.github.io/styles/main.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+<script src="https://cdn.bootcss.com/highlight.js/9.15.10/highlight.min.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.15.10/languages/dockerfile.min.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.15.10/languages/dart.min.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.15.10/languages/go.min.js"></script>
+<script src="https://cdn.bootcss.com/moment.js/2.23.0/moment.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+
+<!-- DEMO JS -->
+<script src="media/scripts/index.js"></script>
+
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+</head>
+<body>
+<div class="main gt-bg-theme-color-first">
+    <nav class="navbar navbar-expand-lg">
+    <div class="navbar-brand">
+        <img class="user-avatar" src="/images/avatar.png" alt="头像">
+        <div class="site-name gt-c-content-color-first">
+            Wonder Space 🚀
+        </div>
+    </div>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="fas fa-bars gt-c-content-color-first" style="font-size: 18px"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <div class="navbar-nav mr-auto" style="text-align: center">
+            
+                <div class="nav-item">
+                    
+                        <a href="/" class="menu gt-a-link">
+                            🏠 首页
+                        </a>
+                    
+                </div>
+            
+                <div class="nav-item">
+                    
+                        <a href="/tags" class="menu gt-a-link">
+                            🏷️ 标签
+                        </a>
+                    
+                </div>
+            
+                <div class="nav-item">
+                    
+                        <a href="/archives" class="menu gt-a-link">
+                            📬 归档
+                        </a>
+                    
+                </div>
+            
+                <div class="nav-item">
+                    
+                        <a href="/post/about" class="menu gt-a-link">
+                            😶 关于
+                        </a>
+                    
+                </div>
+            
+        </div>
+    </div>
+</nav>
+    <div class="post-container">
+        <div class="post-detail gt-bg-theme-color-second">
+            <article class="gt-post-content">
+                <h2 class="post-title">
+                    《发哨子的人》随想：IPFS、审查制度与自信
+                </h2>
+                <div class="post-info">
+                    <time class="post-time gt-c-content-color-first">
+                        · 03-12-2020 ·
+                    </time>
+                    
+                        <a href="https://leonwong0609.github.io/tag/j-eTEsIS5/" class="post-tags">
+                            # 随笔
+                        </a>
+                    
+                </div>
+                <div class="post-content">
+                    <p><ul class="markdownIt-TOC">
+<li><a href="#ipfs">IPFS</a>
+<ul>
+<li><a href="#ipfsink">ipfs.ink</a></li>
+<li><a href="#matters">Matters</a></li>
+</ul>
+</li>
+<li><a href="#%E9%97%B2%E8%B0%88">闲谈</a>
+<ul>
+<li><a href="#%E5%AE%A1%E6%9F%A5">审查</a></li>
+<li><a href="#%E8%87%AA%E4%BF%A1">自信</a></li>
+</ul>
+</li>
+<li><a href="#summary">Summary</a></li>
+</ul>
+</p>
+<h1 id="ipfs">IPFS</h1>
+<p>看到朋友圈转发的一篇关于把内容上传到区块链的介绍文章，虽然被删除了，但应该讲的就是 IPFS 吧。</p>
+<p>我应该是去年在某论坛见识到这项技术，说白了就是将内容分散成无数个部分储存在无数个设备上，访问内容是就从每个设备找到每个部分组装起来。这样储存的信息有一串独一无二的「指纹」，通过「节点」+「入口」的组合就能查看到信息内容，而有大量的公共「节点」可以在网上找到。因此理论上只要有了「指纹」，内容就永远不会消失了。</p>
+<p>例如下面给出的这几个网址，后面的一长串 <code>QmdqJ4N7BMDxfcV5k8bPR8pP8SpCpYHZvKVMVemyE7gfir</code> 就是「指纹」，前面不同的内容则是公共「节点」。因此复制其中任意一个链接到浏览器地址栏并访问，就可以访问得到那篇被删除的文章。</p>
+<pre><code>https://d26g9c7mfuzstv.cloudfront.net/ipfs/QmdqJ4N7BMDxfcV5k8bPR8pP8SpCpYHZvKVMVemyE7gfir
+
+https://ipfs.io/ipfs/QmdqJ4N7BMDxfcV5k8bPR8pP8SpCpYHZvKVMVemyE7gfir
+
+https://gateway.ipfs.io/ipfs/QmdqJ4N7BMDxfcV5k8bPR8pP8SpCpYHZvKVMVemyE7gfir
+
+https://ipfs.eternum.io/ipfs/QmdqJ4N7BMDxfcV5k8bPR8pP8SpCpYHZvKVMVemyE7gfir
+</code></pre>
+<p>我们自己也可以将文章上传到 IPFS 上。这里介绍两种方法。</p>
+<h2 id="ipfsink">ipfs.ink</h2>
+<figure data-type="image" tabindex="1"><img src="https://cdn.jsdelivr.net/gh/LeonWong0609/LeonPicbed/Screenshot_20200312_012609.jpg" alt="" loading="lazy"></figure>
+<p>ipfs.ink 是个极简的在线 IPFS 文章发布平台，在<a href="https://ipfs.ink/">网页</a>上，我们可以直接在他提供的输入框内输入我们的 Markdown，然后直接 Publish，我们就能得到自己文章的「指纹」了。</p>
+<h2 id="matters">Matters</h2>
+<figure data-type="image" tabindex="2"><img src="https://cdn.jsdelivr.net/gh/LeonWong0609/LeonPicbed/Screenshot_20200312_011600.jpg" alt="" loading="lazy"></figure>
+<p>还有一种方法就是在 <a href="https://matters.news/">Matters</a> 发布。Matters 是一个使用 IPFS 技术储存文章的写作社区，注册账号后可以直接在社区中发表文章。除了获得自己心血的「指纹」外，还能收获社区的读者。要想社区中任何一篇文章的「指纹」，只需要单击文章标题下方的「分布式入口」按钮据可以了。</p>
+<figure data-type="image" tabindex="3"><img src="https://cdn.jsdelivr.net/gh/LeonWong0609/LeonPicbed/Screenshot_20200312_011655.jpg" alt="" loading="lazy"></figure>
+<p>这样的「分散」虽然看起来很厉害，但或许丝毫也撼动不了现在互联网垄断者的地位吧。</p>
+<h1 id="闲谈">闲谈</h1>
+<p>说实话，我完全没有想到这一次删帖的热度能持续一天，并引发了这么多的讨论和「创作」。排除追流量的因素，这次这么激烈的反响，应该是我们对这种没有规则的审查已经不满太久了。</p>
+<h2 id="审查">审查</h2>
+<p>我不是说绝对不能有审查，但审查应该是有等级且公开的，而不是如今这种捉摸不透恣意妄为的。我们也不是没有规定，但是每次文章被删除时，我们从来不会知晓理由。我不知道这次文章被删是出于微信的自我审查还是由于高处的压力，但不论如何，我们都不应该允许有人能根据自己的判断，不按规则地决定我们每个人能读什么不能读什么。</p>
+<p>让民众知晓情况，且告知民众该怎么做，并不会引起不稳定；相反，将民众与真相隔离，任何有关的文章不管真伪直接封杀，引起民众瞎猜才最容易带来恐慌。这样一个连我都能想明白的道理我不相信掌握「404 大权」者会不懂，只不过不加分辨的封杀会比较简单而已。</p>
+<p>本来只想简单介绍一下 IPFS 的，一不小心就扯了好远。现在我已经不知道我写的这篇东西算什么了，我就继续瞎说吧。</p>
+<p>前几天看到方可成老师的内容都搬到了 YouTube，Matters 和 Telegram 上，我真的觉得很诧异。我们国家有个独特的提法「网络主权」，我不懂什么意思，我只知道因为这个主权我们有了防火长城。防火长城给国内的互联网制造了一个外部竞争相对较少的环境，让我们的民族互联网企业得到发展。可是方老师的作品都是属于相当优质的内容，竟然因为这些谁都说不清的原因在国内被全面封杀，我们自己的好作品要到别人家的平台下避险。不把好东西留在自己这里，那我们设置这道长城的意义何在？难道是为了在墙内只保留那些不知道谁会「喜欢」的东西吗？</p>
+<p>我不知道还有多少优质的内容会被国内诡异的互联网环境和不知道谁喜欢的审查制度误杀。</p>
+<h2 id="自信">自信</h2>
+<figure data-type="image" tabindex="4"><img src="https://cdn.jsdelivr.net/gh/LeonWong0609/LeonPicbed/mmexport1583946078035.jpg" alt="西方媒体「双标」" loading="lazy"></figure>
+<p>在朋友圈看见一个同学转载人民日报一张图，批评西方媒体双标。本来只是一张挺正常的图的，毕竟意识形态的冲突对立不允许国家给西方媒体多正面的评价。但是这种「西方媒体不是也没最好嘛」的言论，总觉得藏着一点让人不适的自卑。新闻真实、新闻自由是应该全人类的追求，可能它和西方宣传的带有意识形态色彩的「新闻自由」不同，但是仍然应该是我们的奋斗的目标。我们都知道这是一个漫长而曲折的过程，可能西方国家媒体没有做到，但是我们不能因为西方媒体没做到就觉得我们也没做到就理所当然了，也不是西方媒体没做到我们就没必要做到也没必要追求了。就像人权、民主一样，总不能因为美国人权没做好，韩国民主没保障，我们就觉得自己做不好是理所当然了吧。「中国特色」不是嘴上说说就有的，也不是一直盯着人家的短处才能感受到的。中国是大国，我们努力的动力、我们的自信不应该来自和其他国家的比较。</p>
+<h1 id="summary">Summary</h1>
+<p>一不小心又说了好多有的没的，这次是完全没有草稿，也没有标题，真的想到什么写什么，标题也是后来加上的。就当是这件事情一点随想吧。</p>
+
+                </div>
+            </article>
+        </div>
+
+        
+            <div class="next-post">
+                <div class="next gt-c-content-color-first">下一篇</div>
+                <a href="https://leonwong0609.github.io/post/ReflectionOn2019nCoVOutbreak/" class="post-title gt-a-link">
+                    对本次疫情的结构性反思：谣言、官僚和国家主义
+                </a>
+            </div>
+        
+
+        
+            
+                <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+
+<div id="gitalk-container"></div>
+
+<script>
+
+  var gitalk = new Gitalk({
+    clientID: '71c9095550a821a30374',
+    clientSecret: '96a303782883ab7dc77209618d79ad5d29a342af',
+    repo: 'LeonWong0609.github.io',
+    owner: 'LeonWong0609',
+    admin: ['LeonWong0609'],
+    id: location.pathname,      // Ensure uniqueness and length less than 50
+    distractionFreeMode: false  // Facebook-like distraction free mode
+  })
+
+  gitalk.render('gitalk-container')
+
+</script>
+
+            
+
+            
+        
+
+        <div class="site-footer gt-c-content-color-first">
+    <div class="slogan gt-c-content-color-first">不可勝在己，可勝在敵。</div>
+    <div class="social-container">
+        
+            
+        
+            
+                <a href="https://twitter.com/WBoy0609" target="_blank">
+                    <i class="fab fa-twitter gt-c-content-color-first"></i>
+                </a>
+            
+        
+            
+                <a href="https://www.weibo.com/6168268889/profile?topnav=1&amp;wvr=6" target="_blank">
+                    <i class="fab fa-weibo gt-c-content-color-first"></i>
+                </a>
+            
+        
+            
+                <a href="https://www.zhihu.com/people/leo0609" target="_blank">
+                    <i class="fab fa-zhihu gt-c-content-color-first"></i>
+                </a>
+            
+        
+            
+        
+            
+        
+    </div>
+    Powered by lovely&nbsp;<a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>&nbsp;❤️ | <a href="https://leonwong0609.github.io/atom.xml" target="_blank">RSS</a>
+</div>
+
+<script>
+    hljs.initHighlightingOnLoad()
+</script>
+
+
+    </div>
+</div>
+</body>
+</html>
