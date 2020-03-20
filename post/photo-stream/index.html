@@ -4,7 +4,7 @@
 <meta name="description" content=""/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>搭建个人的照片墙 | Wonder Space 🚀</title>
-<link rel="shortcut icon" href="https://leonwong0609.github.io/favicon.ico?v=1584696170046">
+<link rel="shortcut icon" href="https://leonwong0609.github.io/favicon.ico?v=1584697121906">
 <link href="https://cdn.bootcss.com/font-awesome/5.11.2/css/all.css" rel="stylesheet">
 <link rel="stylesheet" href="https://leonwong0609.github.io/styles/main.css">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
@@ -181,7 +181,14 @@
 </ul>
 <p>这里是一个比较好的教程视频：</p>
 <p align = "center">
-<iframe align = "center" width="560" height="315" src="https://www.youtube.com/embed/OVLR9qRc9ak" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe id="vedio" src="https://www.youtube.com/embed/OVLR9qRc9ak" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<script>  
+		window.onresize=Init;  
+		function Init(){
+			document.getElementById("video").width=""+document.body.clientWidth*0.8+"";
+			document.getElementById("video").height=""+document.body.clientWidth*0.45+"";
+			} 
+</script>
 </p>
 <p>其实把预设照片删掉后，上传图片直接用 GitHub 的网页端也可以实现了。现在 GitHub 移动端应用也出了，回头尝试一下用移动端的应用程序能不能上传，如果可以，那就能在电脑上用到 pull 指令了。</p>
 <p>这样看来，Gridea 这样的傻瓜式软件省掉了我多少的麻烦，越来越对 Gridea 的开发者感到敬佩了。</p>
