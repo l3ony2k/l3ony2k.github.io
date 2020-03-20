@@ -3,7 +3,7 @@
     <meta charset="utf-8"/>
 <meta name="description" content=""/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>用自定义 CSS 解决文章内单词词内折行问题 | Wonder Space 🚀</title>
+<title>搭建个人的照片墙 | Wonder Space 🚀</title>
 <link rel="shortcut icon" href="https://leonwong0609.github.io/favicon.ico?v=1584696170046">
 <link href="https://cdn.bootcss.com/font-awesome/5.11.2/css/all.css" rel="stylesheet">
 <link rel="stylesheet" href="https://leonwong0609.github.io/styles/main.css">
@@ -95,12 +95,16 @@
         <div class="post-detail gt-bg-theme-color-second">
             <article class="gt-post-content">
                 <h2 class="post-title">
-                    用自定义 CSS 解决文章内单词词内折行问题
+                    搭建个人的照片墙
                 </h2>
                 <div class="post-info">
                     <time class="post-time gt-c-content-color-first">
-                        · 02-18-2020 ·
+                        · 03-20-2020 ·
                     </time>
+                    
+                        <a href="https://leonwong0609.github.io/tag/F0pojKz0f/" class="post-tags">
+                            # 影音娱乐
+                        </a>
                     
                         <a href="https://leonwong0609.github.io/tag/86oOp5QCV/" class="post-tags">
                             # 博客
@@ -108,61 +112,81 @@
                     
                 </div>
                 <div class="post-content">
-                    <p>最近给博客换了身新皮，叫做 Pure，主题设计得特别赞，整体简洁大方，细节也十分到位，一些小动画也特别顺畅优雅。之前的主题 Walker 存在 <code>Title</code> 一直不会变的问题，换上这个主题就没有发现这个问题了。然而使用过程中发现另外一个问题，英文单词会行内折行，而且也没有折行的连字符。</p>
+                    <p>今天下午心血来潮搭建了一个<a href="https://leonwong0609.netlify.com/">照片墙</a>。</p>
 <!-- more -->
-<p>如下图：</p>
-<p><img src="https://leonwong0609.github.io/post-images/1582039747497.png" alt="存在词内折行问题的正文内容" loading="lazy"><br>
-<small>* 第三行末尾的 Markd-own</small></p>
-<p>上网查阅后发现可以用 CSS 来规定英文单词的换行规则，正常情况下会让单词内不折行，直接整个单词排到下一行，所以我们只在 CSS 中加上 <code>word-break: normal;</code> 就可以了。具体在这个主题中，对正文内容生效，也就是：</p>
-<pre><code class="language-CSS">.gt-post-content {
-word-break: normal;
-}
-</code></pre>
-<p>我们将这段 CSS 片段加入自定义 CSS 中，效果如下：</p>
-<figure data-type="image" tabindex="1"><img src="https://leonwong0609.github.io/post-images/1582040070916.png" alt="词内折行问题解决" loading="lazy"></figure>
-<p>虽然效果有点粗暴，但是起码是更加符合规范了。</p>
-<p>前后对比图：</p>
-<figure data-type="image" tabindex="2"><img src="https://leonwong0609.github.io/post-images/1582042028701.png" alt="" loading="lazy"></figure>
-<p>我们在 w3school 上可以看到更多有关 <code>word-break</code> 的属性，摘录部分如下：</p>
-<p><strong>CSS Syntax</strong></p>
-<pre><code class="language-CSS">word-break: normal|break-all|keep-all|break-word|initial|inherit;
-</code></pre>
-<p><strong>Property Values</strong></p>
-<table>
-<thead>
-<tr>
-<th>Value</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>normal</code></td>
-<td>Default value. Uses default line break rules</td>
-</tr>
-<tr>
-<td><code>break-all</code></td>
-<td>To prevent overflow, word may be broken at any character</td>
-</tr>
-<tr>
-<td><code>keep-all</code></td>
-<td>Word breaks should not be used for Chinese/Japanese/Korean (CJK) text. Non-CJK text behavior is the same as value &quot;normal&quot;</td>
-</tr>
-<tr>
-<td><code>break-word</code></td>
-<td>To prevent overflow, word may be broken at arbitrary points</td>
-</tr>
-<tr>
-<td><code>initial</code></td>
-<td>Sets this property to its default value. <a href="https://www.w3schools.com/cssref/css_initial.asp">Read about <code>initial</code></a></td>
-</tr>
-<tr>
-<td><code>inherit</code></td>
-<td>Inherits this property from its parent element. <a href="https://www.w3schools.com/cssref/css_inherit.asp">Read about <code>inherit</code></a></td>
-</tr>
-</tbody>
-</table>
-<p>后来在主题作者的博客摸到作者的微博，从微博简介中发现，这个主题的作者竟然就是我初中时候就在用的那个天气应用 Pure 天气的开发者。虽然看到这个主题名字就应该能猜到，但只有真的看到时才会觉得原来如此、理所当然。不知是这个圈子真小还是缘分真的奇妙呢。</p>
+<h1 id="部署">部署</h1>
+<p>主要是看见了 GitHub 上一个叫 <a href="https://github.com/maxvoltar/photo-stream#how-to-install">photo-stream</a> 的项目，实现效果真的特别心水。尝试后，部署的操作也很简单，只要把整个项目 fork 到自己 GitHub，然后用 Netlify 部署就可以了。所有的步骤在项目的 README 中介绍得十分详细，这里就不赘述了。</p>
+<p>Netlify 免费服务不能自定义域名，访问流量好像也有一定的限制，但是对我来说都无所谓了，毕竟也没有人会看我的博客和照片墙（笑）。</p>
+<p>下一步就可以上传一些自己的照片了，又是一个逼迫自己学习 git 的好机会。我想着也可以把照片墙的入口加到博客的主页菜单里。</p>
+<p>对了还可以通过下面这个徽章查看部署的状态。</p>
+<figure data-type="image" tabindex="1"><a href="https://app.netlify.com/sites/leonwong0609/deploys"><img src="https://api.netlify.com/api/v1/badges/0469689f-4d53-4c1b-beaa-29ee5b7b3797/deploy-status" alt="Netlify Status" loading="lazy"></a></figure>
+<h1 id="个性化">个性化</h1>
+<p>项目的 README <a href="https://github.com/maxvoltar/photo-stream#customize">详细介绍了个性化</a>的内容和操作，摘录如下：</p>
+<h2 id="basics">Basics</h2>
+<p>First thing you want to do is edit a couple of things in <code>/_config.yml</code>:</p>
+<ul>
+<li>
+<p><code>title</code>: The title of your photo stream</p>
+</li>
+<li>
+<p><code>email</code>: Your email address (this line is optional, you can remove it)</p>
+</li>
+<li>
+<p><code>author</code></p>
+</li>
+<li>
+<p><code>name</code>: Your name</p>
+<ul>
+<li><code>email</code>: Your email address (optional)</li>
+<li><code>website</code>: Your website (could be the address of this photo stream)</li>
+</ul>
+</li>
+<li>
+<p><code>description</code>: Description of your photo stream</p>
+</li>
+<li>
+<p><code>baseurl</code>: Should be <code>&quot;&quot;</code> <strong>⚠️ Do not change unless you know what you're doing</strong></p>
+</li>
+<li>
+<p><code>url</code>: Where will this photo stream live (example: <code>https://maxvoltar.photo</code>)</p>
+</li>
+<li>
+<p><code>twitter_username</code>: Your Twitter username</p>
+</li>
+<li>
+<p><code>github_username</code>: Your Github username</p>
+</li>
+<li>
+<p><code>instagram_username</code>: Your Instagram username</p>
+</li>
+</ul>
+<p>Don't include the <code>@</code>-part of your social handles. By default links to your Github and Instagram profiles are hidden. You can uncomment these by going into <code>/index.html</code>. There, you can also add links to wherever you want. Just add more <code>'s with `class=&quot;link&quot;` to the</code> list.</p>
+<h2 id="advanced">Advanced</h2>
+<p>Before publishing your website, Jekyll will resize your photos into 3 different buckets:</p>
+<ul>
+<li><code>/photos/large</code>: These are only shown when a user navigates to a photo page. By default these are resized to a maximum of 2048 wide and 2048 tall. If you wish, you can change these by changing the values in <code>/_config.yml</code> (by default they look something like this: <code>resize_to_limit: [2048, 2048]</code>).</li>
+<li><code>/photos/thumbnail</code>: These are used in the grid. Photo Stream will load all thumbnails above the fold, then more as you scroll down; all to save bandwidth. Standard size for these is 640 by 640 (max), but you can also change this if needed.</li>
+<li><code>/photos/tint</code>: What you see while the page loads its first batch of thumbnails, also used as the background for photo pages. <strong>⚠️ Do not make changes to the tint versions in your config file.</strong></li>
+</ul>
+<h1 id="上传和使用">上传和使用</h1>
+<p>其实在修改上面的个性化设置的时候只用修改 index.html 和一个配置文件，用 GitHub 网站上的文本编辑器足够了，但是如果要上传照片或者删除照片，除了一个个删除，就逃不掉 git 了。于是在网上找了很多关于 git 的教程。从下午两点折腾到下午四点，终于算是弄得一知半解，能把照片上传到自己的仓库了。</p>
+<p>嗯为了方便以后忘记了操作需要复习，这里总结一下。总的来说就是记住这几样东西。</p>
+<p>首先我是直接使用 Powershell 的，先 <code>cd</code> 到电脑仓库的目录，远程和本地都已经连接好了。正常情况只会用到几个命令：</p>
+<ul>
+<li><code>git status</code> 查看一下目前的状态，习惯性用一下</li>
+<li><code>git add .</code> 用来将做好的变动添加到本地记录，也就是说要不要 git 来监视这个文件的变化</li>
+<li><code>git commit -m &quot;message&quot;</code> commit 不用解释了</li>
+<li><code>git push</code> 推到远端，只有 origin master，也都设置好了</li>
+<li><code>git pull</code> 从远端拉取，我这里基本是用不上的了</li>
+</ul>
+<p>这里是一个比较好的教程视频：</p>
+<p align = "center">
+<iframe align = "center" width="560" height="315" src="https://www.youtube.com/embed/OVLR9qRc9ak" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</p>
+<p>其实把预设照片删掉后，上传图片直接用 GitHub 的网页端也可以实现了。现在 GitHub 移动端应用也出了，回头尝试一下用移动端的应用程序能不能上传，如果可以，那就能在电脑上用到 pull 指令了。</p>
+<p>这样看来，Gridea 这样的傻瓜式软件省掉了我多少的麻烦，越来越对 Gridea 的开发者感到敬佩了。</p>
+<h1 id="summary">Summary</h1>
+<p>总之又是折腾了一下午，但是获益匪浅，都怪 Gridea 这种方便的轮子让我懒得学习命令行 XD。好了一下午又没了，该去写英语作业了。</p>
 
                 </div>
             </article>
@@ -171,8 +195,8 @@ word-break: normal;
         
             <div class="next-post">
                 <div class="next gt-c-content-color-first">下一篇</div>
-                <a href="https://leonwong0609.github.io/post/midtone/" class="post-title gt-a-link">
-                    「中性色」收集
+                <a href="https://leonwong0609.github.io/post/ThoughtsAbtFSZDR/" class="post-title gt-a-link">
+                    《发哨子的人》随想：IPFS、审查制度与自信
                 </a>
             </div>
         
