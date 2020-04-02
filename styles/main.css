@@ -362,7 +362,7 @@ ul li {
   flex-direction: column;
 }
 .gt-post-content {
-  word-break: break-all;
+  word-break: normal;
   word-wrap: break-word;
 }
 .gt-post-content a {
@@ -772,6 +772,9 @@ ul li {
   padding-left: 10px;
   padding-right: 10px;
   font-size: 20px;
+}
+.site-footer .footer-info {
+  padding-bottom: 10px;
 }
 /*
 
@@ -1724,95 +1727,91 @@ Orginal Style from ethanschoonover.com/solarized (c) Jeremy Hull <sourdrums@gmai
 }
 
         .gt-bg-theme-color-first {
-          background: #121212!important;
+          background: #FAFAFA!important;
         }
         
         .gt-bg-theme-color-second {
-          background: #222222!important;
+          background: #fff!important;
         }
         
         .gt-bg-content-color-first {
-          background: #e1e1e1!important;
+          background: #5f6169!important;
         }
         
         .gt-bg-content-color-second {
-          background: #a6a6a6!important;
+          background: #999fa7!important;
         }
         
         .gt-bg-accent-color-first {
-          background: #FF7597!important;
+          background: #F16393!important;
         }
         
         .gt-bg-accent-color-second {
-          background: RGBA(255,117,151,0.2)!important;
+          background: RGBA(241,99,147,0.2)!important;
         }
         
         .gt-c-theme-color-first {
-          color: #121212!important;
+          color: #FAFAFA!important;
         }
         
         .gt-c-theme-color-second {
-          color: #222222!important;
+          color: #fff!important;
         }
         
         .gt-c-content-color-first {
-          color: #e1e1e1!important;
+          color: #5f6169!important;
         }
         
         .gt-c-content-color-second {
-          color: #a6a6a6!important;
+          color: #999fa7!important;
         }
         
         .gt-c-accent-color-first {
-          color: #FF7597!important;
+          color: #F16393!important;
         }
         
         .gt-c-accent-color-second {
-          color: RGBA(255,117,151,0.2)!important;
+          color: RGBA(241,99,147,0.2)!important;
         }
         
         body {
-          color: #e1e1e1!important;
+          color: #5f6169!important;
         }
         
         a {
-          color: #FF7597!important;
+          color: #F16393!important;
         }
         
         .post-content h1 {
           display: inline-block;
-          color: #e1e1e1!important;
+          color: #5f6169!important;
           position: relative!important;
-          background: linear-gradient(180deg, transparent 75%, RGBA(255,117,151,0.4) 0)!important;
+          background: linear-gradient(180deg, transparent 75%, RGBA(241,99,147,0.4) 0)!important;
         }
         
         .post-content h2 {
           display: inline-block;
-          color: #e1e1e1!important;
+          color: #5f6169!important;
           position: relative!important;
-          background: linear-gradient(180deg, transparent 75%, RGBA(255,117,151,0.4) 0)!important;
+          background: linear-gradient(180deg, transparent 75%, RGBA(241,99,147,0.4) 0)!important;
         }
         
         .gt-a-link {
-          color: #e1e1e1!important;
+          color: #5f6169!important;
           position: relative!important;
-          background: linear-gradient(180deg, transparent 75%, RGBA(255,117,151,0.4) 0)!important;
+          background: linear-gradient(180deg, transparent 75%, RGBA(241,99,147,0.4) 0)!important;
         }
         
         .gt-post-content a {
-          color: #FF7597!important;
+          color: #F16393!important;
         }
         
         .gt-post-content blockquote {
-          background: RGBA(255,117,151,0.2)!important;
-          border-color: #FF7597!important;
+          background: RGBA(241,99,147,0.2)!important;
+          border-color: #F16393!important;
         }
         
         .gt-post-content code {
-          background: RGBA(255,117,151,0.2)!important;
+          background: RGBA(241,99,147,0.2)!important;
         }
          
-      .gt-post-content {
-word-break: normal;
-}
-    
