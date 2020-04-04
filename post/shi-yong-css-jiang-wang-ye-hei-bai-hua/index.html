@@ -3,7 +3,7 @@
     <meta charset="utf-8"/>
 <meta name="description" content=""/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>存档 | Wonder Space 🚀</title>
+<title>使用 CSS 将网页黑白化 | Wonder Space 🚀</title>
 <link rel="shortcut icon" href="https://leonwong0609.github.io/favicon.ico?v=1585974792880">
 <link href="https://cdn.bootcss.com/font-awesome/5.11.2/css/all.css" rel="stylesheet">
 <link rel="stylesheet" href="https://leonwong0609.github.io/styles/main.css">
@@ -30,11 +30,11 @@
 
 
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 </head>
 <body>
 <div class="main gt-bg-theme-color-first">
-    <div class="main-content">
-        <nav class="navbar navbar-expand-lg">
+    <nav class="navbar navbar-expand-lg">
     <div class="navbar-brand">
         <img class="user-avatar" src="/images/avatar.png" alt="头像">
         <div class="site-name gt-c-content-color-first">
@@ -91,78 +91,90 @@
         </div>
     </div>
 </nav>
-        <div class="current-tag-container">
-            <h2 class="title gt-c-content-color-first">
-                #存档
-            </h2>
+    <div class="post-container">
+        <div class="post-detail gt-bg-theme-color-second">
+            <article class="gt-post-content">
+                <h2 class="post-title">
+                    使用 CSS 将网页黑白化
+                </h2>
+                <div class="post-info">
+                    <time class="post-time gt-c-content-color-first">
+                        · 04-04-2020 ·
+                    </time>
+                    
+                        <a href="https://leonwong0609.github.io/tag/7u1KtwPL8/" class="post-tags">
+                            # 设计
+                        </a>
+                    
+                        <a href="https://leonwong0609.github.io/tag/86oOp5QCV/" class="post-tags">
+                            # 博客
+                        </a>
+                    
+                </div>
+                <div class="post-content">
+                    <p>今天是清明节，降半旗哀悼疫情中的逝者，看到许多网页都变黑白了。我的小站就是直接在外部样式里写上自定义 CSS 就可以实现了，这里整理一些黑白化网页的 CSS 代码。</p>
+<!-- more -->
+<p>首先可以直接写在 HTML 标签里：</p>
+<pre><code class="language-html">&lt;html style=&quot;filter: progid:DXImageTransform.Microsoft.BasicImage(grayscale=1);-webkit-filter: grayscale(100%);&quot;&gt;
+</code></pre>
+<p>也可以在外部样式里写：</p>
+<pre><code class="language-css">html{
+    filter: progid:DXImageTransform.Microsoft.BasicImage(grayscale=1);
+    -webkit-filter: grayscale(100%);
+}
+</code></pre>
+<p>还有个在网上收集到的超全的：</p>
+<pre><code class="language-css">html{
+    -webkit-filter: grayscale(100%);
+    -moz-filter: grayscale(100%);
+    -ms-filter: grayscale(100%);
+    -o-filter: grayscale(100%);
+    filter: grayscale(100%);
+    filter: url(&quot;data:image/svg+xml;utf8,&lt;svg xmlns=\'http://www.w3.org/2000/svg\'&gt;&lt;filter id=\'grayscale\'&gt;&lt;feColorMatrix type=\'matrix\' values=\'0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0\'/&gt;&lt;/filter&gt;&lt;/svg&gt;#grayscale&quot;); 
+    filter: progid:DXImageTransform.Microsoft.BasicImage(grayscale=1);
+}
+</code></pre>
+
+                </div>
+            </article>
         </div>
-        <div class="post-list-container">
-    <div class="post-inner">
+
         
-            <div class="post gt-bg-theme-color-second">
-                <div class="post-left">
-                    <div>
-                        
-                        <a href="https://leonwong0609.github.io/post/ReflectionOn2019nCoVOutbreak/">
-                            <span class="post-title gt-c-content-color-first">对本次疫情的结构性反思：谣言、官僚和国家主义</span>
-                        </a>
-                    </div>
-                    <div class="gt-post-content post-abstract gt-c-content-color-second">
-                        
-                    </div>
-                    <div class="post-info">
-                        <time class="post-time gt-c-content-color-first">
-                            发布于 · 03-10-2020 ·
-                        </time>
-                        
-                            <a href="https://leonwong0609.github.io/tag/cun-dang/" class="post-tag">
-                                # 存档
-                            </a>
-                        
-                    </div>
-                </div>
-                
-                    <a href="https://leonwong0609.github.io/post/ReflectionOn2019nCoVOutbreak/" class="post-feature-image"
-                       style="background-image: url('https://leonwong0609.github.io/post-images/ReflectionOn2019nCoVOutbreak.png')">
-                    </a>
-                
+            <div class="next-post">
+                <div class="next gt-c-content-color-first">下一篇</div>
+                <a href="https://leonwong0609.github.io/post/photo-stream/" class="post-title gt-a-link">
+                    搭建个人的照片墙
+                </a>
             </div>
         
-            <div class="post gt-bg-theme-color-second">
-                <div class="post-left">
-                    <div>
-                        
-                        <a href="https://leonwong0609.github.io/post/Fa_Shaozi_de_Ren/">
-                            <span class="post-title gt-c-content-color-first">《人物》：发哨子的人</span>
-                        </a>
-                    </div>
-                    <div class="gt-post-content post-abstract gt-c-content-color-second">
-                        
-                    </div>
-                    <div class="post-info">
-                        <time class="post-time gt-c-content-color-first">
-                            发布于 · 03-10-2020 ·
-                        </time>
-                        
-                            <a href="https://leonwong0609.github.io/tag/cun-dang/" class="post-tag">
-                                # 存档
-                            </a>
-                        
-                    </div>
-                </div>
-                
-                    <a href="https://leonwong0609.github.io/post/Fa_Shaozi_de_Ren/" class="post-feature-image"
-                       style="background-image: url('https://leonwong0609.github.io/post-images/Fa_Shaozi_de_Ren.png')">
-                    </a>
-                
-            </div>
+
         
-    </div>
-</div>
-        <div class="pagination-container">
-    
-    
-</div>
+            
+                <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+
+<div id="gitalk-container"></div>
+
+<script>
+
+  var gitalk = new Gitalk({
+    clientID: '71c9095550a821a30374',
+    clientSecret: '96a303782883ab7dc77209618d79ad5d29a342af',
+    repo: 'LeonWong0609.github.io',
+    owner: 'LeonWong0609',
+    admin: ['LeonWong0609'],
+    id: location.pathname,      // Ensure uniqueness and length less than 50
+    distractionFreeMode: false  // Facebook-like distraction free mode
+  })
+
+  gitalk.render('gitalk-container')
+
+</script>
+
+            
+
+            
+        
 
         <div class="site-footer gt-c-content-color-first">
     <div class="slogan gt-c-content-color-first">不可勝在己，可勝在敵。</div>
@@ -201,6 +213,7 @@
 <script>
     hljs.initHighlightingOnLoad()
 </script>
+
 
     </div>
 </div>
