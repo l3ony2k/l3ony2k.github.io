@@ -1,329 +1,107 @@
-<!DOCTYPE html>
 <html>
   <head>
-    <meta charset="UTF-8"/>
-
-<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-<meta name="keywords" content="Wonder Space">
-<meta name="description" content="不可勝在己，可勝在敵。">
-<meta name="theme-color" content="#000">
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>用自定义 CSS 解决文章内单词词内折行问题 | Wonder Space 🚀</title>
-<link rel="shortcut icon" href="/favicon.ico?v=1586352218146">
-<link rel="stylesheet" href="/styles/main.css">
-<link rel="stylesheet" href="/media/css/gemini.css">
+<meta name="description" content="不可勝在己，可勝在敵" />
+<link rel="shortcut icon" href="https://leonwong0609.github.io/favicon.ico?v=1586357423662">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
 
-<link rel="stylesheet" href="/media/fonts/font-awesome.css">
-<link href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Rosario:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="https://leonwong0609.github.io/styles/main.css">
 
-<link href="/media/hljs/styles/androidstudio.css" rel="stylesheet">  
 
-<script src="/media/hljs/highlight.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.0/velocity.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.0/velocity.ui.min.js"></script>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" integrity="sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/+DiW/UqRcLbRjq" crossorigin="anonymous">
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js" integrity="sha384-y23I5Q6l+B6vatafAwxRu/0oK/79VlbSz7Q9aiSZUvyWYIYsd+qj+o24G5ZU2zJz" crossorigin="anonymous"></script>
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous"
-    onload="renderMathInElement(document.body);"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-156553722-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
 
-    <meta name="description" content="用自定义 CSS 解决文章内单词词内折行问题" />
-    <meta name="keywords" content="博客" />
+  gtag('config', 'UA-156553722-1');
+</script>
+
+
   </head>
   <body>
-    <div class="head-top-line"></div>
-    <div class="header-box">
-      
-<div class=" gemini">
-  <header class="header bg-color ">
-    <div class="blog-header box-shadow-wrapper bg-color " id="header">
-      <div class="nav-toggle" id="nav_toggle">
-        <div class="toggle-box">
-          <div class="line line-top"></div>
-          <div class="line line-center"></div>
-          <div class="line line-bottom"></div>
-        </div>
+    <div id="app" class="main px-4 flex flex-col lg:flex-row">
+      <div id="sidebar" class="sidebar-wrapper lg:static lg:w-1/4">
+  <div class="lg:sticky top-0">
+    <div class="sidebar-content">
+      <div class="flex lg:block p-4 lg:px-0 items-center fixed lg:static lg:block top-0 right-0 left-0 bg-white z-50">
+        <i class="ri-menu-2-line lg:mt-4 text-2xl cursor-pointer animated fadeIn" onclick="openMenu()"></i>
+        <a href="https://leonwong0609.github.io">
+          <img class="animated fadeInLeft avatar rounded-lg mx-4 lg:mt-32 lg:mx-0 mt-0 lg:w-24 lg:h-24 w-12 w-12" src="https://leonwong0609.github.io/images/avatar.png?v=1586357423662" alt="">
+        </a>
+        <h1 class="animated fadeInLeft lg:text-4xl font-extrabold lg:mt-8 mt-0 text-xl" style="animation-delay: 0.2s">Wonder Space 🚀</h1>
       </div>
-      <div class="site-meta">       
-        <div class="site-title">
-          
-            <a href="/" class="brand">
-              <span>Wonder Space 🚀</span>
-            </a>  
-          
-        </div>
-        
-          <p class="subtitle">充满好奇地观察世界</p>
-        
-      </div>
-      <nav class="site-nav" id="site_nav">
-        <ul id="nav_ul">
-          
-            <li class="nav-item ">
-              
-              
-                <a href="/" target="_self">
-                  🏠 首页
-                </a>
-              
-            </li>
-          
-            <li class="nav-item ">
-              
-              
-                <a href="/tags" target="_self">
-                  🏷️ 标签
-                </a>
-              
-            </li>
-          
-            <li class="nav-item ">
-              
-              
-                <a href="/archives" target="_self">
-                  📬 归档
-                </a>
-              
-            </li>
-          
-            <li class="nav-item ">
-              
-              
-                <a href="https://leonwong0609.netlify.com/" target="_self">
-                  📷 图流
-                </a>
-              
-            </li>
-          
-            <li class="nav-item ">
-              
-              
-                <a href="/post/about" target="_self">
-                  😶 关于
-                </a>
-              
-            </li>
-          
-          <li class="nav-item">
-            <a>
-              <i class="fa fa-search"></i> 搜索
-            </a>
-          </li>
-        </ul>
-      </nav>
-    </div>
-  </header>
-</div>
-
-<script type="text/javascript"> 
- 
-  let showNav = true;
-
-  let navToggle = document.querySelector('#nav_toggle'),
-  siteNav = document.querySelector('#site_nav');
-  
-  function navClick() {
-    let sideBar = document.querySelector('.sidebar');
-    let navUl = document.querySelector('#nav_ul');
-    navToggle.classList.toggle('nav-toggle-active');
-    siteNav.classList.toggle('nav-menu-active');
-    if (siteNav.classList.contains('nav-menu-active')) {
-      siteNav.style = "height: " + (navUl.children.length * 42) +"px !important";
-    } else {
-      siteNav.style = "";
-    }
-  }
-
-  navToggle.addEventListener('click',navClick);  
-</script>
-    </div>
-    <div class="main-continer">
       
-      <div class="section-layout gemini ">
-        <div class="section-layout-wrapper">
-          
-
-<div class="sidebar">
-  
-    <div class="sidebar-box box-shadow-wrapper bg-color right-motion" id="sidebar">
-      
-        <div class="post-list-sidebar">
-          <div class="sidebar-title">
-            <span id="tocSideBar" class="sidebar-title-item sidebar-title-active">文章目录</span>
-            <span id="metaSideBar" class="sidebar-title-item">站点概览</span>
+        <div class="animated fadeInLeft" style="animation-delay: 0.4s">
+          <p class="my-4 text-gray-600 font-light hidden lg:block">
+            文章目录
+          </p>
+          <div class="toc-container hidden lg:block">
+            
           </div>
         </div>
       
-      <div class="sidebar-body gemini" id="sidebar_body">
-        
-          
-            
-<div class="sidebar-wrapper box-shadow-wrapper bg-color">
-  <div class="sidebar-item">
-    <img class="site-author-image right-motion" src="https://leonwong0609.github.io/images/avatar.png"/>
-    <p class="site-author-name">Wonder Space 🚀</p>
-    <p class="site-description right-motion">不可勝在己，可勝在敵。</p>
-  </div>
-  <div class="sidebar-item side-item-stat right-motion">
-    <div class="sidebar-item-box">
-      <a href="/archives/">
-        
-        <span class="site-item-stat-count">14</span>
-        <span class="site-item-stat-name">文章</span>
-      </a>
-    </div>
-    <div class="sidebar-item-box">
-      <a href="">
-        <span class="site-item-stat-count">6</span>
-        <span class="site-item-stat-name">分类</span>
-      </a>
-    </div>
-    <div class="sidebar-item-box">
-      <a href="/tags/">
-        <span class="site-item-stat-count">6</span>
-        <span class="site-item-stat-name">标签</span>
-      </a>
     </div>
   </div>
-  
-    
-      <div class="sidebar-item">
-        <span class="site-item-rss">
-            <i class="fa fa-rss"></i>
-            <a href="https://leonwong0609.github.io/atom.xml" target="_blank">RSS</a>
-        </span>
-      </div>
-    
-  
-  
-
-
 </div>
-          
-        
-      </div>
-    </div>
-  
-</div>
-<script>
-  const SIDEBAR_TITLE_ACTIVE = 'sidebar-title-active';
-  const SIDEBAR_BODY_ACTIVE = 'sidebar-body-active';
-  const SLIDE_UP_IN = 'slide-up-in';
 
-  let sidebar = document.querySelector('#sidebar'),
-  tocSideBar = document.querySelector('#tocSideBar'),
-  metaSideBar = document.querySelector('#metaSideBar'),
-  postToc = document.querySelector('#post_toc'),
-  postSiteMeta = document.querySelector('#post_side_meta'),
-  sidebarTitle = document.querySelector('.sidebar-title'),
-  sidebarBody = document.querySelector('#sidebar_body');
-
-  tocSideBar && tocSideBar.addEventListener('click', (e) => {
-    toggleSidebar(e);
-  });
-
-  metaSideBar && metaSideBar.addEventListener('click', (e) => {
-    toggleSidebar(e);
-  });
-
-  function toggleSidebar(e) {
-    let currentTitle = document.querySelector("."+SIDEBAR_TITLE_ACTIVE);
-    if (currentTitle == e.srcElement) {
-      return ;
-    }
-    let current, showElement, hideElement;
-    if (e.srcElement == metaSideBar) {
-      showElement = postSiteMeta;
-      hideElement = postToc;
-    } else if (e.srcElement == tocSideBar){
-      showElement = postToc;
-      hideElement = postSiteMeta;
-    }
-    currentTitle.classList.remove(SIDEBAR_TITLE_ACTIVE);
-    e.srcElement.classList.add(SIDEBAR_TITLE_ACTIVE);
-
-    window.Velocity(hideElement, 'stop');
-    window.Velocity(hideElement, 'transition.slideUpOut', {
-      display: 'none',
-      duration: 200,
-      complete: function () {
-        window.Velocity(showElement, 'transition.slideDownIn', {
-          duration: 200
-        });
-      }
-    })
-    hideElement.classList.remove(SIDEBAR_BODY_ACTIVE);
-    showElement.classList.add(SIDEBAR_BODY_ACTIVE);
-  }
-
-  postToc && postToc.addEventListener('transitionend', function() {
-    this.classList.remove(SLIDE_UP_IN);
-  });
-
-  if (sidebarBody) {
-    if (sidebarBody.classList.contains('pisces') || sidebarBody.classList.contains('gemini')) {
-      let hasFix = false;
-      let scrollEl = document.querySelector('.main-continer');
-      let limitTop = document.querySelector('#nav_ul').children.length * 42 + 162;
-      window.addEventListener('scroll', function(e) {
-        if (document.scrollingElement.scrollTop >= limitTop) {
-          if (!hasFix) {
-            sidebar.classList.add('sidebar-fixed');
-            hasFix = true;
-          }
-        } else {
-          if (hasFix) {
-            sidebar.classList.remove('sidebar-fixed');
-            hasFix = false;
-          }
-        }
-      });
-    }
-  }
-  
-</script>
-          <div class="section-box box-shadow-wrapper">
-            <div class="section bg-color post post-page">
-              <header class="post-header">
-  <h1 class="post-title">
-    <a class="post-title-link" href="https://leonwong0609.github.io/post/PureCustomizedCSS/">
-      用自定义 CSS 解决文章内单词词内折行问题
-    </a>
-  </h1>
-  <div class="post-meta">
+<div class="menu-container">
+  <i class="ri-arrow-left-line text-2xl cursor-pointer animated fadeIn close-menu-btn" onclick="closeMenu()"></i>
+  <div>
     
-    <span class="meta-item pc-show">
-      <i class="fa fa-calendar-o"></i>
-      <span>发布于</span>
-      <span>02-18-2020</span>
-      <span class="post-meta-divider pc-show">|</span>
-    </span>
+      
+        <a href="/" class="menu" style="animation-delay: 0s">
+          🏠 首页
+        </a>
+      
     
-      <span class="meta-item">
-        <i class="fa fa-folder-o"></i>
-        <span class="pc-show">分类于</span>
-        
-          
-            <a href="https://leonwong0609.github.io/tag/86oOp5QCV/">
-              <span>博客</span>
-            </a>
-          
-        
-      </span>
-      <span class="post-meta-divider">|</span>
+      
+        <a href="/tags" class="menu" style="animation-delay: 0.2s">
+          🏷️ 标签
+        </a>
+      
     
-    <span class="meta-item">
-      <i class="fa fa-clock-o"></i>
-      <span>2分钟</span>
-    </span>
-    <span class="meta-item">
-      <span class="post-meta-divider">|</span>
-      <i class="fa fa-file-word-o"></i>
-      <span>490<span class="pc-show">字数</span></span>
-    </span>
+      
+        <a href="/archives" class="menu" style="animation-delay: 0.4s">
+          📬 归档
+        </a>
+      
+    
+      
+        <a href="https://leonwong0609.netlify.com/" class="menu" style="animation-delay: 0.6000000000000001s">
+          📷 图流
+        </a>
+      
+    
+      
+        <a href="/post/about" class="menu" style="animation-delay: 0.8s">
+          😶 关于
+        </a>
+      
     
   </div>
-</header>
-              <div class="post-body next-md-body" id="post_body">
-                <p>最近给博客换了身新皮，叫做 Pure，主题设计得特别赞，整体简洁大方，细节也十分到位，一些小动画也特别顺畅优雅。之前的主题 Walker 存在 <code>Title</code> 一直不会变的问题，换上这个主题就没有发现这个问题了。然而使用过程中发现另外一个问题，英文单词会行内折行，而且也没有折行的连字符。</p>
+  <div class="site-footer">
+    <div class="py-4 text-gray-700"><a href="/post/about/">About ❤</a></div>
+    <a class="rss" href="https://leonwong0609.github.io/atom.xml" target="_blank">RSS</a>
+  </div>
+</div>
+<div class="mask" onclick="closeMenu()">
+</div>
+      <div class="content-wrapper py-32 lg:p-8 lg:w-3/4 post-detail animated fadeIn">
+        <h1 class="text-3xl font-bold lg:mt-16">用自定义 CSS 解决文章内单词词内折行问题</h1>
+        <div class="text-sm text-gray-700 lg:my-8">
+          02-18-2020 / 2 min read
+        </div>
+        
+          <img class="post-feature-image rounded-lg mx-auto my-4" src="https://leonwong0609.github.io/post-images/PureCustomizedCSS.png" alt="">
+        
+        <div class="post-content yue">
+          <p>最近给博客换了身新皮，叫做 Pure，主题设计得特别赞，整体简洁大方，细节也十分到位，一些小动画也特别顺畅优雅。之前的主题 Walker 存在 <code>Title</code> 一直不会变的问题，换上这个主题就没有发现这个问题了。然而使用过程中发现另外一个问题，英文单词会行内折行，而且也没有折行的连字符。</p>
 <!-- more -->
 <p>如下图：</p>
 <p><img src="https://leonwong0609.github.io/post-images/1582039747497.png" alt="存在词内折行问题的正文内容" loading="lazy"><br>
@@ -379,53 +157,48 @@ word-break: normal;
 </table>
 <p>后来在主题作者的博客摸到作者的微博，从微博简介中发现，这个主题的作者竟然就是我初中时候就在用的那个天气应用 Pure 天气的开发者。虽然看到这个主题名字就应该能猜到，但只有真的看到时才会觉得原来如此、理所当然。不知是这个圈子真小还是缘分真的奇妙呢。</p>
 
-              </div>
-              <div class="post-footer">
-  <ul class="post-copyright">
-    <li class="post-copyright-author">
-      <strong>本文作者：</strong>
-      Wonder Space 🚀
-    </li>
-    <li class="post-copyright-link">
-      <strong>本文链接：</strong>
-      <a href="https://leonwong0609.github.io/post/PureCustomizedCSS/" title="用自定义 CSS 解决文章内单词词内折行问题">用自定义 CSS 解决文章内单词词内折行问题</a>
-    </li>
-    <li class="post-copyright-license">
-      <strong>版权声明： </strong>
-      本博客所有文章除特别声明外，转载请注明出处！
-    </li>
-  </ul>
-  <div class="tags">
-    
-      <a href="https://leonwong0609.github.io/tag/86oOp5QCV/"># 博客</a>
-    
-  </div>
-  <div class="nav">
-    <div class="nav-prev">
-      
-        <i class="fa fa-chevron-left"></i>
-        <a class="nav-pc-next" title="开始用「中文引号」" href="https://leonwong0609.github.io/post/ChineseQuotationMark/">开始用「中文引号」</a class="nav-pc-next">
-        <a class="nav-mobile-prev" title="开始用「中文引号」" href="https://leonwong0609.github.io/post/ChineseQuotationMark/">上一篇</a>
-      
-    </div>
-    <div class="nav-next">
-      
-        <a class="nav-pc-next" title="「中性色」收集" href="https://leonwong0609.github.io/post/midtone/">「中性色」收集</a>
-        <a class="nav-mobile-next" title="「中性色」收集" href="https://leonwong0609.github.io/post/midtone/">下一篇</a>
-        <i class="fa fa-chevron-right"></i>
-      
-    </div>
-  </div>
-</div>
-              
-                
-                  
-                    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+        </div>
+
+        
+          <a class="animated fadeInUp p-2 items-center text-sm text-gray-700 border hover:bg-gray-300 leading-none rounded-full flex lg:inline-flex m-4 " href="https://leonwong0609.github.io/tag/86oOp5QCV/">
+            <span class="flex-auto">博客</span>
+          </a>
+        
+
+
+        <div class="flex justify-between py-8">
+          
+            <div class="prev-post">
+              <a href="https://leonwong0609.github.io/post/ChineseQuotationMark/">
+                <h3 class="post-title">
+                  <i class="ri-arrow-left-line"></i>
+                  开始用「中文引号」
+                </h3>
+              </a>
+            </div>
+          
+
+          
+            <div class="next-post">
+              <a href="https://leonwong0609.github.io/post/midtone/">
+                <h3 class="post-title">
+                  「中性色」收集
+                  <i class="ri-arrow-right-line"></i>
+                </h3>
+              </a>
+            </div>
+          
+        </div>
+
+        
+          
+            <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
 <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
 
 <div id="gitalk-container"></div>
 
 <script>
+
   var gitalk = new Gitalk({
     clientID: '71c9095550a821a30374',
     clientSecret: '96a303782883ab7dc77209618d79ad5d29a342af',
@@ -435,174 +208,116 @@ word-break: normal;
     id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
     distractionFreeMode: false  // Facebook-like distraction free mode
   })
+
   gitalk.render('gitalk-container')
+
 </script>
-                  
-                  
-                
-              
-            </div>
-          </div>
-        </div>
+
+          
+
+          
+        
+
       </div>
-      <div class="footer-box">
-  <footer class="footer">
-    <div class="copyright">
-      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | © 2019-2020 Theme By HsxyHao
     </div>
-    <div class="poweredby">
-      <a href="/post/about/">❤</a>
-    </div>
-  </footer>
-  
-  
-  <div class="gemini back-to-top" id="back_to_top">
-    <i class="fa fa-arrow-up"></i>
-    
-    <span class="scrollpercent">
-      <span id="back_to_top_text">0</span>%
-    </span>
-    
-  </div>
-  
-  
-  
-</div>
+
+    <script src="https://leonwong0609.github.io/media/prism.js"></script>  
 <script>
 
-  let sideBarOpen = 'sidebar-open';
-  let body = document.body;
-  let back2Top = document.querySelector('#back_to_top'),
-  back2TopText = document.querySelector('#back_to_top_text'),
-  drawerBox = document.querySelector('#drawer_box'),
-  rightSideBar = document.querySelector('.sidebar'),
-  viewport = document.querySelector('body');
+Prism.highlightAll()
+let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
 
-  function scrollAnimation(currentY, targetY) {
-   
-    let needScrollTop = targetY - currentY
-    let _currentY = currentY
-    setTimeout(() => {
-      const dist = Math.ceil(needScrollTop / 10)
-      _currentY += dist
-      window.scrollTo(_currentY, currentY)
-      if (needScrollTop > 10 || needScrollTop < -10) {
-        scrollAnimation(_currentY, targetY)
+// This should probably be throttled.
+// Especially because it triggers during smooth scrolling.
+// https://lodash.com/docs/4.17.10#throttle
+// You could do like...
+// window.addEventListener("scroll", () => {
+//    _.throttle(doThatStuff, 100);
+// });
+// Only not doing it here to keep this Pen dependency-free.
+
+window.addEventListener("scroll", event => {
+  let fromTop = window.scrollY;
+
+  mainNavLinks.forEach((link, index) => {
+    let section = document.getElementById(decodeURI(link.hash).substring(1));
+    let nextSection = null
+    if (mainNavLinks[index + 1]) {
+      nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
+    }
+    if (section.offsetTop <= fromTop) {
+      if (nextSection) {
+        if (nextSection.offsetTop > fromTop) {
+          link.classList.add("current");
+        } else {
+          link.classList.remove("current");    
+        }
       } else {
-        window.scrollTo(_currentY, targetY)
+        link.classList.add("current");
       }
-    }, 1)
-  }
-
-  back2Top.addEventListener("click", function(e) {
-    scrollAnimation(document.scrollingElement.scrollTop, 0);
-    e.stopPropagation();
-    return false;
-  });
-  
-  window.addEventListener('scroll', function(e) {
-    let percent = document.scrollingElement.scrollTop / (document.scrollingElement.scrollHeight - document.scrollingElement.clientHeight) * 100;
-    if (percent > 1 && !back2Top.classList.contains('back-top-active')) {
-      back2Top.classList.add('back-top-active');
-    }
-    if (percent == 0) {
-      back2Top.classList.remove('back-top-active');
-    }
-    if (back2TopText) {
-      back2TopText.textContent = Math.floor(percent);
+    } else {
+      link.classList.remove("current");
     }
   });
+});
 
-  
-  let hasCacu = false;
-  window.onresize = function() {
-    if (window.width > 991) {
-      calcuHeight();
-    } else {
-      hasCacu = false;
-    }
+
+document.addEventListener("DOMContentLoaded", function() {
+  var lazyImages = [].slice.call(document.querySelectorAll(".post-feature-image.lazy"));
+
+  if ("IntersectionObserver" in window) {
+    let lazyImageObserver = new IntersectionObserver(function(entries, observer) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          let lazyImage = entry.target
+          lazyImage.style.backgroundImage = `url(${lazyImage.dataset.bg})`
+          lazyImage.classList.remove("lazy")
+          lazyImageObserver.unobserve(lazyImage)
+        }
+      });
+    });
+
+    lazyImages.forEach(function(lazyImage) {
+      lazyImageObserver.observe(lazyImage)
+    })
+  } else {
+    // Possibly fall back to a more compatible method here
   }
+});
 
-  function calcuHeight() {
-    // 动态调整站点概览高度
-    if (!hasCacu && back2Top.classList.contains('pisces') || back2Top.classList.contains('gemini')) {
-      let sideBar = document.querySelector('.sidebar');
-      let navUl = document.querySelector('#site_nav');
-      sideBar.style = 'margin-top:' + (navUl.offsetHeight + navUl.offsetTop + 15) + 'px;';
-      hasCacu = true;
-    }
-  }
-  calcuHeight();
-  
-  let open = false, MOTION_TIME = 300, RIGHT_MOVE_DIS = '320px';
+const menuContainer = document.querySelector('.menu-container')
+const menus = document.querySelectorAll('.menu-container .menu')
+const mask = document.querySelector('.mask')
+const contentWrapper = document.querySelector('.content-wrapper')
+const latestArticle = document.querySelector('.latest-article')
+const readMore = document.querySelector('.read-more')
+const indexPage = document.querySelector('.index-page')
 
-  if (drawerBox) {
-    let rightMotions = document.querySelectorAll('.right-motion');
-    let right = drawerBox.classList.contains('right');
+const isHome = location.pathname === '/'
+if (latestArticle) {
+  latestArticle.style.display = isHome ? 'block' : 'none'
+  readMore.style.display = isHome ? 'block' : 'none'
+  indexPage.style.display = isHome ? 'none' : 'block'
+}
 
-    let transitionDir = right ? "transition.slideRightIn" : "transition.slideLeftIn";
+const openMenu = () => {
+  menuContainer.classList.add('open')
+  menus.forEach(menu => {
+    menu.classList.add('animated', 'fadeInLeft')
+  })
+  mask.classList.add('open')
+  contentWrapper.classList.add('is-second')
+}
 
-    let openProp, closeProp;
-    if (right) {
-      openProp = {
-        paddingRight: RIGHT_MOVE_DIS 
-      };
-      closeProp = {
-        paddingRight: '0px'
-      };
-    } else {
-      openProp = {
-        paddingLeft: RIGHT_MOVE_DIS 
-      };
-      closeProp = {
-        paddingLeft: '0px'
-      };
-    }
-
-    drawerBox.onclick = function() {
-      open = !open;
-      window.Velocity(rightSideBar, 'stop');
-      window.Velocity(viewport, 'stop');
-      window.Velocity(rightMotions, 'stop');
-      if (open) {
-        window.Velocity(rightSideBar, {
-          width: RIGHT_MOVE_DIS
-        }, {
-          duration: MOTION_TIME,
-          begin: function() {
-            window.Velocity(rightMotions, transitionDir,{ });
-          }
-        })
-        window.Velocity(viewport, openProp,{
-          duration: MOTION_TIME
-        });
-      } else {
-        window.Velocity(rightSideBar, {
-          width: '0px'
-        }, {
-          duration: MOTION_TIME,
-          begin: function() {
-            window.Velocity(rightMotions, {
-              opacity: 0
-            });
-          }
-        })
-        window.Velocity(viewport, closeProp ,{
-          duration: MOTION_TIME
-        });
-      }
-      for (let i = 0; i < drawerBox.children.length; i++) {
-        drawerBox.children[i].classList.toggle('muse-line');
-      }
-      drawerBox.classList.toggle(sideBarOpen);
-    }
-  }
-
-  // 代码高亮
-  hljs.initHighlightingOnLoad();
-
+const closeMenu = () => {
+  menuContainer.classList.remove('open')
+  menus.forEach(menu => {
+    menu.classList.remove('animated', 'fadeInLeft')
+  })
+  mask.classList.remove('open')
+  contentWrapper.classList.remove('is-second')
+}
 </script>
-    </div>
+  
   </body>
-  <script src="/media/js/motion.js"></script>
 </html>
