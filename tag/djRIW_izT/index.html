@@ -1,162 +1,128 @@
-<html>
-  <head>
-    <meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
 <title>Wonder Space 🚀</title>
-<meta name="description" content="不可勝在己，可勝在敵。" />
-<link rel="shortcut icon" href="https://leonwong0609.github.io/favicon.ico?v=1586347626879">
-<link href="https://cdn.remixicon.com/releases/v1.3.1/remixicon.css" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
-
+<link rel="shortcut icon" href="https://leonwong0609.github.io/favicon.ico">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.2.0/fonts/remixicon.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css">
+<link rel="stylesheet" href="https://leonwong0609.github.io/media/css/tailwind.css">
 <link rel="stylesheet" href="https://leonwong0609.github.io/styles/main.css">
 <link rel="alternate" type="application/atom+xml" title="Wonder Space 🚀 - Atom Feed" href="https://leonwong0609.github.io/atom.xml">
 
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
 
-
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-156553722-1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'UA-156553722-1');
-</script>
-
-
-  </head>
-  <body>
-    <div class="head">
-  <div class="inner">
-    <a class="site-name" href="https://leonwong0609.github.io">
-        <span>Wonder Space 🚀</span>
-    </a>
-    <label class="burger" for="burger"></label>
-    <input id="burger" type="checkbox">
-    <button class="burger">
-      <div>
-        <span></span>
-        <span></span>
-      </div>
-    </button>
-    <nav class="info_nav">
-      
-        
-          <a href="/">🏠 首页</a>
-        
-      
-        
-          <a href="/tags">🏷️ 标签</a>
-        
-      
-        
-          <a href="/archives">📬 归档</a>
-        
-      
-        
-          <a href="https://leonwong0609.netlify.com/">📷 图流</a>
-        
-      
-        
-          <a href="/post/about">😶 关于</a>
-        
-      
-    </nav>
-  </div>
-</div>
-    <div class="info _site">
-      <div class="inner">
-        <div class="info_main">
-          <h1 class="info_title"><i class="remixicon-price-tag-3-line"></i> 软件</h1>
-        </div>
-      </div>
-    </div>
-    <div class="main">
-      <div class="inner">
-        <div class="items">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-156553722-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
   
-    <div class="item Article">
-      
-        <a class="item-image js-cover" data-src="https://leonwong0609.github.io/post-images/EvernoteWindowsSysProxyIssue.png" href="https://leonwong0609.github.io/post/EvernoteWindowsSysProxyIssue/" style="background-image:url('https://leonwong0609.github.io/post-images/EvernoteWindowsSysProxyIssue.png');"></a>
-      
-      <a class="item-main" href="https://leonwong0609.github.io/post/EvernoteWindowsSysProxyIssue/">
-        <div class="item-meta">
-          <time datetime="2020-02-10 21:02:57">02-10-2020</time>
-        </div>
-        <h2>顽皮的 Evernote Windows 与低调的 Pharos Pro</h2>
+    gtag('config', 'UA-156553722-1');
+  </script>
+    
+
+  <meta name="description" content="不可勝在己，可勝在敵。" />
+</head>
+<body>
+  <div class="antialiased flex flex-col min-h-screen" id="app">
+
+    <div class="nav py-3 md:py-8 fixed w-full z-10 bg-gray-50 dark:bg-gray-700 transition-all duration-300" :class="{ 'scroll': scrolled }">
+  <div class="flex justify-end px-4">
+    <div class="w-8 h-8 flex justify-center items-center rounded-full md:hidden" @click="showMenu = !showMenu">
+      <i class="ri-close-line" v-show="showMenu"></i>
+      <i class="ri-menu-3-line" v-show="!showMenu"></i>
+    </div>
+  </div>
+  <nav class="max-w-4xl w-full mx-auto text-center flex flex-col md:flex-row justify-center md:block" :class="`${ showMenu ? 'block' : 'hidden' }`">
+    
+      <a href="/" target="" class="py-2 md:py-1 px-4 mx-4 inline-flex transition font-semibold rounded dark:hover:bg-gray-600 hover:bg-gray-200">
+        🏠 首页
+      </a>
+    
+      <a href="/tags" target="" class="py-2 md:py-1 px-4 mx-4 inline-flex transition font-semibold rounded dark:hover:bg-gray-600 hover:bg-gray-200">
+        🏷️ 标签
+      </a>
+    
+      <a href="/archives" target="" class="py-2 md:py-1 px-4 mx-4 inline-flex transition font-semibold rounded dark:hover:bg-gray-600 hover:bg-gray-200">
+        📬 归档
+      </a>
+    
+      <a href="https://leonwong0609.netlify.com/" target="" class="py-2 md:py-1 px-4 mx-4 inline-flex transition font-semibold rounded dark:hover:bg-gray-600 hover:bg-gray-200">
+        📷 图流
+      </a>
+    
+      <a href="/post/about" target="" class="py-2 md:py-1 px-4 mx-4 inline-flex transition font-semibold rounded dark:hover:bg-gray-600 hover:bg-gray-200">
+        😶 关于
+      </a>
+    
+    <a href="https://leonwong0609.github.io/atom.xml" target="_blank" class="py-2 md:py-1 px-4 mx-4 inline-flex transition font-semibold rounded dark:hover:bg-gray-600 hover:bg-gray-200">
+      RSS
+    </a>
+  </nav>
+</div>
+
+    <div class="max-w-4xl w-full mx-auto pt-32">
+      <h1 class="text-2xl font-bold pb-8 flex justify-center items-center">
+        <i class="ri-hashtag"></i>
+        软件
+      </h1>
+      <div class="shadow-box bg-white dark:bg-gray-600 border-gray-300 rounded-none md:rounded-lg -mx-1 md:mx-0 md:px-0">
+        
+  <div class="p-8 border-b border-gray-200 dark:border-gray-700 flex relative overflow-hidden flex-col md:flex-row animated fadeIn">
+    
+    <div class="flex-1 order-2 md:order-1">
+      <h2 class="text-2xl font-semibold mb-4">
+        <a href="https://leonwong0609.github.io/post/EvernoteWindowsSysProxyIssue/" class="text-gray-700 dark:text-gray-200 border-b-2 border-dotted border-gray-200 dark:border-gray-400 dark:hover:border-gray-200 hover:border-gray-600 transition-all duration-100">
+          顽皮的 Evernote Windows 与低调的 Pharos Pro
+        </a>
+      </h2>
+      <div class="mb-4 text-xs text-gray-500">02-10-2020</div>
+      <div class="mb-4 text-gray-500 dark:text-gray-300">
+        <p>简言之，这几天国际互联不稳定，刚开始发现是 Evernote 修改系统代理设置，后来发现是我的手机由于开着 Pharos Pro 热点有问题。</p>
+
+      </div>
+      <a href="https://leonwong0609.github.io/post/EvernoteWindowsSysProxyIssue/" class="btn">
+        More
       </a>
     </div>
-  
-    <div class="item Article">
-      
-        <a class="item-image js-cover" data-src="https://leonwong0609.github.io/post-images/markdown-nice.png" href="https://leonwong0609.github.io/post/markdown-nice/" style="background-image:url('https://leonwong0609.github.io/post-images/markdown-nice.png');"></a>
-      
-      <a class="item-main" href="https://leonwong0609.github.io/post/markdown-nice/">
-        <div class="item-meta">
-          <time datetime="2020-02-05 16:27:56">02-05-2020</time>
-        </div>
-        <h2>使用 Markdown Nice 简化微信公众号文章排版过程</h2>
+    
+      <img class="flex-shrink-0 self-start md:ml-4 mb-4 md:mb-0 rounded-sm object-cover featured-img order-1 md:order-2 w-full h-40 md:w-56 md:h-32" loading="lazy" src="https://leonwong0609.github.io/post-images/EvernoteWindowsSysProxyIssue.png" alt="顽皮的 Evernote Windows 与低调的 Pharos Pro">
+    
+  </div>
+
+  <div class="p-8 border-b border-gray-200 dark:border-gray-700 flex relative overflow-hidden flex-col md:flex-row animated fadeIn">
+    
+    <div class="flex-1 order-2 md:order-1">
+      <h2 class="text-2xl font-semibold mb-4">
+        <a href="https://leonwong0609.github.io/post/markdown-nice/" class="text-gray-700 dark:text-gray-200 border-b-2 border-dotted border-gray-200 dark:border-gray-400 dark:hover:border-gray-200 hover:border-gray-600 transition-all duration-100">
+          使用 Markdown Nice 简化微信公众号文章排版过程
+        </a>
+      </h2>
+      <div class="mb-4 text-xs text-gray-500">02-05-2020</div>
+      <div class="mb-4 text-gray-500 dark:text-gray-300">
+        <p>Markdown Nice 是一款在线、开源、轻便的小工具。它能帮助你使用 Markdown 语法快速产生一篇排版优美的微信文章，从而让你留出更多的精力放在内容上。</p>
+
+      </div>
+      <a href="https://leonwong0609.github.io/post/markdown-nice/" class="btn">
+        More
       </a>
     </div>
-  
-</div>
-
-        <div class="navigation">
-  
-  
-</div>
-      </div>
-    </div>
-    <footer class="footer">
-  <div class="main">
-    <a href="https://leonwong0609.github.io">
-      <img class="avatar" src="https://leonwong0609.github.io/images/avatar.png?v=1586347626879" alt="Wonder Space 🚀">
-    </a>
-    <div class="footer__social">
-      
-        
-      
-        
-          <a href="https://twitter.com/WBoy0609" target="_blank"><i class="remixicon-twitter-line"></i></a>
-        
-      
-        
-          <a href="https://weibo.com/6168268889/profile?rightmod=1&amp;wvr=6&amp;mod=personinfo" target="_blank"><i class="remixicon-weibo-line"></i></a>
-        
-      
-        
-          <a href="https://www.zhihu.com/people/leo0609/activities" target="_blank"><i class="remixicon-zhihu-line"></i></a>
-        
-      
-        
-      
-        
-          <a href="https://t.me/wonderboy0609" target="_blank"><i class="remixicon-telegram-line"></i></a>
-        
-      
-        
-      
-        
-          <a href="https://www.instagram.com/wonderboy0609/" target="_blank"><i class="remixicon-instagram-line"></i></a>
-        
-      
-        
-      
-        
-      
-    </div>
-    <p class="footer__sosumi">
-      <a href="/post/about/">Who am I?</a>
-    </p>
-    <a class="footer-rss" href="https://leonwong0609.github.io/atom.xml">RSS</a>
+    
+      <img class="flex-shrink-0 self-start md:ml-4 mb-4 md:mb-0 rounded-sm object-cover featured-img order-1 md:order-2 w-full h-40 md:w-56 md:h-32" loading="lazy" src="https://leonwong0609.github.io/post-images/markdown-nice.png" alt="使用 Markdown Nice 简化微信公众号文章排版过程">
+    
   </div>
+  
+      </div>
+
+      
+      <footer class="py-12 text-center px-4 md:px-0" v-pre>
+  <a href="/post/about/">❤</a>
 </footer>
 
-<script src="https://leonwong0609.github.io/media/prism.js"></script>
-<script>
-  Prism.highlightAll()
-</script>
-
-  </body>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="https://leonwong0609.github.io/media/scripts/main.js"></script>
+</body>
 </html>

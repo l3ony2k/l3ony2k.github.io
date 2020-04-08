@@ -1,288 +1,387 @@
-<html>
-  <head>
-    <meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
 <title>Wonder Space 🚀</title>
-<meta name="description" content="不可勝在己，可勝在敵。" />
-<link rel="shortcut icon" href="https://leonwong0609.github.io/favicon.ico?v=1586347626879">
-<link href="https://cdn.remixicon.com/releases/v1.3.1/remixicon.css" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
-
+<link rel="shortcut icon" href="https://leonwong0609.github.io/favicon.ico">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.2.0/fonts/remixicon.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css">
+<link rel="stylesheet" href="https://leonwong0609.github.io/media/css/tailwind.css">
 <link rel="stylesheet" href="https://leonwong0609.github.io/styles/main.css">
 <link rel="alternate" type="application/atom+xml" title="Wonder Space 🚀 - Atom Feed" href="https://leonwong0609.github.io/atom.xml">
 
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
 
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-156553722-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+  
+    gtag('config', 'UA-156553722-1');
+  </script>
+    
 
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-156553722-1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+  <meta name="description" content="不可勝在己，可勝在敵。" />
+</head>
+<body>
+  <div class="antialiased flex flex-col min-h-screen" id="app">
 
-  gtag('config', 'UA-156553722-1');
-</script>
-
-
-  </head>
-  <body>
-    <div class="homepage">
-      <div class="head">
-  <div class="inner">
-    <a class="site-name" href="https://leonwong0609.github.io">
-        <span>Wonder Space 🚀</span>
-    </a>
-    <label class="burger" for="burger"></label>
-    <input id="burger" type="checkbox">
-    <button class="burger">
-      <div>
-        <span></span>
-        <span></span>
-      </div>
-    </button>
-    <nav class="info_nav">
-      
-        
-          <a href="/">🏠 首页</a>
-        
-      
-        
-          <a href="/tags">🏷️ 标签</a>
-        
-      
-        
-          <a href="/archives">📬 归档</a>
-        
-      
-        
-          <a href="https://leonwong0609.netlify.com/">📷 图流</a>
-        
-      
-        
-          <a href="/post/about">😶 关于</a>
-        
-      
-    </nav>
+    <div class="nav py-3 md:py-8 fixed w-full z-10 bg-gray-50 dark:bg-gray-700 transition-all duration-300" :class="{ 'scroll': scrolled }">
+  <div class="flex justify-end px-4">
+    <div class="w-8 h-8 flex justify-center items-center rounded-full md:hidden" @click="showMenu = !showMenu">
+      <i class="ri-close-line" v-show="showMenu"></i>
+      <i class="ri-menu-3-line" v-show="!showMenu"></i>
+    </div>
   </div>
-</div>
-    </div>
-    <div class="info _site">
-      <div class="inner">
-        <div class="info_main">
-          
-            <h1 class="info_title"><a href="https://leonwong0609.github.io">Wonder Space 🚀</a></h1>
-            <h2 class="info_subtitle">不可勝在己，可勝在敵。</h2>
-            <nav class="info_nav">
-              
-                
-                  <a href="/">🏠 首页</a>
-                
-              
-                
-                  <a href="/tags">🏷️ 标签</a>
-                
-              
-                
-                  <a href="/archives">📬 归档</a>
-                
-              
-                
-                  <a href="https://leonwong0609.netlify.com/">📷 图流</a>
-                
-              
-                
-                  <a href="/post/about">😶 关于</a>
-                
-              
-            </nav>
-          
-        </div>
-      </div>
-    </div>
-    <div class="main">
-      <div class="inner">
-        <div class="items">
-  
-    <div class="item Article">
-      
-        <a class="item-image js-cover" data-src="https://leonwong0609.github.io/post-images/shi-yong-css-jiang-wang-ye-hei-bai-hua.png" href="https://leonwong0609.github.io/post/shi-yong-css-jiang-wang-ye-hei-bai-hua/" style="background-image:url('https://leonwong0609.github.io/post-images/shi-yong-css-jiang-wang-ye-hei-bai-hua.png');"></a>
-      
-      <a class="item-main" href="https://leonwong0609.github.io/post/shi-yong-css-jiang-wang-ye-hei-bai-hua/">
-        <div class="item-meta">
-          <time datetime="2020-04-04 12:19:30">04-04-2020</time>
-        </div>
-        <h2>使用 CSS 将网页黑白化</h2>
+  <nav class="max-w-4xl w-full mx-auto text-center flex flex-col md:flex-row justify-center md:block" :class="`${ showMenu ? 'block' : 'hidden' }`">
+    
+      <a href="/" target="" class="py-2 md:py-1 px-4 mx-4 inline-flex transition font-semibold rounded dark:hover:bg-gray-600 hover:bg-gray-200">
+        🏠 首页
       </a>
-    </div>
-  
-    <div class="item Article">
-      
-        <a class="item-image js-cover" data-src="https://cdn.jsdelivr.net/gh/LeonWong0609/LeonPicbed/20200320171127.png" href="https://leonwong0609.github.io/post/photo-stream/" style="background-image:url('https://cdn.jsdelivr.net/gh/LeonWong0609/LeonPicbed/20200320171127.png');"></a>
-      
-      <a class="item-main" href="https://leonwong0609.github.io/post/photo-stream/">
-        <div class="item-meta">
-          <time datetime="2020-03-20 14:14:30">03-20-2020</time>
-        </div>
-        <h2>搭建个人的照片墙</h2>
+    
+      <a href="/tags" target="" class="py-2 md:py-1 px-4 mx-4 inline-flex transition font-semibold rounded dark:hover:bg-gray-600 hover:bg-gray-200">
+        🏷️ 标签
       </a>
-    </div>
-  
-    <div class="item Article">
-      
-        <a class="item-image js-cover" data-src="https://cdn.jsdelivr.net/gh/LeonWong0609/LeonPicbed/20200320171401.png" href="https://leonwong0609.github.io/post/ThoughtsAbtFSZDR/" style="background-image:url('https://cdn.jsdelivr.net/gh/LeonWong0609/LeonPicbed/20200320171401.png');"></a>
-      
-      <a class="item-main" href="https://leonwong0609.github.io/post/ThoughtsAbtFSZDR/">
-        <div class="item-meta">
-          <time datetime="2020-03-12 02:11:07">03-12-2020</time>
-        </div>
-        <h2>《发哨子的人》随想：IPFS、审查制度与自信</h2>
+    
+      <a href="/archives" target="" class="py-2 md:py-1 px-4 mx-4 inline-flex transition font-semibold rounded dark:hover:bg-gray-600 hover:bg-gray-200">
+        📬 归档
       </a>
-    </div>
-  
-    <div class="item Article">
-      
-        <a class="item-image js-cover" data-src="https://leonwong0609.github.io/post-images/ReflectionOn2019nCoVOutbreak.png" href="https://leonwong0609.github.io/post/ReflectionOn2019nCoVOutbreak/" style="background-image:url('https://leonwong0609.github.io/post-images/ReflectionOn2019nCoVOutbreak.png');"></a>
-      
-      <a class="item-main" href="https://leonwong0609.github.io/post/ReflectionOn2019nCoVOutbreak/">
-        <div class="item-meta">
-          <time datetime="2020-03-10 17:53:44">03-10-2020</time>
-        </div>
-        <h2>对本次疫情的结构性反思：谣言、官僚和国家主义</h2>
+    
+      <a href="https://leonwong0609.netlify.com/" target="" class="py-2 md:py-1 px-4 mx-4 inline-flex transition font-semibold rounded dark:hover:bg-gray-600 hover:bg-gray-200">
+        📷 图流
       </a>
-    </div>
-  
-    <div class="item Article">
-      
-        <a class="item-image js-cover" data-src="https://leonwong0609.github.io/post-images/Fa_Shaozi_de_Ren.png" href="https://leonwong0609.github.io/post/Fa_Shaozi_de_Ren/" style="background-image:url('https://leonwong0609.github.io/post-images/Fa_Shaozi_de_Ren.png');"></a>
-      
-      <a class="item-main" href="https://leonwong0609.github.io/post/Fa_Shaozi_de_Ren/">
-        <div class="item-meta">
-          <time datetime="2020-03-10 16:40:07">03-10-2020</time>
-        </div>
-        <h2>《人物》：发哨子的人</h2>
+    
+      <a href="/post/about" target="" class="py-2 md:py-1 px-4 mx-4 inline-flex transition font-semibold rounded dark:hover:bg-gray-600 hover:bg-gray-200">
+        😶 关于
       </a>
-    </div>
-  
-    <div class="item Article">
-      
-        <a class="item-image js-cover" data-src="https://leonwong0609.github.io/post-images/Crash-Landing-on-You-Review.jpg" href="https://leonwong0609.github.io/post/Crash-Landing-on-You-Review/" style="background-image:url('https://leonwong0609.github.io/post-images/Crash-Landing-on-You-Review.jpg');"></a>
-      
-      <a class="item-main" href="https://leonwong0609.github.io/post/Crash-Landing-on-You-Review/">
-        <div class="item-meta">
-          <time datetime="2020-02-26 21:07:54">02-26-2020</time>
-        </div>
-        <h2>《爱的迫降》观影笔记</h2>
-      </a>
-    </div>
-  
-    <div class="item Article">
-      
-        <a class="item-image js-cover" data-src="https://leonwong0609.github.io/post-images/ChineseQuotationMark.png" href="https://leonwong0609.github.io/post/ChineseQuotationMark/" style="background-image:url('https://leonwong0609.github.io/post-images/ChineseQuotationMark.png');"></a>
-      
-      <a class="item-main" href="https://leonwong0609.github.io/post/ChineseQuotationMark/">
-        <div class="item-meta">
-          <time datetime="2020-02-18 23:05:54">02-18-2020</time>
-        </div>
-        <h2>开始用「中文引号」</h2>
-      </a>
-    </div>
-  
-    <div class="item Article">
-      
-        <a class="item-image js-cover" data-src="https://leonwong0609.github.io/post-images/PureCustomizedCSS.png" href="https://leonwong0609.github.io/post/PureCustomizedCSS/" style="background-image:url('https://leonwong0609.github.io/post-images/PureCustomizedCSS.png');"></a>
-      
-      <a class="item-main" href="https://leonwong0609.github.io/post/PureCustomizedCSS/">
-        <div class="item-meta">
-          <time datetime="2020-02-18 10:15:02">02-18-2020</time>
-        </div>
-        <h2>用自定义 CSS 解决文章内单词词内折行问题</h2>
-      </a>
-    </div>
-  
-    <div class="item Article">
-      
-        <a class="item-image js-cover" data-src="https://leonwong0609.github.io/post-images/midtone.png" href="https://leonwong0609.github.io/post/midtone/" style="background-image:url('https://leonwong0609.github.io/post-images/midtone.png');"></a>
-      
-      <a class="item-main" href="https://leonwong0609.github.io/post/midtone/">
-        <div class="item-meta">
-          <time datetime="2020-02-14 14:20:28">02-14-2020</time>
-        </div>
-        <h2>「中性色」收集</h2>
-      </a>
-    </div>
-  
-    <div class="item Article">
-      
-        <a class="item-image js-cover" data-src="https://leonwong0609.github.io/post-images/EvernoteWindowsSysProxyIssue.png" href="https://leonwong0609.github.io/post/EvernoteWindowsSysProxyIssue/" style="background-image:url('https://leonwong0609.github.io/post-images/EvernoteWindowsSysProxyIssue.png');"></a>
-      
-      <a class="item-main" href="https://leonwong0609.github.io/post/EvernoteWindowsSysProxyIssue/">
-        <div class="item-meta">
-          <time datetime="2020-02-10 21:02:57">02-10-2020</time>
-        </div>
-        <h2>顽皮的 Evernote Windows 与低调的 Pharos Pro</h2>
-      </a>
-    </div>
-  
+    
+    <a href="https://leonwong0609.github.io/atom.xml" target="_blank" class="py-2 md:py-1 px-4 mx-4 inline-flex transition font-semibold rounded dark:hover:bg-gray-600 hover:bg-gray-200">
+      RSS
+    </a>
+  </nav>
 </div>
 
+    <div class="max-w-4xl w-full mx-auto ">
+      
+        <header class="flex py-16 md:py-32 mt-12 flex-col md:flex-row px-4 md:px-0 animated fadeIn">
+  <div class="flex-1 order-2 md:order-1 md:pr-16">
+    <div class="text-4xl font-bold text-center md:text-left">
+      Wonder Space 🚀
+    </div>
+    <div class="text-xl text-gray-500 mt-4 text-center md:text-left">
+      不可勝在己，可勝在敵。
+    </div>
+    
+    
+      <div class="mt-8 flex items-center">
         
-          <div class="navigation">
-            <a href="https://leonwong0609.github.io/page/2" style="padding-right: 0.5em;">阅读更多 <i class="remixicon-arrow-right-line"></i></a>
+          <div class="text-gray-500 mr-2">
+            Follow me 👉
           </div>
         
+        
+          
+        
+          
+            
+              <a href="mailto:wonderboy0609@outlook.com" target="_blank" class="mr-2 w-8 h-8 inline-flex items-center justify-center text-xl hover:bg-gray-200 dark:hover:bg-gray-600 transition-fast">
+                <i class="ri-mail-line"></i>
+              </a>
+            
+          
+        
+          
+        
+          
+            
+              <a href="https://twitter.com/WBoy0609" target="_blank" class="mr-2 w-8 h-8 inline-flex items-center justify-center text-xl hover:bg-gray-200 dark:hover:bg-gray-600 transition-fast">
+                <i class="ri-twitter-line"></i>
+              </a>
+            
+          
+        
+          
+            
+              <a href="https://weibo.com/WBoy0609" target="_blank" class="mr-2 w-8 h-8 inline-flex items-center justify-center text-xl hover:bg-gray-200 dark:hover:bg-gray-600 transition-fast">
+                <i class="ri-weibo-line"></i>
+              </a>
+            
+          
+        
+          
+        
+          
+        
+          
+            
+              <a href="https://t.me/WonderBoy0609" target="_blank" class="mr-2 w-8 h-8 inline-flex items-center justify-center text-xl hover:bg-gray-200 dark:hover:bg-gray-600 transition-fast">
+                <i class="ri-telegram-line"></i>
+              </a>
+            
+          
+        
+          
+        
+          
+            
+              <a href="https://instagram.com/WonderBoy0609" target="_blank" class="mr-2 w-8 h-8 inline-flex items-center justify-center text-xl hover:bg-gray-200 dark:hover:bg-gray-600 transition-fast">
+                <i class="ri-instagram-line"></i>
+              </a>
+            
+          
+        
+          
+        
+          
+        
       </div>
-    </div>
-
-    <footer class="footer">
-  <div class="main">
-    <a href="https://leonwong0609.github.io">
-      <img class="avatar" src="https://leonwong0609.github.io/images/avatar.png?v=1586347626879" alt="Wonder Space 🚀">
-    </a>
-    <div class="footer__social">
-      
-        
-      
-        
-          <a href="https://twitter.com/WBoy0609" target="_blank"><i class="remixicon-twitter-line"></i></a>
-        
-      
-        
-          <a href="https://weibo.com/6168268889/profile?rightmod=1&amp;wvr=6&amp;mod=personinfo" target="_blank"><i class="remixicon-weibo-line"></i></a>
-        
-      
-        
-          <a href="https://www.zhihu.com/people/leo0609/activities" target="_blank"><i class="remixicon-zhihu-line"></i></a>
-        
-      
-        
-      
-        
-          <a href="https://t.me/wonderboy0609" target="_blank"><i class="remixicon-telegram-line"></i></a>
-        
-      
-        
-      
-        
-          <a href="https://www.instagram.com/wonderboy0609/" target="_blank"><i class="remixicon-instagram-line"></i></a>
-        
-      
-        
-      
-        
-      
-    </div>
-    <p class="footer__sosumi">
-      <a href="/post/about/">Who am I?</a>
-    </p>
-    <a class="footer-rss" href="https://leonwong0609.github.io/atom.xml">RSS</a>
+    
   </div>
+  <div class="md:mx-8 flex-shrink-0 self-start rounded-full border-4 border-dotted border-transparent hover:border-yellow-50 p-2 w-32 h-32 order-1 md:order-2 mx-auto s3-dotted">
+    <img class="rounded-full object-cover" src="https://leonwong0609.github.io/images/avatar.png?v=1586350469843" alt="Wonder Space 🚀" width="100%" height="100%">
+  </div>
+</header>
+      
+
+      <div class="shadow-box bg-white dark:bg-gray-600 border-gray-300 rounded-none md:rounded-lg -mx-1 md:mx-0 md:px-0">
+        
+  <div class="p-8 border-b border-gray-200 dark:border-gray-700 flex relative overflow-hidden flex-col md:flex-row animated fadeIn">
+    
+    <div class="flex-1 order-2 md:order-1">
+      <h2 class="text-2xl font-semibold mb-4">
+        <a href="https://leonwong0609.github.io/post/shi-yong-css-jiang-wang-ye-hei-bai-hua/" class="text-gray-700 dark:text-gray-200 border-b-2 border-dotted border-gray-200 dark:border-gray-400 dark:hover:border-gray-200 hover:border-gray-600 transition-all duration-100">
+          使用 CSS 将网页黑白化
+        </a>
+      </h2>
+      <div class="mb-4 text-xs text-gray-500">04-04-2020</div>
+      <div class="mb-4 text-gray-500 dark:text-gray-300">
+        <p>今天是清明节，降半旗哀悼疫情中的逝者，看到许多网页都变黑白了。我的小站就是直接在外部样式里写上自定义 CSS 就可以实现了，这里整理一些黑白化网页的 CSS 代码。</p>
+
+      </div>
+      <a href="https://leonwong0609.github.io/post/shi-yong-css-jiang-wang-ye-hei-bai-hua/" class="btn">
+        More
+      </a>
+    </div>
+    
+      <img class="flex-shrink-0 self-start md:ml-4 mb-4 md:mb-0 rounded-sm object-cover featured-img order-1 md:order-2 w-full h-40 md:w-56 md:h-32" loading="lazy" src="https://leonwong0609.github.io/post-images/shi-yong-css-jiang-wang-ye-hei-bai-hua.png" alt="使用 CSS 将网页黑白化">
+    
+  </div>
+
+  <div class="p-8 border-b border-gray-200 dark:border-gray-700 flex relative overflow-hidden flex-col md:flex-row animated fadeIn">
+    
+    <div class="flex-1 order-2 md:order-1">
+      <h2 class="text-2xl font-semibold mb-4">
+        <a href="https://leonwong0609.github.io/post/photo-stream/" class="text-gray-700 dark:text-gray-200 border-b-2 border-dotted border-gray-200 dark:border-gray-400 dark:hover:border-gray-200 hover:border-gray-600 transition-all duration-100">
+          搭建个人的照片墙
+        </a>
+      </h2>
+      <div class="mb-4 text-xs text-gray-500">03-20-2020</div>
+      <div class="mb-4 text-gray-500 dark:text-gray-300">
+        <p>今天下午心血来潮搭建了一个<a href="https://leonwong0609.netlify.com/">照片墙</a>。</p>
+
+      </div>
+      <a href="https://leonwong0609.github.io/post/photo-stream/" class="btn">
+        More
+      </a>
+    </div>
+    
+      <img class="flex-shrink-0 self-start md:ml-4 mb-4 md:mb-0 rounded-sm object-cover featured-img order-1 md:order-2 w-full h-40 md:w-56 md:h-32" loading="lazy" src="https://cdn.jsdelivr.net/gh/LeonWong0609/LeonPicbed/20200320171127.png" alt="搭建个人的照片墙">
+    
+  </div>
+
+  <div class="p-8 border-b border-gray-200 dark:border-gray-700 flex relative overflow-hidden flex-col md:flex-row animated fadeIn">
+    
+    <div class="flex-1 order-2 md:order-1">
+      <h2 class="text-2xl font-semibold mb-4">
+        <a href="https://leonwong0609.github.io/post/ThoughtsAbtFSZDR/" class="text-gray-700 dark:text-gray-200 border-b-2 border-dotted border-gray-200 dark:border-gray-400 dark:hover:border-gray-200 hover:border-gray-600 transition-all duration-100">
+          《发哨子的人》随想：IPFS、审查制度与自信
+        </a>
+      </h2>
+      <div class="mb-4 text-xs text-gray-500">03-12-2020</div>
+      <div class="mb-4 text-gray-500 dark:text-gray-300">
+        
+IPFS
+
+ipfs.ink
+Matters
+
+
+闲谈
+
+审查
+自信
+
+
+Summary
+
+
+IPFS
+看到朋友圈转发的一篇关于把内容上传到区块链的介绍文章，虽然被删除了，但应该讲的就是 IPFS 吧。
+我应该是去年在某论坛见识到这项技术...
+      </div>
+      <a href="https://leonwong0609.github.io/post/ThoughtsAbtFSZDR/" class="btn">
+        More
+      </a>
+    </div>
+    
+      <img class="flex-shrink-0 self-start md:ml-4 mb-4 md:mb-0 rounded-sm object-cover featured-img order-1 md:order-2 w-full h-40 md:w-56 md:h-32" loading="lazy" src="https://cdn.jsdelivr.net/gh/LeonWong0609/LeonPicbed/20200320171401.png" alt="《发哨子的人》随想：IPFS、审查制度与自信">
+    
+  </div>
+
+  <div class="p-8 border-b border-gray-200 dark:border-gray-700 flex relative overflow-hidden flex-col md:flex-row animated fadeIn">
+    
+    <div class="flex-1 order-2 md:order-1">
+      <h2 class="text-2xl font-semibold mb-4">
+        <a href="https://leonwong0609.github.io/post/ReflectionOn2019nCoVOutbreak/" class="text-gray-700 dark:text-gray-200 border-b-2 border-dotted border-gray-200 dark:border-gray-400 dark:hover:border-gray-200 hover:border-gray-600 transition-all duration-100">
+          对本次疫情的结构性反思：谣言、官僚和国家主义
+        </a>
+      </h2>
+      <div class="mb-4 text-xs text-gray-500">03-10-2020</div>
+      <div class="mb-4 text-gray-500 dark:text-gray-300">
+        
+原文载于 Matters，共分为上下两篇。在众多疫情反思的文章中，这篇是我看到的最不带过分的情绪色彩，且分析最深刻的一篇。在权力体制、新闻传播、国家主义这些方面的分析也是一针见血。因此将这篇文章转到自己博客中，一方面为了留下一个记录，另一...
+      </div>
+      <a href="https://leonwong0609.github.io/post/ReflectionOn2019nCoVOutbreak/" class="btn">
+        More
+      </a>
+    </div>
+    
+      <img class="flex-shrink-0 self-start md:ml-4 mb-4 md:mb-0 rounded-sm object-cover featured-img order-1 md:order-2 w-full h-40 md:w-56 md:h-32" loading="lazy" src="https://leonwong0609.github.io/post-images/ReflectionOn2019nCoVOutbreak.png" alt="对本次疫情的结构性反思：谣言、官僚和国家主义">
+    
+  </div>
+
+  <div class="p-8 border-b border-gray-200 dark:border-gray-700 flex relative overflow-hidden flex-col md:flex-row animated fadeIn">
+    
+    <div class="flex-1 order-2 md:order-1">
+      <h2 class="text-2xl font-semibold mb-4">
+        <a href="https://leonwong0609.github.io/post/Fa_Shaozi_de_Ren/" class="text-gray-700 dark:text-gray-200 border-b-2 border-dotted border-gray-200 dark:border-gray-400 dark:hover:border-gray-200 hover:border-gray-600 transition-all duration-100">
+          《人物》：发哨子的人
+        </a>
+      </h2>
+      <div class="mb-4 text-xs text-gray-500">03-10-2020</div>
+      <div class="mb-4 text-gray-500 dark:text-gray-300">
+        
+由于特殊国情，我国的审查制度向来没有公开的标准，常常有许多优秀的文章因为不明原因被删除。这次《人物》的这篇任务特稿初问世就遭到全网封杀，有人怀疑是因和今上赴武汉的消息新闻档期冲突。我在此不想揣测原因如何，也无意对删除的行为做任何评价。我单...
+      </div>
+      <a href="https://leonwong0609.github.io/post/Fa_Shaozi_de_Ren/" class="btn">
+        More
+      </a>
+    </div>
+    
+      <img class="flex-shrink-0 self-start md:ml-4 mb-4 md:mb-0 rounded-sm object-cover featured-img order-1 md:order-2 w-full h-40 md:w-56 md:h-32" loading="lazy" src="https://leonwong0609.github.io/post-images/Fa_Shaozi_de_Ren.png" alt="《人物》：发哨子的人">
+    
+  </div>
+
+  <div class="p-8 border-b border-gray-200 dark:border-gray-700 flex relative overflow-hidden flex-col md:flex-row animated fadeIn">
+    
+    <div class="flex-1 order-2 md:order-1">
+      <h2 class="text-2xl font-semibold mb-4">
+        <a href="https://leonwong0609.github.io/post/Crash-Landing-on-You-Review/" class="text-gray-700 dark:text-gray-200 border-b-2 border-dotted border-gray-200 dark:border-gray-400 dark:hover:border-gray-200 hover:border-gray-600 transition-all duration-100">
+          《爱的迫降》观影笔记
+        </a>
+      </h2>
+      <div class="mb-4 text-xs text-gray-500">02-26-2020</div>
+      <div class="mb-4 text-gray-500 dark:text-gray-300">
+        <p>《爱的迫降》讲的是一个跨越国界的爱情故事，这个国界是三八线。</p>
+
+      </div>
+      <a href="https://leonwong0609.github.io/post/Crash-Landing-on-You-Review/" class="btn">
+        More
+      </a>
+    </div>
+    
+      <img class="flex-shrink-0 self-start md:ml-4 mb-4 md:mb-0 rounded-sm object-cover featured-img order-1 md:order-2 w-full h-40 md:w-56 md:h-32" loading="lazy" src="https://leonwong0609.github.io/post-images/Crash-Landing-on-You-Review.jpg" alt="《爱的迫降》观影笔记">
+    
+  </div>
+
+  <div class="p-8 border-b border-gray-200 dark:border-gray-700 flex relative overflow-hidden flex-col md:flex-row animated fadeIn">
+    
+    <div class="flex-1 order-2 md:order-1">
+      <h2 class="text-2xl font-semibold mb-4">
+        <a href="https://leonwong0609.github.io/post/ChineseQuotationMark/" class="text-gray-700 dark:text-gray-200 border-b-2 border-dotted border-gray-200 dark:border-gray-400 dark:hover:border-gray-200 hover:border-gray-600 transition-all duration-100">
+          开始用「中文引号」
+        </a>
+      </h2>
+      <div class="mb-4 text-xs text-gray-500">02-18-2020</div>
+      <div class="mb-4 text-gray-500 dark:text-gray-300">
+        <p>最近开始主动收集了解中文字体排印的相关内容，学到了很多新的东西，决定开始使用「中文引号」了。</p>
+
+      </div>
+      <a href="https://leonwong0609.github.io/post/ChineseQuotationMark/" class="btn">
+        More
+      </a>
+    </div>
+    
+      <img class="flex-shrink-0 self-start md:ml-4 mb-4 md:mb-0 rounded-sm object-cover featured-img order-1 md:order-2 w-full h-40 md:w-56 md:h-32" loading="lazy" src="https://leonwong0609.github.io/post-images/ChineseQuotationMark.png" alt="开始用「中文引号」">
+    
+  </div>
+
+  <div class="p-8 border-b border-gray-200 dark:border-gray-700 flex relative overflow-hidden flex-col md:flex-row animated fadeIn">
+    
+    <div class="flex-1 order-2 md:order-1">
+      <h2 class="text-2xl font-semibold mb-4">
+        <a href="https://leonwong0609.github.io/post/PureCustomizedCSS/" class="text-gray-700 dark:text-gray-200 border-b-2 border-dotted border-gray-200 dark:border-gray-400 dark:hover:border-gray-200 hover:border-gray-600 transition-all duration-100">
+          用自定义 CSS 解决文章内单词词内折行问题
+        </a>
+      </h2>
+      <div class="mb-4 text-xs text-gray-500">02-18-2020</div>
+      <div class="mb-4 text-gray-500 dark:text-gray-300">
+        <p>最近给博客换了身新皮，叫做 Pure，主题设计得特别赞，整体简洁大方，细节也十分到位，一些小动画也特别顺畅优雅。之前的主题 Walker 存在 <code>Title</code> 一直不会变的问题，换上这个主题就没有发现这个问题了。然而使用过程中发现另外一个问题，英文单词会行内折行，而且也没有折行的连字符。</p>
+
+      </div>
+      <a href="https://leonwong0609.github.io/post/PureCustomizedCSS/" class="btn">
+        More
+      </a>
+    </div>
+    
+      <img class="flex-shrink-0 self-start md:ml-4 mb-4 md:mb-0 rounded-sm object-cover featured-img order-1 md:order-2 w-full h-40 md:w-56 md:h-32" loading="lazy" src="https://leonwong0609.github.io/post-images/PureCustomizedCSS.png" alt="用自定义 CSS 解决文章内单词词内折行问题">
+    
+  </div>
+
+  <div class="p-8 border-b border-gray-200 dark:border-gray-700 flex relative overflow-hidden flex-col md:flex-row animated fadeIn">
+    
+    <div class="flex-1 order-2 md:order-1">
+      <h2 class="text-2xl font-semibold mb-4">
+        <a href="https://leonwong0609.github.io/post/midtone/" class="text-gray-700 dark:text-gray-200 border-b-2 border-dotted border-gray-200 dark:border-gray-400 dark:hover:border-gray-200 hover:border-gray-600 transition-all duration-100">
+          「中性色」收集
+        </a>
+      </h2>
+      <div class="mb-4 text-xs text-gray-500">02-14-2020</div>
+      <div class="mb-4 text-gray-500 dark:text-gray-300">
+        <p>收集能同时适应暗色背景和亮色背景的颜色。</p>
+
+      </div>
+      <a href="https://leonwong0609.github.io/post/midtone/" class="btn">
+        More
+      </a>
+    </div>
+    
+      <img class="flex-shrink-0 self-start md:ml-4 mb-4 md:mb-0 rounded-sm object-cover featured-img order-1 md:order-2 w-full h-40 md:w-56 md:h-32" loading="lazy" src="https://leonwong0609.github.io/post-images/midtone.png" alt="「中性色」收集">
+    
+  </div>
+  
+      </div>
+
+      
+  <div class="my-4 flex justify-between px-4 md:px-0">
+    
+    
+      <a href="https://leonwong0609.github.io/page/2" class="btn btn-white">
+        Next
+        <i class="ri-arrow-right-line ml-4"></i>
+      </a>
+    
+  </div>
+
+      <footer class="py-12 text-center px-4 md:px-0" v-pre>
+  <a href="/post/about/">❤</a>
 </footer>
 
-<script src="https://leonwong0609.github.io/media/prism.js"></script>
-<script>
-  Prism.highlightAll()
-</script>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="https://leonwong0609.github.io/media/scripts/main.js"></script>
+</body>
 
-  </body>
 </html>
