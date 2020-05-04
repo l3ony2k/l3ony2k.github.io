@@ -4,7 +4,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>解决 Gridea 的 Walker 主题博文标题的问题以及预加速 | Wonder Space 🚀</title>
 <meta name="description" content="不可勝在己，可勝在敵" />
-<link rel="shortcut icon" href="https://leonwong0609.github.io/favicon.ico?v=1588579457945">
+<link rel="shortcut icon" href="https://leonwong0609.github.io/favicon.ico?v=1588580687165">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
@@ -32,7 +32,7 @@
       <div class="flex lg:block p-4 lg:px-0 items-center fixed lg:static lg:block top-0 right-0 left-0 bg-white z-50">
         <i class="ri-menu-2-line lg:mt-4 text-2xl cursor-pointer animated fadeIn" onclick="openMenu()"></i>
         <a href="https://leonwong0609.github.io">
-          <img class="animated fadeInLeft avatar rounded-lg mx-4 lg:mt-32 lg:mx-0 mt-0 lg:w-24 lg:h-24 w-12 w-12" src="https://leonwong0609.github.io/images/avatar.png?v=1588579457945" alt="">
+          <img class="animated fadeInLeft avatar rounded-lg mx-4 lg:mt-32 lg:mx-0 mt-0 lg:w-24 lg:h-24 w-12 w-12" src="https://leonwong0609.github.io/images/avatar.png?v=1588580687165" alt="">
         </a>
         <h1 class="animated fadeInLeft lg:text-4xl font-extrabold lg:mt-8 mt-0 text-xl" style="animation-delay: 0.2s">Wonder Space 🚀</h1>
       </div>
@@ -43,8 +43,12 @@
           </p>
           <div class="toc-container hidden lg:block">
             <ul class="markdownIt-TOC">
+<li>
+<ul>
 <li><a href="#%E9%80%9A%E8%BF%87%E4%BF%AE%E6%94%B9-walker-%E4%B8%BB%E9%A2%98%E6%96%87%E4%BB%B6%E8%A7%A3%E5%86%B3-title-%E9%97%AE%E9%A2%98">通过修改 Walker 主题文件解决 <code>title</code> 问题</a></li>
 <li><a href="#%E9%80%9A%E8%BF%87-instantpage-%E9%A2%84%E5%8A%A0%E9%80%9F%E5%8D%9A%E5%AE%A2">通过 instant.page 预加速博客</a></li>
+</ul>
+</li>
 </ul>
 
           </div>
@@ -107,7 +111,7 @@
         <div class="post-content yue">
           <p>最近看 Pure 又看腻了，把 Gridea 上的主题全部试了一遍，就是没几个满意的，于是决定把之前最喜欢的 Walker 主题不显示博文标题的问题解决一下，结果又是一整天的折腾。</p>
 <!-- more -->
-<h1 id="通过修改-walker-主题文件解决-title-问题">通过修改 Walker 主题文件解决 <code>title</code> 问题</h1>
+<h2 id="通过修改-walker-主题文件解决-title-问题">通过修改 Walker 主题文件解决 <code>title</code> 问题</h2>
 <p>解决过程实际上非常简单，只要在 Walker 主题的文件中找到 <code>\templates\post.ejs</code>，将 <code>&lt;head&gt;</code> 中 <code>siteTitle:</code> 的值改为 <code>${post.title} | ${themeConfig.siteName}</code>。</p>
 <p>所以整个 <code>post.ejs</code> 的 <code>&lt;head&gt;</code> 标签应该是这样：</p>
 <pre><code class="language-html">&lt;head&gt;
@@ -116,7 +120,7 @@
 </code></pre>
 <p>然后保存，重启 Gridea，预览之后问题解决了。</p>
 <figure data-type="image" tabindex="1"><img src="https://leonwong0609.github.io/post-images/1586403627477.png" alt="前后效果对比" width="600" loading="lazy"></figure>
-<h1 id="通过-instantpage-预加速博客">通过 <a href="https://instant.page/">instant.page</a> 预加速博客</h1>
+<h2 id="通过-instantpage-预加速博客">通过 <a href="https://instant.page/">instant.page</a> 预加速博客</h2>
 <p>后来想着反正都改了主题文件了，不如干脆把之前看到的 <a href="https://instant.page/">instant.page</a> 脚本也加上。和上面一样，Walker 主题中所有的脚本应该都是加在 <code>\templates\includes\scripts.ejs</code> 这个文件里，应该只要把以下的内容粘贴到文件尾就可以了。</p>
 <pre><code class="language-html">&lt;script src=&quot;//instant.page/3.0.0&quot; type=&quot;module&quot; defer integrity=&quot;sha384-OeDn4XE77tdHo8pGtE1apMPmAipjoxUQ++eeJa6EtJCfHlvijigWiJpD7VDPWXV1&quot;&gt;&lt;/script&gt;
 </code></pre>
