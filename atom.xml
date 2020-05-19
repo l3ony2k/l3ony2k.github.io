@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://leonwong0609.github.io</id>
     <title>Wonder Space 🚀</title>
-    <updated>2020-05-06T16:34:48.161Z</updated>
+    <updated>2020-05-19T15:24:06.030Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://leonwong0609.github.io"/>
     <link rel="self" href="https://leonwong0609.github.io/atom.xml"/>
@@ -29,7 +29,7 @@
 <h2 id="修改模板">修改模板</h2>
 <p>点击模板进入模板界面后，选取一篇文章的 URL 加入到模板中，确认后会进入到模板的编辑页面：</p>
 <figure data-type="image" tabindex="2"><img src="https://leonwong0609.github.io/post-images/1588780034748.png" alt="模板编辑界面" loading="lazy"></figure>
-<p>如图，我们可以看到左栏是原网页的预览，中间是模板的编辑区，右侧是 Instant View 生成效果的预览。具体的模板编写语法可以参考<a href="https://instantview.telegram.org/docs">官方 Manual</a>，下面贴上我自己的：</p>
+<p>如图，我们可以看到左栏是原网页的预览，中间是模板的编辑区，右侧是 Instant View 生成效果的预览。具体的模板编写语法可以参考 <a href="https://instantview.telegram.org/docs">官方 Manual</a>，下面贴上我自己的：</p>
 <pre><code class="language-python">#先是一些基本的信息
 ~version: &quot;2.1&quot; #声明版本号
 site_name: &quot;Wonder Space 🚀&quot;
@@ -63,12 +63,16 @@ image_url: //img[has-class(&quot;post-feature-image rounded-lg mx-auto my-4&quot
 <figure data-type="image" tabindex="3"><img src="https://leonwong0609.github.io/post-images/1588782033026.png" alt="IV 效果" loading="lazy"></figure>
 <p>效果如上图，加载速度比起博客快了很多。</p>
 <p>可以看出这个模板的设置和网页上的标签相关，所以看来以后不能那么勤快给博客换主题了。</p>
-<p>到这一步基本上就完成了，但是我还没有弄清楚怎么样才能向 Telegra.ph 或者 Medium 那样直接输入链接就能出现 Instant View 选项。现在只有通过替换预览链接中的 URL 来实现 Instant View。例如我刚才生成的预览链接是 <code>https://t.me/iv?url=https%3A%2F%2Fleonwong0609.github.io%2Fpost%2Fhello-world%2F&amp;rhash=c8c9ddf4bad078</code>，那么我就可以将 <code>url=</code> 后面和 <code>&amp;rhash</code> 前面的内容替换成我们自己的博文 URL (经过 URL encode 的) 就可以了。像我的博文 URL 都是只会改变 <code>post%2F</code> 后面的东西，所以相对比较方便更改。但是无论如何这种方法只能说是曲线救国，真的发送这样的在聊天框会显得太长，我们可以通过给文字增加超链接来改变这点。当然因为我身边完全没有人用 Telegram，我也完全不需要把 Instant View 链接发给谁，所以我就没有这个忧虑。</p>
+<p>到这一步基本上就完成了，但是我还没有弄清楚怎么样才能像 Telegra.ph 或者 Medium 那样直接输入链接就能出现 Instant View 选项。现在只有通过替换预览链接中的 URL 来实现 Instant View。例如我刚才生成的预览链接是：</p>
+<pre><code class="language-text">https://t.me/iv?url=https%3A%2F%2Fleonwong0609.github.io%2Fpost%2Fhello-world%2F&amp;rhash=c8c9ddf4bad078
+</code></pre>
+<p>那么我就可以将 <code>url=</code> 后面和 <code>&amp;rhash</code> 前面的内容替换成我们自己的博文 URL (经过 URL encode 的) 就可以了。像我的博文 URL 都是只会改变 <code>post%2F</code> 后面的东西，所以相对比较方便更改。但是无论如何这种方法只能说是曲线救国，真的发送这样的在聊天框会显得太长，我们可以通过给文字增加超链接来改变这点。当然因为我身边完全没有人用 Telegram，我也完全不需要把 Instant View 链接发给谁，所以我就没有这个忧虑。</p>
 <p>等等，既然这样我还折腾这个干嘛？</p>
 <h2 id="参考内容">参考内容</h2>
 <ul>
 <li>壮壮博客：<a href="https://zhuangzhuang.cf/2019-04-23/instant-view/">Telegram 即时预览</a></li>
 <li>方寸间：<a href="https://10101.io/2019/05/23/telegtam-instant-view">为网站添加 Telegram 即时预览</a></li>
+<li>bovasjohn @ Medium: <a href="https://medium.com/@bovasjohn/what-is-instant-view-and-how-can-i-get-it-for-my-domain-in-telegram-messenger-6064efb1ed15">What Is Instant View And How can I get It for My domain? in Telegram Messenger</a></li>
 </ul>
 <hr class="footnotes-sep">
 <section class="footnotes">
