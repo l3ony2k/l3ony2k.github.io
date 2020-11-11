@@ -6295,6 +6295,7 @@ pre[data-line] {
   line-height: 1.75;
   font-family: "Droid Serif", "PingFang SC", "Hiragino Sans GB", "Droid Sans Fallback", "Microsoft YaHei", sans-serif;
   color: #2D3748;
+  text-align: justify;
 }
 .post-content hr {
   display: block;
