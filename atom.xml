@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://leonwong0609.github.io</id>
     <title>Wonder Space 🚀</title>
-    <updated>2021-01-14T09:45:47.880Z</updated>
+    <updated>2021-01-14T13:56:58.373Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://leonwong0609.github.io"/>
     <link rel="self" href="https://leonwong0609.github.io/atom.xml"/>
@@ -10,6 +10,150 @@
     <logo>https://leonwong0609.github.io/images/avatar.png</logo>
     <icon>https://leonwong0609.github.io/favicon.ico</icon>
     <rights>All rights reserved 2021, Wonder Space 🚀</rights>
+    <entry>
+        <title type="html"><![CDATA[让博客在社交媒体的预览效果更丰富 —— OG 协议]]></title>
+        <id>https://leonwong0609.github.io/post/add-open-graph-to-my-blog/</id>
+        <link href="https://leonwong0609.github.io/post/add-open-graph-to-my-blog/">
+        </link>
+        <updated>2021-01-14T10:25:59.000Z</updated>
+        <summary type="html"><![CDATA[<p>今天心血来潮对小站进行了一些调整，主要是使用了 OG 协议让博客在社交媒体上有更丰富的链接预览。</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>今天心血来潮对小站进行了一些调整，主要是使用了 OG 协议让博客在社交媒体上有更丰富的链接预览。</p>
+<!-- more -->
+<p>前几天在看 Telegram 的时候，看到了 <a href="https://t.me/appinnfeed">小众软件的频道</a> 发了一篇 <a href="https://fliqlo.com/#/screensaver">Fliqlo</a> 近期升级了的 <a href="https://t.me/appinnfeed/3350">消息</a>。Fliqlo 我自己一直在用，前几天 Adobe 正式关闭了 Flash 之后，Fliqlo 也无法正常显示了，于是我干脆就卸载了它。结果晚上就看到了升级的消息，赶忙又装了回来。而让我动了折腾博客的念头的，是他们频道的消息样式。他们永远都是只发送一条网站的链接，但是链接预览的内容却非常丰富：</p>
+<figure data-type="image" tabindex="1"><img src="https://leonwong0609.github.io/post-images/1610628900435.png" alt="" width="500" loading="lazy"></figure>
+<p>不仅是小众软件，少数派的 Telegram 频道也有这样的效果：</p>
+<figure data-type="image" tabindex="2"><img src="https://leonwong0609.github.io/post-images/1610628910214.png" alt="" width="500" loading="lazy"></figure>
+<p>而我的博客链接发在 Telegram 中时却只能显示站点名称和一行站点描述：</p>
+<figure data-type="image" tabindex="3"><img src="https://leonwong0609.github.io/post-images/1610628919171.png" alt="" width="500" loading="lazy"></figure>
+<p>这个问题我在写关于 Telegram Instant View 的 <a href="/post/add-instant-view-to-my-blog">那篇博文</a> 的时候就有留意到，但是当时实现了 Instant View 之后就忘记了这件事。既然今天想起了这件事，择日不如撞日，说干就干。</p>
+<p>我的需求就是优化自己的网站中 Telegram 链接预览的丰富程度，简单的搜索后很轻易地就找到了一些讨论的帖子，里面都提到了要在 <code>&lt;meta&gt;</code> 元素中加入 Open Graph。于是我就又开始搜索 Open Graph 相关的内容，经历了一下午的折腾和碰壁，终于实现了想要的效果，以下记录其中的过程。</p>
+<h2 id="the-open-graph-protocol-是什么">The Open Graph protocol 是什么</h2>
+<p>根据 The Open Graph protocol <a href="https://ogp.me/">官方页面</a> 的介绍，它能让网页在社交媒体中作为 Rich Object 存在。</p>
+<blockquote>
+<p>The Open Graph protocol enables any web page to become a rich object in a social graph. For instance, this is used on Facebook to allow any web page to have the same functionality as any other object on Facebook.<br>
+— <a href="https://ogp.me/#intro">The Open Graph protocol / Introduction</a></p>
+</blockquote>
+<p>按照我的理解，也就是说使用 OG 协议来告诉社交媒体这个网页的标题、类型、摘要、题图等信息分别是什么，然后由社交媒体进行展示。</p>
+<p>OG 协议写在 HTML 文件头部的 <code>&lt;meta&gt;</code> 标签中，按照官方说明，有四个属性是必备的，摘录如下：</p>
+<ul>
+<li><code>og:title</code> - The title of your object as it should appear within the graph, e.g., &quot;The Rock&quot;.</li>
+<li><code>og:type</code> - The <a href="#types">type</a> of your object, e.g., &quot;video.movie&quot;. Depending on the type you specify, other properties may also be required.</li>
+<li><code>og:image</code> - An image URL which should represent your object within the graph.</li>
+<li><code>og:url</code> - The canonical URL of your object that will be used as its permanent ID in the graph, e.g., &quot;https://www.imdb.com/title/tt0117500/&quot;.</li>
+</ul>
+<p>同时 OG 官网也给了一个 IMDb 的网页作为例子，也摘录如下：</p>
+<pre><code class="language-html">&lt;html prefix=&quot;og: https://ogp.me/ns#&quot;&gt;
+&lt;head&gt;
+&lt;title&gt;The Rock (1996)&lt;/title&gt;
+&lt;meta property=&quot;og:title&quot; content=&quot;The Rock&quot; /&gt;
+&lt;meta property=&quot;og:type&quot; content=&quot;video.movie&quot; /&gt;
+&lt;meta property=&quot;og:url&quot; content=&quot;https://www.imdb.com/title/tt0117500/&quot; /&gt;
+&lt;meta property=&quot;og:image&quot; content=&quot;https://ia.media-imdb.com/images/rock.jpg&quot; /&gt;
+...
+&lt;/head&gt;
+...
+&lt;/html&gt;
+</code></pre>
+<p>当然，OG 协议还有很多其他可选的属性，官方页面说明也很详尽，这里不赘述。</p>
+<h2 id="动手修改">动手修改</h2>
+<p>了解这些后，就可以上手修改主题中的模板文件了。最开始我直接在通用的头部文件 <code>head.ejs</code> 中引入 OG 协议，但这样发现首页和文章页无法兼顾，因此我选择在首页文件 <code>index.ejs</code> 和文章页文件 <code>post.ejs</code> 中分别加入不同的 OG 标签。</p>
+<h3 id="首页-indexejs">首页 <code>index.ejs</code></h3>
+<p>博客的首页我希望在社交媒体中能显示博客名称、简介、地址以及头像，因此做如下修改：</p>
+<pre><code class="language-html">&lt;html&gt;
+    &lt;head&gt;
+        &lt;%- include('./includes/head', { siteTitle: themeConfig.siteName }) %&gt;
+        &lt;!-- OG --&gt; 
+        &lt;meta property=&quot;og:locale&quot; content=&quot;zh_CN&quot;&gt;
+        &lt;meta property=&quot;og:title&quot; content=&quot;&lt;%= themeConfig.siteName %&gt;&quot; /&gt;
+        &lt;meta property=&quot;og:type&quot; content=&quot;blog&quot; /&gt;
+        &lt;meta property=&quot;og:description&quot; content=&quot;&lt;%= themeConfig.siteDescription %&gt;&quot;&gt;
+        &lt;meta property=&quot;og:url&quot; content=&quot;https://leonwong0609.github.io/&quot; /&gt;
+        &lt;meta property=&quot;og:site_name&quot; content=&quot;&lt;%= themeConfig.siteName %&gt;&quot;&gt;
+        &lt;meta property=&quot;og:image&quot; content=&quot;&lt;%= themeConfig.domain %&gt;/images/avatar.png?v=&lt;%= site.utils.now %&gt;&quot; /&gt;
+        &lt;meta property=&quot;og:image:secure_url&quot; content=&quot;&lt;%= themeConfig.domain %&gt;/images/avatar.png?v=&lt;%= site.utils.now %&gt;&quot;&gt;
+        &lt;meta property=&quot;og:image:height&quot; content=&quot;300&quot; /&gt;
+        &lt;meta property=&quot;og:image:alt&quot; content=&quot;&lt;%= themeConfig.siteName %&gt;&quot;&gt;
+</code></pre>
+<p>这里 <code>content</code> 的引号内用 <code>&lt;%=</code> 和 <code>%&gt;</code> 标签夹住的就是 EJS 中输出的动态内容，这里是个坑，刚设置好主页的时候还没发现，后面到设置文章页的时候折腾了很久。</p>
+<h3 id="文章页-postejs">文章页 <code>post.ejs</code></h3>
+<p>文章页也就是每一篇博文的页面，是我主要想展示的内容，因此我希望能展示文章的标题、<strong>文章的</strong>简介（而不是网站的简介）、文章的链接，以及每篇公开文章我都会设置的题图。于是按照需求，我又用和上面一样的方法做了修改，然而中间遇到了很多问题，这里先把最终结果展示出来，问题慢慢讲：</p>
+<pre><code class="language-html">&lt;html&gt;
+    &lt;head&gt;
+        &lt;%- include('./includes/head', { siteTitle: `${post.title} | ${themeConfig.siteName}` }) %&gt;
+        &lt;meta name=&quot;description&quot; content=&quot;&lt;%= post.description %&gt;&quot; /&gt;
+        &lt;!-- OG --&gt; 
+        &lt;meta property=&quot;og:locale&quot; content=&quot;zh_CN&quot;&gt;
+        &lt;meta property=&quot;og:title&quot; content=&quot;&lt;%= post.title %&gt;&quot; /&gt;
+        &lt;meta property=&quot;og:type&quot; content=&quot;article&quot; /&gt;
+        &lt;meta property=&quot;og:description&quot; content=&quot;&lt;%= post.description %&gt;&quot;&gt;
+        &lt;meta property=&quot;og:url&quot; content=&quot;&lt;%= post.link %&gt;&quot; /&gt;
+        &lt;meta property=&quot;og:site_name&quot; content=&quot;&lt;%= themeConfig.siteName %&gt;&quot;&gt;
+        &lt;meta property=&quot;og:updated_time&quot; content=&quot;&lt;%= post.dateFormat %&gt;&quot;&gt;
+        &lt;meta property=&quot;og:image&quot; content=&quot;&lt;%= post.feature %&gt;&quot; /&gt;
+        &lt;meta property=&quot;og:image:secure_url&quot; content=&quot;&lt;%= post.feature %&gt;&quot;&gt;
+        &lt;meta property=&quot;og:image:alt&quot; content=&quot;&lt;%= post.title %&gt;&quot;&gt;
+</code></pre>
+<h2 id="遇到的问题">遇到的问题</h2>
+<p>首先是上方 <code>post.ejs</code> 文件中 <code>og:description</code> 这一行，按照我的理解，此处内容对应的应该就是链接预览中标题下方的简介内容，当时我最先想到的就是可以直接用 <code>post-list.ejs</code> 中标题下的 <code>post.abstract</code>，也就是文章摘要。于是我就将 <code>post-list.ejs</code> 文件中的代码直接拷贝过来，把这一行写成了：</p>
+<pre><code class="language-html">&lt;meta property=&quot;og:description&quot; content=&quot;&lt;%- post.abstract %&gt;&quot;&gt;
+</code></pre>
+<p>然而当我预览时却出现了很多奇奇怪怪的问题，这样写主要错误在于没有分清 <code>&lt;%-</code> 和 <code>&lt;%=</code> 的不同效果，在 <code>post-list.ejs</code> 中，写法是这样的：</p>
+<pre><code class="language-html">&lt;div class=&quot;content&quot;&gt;
+    &lt;a href=&quot;&lt;%= post.link %&gt;&quot;&gt;
+        &lt;h2 class=&quot;post-title text-xl font-extrabold mt-5 md:mt-0&quot;&gt;&lt;%= post.title %&gt;&lt;/h2&gt;
+    &lt;/a&gt;
+&lt;div class=&quot;post-abstract text-gray-700 font-light my-4&quot;&gt;
+    &lt;%- post.abstract %&gt;
+&lt;/div&gt;
+</code></pre>
+<p>可以看到上面倒数第二行 <code>&lt;%- post.abstract %&gt;</code> 直接代表了这个作为摘要的 div 中的 HTML 内容，换言之，使用 <code>&lt;%-</code> 输出的就是 HTML 内容，因此我在上面头部文件的 OG 标签中让它直接输出了 HTML 内容是不合适的。相对应的，<code>&lt;%=</code> 输出的内容是将指定的内容视为纯文本，因此查看源码可以发现输出的内容中如果含有 HTML 标签，是会直接被转义的。于是我暂时将这一行改成了：</p>
+<pre><code class="language-html">&lt;meta property=&quot;og:description&quot; content=&quot;&lt;%= post.abstract %&gt;&quot;&gt;
+</code></pre>
+<p>但即使这样写，实际上还是存在问题，因为 <code>post.abstract</code> 是一段带有 HTML 标记的文本，因此在社交媒体的预览中仍然能看到被保留下来的 HTML 标签，十分影响观感：</p>
+<figure data-type="image" tabindex="4"><img src="https://leonwong0609.github.io/post-images/1610629068978.png" alt="" width="500" loading="lazy"></figure>
+<p>因此我就折腾了很久想找办法使 <code>post.abstract</code> 输出的内容转换为纯文本，就当我准备开始折腾用正则的时候，我不久前发的求助消息得到了回应，@eryouhao 大佬说可以换用 <code>post.description</code>，并且附上了 Gridea 的 <a href="https://gridea.dev/theme-structure/#post">主题目录结构与页面变量文档</a>。其中对 <code>post.abstract</code> 和 <code>post.description</code> 的描述分别为：</p>
+<pre><code class="language-js">post: {
+    content: '&lt;p&gt;&lt;strong&gt;Gridea&lt;/strong&gt; 一个静态博客写作客户端 &lt;!-- more --&gt;&lt;/p&gt;\n&lt;p&gt;👏 欢迎使用 &lt;strong&gt;Gridea&lt;/strong&gt; ！  &lt;/p&gt;\n&lt;p&gt;🌈 &lt;strong&gt;Gridea&lt;/strong&gt; 一个静态博客写作客户端。你可以用它来记录你的生活、心情、知识、笔记、创意... ... &lt;/p&gt;',
+    abstract: '&lt;p&gt;&lt;strong&gt;Gridea&lt;/strong&gt; 一个静态博客写作客户端 &lt;/p&gt;\n',
+    description: '一个静态博客写作客户端 欢迎使用 Gridea！Gridea 一个静态博客写作客户端。你可以用它来记录你的生...', // 智能截取文章开始内容填充此字段，可用作未设置摘要时备用字段
+}
+</code></pre>
+<p>由此可见，<code>post.description</code> 正好是不带标签的纯文本，完美满足我目前的需求。因此最终将这一行改为：</p>
+<pre><code class="language-html">&lt;meta property=&quot;og:description&quot; content=&quot;&lt;%= post.description %&gt;&quot;&gt;
+</code></pre>
+<p>试验了之后果然符合要求，以后动手前一定要先看文档。</p>
+<p>做出以上的修改后，博客文章在 Telegram 中的预览终于变成了想象中的样子：</p>
+<figure data-type="image" tabindex="5"><img src="https://leonwong0609.github.io/post-images/1610629153978.png" alt="" width="500" loading="lazy"></figure>
+<h2 id="twitter-cards">Twitter Cards</h2>
+<p>类似的，我还为博客增加了 <a href="https://developer.twitter.com/en/docs/twitter-for-websites/cards/guides/getting-started">Twitter Cards</a>，同样也是修改文件头部 <code>&lt;meta&gt;</code> 标签中的内容，同样也是对主页和文章页分别设置：</p>
+<pre><code class="language-html">&lt;!-- Twitter (index.ejs) --&gt;
+&lt;meta name=&quot;twitter:card&quot; content=&quot;summary_large_image&quot;&gt;
+&lt;meta name=&quot;twitter:title&quot; content=&quot;&lt;%= themeConfig.siteName %&gt;&quot;&gt;
+&lt;meta name=&quot;twitter:description&quot; content=&quot;&lt;%= themeConfig.siteDescription %&gt;&quot;&gt;
+&lt;meta name=&quot;twitter:site&quot; content=&quot;@WBoy0609&quot;&gt;
+&lt;meta name=&quot;twitter:creator&quot; content=&quot;@WBoy0609&quot;&gt;
+&lt;meta name=&quot;twitter:image&quot; content=&quot;&lt;%= themeConfig.domain %&gt;/images/avatar.png?v=&lt;%= site.utils.now %&gt;&quot;&gt;
+</code></pre>
+<pre><code class="language-html">&lt;!-- Twitter (post.ejs) --&gt;
+&lt;meta name=&quot;twitter:card&quot; content=&quot;summary_large_image&quot;&gt;
+&lt;meta name=&quot;twitter:title&quot; content=&quot;&lt;%= post.title %&gt;&quot;&gt;
+&lt;meta name=&quot;twitter:description&quot; content=&quot;&lt;%= post.description %&gt;&quot;&gt;
+&lt;meta name=&quot;twitter:site&quot; content=&quot;@WBoy0609&quot;&gt;
+&lt;meta name=&quot;twitter:creator&quot; content=&quot;@WBoy0609&quot;&gt;
+&lt;meta name=&quot;twitter:image&quot; content=&quot;&lt;%= post.feature %&gt;&quot;&gt;
+</code></pre>
+<p>原理类似，这里不重复了，最后的效果也挺不错的：</p>
+<figure data-type="image" tabindex="6"><img src="https://leonwong0609.github.io/post-images/1610629039317.png" alt="" width="500" loading="lazy"></figure>
+<h2 id="其他">其他</h2>
+<p>除了这些在文档头部进行的、网页上无法直接体现的变化之外，我这次还微调了博客的一些排版问题，现在正文的对齐方式我改成了 <code>justify</code> 即两端对齐，这样看起来文章左右两侧都更加整齐，不会出现左侧对齐但右侧错落的难受情况。</p>
+<p>总感觉上一篇博客没写完多久，结果没想到一不小心就过去了半年。之前一直想写的 My Little Airport 和一堆电影的影评到现在还拖着。还是希望以后有空闲的时候能多写写东西，毕竟消费信息快餐的记忆很快就会过去，最后什么都没留下；而写作的记忆，会和写下的文字共存。</p>
+<h2 id="also-see">Also see…</h2>
+<ul>
+<li><a href="https://stackoverflow.com/questions/35268940/how-to-force-telegram-to-update-link-preview">How to force telegram to update link preview? -Stack Overflow</a></li>
+</ul>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[写在 20 岁生日的反思 🎂]]></title>
         <id>https://leonwong0609.github.io/post/20/</id>
@@ -822,76 +966,6 @@ image_url: //img[has-class(&quot;post-feature-image rounded-lg mx-auto my-4&quot
 <li>Matters: <a href="https://matters.news/@Wleschen/%E4%BA%BA%E7%89%A9-%E8%A2%AB%E5%88%A0%E6%96%87-%E5%8F%91%E5%93%A8%E5%AD%90%E7%9A%84%E4%BA%BA-bafyreidwzxzn72epmy5rgrowyi5uv6bd7megqcpbodixvvsv6hnbmktrxi">《人物》被删文：发哨子的人</a></li>
 <li>IPFS Token: <code>QmdqJ4N7BMDxfcV5k8bPR8pP8SpCpYHZvKVMVemyE7gfir</code></li>
 </ul>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[《爱的迫降》观影笔记]]></title>
-        <id>https://leonwong0609.github.io/post/Crash-Landing-on-You-Review/</id>
-        <link href="https://leonwong0609.github.io/post/Crash-Landing-on-You-Review/">
-        </link>
-        <updated>2020-02-26T13:07:54.000Z</updated>
-        <summary type="html"><![CDATA[<p>《爱的迫降》讲的是一个跨越三八线的爱情故事，同时也让我有一些爱情以外的感触。</p>
-]]></summary>
-        <content type="html"><![CDATA[<p>《爱的迫降》讲的是一个跨越三八线的爱情故事，同时也让我有一些爱情以外的感触。</p>
-<!-- more -->
-<p><ul class="markdownIt-TOC">
-<li>
-<ul>
-<li><a href="#%E5%89%A7%E6%83%85%E7%AE%80%E4%BB%8B">剧情简介</a></li>
-<li><a href="#%E5%89%A7%E9%9B%86%E4%BA%AE%E7%82%B9">剧集亮点</a>
-<ul>
-<li><a href="#%E7%88%B1%E6%83%85">爱情</a></li>
-<li><a href="#%E6%9C%9D%E9%B2%9C">朝鲜</a></li>
-<li><a href="#%E6%9C%9D%E9%9F%A9">朝韩</a></li>
-</ul>
-</li>
-<li><a href="#%E6%80%BB%E7%BB%93">总结</a></li>
-</ul>
-</li>
-</ul>
-</p>
-<p>提到<strong>朝鲜</strong>我们会想起什么？之前的我可能多半会想到贫穷、饥饿、洗脑、监视、高密、秘密处决等等这些 1984 元素。然而前一段时间，我看到了许多旅行博主发了许多朝鲜旅游的 vlog 和文章，跟随他们的镜头和文字，这个原来在我心中冷酷阴暗的神秘国度一下子立体了起来，开始激起我「猎奇」的欲望。</p>
-<p>这也是为什么我在 Netflix 首页看到《爱的迫降》时直接就把它加到片单了，不得不说剧中韩国女主角迫降朝鲜的设定真的十分吸引我，我很想借女主角的眼睛探索这个神秘的国度。《爱的迫降》顺利成为了我人生看的第一部韩剧。</p>
-<h2 id="剧情简介">剧情简介</h2>
-<p>这个故事的剧情并不烧脑复杂。女主角尹世理是韩国富豪家庭的私生女，因为特殊身份遭到兄长的排挤，所以她独立创办了自己的公司品牌「世理之选」，成功证明了自己并得到了父亲的肯定，成为了女王集团的继承人，令兄嫂们十分眼红。然而在一次亲自为户外服装拍摄广告时，因为乘坐的滑翔伞遇到龙卷风，被意外卷到朝鲜 DMZ，被在此巡逻的民警大队第五中队大尉中队长（实际上是朝鲜人民军总政治局局长之子）李正赫救下。</p>
-<figure data-type="image" tabindex="1"><img src="https://leonwong0609.github.io/post-images/1582726386743.jpg" alt="" width="600" loading="lazy"></figure>
-<p>在尹世理被困朝鲜时期，李正赫收留她在自己家，同时帮助她想办法回到韩国。过程中，两人暗生情愫。同时，尹世理二哥得知情况后，为争夺继承人位置，他主动干预，派人阻挠尹世理回国计划，想让她困在朝鲜。然而李正赫还是通过要求主动轮班值守边境，成功将尹世理送入韩国。</p>
-<figure data-type="image" tabindex="2"><img src="https://leonwong0609.github.io/post-images/1582726402158.jpg" alt="" width="600" loading="lazy"></figure>
-<p>在成功将尹世理送回韩国后，曾经与李正赫有过节的保卫处少校赵哲江追到韩国打算绑架尹世理回北，作为李正赫私藏韩国「间谍」的证据，企图借此击垮总政治局局长势力。因此李正赫为保护尹世理也潜入韩国，成为了尹世理的「贴身保镖」。李正赫父亲知晓后，立即借参加军运会的理由将李正赫中队的队员送入韩国找回李正赫。后来李正赫一行人与赵哲江一行人发生交火，赵哲江被杀，尹世理中弹昏迷，李正赫一行人相继被捕接受调查。</p>
-<figure data-type="image" tabindex="3"><img src="https://leonwong0609.github.io/post-images/1582726562362.jpg" alt="" width="600" loading="lazy"></figure>
-<p>经过重重调查后，李正赫一行人终于摆脱了嫌疑，被遣返回国。</p>
-<figure data-type="image" tabindex="4"><img src="https://leonwong0609.github.io/post-images/1582726429511.jpg" alt="" width="600" loading="lazy"></figure>
-<p>李正赫回国后仍然通过定时短信对尹世理说话，在他的引导下，尹世理渐渐开始变得开朗、认真生活。故事的最后，他们又在最初相遇的瑞士重逢了。</p>
-<figure data-type="image" tabindex="5"><img src="https://leonwong0609.github.io/post-images/1582726659762.jpg" alt="" width="600" loading="lazy"></figure>
-<h2 id="剧集亮点">剧集亮点</h2>
-<p>往常我对韩剧的印象似乎都是特别煽情、特别玛丽苏、特别催泪这类的刻板印象，直到我看了《爱的迫降》之后，发现这部剧确实煽情催泪，也确实挺玛丽苏……不过独特之处在于这部剧选择了将朝韩两国的人放置在另一个国家的环境中产生戏剧冲突，同时在这样的冲突中，我们跟随着人物一起成长。</p>
-<h3 id="爱情">爱情</h3>
-<p>这部电视剧最开始吸引我的是「韩国人在朝鲜」这个创意，然而看完了之后觉得爱情的成分更多（废话题目都叫《<strong>爱</strong>的迫降》），所以我想先谈谈这段爱情以及这段爱情给两人带来的改变。</p>
-<p>尹世理在韩国虽然是所谓的「高等阶级」，但出生在这样的财阀家庭，从小没有感受到多少爱。加上私生女的身份，更是和家人矛盾不断，从小在竞争中长大的她可能从来没有从除父亲之外的人处感受到亲情。因此她已经习惯了算计，始终会考虑任何选择的价值，甚至自己的绯闻也能在她手中变成公司的公关机会。在父亲将她定位继承人后，她更是觉得以往的自己都做出了正确的判断。同时，缺爱的她也从来不会轻易流露真情，而是和所有人保持距离，在公司里更是始终以女强人形象示人，总是一个人吃饭，对待下属也十分严苛。在恋爱关系中，每次分手都要强调是自己甩了对方，不允许自己在情感中失败受伤。</p>
-<figure data-type="image" tabindex="6"><img src="https://leonwong0609.github.io/post-images/1582726453173.jpg" alt="" width="600" loading="lazy"></figure>
-<p>然而她意外抵达朝鲜后，虽然开始仍然是功利地接近李正赫和军官私宅村的妇女，但我们能感受到她渐渐地变化。在韩国任何普通食物都不吃超过三口的「嘴刁公主」在朝鲜吃锅巴蘸糖也吃得津津有味；在韩国海鲜和白葡萄酒有固定搭配的她在朝鲜却能享受最普通的火烤蛤蜊加烧酒；在韩国早餐的水煮蛋要煮固定时间的她能在朝鲜很快乐地吃普通的水蛋和土豆。李正赫一行人细心的照顾和同村妇女的真诚陪伴，无疑给她提供了在她韩国很难得到的真诚和关怀。</p>
-<p>在李正赫护送她去机场搭乘回韩国的航班的路上受伤时，尹世理选择了错过飞机，留在朝鲜为失血过多的李正赫输血。这个选择肯定对于她一心想回到韩国的目标是不利的，只不过比起回到韩国，她现在更在乎心爱之人的安危了。原来对过节庆祝嗤之以鼻的她也开始为李正赫一行人准备奖状和礼物，原来那个因为害怕受伤而不敢付出的她终于卸下防备，开始学会主动关爱。</p>
-<figure data-type="image" tabindex="7"><img src="https://leonwong0609.github.io/post-images/1582726682003.jpg" alt="" width="600" loading="lazy"></figure>
-<p>而李正赫原来是个阳光开朗的有钢琴梦想的男孩。但在瑞士留学时收到哥哥车祸身亡后的消息，他毅然决然放弃了音乐梦想，回到祖国接替哥哥完成父亲「两兄弟必须有一个是军人」的心愿。他可能一直对哥哥从军给自己提供实现梦想的机会这件事怀有愧疚，在哥哥去世后便更觉得对不起哥哥，从此开始封闭自己的情感，变得沉默寡言，也对生活也不再抱有期待。</p>
-<figure data-type="image" tabindex="8"><img src="https://leonwong0609.github.io/post-images/1582726765776.jpg" alt="" width="600" loading="lazy"></figure>
-<p>然而某一天，尹世理从天而降，落入了李正赫平淡的生活。她的出现给李正赫重新带来了生命的热情。在她的陪伴下，李正赫渐渐的开始放下过去的痛苦。从来想着默默付出默默守护的他，在尹世理为了他而放弃回到韩国的机会后，也开始慢慢接受他人的照顾与关怀。后来在韩国，他更是对尹世理直言自己其实想留在韩国，想和她生活在一起。原来严肃、木讷的他在尹世理的出现后有了展现自己脆弱的窗口，开始不再抑制自己的情感，也不再带着遗憾与失落生活。</p>
-<figure data-type="image" tabindex="9"><img src="https://leonwong0609.github.io/post-images/1582726485546.jpg" alt="" width="600" loading="lazy"></figure>
-<p>我突然想起有一句传得很广已经变得有些俗气的话：「爱一个人就是突然有了铠甲，也突然有了软肋」，正好能概括剧中两人的爱情，允许对方成为自己的弱点，然后用尽全力去互相保护。</p>
-<h3 id="朝鲜">朝鲜</h3>
-<p>除了爱情之外，我期待的「朝鲜生活现状」也有在剧集中有所体现。我们借助尹世理的眼睛看到了编剧想让我们看到的「朝鲜」。电视剧中的朝鲜同样仅常断电，人们同样对「天天能吃肉」感到惊奇，同样是只有少数人才能拥有「手提电话」，甚至手机软件还要到「商店」去安装，交易的硬通货还是电话卡和美元……但是正是这样有些落后又有些与世隔绝的环境却在剧中被刻画成一派田园牧歌的景象，也成了韩国来的尹世理的世外桃源。前面已经提到过，他在这里感受到了关切，收获了友谊。甚至跟随李正赫中队队员一行人去往韩国的监听员也由于「职业习惯」，在尹世理中弹受伤的病房中录下了二哥企图加害尹世理的重要证据。除此之外，还有军官私宅村的妇女巧妙救下险些被绑架的监听员家庭母子，以及尹世理回到韩国后「世理之选」推出的以军官私宅村的朋友为封面的限定款「思念」系列产品等等情节，都是编剧精心设计的，戏剧美化十分明显的情节。</p>
-<figure data-type="image" tabindex="10"><img src="https://leonwong0609.github.io/post-images/1582726521572.jpg" alt="" width="600" loading="lazy"></figure>
-<figure data-type="image" tabindex="11"><img src="https://leonwong0609.github.io/post-images/1582726611138.jpg" alt="" width="600" loading="lazy"></figure>
-<figure data-type="image" tabindex="12"><img src="https://leonwong0609.github.io/post-images/1582726635425.jpg" alt="" width="600" loading="lazy"></figure>
-<h3 id="朝韩">朝韩</h3>
-<p>朝韩两国目前暂时敌对的关系下，一国的电视剧能做到不抹黑、不敌视另一国，在我看来已经实属难得。在能够选择的条件下选择了去尽量展示美好，这其中或许隐藏着一些韩国人民对朝韩未来的一种的期盼吧。毕竟大韩民国的宪法规定的国土范围仍然包含整个朝鲜半导，「朝鲜居民」也算是大韩民国公民。结合这几年朝韩两国似乎升温的关系，我们仿佛能在这部电视剧中看到韩国软化敌对关系的企图。</p>
-<figure data-type="image" tabindex="13"><img src="https://leonwong0609.github.io/post-images/1582726580632.jpg" alt="" width="600" loading="lazy"></figure>
-<p>确实，朝韩两地本同文同宗，却因为某些政治家「深谋远虑」的算计一分为二。一条不算宽的三八线将这个民族荒诞地分成两边，而两边的戍边战士短兵相接都能正常交流，甚至都因为平常听得太多而能唱出对方的国歌。但是这一条人为划定的线却切断了身处两地的同胞交流的可能。</p>
-<figure data-type="image" tabindex="14"><img src="https://leonwong0609.github.io/post-images/1582726696581.jpg" alt="" width="600" loading="lazy"></figure>
-<p>不得不承认，一个民族要试探出一条适合自己的道路，选择一个适合自己的制度，确实需要经历一些斗争和流血牺牲。但是像这样因为一些我们自己都说不清楚的原因分裂数十载，并且双方政府都在疯狂鼓吹敌视，这真的是这个民族想要的吗，或者说这样的状况是真的对这个民族的人民好吗？分裂，到底是符合民族的利益，还是符合少数人的利益呢？</p>
-<p>我只知道当前的这种情况，即使权重如李正赫，多金如尹世理，如此相爱却只因生在三八线的两端而无法厮守终生，即使是见上一面就要堵上自己甚至是家庭的一切。这怎么让人不痛心呢？</p>
-<h2 id="总结">总结</h2>
-<p>上面的内容只是自己突然地有感而发，想到什么就写了什么，写完才发现又很多东西没有提到。比如这部剧的男二女二以及他们的故事也同样很有意思；同时男主女主的缘分也不是在女主迫降朝鲜才开始的，总之更多无法囊括的细节还需要去看一遍电视剧才能体会。</p>
-<p>不得不承认，虽然是第一次看韩剧，不太习惯有点玛丽苏的设定以及有点拖沓又多泪的剧情，但是仍然觉得这部电视剧十分值得推荐。因为它不仅从两个人的角度让我起我思考该如何爱一个人，也从两个国家的角度让我思考该如何爱一个民族。</p>
 ]]></content>
     </entry>
 </feed>
