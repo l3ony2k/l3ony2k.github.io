@@ -2,9 +2,20 @@
   <head>
     <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
+
 <title>用自定义 CSS 解决文章内单词词内折行问题 | Wonder Space 🚀</title>
-<meta name="description" content="不可勝在己，可勝在敵" />
-<link rel="shortcut icon" href="https://leonwong0609.github.io/favicon.ico?v=1607358484252">
+
+<!-- Chrome, Firefox OS and Opera --> 
+<meta name="theme-color" content="#ffffff">
+
+<!-- Apple Safari -->
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="apple-touch-icon" href="https://leonwong0609.github.io/images/avatar.png?v=1610606215091">
+<!--link rel="apple-touch-startup-image" href="https://www.bokewo.com/bing/bingimg.php?idx=-1&amp;mkt=en-ww&amp;img"-->
+<meta name="apple-mobile-web-app-title" content="WS">
+
+<link rel="shortcut icon" href="https://leonwong0609.github.io/favicon.ico?v=1610606215091">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
@@ -22,8 +33,33 @@
   gtag('config', 'UA-156553722-1');
 </script>
 
+    <meta name="description" content="&lt;p&gt;最近给博客换了身新皮，叫做 Pure，主题设计得特别赞，整体简洁大方，细节也十分到位，一些小动画也特别顺畅优雅。之前的主题 Walker 存在 &lt;code&gt;Title&lt;/code&gt; 一直不会变的问题，换上这个主题就没有发现这个问题了。然而使用过程中发现另外一个问题，英文单词会行内折行，而且也没有折行的连字符。&lt;/p&gt;
+" />
+
+    <!-- OG --> 
+    <meta property="og:locale" content="zh_CN">
+    <meta property="og:title" content="用自定义 CSS 解决文章内单词词内折行问题" />
+    <meta property="og:type" content="article" />
+    <meta property="og:description" content="&lt;p&gt;最近给博客换了身新皮，叫做 Pure，主题设计得特别赞，整体简洁大方，细节也十分到位，一些小动画也特别顺畅优雅。之前的主题 Walker 存在 &lt;code&gt;Title&lt;/code&gt; 一直不会变的问题，换上这个主题就没有发现这个问题了。然而使用过程中发现另外一个问题，英文单词会行内折行，而且也没有折行的连字符。&lt;/p&gt;
+">
+    <meta property="og:url" content="https://leonwong0609.github.io/post/PureCustomizedCSS/" />
+    <meta property="og:site_name" content="Wonder Space 🚀">
+    <meta property="og:updated_time" content="02-18-2020">
+    <meta property="og:image" content="https://leonwong0609.github.io/post-images/PureCustomizedCSS.png" />
+    <meta property="og:image:secure_url" content="https://leonwong0609.github.io/post-images/PureCustomizedCSS.png">
+    <meta property="og:image:alt" content="用自定义 CSS 解决文章内单词词内折行问题">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="用自定义 CSS 解决文章内单词词内折行问题">
+    <meta name="twitter:description" content="&lt;p&gt;最近给博客换了身新皮，叫做 Pure，主题设计得特别赞，整体简洁大方，细节也十分到位，一些小动画也特别顺畅优雅。之前的主题 Walker 存在 &lt;code&gt;Title&lt;/code&gt; 一直不会变的问题，换上这个主题就没有发现这个问题了。然而使用过程中发现另外一个问题，英文单词会行内折行，而且也没有折行的连字符。&lt;/p&gt;
+">
+    <meta name="twitter:site" content="@WBoy0609">
+    <meta name="twitter:creator" content="@WBoy0609">
+    <meta name="twitter:image" content="https://leonwong0609.github.io/post-images/PureCustomizedCSS.png">
 
   </head>
+
   <body>
     <div id="app" class="main px-4 flex flex-col lg:flex-row">
       <div id="sidebar" class="sidebar-wrapper lg:static lg:w-1/4">
@@ -32,7 +68,7 @@
       <div class="flex lg:block p-4 lg:px-0 items-center fixed lg:static lg:block top-0 right-0 left-0 bg-white z-50">
         <i class="ri-menu-2-line lg:mt-4 text-2xl cursor-pointer animated fadeIn" onclick="openMenu()"></i>
         <a href="https://leonwong0609.github.io">
-          <img class="animated fadeInLeft avatar rounded-lg mx-4 lg:mt-32 lg:mx-0 mt-0 lg:w-24 lg:h-24 w-12 w-12" src="https://leonwong0609.github.io/images/avatar.png?v=1607358484252" alt="">
+          <img class="animated fadeInLeft avatar rounded-lg mx-4 lg:mt-32 lg:mx-0 mt-0 lg:w-24 lg:h-24 w-12 w-12" src="https://leonwong0609.github.io/images/avatar.png?v=1610606215091" alt="">
         </a>
         <h1 class="animated fadeInLeft lg:text-4xl font-extrabold lg:mt-8 mt-0 text-xl" style="animation-delay: 0.2s">Wonder Space 🚀</h1>
       </div>
