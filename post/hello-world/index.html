@@ -10,12 +10,15 @@
 
 <!-- Apple Safari -->
 <meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<link rel="apple-touch-icon" href="https://leonwong0609.github.io/images/avatar.png?v=1610644886217">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<link rel="apple-touch-icon" href="https://leonwong0609.github.io/images/avatar.png?v=1610694481969">
 <!--link rel="apple-touch-startup-image" href="https://www.bokewo.com/bing/bingimg.php?idx=-1&amp;mkt=en-ww&amp;img"-->
-<meta name="apple-mobile-web-app-title" content="WS">
+<meta name="apple-mobile-web-app-title" content="WS 🚀">
 
-<link rel="shortcut icon" href="https://leonwong0609.github.io/favicon.ico?v=1610644886217">
+<!-- instant.page -->
+<script src="//instant.page/5.1.0" type="module" integrity="sha384-by67kQnR+pyfy8yWP4kPO12fHKRLHZPfEsiSXR8u2IKcTdxD805MGUXBzVPnkLHw"></script>
+
+<link rel="shortcut icon" href="https://leonwong0609.github.io/favicon.ico?v=1610694481969">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
@@ -74,12 +77,12 @@
       <div id="sidebar" class="sidebar-wrapper lg:static lg:w-1/4">
   <div class="lg:sticky top-0">
     <div class="sidebar-content">
-      <div class="flex lg:block p-4 lg:px-0 items-center fixed lg:static lg:block top-0 right-0 left-0 bg-white z-50">
+      <div class="flex lg:block p-4 lg:px-0 items-center fixed lg:static lg:block top-0 right-0 left-0 bg-white z-50" style="backdrop-filter: blur(7px); background: hsla(0, 0%, 100%, .75); -webkit-backdrop-filter: blur(7px);">
         <i class="ri-menu-2-line lg:mt-4 text-2xl cursor-pointer animated fadeIn" onclick="openMenu()"></i>
         <a href="https://leonwong0609.github.io">
-          <img class="animated fadeInLeft avatar rounded-lg mx-4 lg:mt-32 lg:mx-0 mt-0 lg:w-24 lg:h-24 w-12 w-12" src="https://leonwong0609.github.io/images/avatar.png?v=1610644886217" alt="">
+          <img class="animated fadeInLeft avatar rounded-lg mx-4 lg:mt-32 lg:mx-0 mt-0 lg:w-24 lg:h-24 w-12 w-12" src="https://leonwong0609.github.io/images/avatar.png?v=1610694481969" alt="">
         </a>
-        <h1 class="animated fadeInLeft lg:text-4xl font-extrabold lg:mt-8 mt-0 text-xl" style="animation-delay: 0.2s">Wonder Space 🚀</h1>
+        <h1 class="animated fadeInLeft lg:text-2xl font-extrabold lg:mt-8 mt-0 text-xl" style="animation-delay: 0.2s">Wonder Space 🚀</h1>
       </div>
       
         <div class="animated fadeInLeft" style="animation-delay: 0.4s">
@@ -133,14 +136,20 @@
       
     
       
-        <a href="https://leonwong0609.netlify.com/" class="menu" style="animation-delay: 0.6000000000000001s" target="_blank">
+        <a href="/post/about" class="menu" style="animation-delay: 0.6000000000000001s">
+          😶 关于
+        </a>
+      
+    
+      
+        <a href="https://leonwong0609.netlify.com/" class="menu" style="animation-delay: 0.8s" target="_blank">
           📷 图流
         </a>
       
     
       
-        <a href="/post/about" class="menu" style="animation-delay: 0.8s">
-          😶 关于
+        <a href="https://www.notion.so/l30n/77aa32ea905644ad899acfd65497c46a?v=6aa01f5fa7614d5bb561ee569029d94b" class="menu" style="animation-delay: 1s" target="_blank">
+          🚀 Notion Version
         </a>
       
     
@@ -150,7 +159,7 @@
     <a class="rss" href="https://leonwong0609.github.io/atom.xml" target="_blank">RSS</a>
   </div>
 </div>
-<div class="mask" onclick="closeMenu()">
+<div class="mask" onclick="closeMenu()" style="backdrop-filter: blur(7px); background: hsla(0, 0%, 100%, 0.5); -webkit-backdrop-filter: blur(7px);">
 </div>
       <div class="content-wrapper py-32 lg:p-8 lg:w-3/4 post-detail animated fadeIn">
         <h1 class="text-3xl font-bold lg:mt-16">Hello World!</h1>
@@ -231,7 +240,11 @@
       </div>
     </div>
 
-    <script src="https://leonwong0609.github.io/media/prism.js"></script>  
+    <script src="https://leonwong0609.github.io/media/prism.js"></script>
+
+<script src="http://instantclick.io/v3.1.0/instantclick.min.js" data-no-instant></script>
+<script data-no-instant>InstantClick.init();</script>
+
 <script>
 
 Prism.highlightAll()
@@ -328,6 +341,5 @@ const closeMenu = () => {
   contentWrapper.classList.remove('is-second')
 }
 </script>
-<script src="//instant.page/3.0.0" type="module" defer integrity="sha384-OeDn4XE77tdHo8pGtE1apMPmAipjoxUQ++eeJa6EtJCfHlvijigWiJpD7VDPWXV1"></script>
   </body>
 </html>
