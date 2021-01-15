@@ -27699,6 +27699,40 @@ body {
 }
 
       #instantclick-bar {
-  background: #303030;
+  background: #505050;
 }
+
+::-moz-selection{ 
+background:#505050; 
+color:#fff; 
+ } 
+::selection { 
+background:#505050; 
+color:#fff; 
+} 
+code::-moz-selection {
+background: #505050; 
+} 
+code::selection { 
+background: #505050; 
+}
+
+html, body {
+  scroll-behavior: smooth;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     
