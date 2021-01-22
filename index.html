@@ -11,7 +11,7 @@
 <!-- Apple Safari -->
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
-<link rel="apple-touch-icon" href="https://leonwong0609.github.io/images/avatar.png?v=1610709029821">
+<link rel="apple-touch-icon" href="https://leonwong0609.github.io/images/avatar.png?v=1611330356170">
 <!--link rel="apple-touch-startup-image" href="https://www.bokewo.com/bing/bingimg.php?idx=-1&amp;mkt=en-ww&amp;img"-->
 <meta name="apple-mobile-web-app-title" content="WS 🚀">
 
@@ -19,7 +19,28 @@
 <!--<script src="//instant.page/5.1.0" type="module" integrity="sha384-by67kQnR+pyfy8yWP4kPO12fHKRLHZPfEsiSXR8u2IKcTdxD805MGUXBzVPnkLHw"></script>-->
 <script src="https://leonwong0609.github.io/media/instantpage-5.1.0.js" type="module" defer></script>
 
-<link rel="shortcut icon" href="https://leonwong0609.github.io/favicon.ico?v=1610709029821">
+<!-- darkmode.js 
+<script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
+<script>
+  function addDarkmodeWidget() {
+    new Darkmode().showWidget();
+  }
+  window.addEventListener('load', addDarkmodeWidget);
+</script>-->
+
+<!-- dark reader -->
+<script src="https://cdn.jsdelivr.net/npm/darkreader@4.9.26/darkreader.min.js"></script>
+<script>
+  // Enable when system color scheme is dark.
+  DarkReader.auto({
+    brightness: 105,
+    contrast: 95,
+    sepia: 0,
+    grayscale: 15
+});
+</script>
+
+<link rel="shortcut icon" href="https://leonwong0609.github.io/favicon.ico?v=1611330356170">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
@@ -45,8 +66,8 @@
     <meta property="og:description" content="不可勝在己，可勝在敵">
     <meta property="og:url" content="https://leonwong0609.github.io/" />
     <meta property="og:site_name" content="Wonder Space 🚀">
-    <meta property="og:image" content="https://leonwong0609.github.io/images/avatar.png?v=1610709029821" />
-    <meta property="og:image:secure_url" content="https://leonwong0609.github.io/images/avatar.png?v=1610709029821">
+    <meta property="og:image" content="https://leonwong0609.github.io/images/avatar.png?v=1611330356170" />
+    <meta property="og:image:secure_url" content="https://leonwong0609.github.io/images/avatar.png?v=1611330356170">
     <meta property="og:image:height" content="300" />
     <meta property="og:image:alt" content="Wonder Space 🚀">
 
@@ -56,7 +77,7 @@
     <meta name="twitter:description" content="不可勝在己，可勝在敵">
     <meta name="twitter:site" content="@WBoy0609">
     <meta name="twitter:creator" content="@WBoy0609">
-    <meta name="twitter:image" content="https://leonwong0609.github.io/images/avatar.png?v=1610709029821">
+    <meta name="twitter:image" content="https://leonwong0609.github.io/images/avatar.png?v=1611330356170">
 
   </head>
 
@@ -68,7 +89,7 @@
       <div class="flex lg:block p-4 lg:px-0 items-center fixed lg:static lg:block top-0 right-0 left-0 bg-white z-50" style="backdrop-filter: blur(7px); background: hsla(0, 0%, 100%, .75); -webkit-backdrop-filter: blur(7px);">
         <i class="ri-menu-2-line lg:mt-4 text-2xl cursor-pointer animated fadeIn" onclick="openMenu()"></i>
         <a href="https://leonwong0609.github.io">
-          <img class="animated fadeInLeft avatar rounded-lg mx-4 lg:mt-32 lg:mx-0 mt-0 lg:w-24 lg:h-24 w-12 w-12" src="https://leonwong0609.github.io/images/avatar.png?v=1610709029821" alt="">
+          <img class="animated fadeInLeft avatar rounded-lg mx-4 lg:mt-32 lg:mx-0 mt-0 lg:w-24 lg:h-24 w-12 w-12" src="https://leonwong0609.github.io/images/avatar.png?v=1611330356170" alt="">
         </a>
         <h1 class="animated fadeInLeft lg:text-2xl font-extrabold lg:mt-8 mt-0 text-xl" style="animation-delay: 0.2s">Wonder Space 🚀</h1>
       </div>
@@ -163,7 +184,9 @@
   </div>
   <div class="site-footer">
     <div class="py-4 text-gray-700"><a href="/post/about">Wonder Space 🚀</a> by Leon is licensed under a <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">Creative Commons BY-NC-SA 4.0 International License</a>. <img src="https://upload.wikimedia.org/wikipedia/commons/1/12/Cc-by-nc-sa_icon.svg" width="30%" style="margin:5 auto;"></div>
-    <a class="rss" href="https://leonwong0609.github.io/atom.xml" target="_blank">RSS</a>
+    <a class="rss" href="https://leonwong0609.github.io/atom.xml" target="_blank" style="margin: 5px;">RSS</a>
+    <button onclick="DarkReader.disable()" style="margin: 5px;">🌖</button>
+    <button onclick="DarkReader.enable({brightness: 105, contrast: 95, sepia: 0, grayscale: 15})" style="margin: 5px;">🌒</button>
   </div>
 </div>
 <div class="mask" onclick="closeMenu()" style="backdrop-filter: blur(7px); background: hsla(0, 0%, 100%, 0.5); -webkit-backdrop-filter: blur(7px);">
@@ -176,6 +199,25 @@
         
   <section class="post-item md:flex pb-12 animated fadeIn" :style="{ 'animation-delay': `${0 * 0.2}s` }">
     
+      <a href="https://leonwong0609.github.io/post/dark-theme/" class="feature-image-wrapper bg-gray-100 rounded-lg flex-shrink-0 mr-8 w-full h-56 h-32 md:w-56 md:h-40">
+        <div class="post-feature-image lazy w-full h-56 h-32 md:w-56 md:h-40" data-bg="'https://leonwong0609.github.io/post-images/dark-theme.png'">
+        </div>
+      </a>
+    
+    <div class="content">
+      <a href="https://leonwong0609.github.io/post/dark-theme/">
+        <h2 class="post-title text-xl font-extrabold mt-5 md:mt-0">使用 Dark Reader 为博客添加深色主题</h2>
+      </a>
+      <div class="post-abstract text-gray-700 font-light my-4">
+        <p>这两天又心血来潮了，想给博客增加深色主题，因为技术的限制，不可能自己重写一套，因此想着尝试使用一键生成深色主题的脚本，尝试了几次之后选择了 Dark Reader（是的就是那个浏览器扩展插件），记录一下。</p>
+
+      </div>
+      <div class="text-gray-400 text-sm font-light">01-21-2021 / 7 min read</div>
+    </div>
+  </section>
+
+  <section class="post-item md:flex pb-12 animated fadeIn" :style="{ 'animation-delay': `${1 * 0.2}s` }">
+    
       <a href="https://leonwong0609.github.io/post/add-open-graph-to-my-blog/" class="feature-image-wrapper bg-gray-100 rounded-lg flex-shrink-0 mr-8 w-full h-56 h-32 md:w-56 md:h-40">
         <div class="post-feature-image lazy w-full h-56 h-32 md:w-56 md:h-40" data-bg="'https://leonwong0609.github.io/post-images/add-open-graph-to-my-blog.png'">
         </div>
@@ -183,7 +225,7 @@
     
     <div class="content">
       <a href="https://leonwong0609.github.io/post/add-open-graph-to-my-blog/">
-        <h2 class="post-title text-xl font-extrabold mt-5 md:mt-0">让博客在社交媒体的预览效果更丰富 —— OG 协议</h2>
+        <h2 class="post-title text-xl font-extrabold mt-5 md:mt-0">让博客在社交媒体的预览效果更丰富：OG 协议</h2>
       </a>
       <div class="post-abstract text-gray-700 font-light my-4">
         <p>今天心血来潮对小站进行了一些调整，主要是使用了 OG 协议让博客在社交媒体上有更丰富的链接预览。</p>
@@ -193,7 +235,7 @@
     </div>
   </section>
 
-  <section class="post-item md:flex pb-12 animated fadeIn" :style="{ 'animation-delay': `${1 * 0.2}s` }">
+  <section class="post-item md:flex pb-12 animated fadeIn" :style="{ 'animation-delay': `${2 * 0.2}s` }">
     
       <a href="https://leonwong0609.github.io/post/20/" class="feature-image-wrapper bg-gray-100 rounded-lg flex-shrink-0 mr-8 w-full h-56 h-32 md:w-56 md:h-40">
         <div class="post-feature-image lazy w-full h-56 h-32 md:w-56 md:h-40" data-bg="'https://leonwong0609.github.io/post-images/20.jpg'">
@@ -212,7 +254,7 @@
     </div>
   </section>
 
-  <section class="post-item md:flex pb-12 animated fadeIn" :style="{ 'animation-delay': `${2 * 0.2}s` }">
+  <section class="post-item md:flex pb-12 animated fadeIn" :style="{ 'animation-delay': `${3 * 0.2}s` }">
     
       <a href="https://leonwong0609.github.io/post/add-instant-view-to-my-blog/" class="feature-image-wrapper bg-gray-100 rounded-lg flex-shrink-0 mr-8 w-full h-56 h-32 md:w-56 md:h-40">
         <div class="post-feature-image lazy w-full h-56 h-32 md:w-56 md:h-40" data-bg="'https://leonwong0609.github.io/post-images/add-instant-view-to-my-blog.png'">
@@ -231,7 +273,7 @@
     </div>
   </section>
 
-  <section class="post-item md:flex pb-12 animated fadeIn" :style="{ 'animation-delay': `${3 * 0.2}s` }">
+  <section class="post-item md:flex pb-12 animated fadeIn" :style="{ 'animation-delay': `${4 * 0.2}s` }">
     
       <a href="https://leonwong0609.github.io/post/why-do-you-love-cinema/" class="feature-image-wrapper bg-gray-100 rounded-lg flex-shrink-0 mr-8 w-full h-56 h-32 md:w-56 md:h-40">
         <div class="post-feature-image lazy w-full h-56 h-32 md:w-56 md:h-40" data-bg="'https://leonwong0609.github.io/post-images/why-do-you-love-cinema.png'">
@@ -250,7 +292,7 @@
     </div>
   </section>
 
-  <section class="post-item md:flex pb-12 animated fadeIn" :style="{ 'animation-delay': `${4 * 0.2}s` }">
+  <section class="post-item md:flex pb-12 animated fadeIn" :style="{ 'animation-delay': `${5 * 0.2}s` }">
     
       <a href="https://leonwong0609.github.io/post/standard-map-of-china/" class="feature-image-wrapper bg-gray-100 rounded-lg flex-shrink-0 mr-8 w-full h-56 h-32 md:w-56 md:h-40">
         <div class="post-feature-image lazy w-full h-56 h-32 md:w-56 md:h-40" data-bg="'https://leonwong0609.github.io/post-images/standard-map-of-china.jpg'">
@@ -266,25 +308,6 @@
 
       </div>
       <div class="text-gray-400 text-sm font-light">04-09-2020 / 1 min read</div>
-    </div>
-  </section>
-
-  <section class="post-item md:flex pb-12 animated fadeIn" :style="{ 'animation-delay': `${5 * 0.2}s` }">
-    
-      <a href="https://leonwong0609.github.io/post/walker-post-title/" class="feature-image-wrapper bg-gray-100 rounded-lg flex-shrink-0 mr-8 w-full h-56 h-32 md:w-56 md:h-40">
-        <div class="post-feature-image lazy w-full h-56 h-32 md:w-56 md:h-40" data-bg="'https://leonwong0609.github.io/post-images/walker-post-title.png'">
-        </div>
-      </a>
-    
-    <div class="content">
-      <a href="https://leonwong0609.github.io/post/walker-post-title/">
-        <h2 class="post-title text-xl font-extrabold mt-5 md:mt-0">解决 Gridea 的 Walker 主题博文标题的问题以及预加速</h2>
-      </a>
-      <div class="post-abstract text-gray-700 font-light my-4">
-        <p>最近看 Pure 又看腻了，把 Gridea 上的主题全部试了一遍，就是没几个满意的，于是决定把之前最喜欢的 Walker 主题不显示博文标题的问题解决一下，结果又是一整天的折腾。</p>
-
-      </div>
-      <div class="text-gray-400 text-sm font-light">04-09-2020 / 2 min read</div>
     </div>
   </section>
 
