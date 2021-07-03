@@ -11,7 +11,7 @@
 <!-- Apple Safari -->
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
-<link rel="apple-touch-icon" href="https://leonwong0609.github.io/images/avatar.png?v=1625328534488">
+<link rel="apple-touch-icon" href="https://leonwong0609.github.io/images/avatar.png?v=1625332826058">
 <!--link rel="apple-touch-startup-image" href="https://www.bokewo.com/bing/bingimg.php?idx=-1&amp;mkt=en-ww&amp;img"-->
 <meta name="apple-mobile-web-app-title" content="WS 🚀">
 
@@ -42,7 +42,7 @@
 });
 </script>
 
-<link rel="shortcut icon" href="https://leonwong0609.github.io/favicon.ico?v=1625328534488">
+<link rel="shortcut icon" href="https://leonwong0609.github.io/favicon.ico?v=1625332826058">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
@@ -115,7 +115,7 @@
       <div class="flex lg:block p-4 lg:px-0 items-center fixed lg:static lg:block top-0 right-0 left-0 bg-white z-50" style="backdrop-filter: blur(7px); background: hsla(0, 0%, 100%, .75); -webkit-backdrop-filter: blur(7px);">
         <i class="ri-menu-2-line lg:mt-4 text-2xl cursor-pointer animated fadeIn" onclick="openMenu()"></i>
         <a href="https://leonwong0609.github.io">
-          <img class="animated fadeInLeft avatar rounded-lg mx-4 lg:mt-32 lg:mx-0 mt-0 lg:w-24 lg:h-24 w-12 w-12" src="https://leonwong0609.github.io/images/avatar.png?v=1625328534488" alt="">
+          <img class="animated fadeInLeft avatar rounded-lg mx-4 lg:mt-32 lg:mx-0 mt-0 lg:w-24 lg:h-24 w-12 w-12" src="https://leonwong0609.github.io/images/avatar.png?v=1625332826058" alt="">
         </a>
         <h1 class="animated fadeInLeft lg:text-2xl font-extrabold lg:mt-8 mt-0 text-xl" style="animation-delay: 0.2s">Wonder Space 🚀</h1>
       </div>
@@ -132,6 +132,7 @@
 <li><a href="#darkmodejs">Darkmode.Js</a></li>
 <li><a href="#dark-reader">Dark Reader</a></li>
 <li><a href="#%E5%85%B6%E4%BB%96%E7%A2%8E%E7%A2%8E%E5%BF%B5">其他碎碎念</a></li>
+<li><a href="#%E8%A1%A5%E5%85%85">补充</a></li>
 </ul>
 </li>
 </ul>
@@ -182,7 +183,7 @@
     <div class="py-4 text-gray-700"><a href="/post/about">Wonder Space 🚀</a> by Leon is licensed under a <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">Creative Commons BY-NC-SA 4.0 International License</a>. <img src="https://upload.wikimedia.org/wikipedia/commons/1/12/Cc-by-nc-sa_icon.svg" width="30%" style="margin:5 auto;"></div>
     <a class="rss" href="https://leonwong0609.github.io/atom.xml" target="_blank" style="margin: 5px;">RSS</a>
     <button onclick="DarkReader.disable()" style="margin: 5px;">🌖</button>
-    <button onclick="DarkReader.enable({brightness: 105, contrast: 95, sepia: 0, grayscale: 15})" style="margin: 5px;">🌒</button>
+    <button onclick="DarkReader.enable({darkSchemeBackgroundColor:'#121212',darkSchemeTextColor:'#ffffff'})" style="margin: 5px;">🌒</button>
   </div>
 </div>
 <div class="mask" onclick="closeMenu()" style="backdrop-filter: blur(7px); background: hsla(0, 0%, 100%, 0.5); -webkit-backdrop-filter: blur(7px);">
@@ -190,7 +191,7 @@
       <div class="content-wrapper py-32 lg:p-8 lg:w-3/4 post-detail animated fadeIn">
         <h1 class="text-3xl font-bold lg:mt-16">使用 Dark Reader 为博客添加深色主题</h1>
         <div class="text-sm text-gray-700 lg:my-8">
-          01-21-2021 / 7 min read
+          01-21-2021 / 9 min read
         </div>
         
           <img class="post-feature-image rounded-lg mx-auto my-4" src="https://leonwong0609.github.io/post-images/dark-theme.png" alt="">
@@ -246,6 +247,44 @@
 <p>直接点开左上角的菜单栏就可以直接试试效果啦！</p>
 <h2 id="其他碎碎念">其他碎碎念</h2>
 <p>总体来说使用现有的脚本来添加网页的深色模式比我原来想象的简单很多，尤其是使用 Dark Reader 之后，一些我自己乱加的毛玻璃效果都能得到很好的适配。或许在这些各种强大工具的加持下，以后将创意实现的难度会越来越低，这样看来，未来各种设计类工作中技术作为竞争力的重要程度也许会越来越低，真正重要的可能就只有创意了。</p>
+<h2 id="补充">补充</h2>
+<p>使用 Dark Reader 为博客成功添加深色主题后，内心还有一点小遗憾。我个人偏好 0 饱和度的深色模式，也就是不希望在深色中加入偏色。但是 Dark Reader 可能是处于护眼的考虑，默认的背景色和文字颜色都有少许的偏黄。以前使用插件时也一直存在这个遗憾，但是最近的一次更新让 Dark Reader 能够指定主题的背景色和文字颜色。</p>
+<p>打开的方式也很简单，只需点击打开插件后点击右下角的 <code>Dev tools</code> ，</p>
+<figure data-type="image" tabindex="2"><img src="https://raw.githubusercontent.com/LeonWong0609/LeonPicbed/master/20210704004807.png" alt="插件设置" loading="lazy"></figure>
+<p>在弹出来的窗口中点击右下角的 <code>Preview new design</code>，</p>
+<figure data-type="image" tabindex="3"><img src="https://raw.githubusercontent.com/LeonWong0609/LeonPicbed/master/20210704005008.png" alt="预览新界面" width="500" loading="lazy"></figure>
+<p>完成后再点击插件图标，看到的就会是新的界面了。</p>
+<figure data-type="image" tabindex="4"><img src="https://raw.githubusercontent.com/LeonWong0609/LeonPicbed/master/20210704005452.png" alt="插件新界面" loading="lazy"></figure>
+<p>这时就可以通过设置指定背景颜色和文字颜色，甚至可以指定是否要更改滚动条和选取文字的背景颜色。</p>
+<p>这就启发了我思考 Dark Reader 提供的脚本能不能指定背景颜色和文字颜色，当时想着有空就做，结果一不小心鸽了大半年。正好今天背书背到自闭，无聊翻 GitHub 的时候突然想到这件事，于是就去看了一眼他们的 <a href="https://cdn.jsdelivr.net/npm/darkreader@latest/darkreader.js">脚本内容</a>，简单搜索了一下就发现了这一段</p>
+<pre><code class="language-js">var themeCacheKeys = [
+    'mode',
+    'brightness',
+    'contrast',
+    'grayscale',
+    'sepia',
+    'darkSchemeBackgroundColor',
+    'darkSchemeTextColor',
+    'lightSchemeBackgroundColor',
+    'lightSchemeTextColor',
+];
+</code></pre>
+<p>于是我就把 <code>head.ejs</code> 里添加的内容改成了这样</p>
+<pre><code class="language-html">&lt;!-- dark reader --&gt;
+&lt;script src=&quot;https://cdn.jsdelivr.net/npm/darkreader@4.9.26/darkreader.min.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+    // Enable when system color scheme is dark.
+    DarkReader.auto({
+        darkSchemeBackgroundColor: '#121212',
+        darkSchemeTextColor: '#ffffff'
+    });
+&lt;/script&gt;
+</code></pre>
+<p>重试了一下竟然就成功了，现在再用深色模式看这个网页，背景和文字终于是舒服的灰色，而不会偏黄了。</p>
+<p>本来到这里打算合电脑睡觉了，结果发现上面 side bar 里的两个中启动深色模式的那个按钮还是指定的原来的颜色，一点就又回到了偏黄的颜色了。于是把第二个按钮也改了一下：</p>
+<pre><code class="language-html">&lt;button onclick=&quot;DarkReader.enable({darkSchemeBackgroundColor:'#121212',darkSchemeTextColor:'#ffffff'})&quot; style=&quot;margin: 5px;&quot;&gt;🌒&lt;/button&gt;
+</code></pre>
+<p>这样颜色终于就没问题了。但是还是存在改动了主题之后刷新一下页面又回到默认主题的情况，我猜如果要解决这个问题可能就要把指定的主题写到 cookie 里面了吧，远远超出我的能力范围，就有缘再做吧。</p>
 
         </div>
 
