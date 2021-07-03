@@ -11,7 +11,7 @@
 <!-- Apple Safari -->
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
-<link rel="apple-touch-icon" href="https://leonwong0609.github.io/images/avatar.png?v=1611471072944">
+<link rel="apple-touch-icon" href="https://leonwong0609.github.io/images/avatar.png?v=1625328534488">
 <!--link rel="apple-touch-startup-image" href="https://www.bokewo.com/bing/bingimg.php?idx=-1&amp;mkt=en-ww&amp;img"-->
 <meta name="apple-mobile-web-app-title" content="WS 🚀">
 
@@ -33,14 +33,16 @@
 <script>
   // Enable when system color scheme is dark.
   DarkReader.auto({
-    brightness: 105,
-    contrast: 95,
-    sepia: 0,
-    grayscale: 15
+    //brightness: 105,
+    //contrast: 95,
+    //sepia: 0,
+    //grayscale: 15
+    darkSchemeBackgroundColor: '#121212',
+    darkSchemeTextColor: '#ffffff'
 });
 </script>
 
-<link rel="shortcut icon" href="https://leonwong0609.github.io/favicon.ico?v=1611471072944">
+<link rel="shortcut icon" href="https://leonwong0609.github.io/favicon.ico?v=1625328534488">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
@@ -92,6 +94,17 @@ Surfingkeys 和现有的一些插件一样，让你尽可能的通过键盘来�
     <meta name="twitter:creator" content="@WBoy0609">
     <meta name="twitter:image" content="">
 
+    <!-- Scrollgress.js -->
+    <script>
+      $('body').scrollgress({
+        height: '5px',
+        color: '#303030',
+        success: function() {
+          console.log('Scrollgress has been initiated.');
+        }
+      });
+    </script>
+
   </head>
 
   <body>
@@ -102,7 +115,7 @@ Surfingkeys 和现有的一些插件一样，让你尽可能的通过键盘来�
       <div class="flex lg:block p-4 lg:px-0 items-center fixed lg:static lg:block top-0 right-0 left-0 bg-white z-50" style="backdrop-filter: blur(7px); background: hsla(0, 0%, 100%, .75); -webkit-backdrop-filter: blur(7px);">
         <i class="ri-menu-2-line lg:mt-4 text-2xl cursor-pointer animated fadeIn" onclick="openMenu()"></i>
         <a href="https://leonwong0609.github.io">
-          <img class="animated fadeInLeft avatar rounded-lg mx-4 lg:mt-32 lg:mx-0 mt-0 lg:w-24 lg:h-24 w-12 w-12" src="https://leonwong0609.github.io/images/avatar.png?v=1611471072944" alt="">
+          <img class="animated fadeInLeft avatar rounded-lg mx-4 lg:mt-32 lg:mx-0 mt-0 lg:w-24 lg:h-24 w-12 w-12" src="https://leonwong0609.github.io/images/avatar.png?v=1625328534488" alt="">
         </a>
         <h1 class="animated fadeInLeft lg:text-2xl font-extrabold lg:mt-8 mt-0 text-xl" style="animation-delay: 0.2s">Wonder Space 🚀</h1>
       </div>
@@ -1808,7 +1821,11 @@ mapkey('zz', 'Show usage', 'Front.showUsage()', {domain: /google\.com/i});
       </div>
     </div>
 
-    <script src="https://leonwong0609.github.io/media/prism.js"></script>
+    <!-- Scrollgress -->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://leonwong0609.github.io/media/scrollgress.js"></script>
+
+<script src="https://leonwong0609.github.io/media/prism.js"></script>
 
 <!--
 <script src="https://leonwong0609.github.io/media/instantclick.min.js" data-no-instant></script>
