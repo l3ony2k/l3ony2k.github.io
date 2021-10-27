@@ -1,3 +1,26 @@
+html,
+body {
+  scroll-behavior: smooth;
+}
+/*定义滚动条样式（高宽及背景）*/
+::-webkit-scrollbar {
+  width: 6px;
+  /* 滚动条宽度，width：对应竖滚动条的宽度  height：对应横滚动条的高度*/
+  height: 6px;
+  background: #fff;
+}
+/*定义滚动条轨道（凹槽）样式*/
+::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0);
+  /* 较少使用 */
+  border-radius: 3px;
+}
+/*定义滑块 样式*/
+::-webkit-scrollbar-thumb {
+  border-radius: 2px;
+  /*height: 100px;     滚动条滑块长度 */
+  background-color: #aaa;
+}
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
 /* Document
    ========================================================================== */
@@ -92,7 +115,7 @@ strong {
 code,
 kbd,
 samp {
-  font-family: monospace, monospace;
+  font-family: "Fira Code", monospace, monospace;
   /* 1 */
   font-size: 1em;
   /* 2 */
@@ -490,7 +513,10 @@ pre,
 code,
 kbd,
 samp {
-  font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-family: "Fira Code", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  background: #80808042;
+  border-radius: 3px;
+  padding: 0px 2px;
 }
 /**
  * Make replaced elements `display: block` by default as that's
@@ -5817,7 +5843,7 @@ code[class*="language-"],
 pre[class*="language-"] {
   color: white;
   background: none;
-  font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  font-family: Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
   font-size: 1em;
   text-align: left;
   text-shadow: 0 -0.1em 0.2em black;
@@ -6034,7 +6060,7 @@ pre[data-line] {
 .yue h5,
 .yue h6 {
   -webkit-font-smoothing: antialiased;
-  font-family: -apple-system, BlinkMacSystemFont, Helvetica Neue, PingFang SC, Hiragino Sans GB, Droid Sans Fallback, Microsoft YaHei, sans-serif;
+  font-family: "Fira Sans", -apple-system, BlinkMacSystemFont, Helvetica Neue, PingFang SC, Hiragino Sans GB, Droid Sans Fallback, Microsoft YaHei, sans-serif;
   color: rgba(0, 0, 0, 0.98);
   font-weight: 700;
 }
@@ -6177,11 +6203,13 @@ pre[data-line] {
 }
 .yue code,
 .yue tt {
-  color: #888888;
-  font-size: 0.96em;
+  color: #505050;
+  font-size: 0.98em;
   padding: 1px 2px;
-  font-family: Menlo,Monaco,Consolas,Courier New,monospace;
+  font-family: "Fira Code", Menlo, Monaco, Consolas, Courier New, monospace;
   word-wrap: break-word;
+  background: #80808042;
+  border-radius: 3px;
 }
 .yue pre {
   margin: 1.64em 0;
@@ -6189,7 +6217,7 @@ pre[data-line] {
   overflow: auto;
   line-height: 1.5;
   font-size: 0.86em;
-  font-family: Menlo,Monaco,Consolas,Courier New,monospace;
+  font-family: "Fira Code", Menlo, Monaco, Consolas, Courier New, monospace;
   border-radius: 0.5rem;
   box-shadow: 1px 1px 0.5em black inset;
   padding: 1em;
@@ -6197,7 +6225,7 @@ pre[data-line] {
 }
 .yue pre code,
 .yue pre tt {
-  color: #F7FAFC;
+  color: #dbdbdb;
   border: none;
   background: none;
   padding: 0;
@@ -6222,7 +6250,7 @@ pre[data-line] {
   vertical-align: top;
 }
 .yue tr:nth-child(even) {
-  background-color: #F7FAFC;
+  background-color: #f7fafc;
 }
 .yue .align-left {
   text-align: left;
@@ -6276,15 +6304,15 @@ pre[data-line] {
   width: 100%;
   margin: 40px 0 20px;
 }
-[lang^=en] .yue h1 {
+[lang^="en"] .yue h1 {
   font-weight: 900;
 }
-[lang^=zh] .yue em:not([lang=en]) {
+[lang^="zh"] .yue em:not([lang="en"]) {
   font-style: normal;
   font-family: Baskerville, Georgia, Kaiti SC, STKaiti, AR PL UKai CN, AR PL UKai HK, AR PL UKai TW, AR PL UKai TW MBE, AR PL KaitiM GB, KaiTi, DFKai-SB, serif;
 }
 @media (max-device-width: 680px) {
-  [lang^=zh] .yue em:not([lang=en]) {
+  [lang^="zh"] .yue em:not([lang="en"]) {
     -webkit-text-emphasis: filled dot #555;
     text-emphasis: filled dot #555;
     -webkit-text-emphasis-position: under;
@@ -6293,8 +6321,8 @@ pre[data-line] {
 }
 .post-content {
   line-height: 1.75;
-  font-family: "Droid Serif", "PingFang SC", "Hiragino Sans GB", "Droid Sans Fallback", "Microsoft YaHei", sans-serif;
-  color: #2D3748;
+  font-family: 'Fira Sans' /*"Droid Serif"*/, "PingFang SC", "Hiragino Sans GB", "Droid Sans Fallback", "Microsoft YaHei", sans-serif;
+  color: #2d3748;
   text-align: justify;
 }
 .post-content hr {
@@ -6355,7 +6383,7 @@ pre[data-line] {
 }
 .post-content .task-list-item-checkbox:checked:before {
   border: transparent;
-  background-color: #2D3748;
+  background-color: #2d3748;
 }
 .post-content .task-list-item-checkbox:checked:after {
   transform: rotate(-45deg) scale(1);
@@ -6370,7 +6398,7 @@ pre[data-line] {
   height: 18px;
   box-sizing: border-box;
   display: inline-block;
-  border: 1px solid #E2E8F0;
+  border: 1px solid #e2e8f0;
   border-radius: 2px;
   background-color: #fff;
   position: absolute;
@@ -6393,12 +6421,12 @@ pre[data-line] {
   transition: all 0.35s ease;
 }
 .post-content mark {
-  background: #FEFCBF;
+  background: #fefcbf;
   color: #744210;
 }
 .post-content .markdownIt-TOC {
   list-style: none;
-  background: #F7FAFC;
+  background: #f7fafc;
   padding: 1.5rem;
   border-radius: 0.5rem;
   font-size: 0.96rem;
@@ -6407,7 +6435,7 @@ pre[data-line] {
   list-style: none;
 }
 .post-content img:after {
-  content: attr('alt');
+  content: attr("alt");
   display: block;
   text-align: center;
   position: absolute;
@@ -6416,7 +6444,7 @@ pre[data-line] {
   right: 0;
 }
 body {
-  font: 400 18px/1.42 "Droid Serif", "PingFang SC", "Hiragino Sans GB", "Droid Sans Fallback", "Microsoft YaHei", sans-serif;
+  font: 400 17px/1.42 'Fira Sans' /*"Droid Serif"*/, "PingFang SC", "Hiragino Sans GB", "Droid Sans Fallback", "Microsoft YaHei", sans-serif;
 }
 .main {
   max-width: 1200px;
@@ -6453,7 +6481,7 @@ body {
   content: "";
   width: 0;
   height: 2px;
-  background: #1A202C;
+  background: #1a202c;
   position: absolute;
   left: 0;
   bottom: -8px;
@@ -6484,10 +6512,10 @@ body {
   transition: all 0.3s;
 }
 .toc-container li a:hover {
-  color: #1A202C;
+  color: #1a202c;
 }
 .toc-container li a.current {
-  color: #1A202C;
+  color: #1a202c;
 }
 .menu-container {
   width: 320px;
@@ -6531,16 +6559,16 @@ body {
   color: #718096;
 }
 .menu-container .menu:hover {
-  color: #1A202C;
+  color: #1a202c;
 }
 .menu-container .menu:before,
 .menu-container .menu:after {
-  content: '';
+  content: "";
   position: absolute;
   left: 0;
   right: 0;
   height: 2px;
-  background-color: #1A202C;
+  background-color: #1a202c;
   transform: scaleX(0);
   transition: transform 0.5s ease;
 }
@@ -6583,20 +6611,20 @@ body {
 }
 .pagination-container .page-btn {
   text-decoration: none;
-  color: #4A5568;
+  color: #4a5568;
   border-bottom: 2px solid transparent;
 }
 .pagination-container .page-btn:hover {
-  color: #1A202C;
-  border-color: #1A202C;
+  color: #1a202c;
+  border-color: #1a202c;
 }
 .more-btn {
-  color: #4A5568;
+  color: #4a5568;
   border-bottom: 3px solid transparent;
 }
 .more-btn:hover {
-  color: #1A202C;
-  border-color: #1A202C;
+  color: #1a202c;
+  border-color: #1a202c;
 }
 .tags-container .tag {
   padding: 4px;
@@ -6608,13 +6636,13 @@ body {
 .prev-post .post-title,
 .next-post .post-title {
   display: inline-block;
-  color: #4A5568;
+  color: #4a5568;
   border-bottom: 2px solid transparent;
 }
 .prev-post .post-title:hover,
 .next-post .post-title:hover {
-  color: #1A202C;
-  border-color: #1A202C;
+  color: #1a202c;
+  border-color: #1a202c;
 }
 .prev-post {
   padding-right: 1rem;
@@ -6630,7 +6658,7 @@ body {
   transform: scale(0.95);
 }
 .rss:hover {
-  border-bottom: 2px solid #1A202C;
+  border-bottom: 2px solid #1a202c;
 }
 .sidebar-content {
   height: 100vh;
@@ -27746,15 +27774,4 @@ html, body {
     /*height: 100px;     滚动条滑块长度 */
     background-color: #aaa;
 }
-
-
-
-
-
-
-
-
-
-
-
     
