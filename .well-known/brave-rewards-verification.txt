@@ -1,0 +1,4 @@
+This is a Brave Rewards publisher verification file.
+
+Domain: leonwong0609.github.io
+Token: 1fb183bd86a503196202d7ba9e2a69ccfe85367fbf8b4b9d17bc5c77076a4d2a
