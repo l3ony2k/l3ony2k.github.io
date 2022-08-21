@@ -1,0 +1,438 @@
+<html>
+
+<head>
+  <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<title>
+  搭建个人的照片墙 | Wonder Space 🚀
+</title>
+
+<!-- Chrome, Firefox OS and Opera -->
+<meta name="theme-color" content="#ffffff">
+
+<!-- Apple Safari -->
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<link rel="apple-touch-icon" href="https://ws.l3on.site/images/avatar.png?v=1661055158677">
+<meta name="apple-mobile-web-app-title" content="WS 🚀">
+
+<!-- instant.page -->
+<script src="https://ws.l3on.site/media/instantpage-5.1.0.js" type="module" defer></script>
+
+<!-- dark reader -->
+<script src="https://cdn.jsdelivr.net/npm/darkreader@4.9.26/darkreader.min.js"></script>
+<script>
+  // Enable when system color scheme is dark.
+  DarkReader.auto({
+    //brightness: 105,
+    //contrast: 95,
+    //sepia: 0,
+    //grayscale: 15
+    darkSchemeBackgroundColor: '#000000',
+    darkSchemeTextColor: '#ffffff'
+  });
+</script>
+
+<link rel="shortcut icon" href="https://ws.l3on.site/favicon.ico?v=1661055158677">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,700;1,400;1,700&family=IBM+Plex+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+
+<link rel="stylesheet" href="https://ws.l3on.site/styles/main.css">
+
+<!-- umami -->
+<script async defer data-website-id="3c0f6b3c-27a9-47bd-9558-913f21633e25" src="https://umami.l3on.site/l3on.js"></script>
+
+
+    <meta name="description" content="今天下午心血来潮搭建了一个照片墙。
+
+部署
+主要是看见了 GitHub 上一个叫 photo-stream 的项目，实现效果真的特别心水。尝试后，部署的操作也很简单，只要把整个项目 fork 到自己 GitHub，然后用 Netlify 部..." />
+
+    <!-- OG -->
+    <meta property="og:locale" content="zh_CN">
+    <meta property="og:title" content="搭建个人的照片墙" />
+    <meta property="og:type" content="article" />
+    <meta property="og:description" content="今天下午心血来潮搭建了一个照片墙。
+
+部署
+主要是看见了 GitHub 上一个叫 photo-stream 的项目，实现效果真的特别心水。尝试后，部署的操作也很简单，只要把整个项目 fork 到自己 GitHub，然后用 Netlify 部...">
+    <meta property="og:url" content="https://ws.l3on.site/post/photo-stream/" />
+    <meta property="og:site_name" content="Wonder Space 🚀">
+    <meta property="og:updated_time" content="03-20-2020">
+    <meta property="og:image" content="https://ws.l3on.site/post-images/photo-stream.png" />
+    <meta property="og:image:secure_url" content="https://ws.l3on.site/post-images/photo-stream.png">
+    <meta property="og:image:alt" content="搭建个人的照片墙">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="搭建个人的照片墙">
+    <meta name="twitter:description" content="今天下午心血来潮搭建了一个照片墙。
+
+部署
+主要是看见了 GitHub 上一个叫 photo-stream 的项目，实现效果真的特别心水。尝试后，部署的操作也很简单，只要把整个项目 fork 到自己 GitHub，然后用 Netlify 部...">
+    <meta name="twitter:site" content="@WBoy0609">
+    <meta name="twitter:creator" content="@WBoy0609">
+    <meta name="twitter:image" content="https://ws.l3on.site/post-images/photo-stream.png">
+
+</head>
+
+<body>
+
+  <div id="app" class="main px-4 flex flex-col lg:flex-row">
+    <div id="sidebar" class="sidebar-wrapper lg:static lg:w-1/4">
+  <div class="lg:sticky top-0">
+    <div class="sidebar-content">
+      <div class="flex lg:block p-4 lg:px-0 items-center fixed lg:static lg:block top-0 right-0 left-0 bg-white z-50"
+        style="backdrop-filter: blur(7px); background: hsla(0, 0%, 100%, .75); -webkit-backdrop-filter: blur(7px);">
+        <i class="ri-menu-2-line lg:mt-4 text-2xl cursor-pointer animated fadeIn" onclick="openMenu()"></i>
+        <a href="https://ws.l3on.site">
+          <img class="animated fadeInLeft avatar rounded-lg mx-4 lg:mt-32 lg:mx-0 mt-0 lg:w-24 lg:h-24 w-12 w-12"
+            src="https://ws.l3on.site/images/avatar.png?v=1661055158677" alt="">
+        </a>
+        <h1 class="animated fadeInLeft lg:text-2xl font-extrabold lg:mt-8 mt-0 text-xl" style="animation-delay: 0.2s">
+          Wonder Space 🚀
+        </h1>
+      </div>
+      
+          <div class="animated fadeInLeft" style="animation-delay: 0.4s">
+            <p class="my-4 text-gray-600 font-light hidden lg:block">
+              Contents
+            </p>
+            <div class="toc-container hidden lg:block">
+              <ul class="markdownIt-TOC">
+<li>
+<ul>
+<li><a href="#%E9%83%A8%E7%BD%B2">部署</a></li>
+<li><a href="#%E4%B8%AA%E6%80%A7%E5%8C%96">个性化</a>
+<ul>
+<li><a href="#basics">Basics</a></li>
+<li><a href="#advanced">Advanced</a></li>
+</ul>
+</li>
+<li><a href="#%E4%B8%8A%E4%BC%A0%E5%92%8C%E4%BD%BF%E7%94%A8">上传和使用</a></li>
+<li><a href="#summary">Summary</a></li>
+</ul>
+</li>
+</ul>
+
+            </div>
+          </div>
+          
+    </div>
+  </div>
+</div>
+
+<div class="menu-container">
+  <i class="ri-arrow-left-line text-2xl cursor-pointer animated fadeIn close-menu-btn" onclick="closeMenu()"></i>
+  <div>
+    
+      
+          <a href="/" class="menu" style="animation-delay: 0s">
+            🏠 首页
+          </a>
+          
+            
+      
+          <a href="/tags" class="menu" style="animation-delay: 0.2s">
+            🏷️ 标签
+          </a>
+          
+            
+      
+          <a href="/archives" class="menu" style="animation-delay: 0.4s">
+            📬 归档
+          </a>
+          
+            
+      
+          <a href="/post/about" class="menu" style="animation-delay: 0.6000000000000001s">
+            😶 关于
+          </a>
+          
+            
+      
+        <a href="https://l3on.site/" class="menu" style="animation-delay: 0.8s" target="_blank">
+          ⌨️ Typecho
+        </a>
+        
+            
+      
+        <a href="https://blog.l3on.site" class="menu" style="animation-delay: 1s" target="_blank">
+          🔼 Nobelium
+        </a>
+        
+            
+  </div>
+  <div class="site-footer">
+    <div class="py-4 text-gray-700">
+      <a href="/post/about">Wonder Space 🚀</a> by Leon is licensed under a <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">Creative Commons BY-NC-SA 4.0 International License</a>. <img src="https://upload.wikimedia.org/wikipedia/commons/1/12/Cc-by-nc-sa_icon.svg" width="30%" style="margin:5 auto;">
+    </div>
+    <a class="rss" href="https://ws.l3on.site/atom.xml" target="_blank" style="margin: 5px;">RSS</a>
+    <button onclick="DarkReader.disable()" style="margin: 5px;">🌖</button>
+    <button onclick="DarkReader.enable({darkSchemeBackgroundColor:'#000000',darkSchemeTextColor:'#ffffff'})"
+      style="margin: 5px;">🌒</button>
+  </div>
+</div>
+<div class="mask" onclick="closeMenu()"
+  style="backdrop-filter: blur(7px); background: hsla(0, 0%, 100%, 0.5); -webkit-backdrop-filter: blur(7px);">
+</div>
+      <div class="content-wrapper py-32 lg:p-8 lg:w-3/4 post-detail animated fadeIn">
+        <h1 class="text-3xl font-bold lg:mt-16">
+          搭建个人的照片墙
+        </h1>
+        <div class="text-sm text-gray-700 lg:my-8">
+          03-20-2020 / 5 min read
+        </div>
+        
+          <img class="post-feature-image rounded-lg mx-auto my-4" src="https://ws.l3on.site/post-images/photo-stream.png" alt="">
+          
+            <div class="post-content yue">
+              <p>今天下午心血来潮搭建了一个<a href="https://leonwong0609.netlify.com/">照片墙</a>。</p>
+<!-- more -->
+<h2 id="部署">部署</h2>
+<p>主要是看见了 GitHub 上一个叫 <a href="https://github.com/maxvoltar/photo-stream#how-to-install">photo-stream</a> 的项目，实现效果真的特别心水。尝试后，部署的操作也很简单，只要把整个项目 fork 到自己 GitHub，然后用 Netlify 部署就可以了。所有的步骤在项目的 README 中介绍得十分详细，这里就不赘述了。</p>
+<p>Netlify 免费服务不能自定义域名，访问流量好像也有一定的限制，但是对我来说都无所谓了，毕竟也没有人会看我的博客和照片墙（笑）。</p>
+<p>下一步就可以上传一些自己的照片了，又是一个逼迫自己学习 git 的好机会。我想着也可以把照片墙的入口加到博客的主页菜单里。</p>
+<p>对了还可以通过下面这个徽章查看部署的状态。</p>
+<figure data-type="image" tabindex="1"><a href="https://app.netlify.com/sites/leonwong0609/deploys"><img src="https://api.netlify.com/api/v1/badges/0469689f-4d53-4c1b-beaa-29ee5b7b3797/deploy-status" alt="Netlify Status" loading="lazy"></a></figure>
+<h2 id="个性化">个性化</h2>
+<p>项目的 README <a href="https://github.com/maxvoltar/photo-stream#customize">详细介绍了个性化</a>的内容和操作，摘录如下：</p>
+<h3 id="basics">Basics</h3>
+<p>First thing you want to do is edit a couple of things in <code>/_config.yml</code>:</p>
+<ul>
+<li>
+<p><code>title</code>: The title of your photo stream</p>
+</li>
+<li>
+<p><code>email</code>: Your email address (this line is optional, you can remove it)</p>
+</li>
+<li>
+<p><code>author</code></p>
+</li>
+<li>
+<p><code>name</code>: Your name</p>
+<ul>
+<li><code>email</code>: Your email address (optional)</li>
+<li><code>website</code>: Your website (could be the address of this photo stream)</li>
+</ul>
+</li>
+<li>
+<p><code>description</code>: Description of your photo stream</p>
+</li>
+<li>
+<p><code>baseurl</code>: Should be <code>&quot;&quot;</code> <strong>⚠️ Do not change unless you know what you're doing</strong></p>
+</li>
+<li>
+<p><code>url</code>: Where will this photo stream live (example: <code>https://maxvoltar.photo</code>)</p>
+</li>
+<li>
+<p><code>twitter_username</code>: Your Twitter username</p>
+</li>
+<li>
+<p><code>github_username</code>: Your Github username</p>
+</li>
+<li>
+<p><code>instagram_username</code>: Your Instagram username</p>
+</li>
+</ul>
+<p>Don't include the <code>@</code>-part of your social handles. By default links to your Github and Instagram profiles are hidden. You can uncomment these by going into <code>/index.html</code>. There, you can also add links to wherever you want. Just add more <code>'s with `class=&quot;link&quot;` to the </code> list.</p>
+<h3 id="advanced">Advanced</h3>
+<p>Before publishing your website, Jekyll will resize your photos into 3 different buckets:</p>
+<ul>
+<li><code>/photos/large</code>: These are only shown when a user navigates to a photo page. By default these are resized to a maximum of 2048 wide and 2048 tall. If you wish, you can change these by changing the values in <code>/_config.yml</code> (by default they look something like this: <code>resize_to_limit: [2048, 2048]</code>).</li>
+<li><code>/photos/thumbnail</code>: These are used in the grid. Photo Stream will load all thumbnails above the fold, then more as you scroll down; all to save bandwidth. Standard size for these is 640 by 640 (max), but you can also change this if needed.</li>
+<li><code>/photos/tint</code>: What you see while the page loads its first batch of thumbnails, also used as the background for photo pages. <strong>⚠️ Do not make changes to the tint versions in your config file.</strong></li>
+</ul>
+<h2 id="上传和使用">上传和使用</h2>
+<p>其实在修改上面的个性化设置的时候只用修改 index.html 和一个配置文件，用 GitHub 网站上的文本编辑器足够了，但是如果要上传照片或者删除照片，除了一个个删除，就逃不掉 git 了。于是在网上找了很多关于 git 的教程。从下午两点折腾到下午四点，终于算是弄得一知半解，能把照片上传到自己的仓库了。</p>
+<p>嗯为了方便以后忘记了操作需要复习，这里总结一下。总的来说就是记住这几样东西。</p>
+<p>首先我是直接使用 Powershell 的，先 <code>cd</code> 到电脑仓库的目录，远程和本地都已经连接好了。正常情况只会用到几个命令：</p>
+<ul>
+<li><code>git status</code> 查看一下目前的状态，习惯性用一下</li>
+<li><code>git add .</code> 用来将做好的变动添加到本地记录，也就是说要不要 git 来监视这个文件的变化</li>
+<li><code>git commit -m &quot;message&quot;</code> commit 不用解释了</li>
+<li><code>git push</code> 推到远端，只有 origin master，也都设置好了</li>
+<li><code>git pull</code> 从远端拉取，我这里基本是用不上的了</li>
+</ul>
+<p>这里是一个比较好的教程视频：</p>
+<div style="width:100%;height:500px;overflow:hidden;border:0px">
+<div style="width:100%;height:500px;margin:-50px 0px 0px 0px;">
+<iframe src="https://www.youtube.com/embed/OVLR9qRc9ak" style="width: 100%;margin: 0;padding: 0;border: 0;height:500px;" scrolling="yes">
+</iframe>
+</div>
+</div>
+<p>其实把预设照片删掉后，上传图片直接用 GitHub 的网页端也可以实现了。现在 GitHub 移动端应用也出了，回头尝试一下用移动端的应用程序能不能上传，如果可以，那就能在电脑上用到 pull 指令了。</p>
+<p>这样看来，Gridea 这样的傻瓜式软件省掉了我多少的麻烦，越来越对 Gridea 的开发者感到敬佩了。</p>
+<h2 id="summary">Summary</h2>
+<p>总之又是折腾了一下午，但是获益匪浅，都怪 Gridea 这种方便的轮子让我懒得学习命令行 XD。好了一下午又没了，该去写英语作业了。</p>
+
+            </div>
+
+            
+              <a class="animated fadeInUp p-2 items-center text-sm text-gray-700 border hover:bg-gray-300 leading-none rounded-full flex lg:inline-flex m-4 "
+                href="https://ws.l3on.site/tag/F0pojKz0f/">
+                <span class="flex-auto">
+                  影音娱乐
+                </span>
+              </a>
+              
+              <a class="animated fadeInUp p-2 items-center text-sm text-gray-700 border hover:bg-gray-300 leading-none rounded-full flex lg:inline-flex m-4 "
+                href="https://ws.l3on.site/tag/86oOp5QCV/">
+                <span class="flex-auto">
+                  博客
+                </span>
+              </a>
+              
+
+
+                <div class="flex justify-between py-8">
+                  
+                    <div class="prev-post">
+                      <a href="https://ws.l3on.site/post/css-gray-scale/">
+                        <h3 class="post-title">
+                          <i class="ri-arrow-left-line"></i>
+                          使用 CSS 将网页黑白化
+                        </h3>
+                      </a>
+                    </div>
+                    
+
+                      
+                        <div class="next-post">
+                          <a href="https://ws.l3on.site/post/ReflectionOn2019nCoVOutbreak/">
+                            <h3 class="post-title">
+                              对本次疫情的结构性反思：谣言、官僚和国家主义
+                                <i class="ri-arrow-right-line"></i>
+                            </h3>
+                          </a>
+                        </div>
+                        
+                </div>
+
+                
+
+<script src="https://giscus.app/client.js"
+    data-repo="LeonWong0609/LeonWong0609.github.io"
+    data-repo-id="MDEwOlJlcG9zaXRvcnkyMjcyODI0NTM="
+    data-category="General"
+    data-category-id="DIC_kwDODYwOFc4COnst"
+    data-mapping="title"
+    data-reactions-enabled="1"
+    data-emit-metadata="1"
+    data-input-position="top"
+    data-theme="transparent_dark"
+    data-lang="zh-CN"
+    data-loading="lazy"
+    crossorigin="anonymous"
+    async>
+</script>
+
+      </div>
+  </div>
+
+  <script src="https://ws.l3on.site/media/prism.js"></script>
+
+<script>
+
+  Prism.highlightAll()
+  let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+
+  // This should probably be throttled.
+  // Especially because it triggers during smooth scrolling.
+  // https://lodash.com/docs/4.17.10#throttle
+  // You could do like...
+  // window.addEventListener("scroll", () => {
+  //    _.throttle(doThatStuff, 100);
+  // });
+  // Only not doing it here to keep this Pen dependency-free.
+
+  window.addEventListener("scroll", event => {
+    let fromTop = window.scrollY;
+
+    mainNavLinks.forEach((link, index) => {
+      let section = document.getElementById(decodeURI(link.hash).substring(1));
+      let nextSection = null
+      if (mainNavLinks[index + 1]) {
+        nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
+      }
+      if (section.offsetTop <= fromTop) {
+        if (nextSection) {
+          if (nextSection.offsetTop > fromTop) {
+            link.classList.add("current");
+          } else {
+            link.classList.remove("current");
+          }
+        } else {
+          link.classList.add("current");
+        }
+      } else {
+        link.classList.remove("current");
+      }
+    });
+  });
+
+
+  document.addEventListener("DOMContentLoaded", function () {
+    var lazyImages = [].slice.call(document.querySelectorAll(".post-feature-image.lazy"));
+
+    if ("IntersectionObserver" in window) {
+      let lazyImageObserver = new IntersectionObserver(function (entries, observer) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            let lazyImage = entry.target
+            lazyImage.style.backgroundImage = `url(${lazyImage.dataset.bg})`
+            lazyImage.classList.remove("lazy")
+            lazyImageObserver.unobserve(lazyImage)
+          }
+        });
+      });
+
+      lazyImages.forEach(function (lazyImage) {
+        lazyImageObserver.observe(lazyImage)
+      })
+    } else {
+      // Possibly fall back to a more compatible method here
+    }
+  });
+
+  const menuContainer = document.querySelector('.menu-container')
+  const menus = document.querySelectorAll('.menu-container .menu')
+  const mask = document.querySelector('.mask')
+  const contentWrapper = document.querySelector('.content-wrapper')
+  const latestArticle = document.querySelector('.latest-article')
+  const readMore = document.querySelector('.read-more')
+  const indexPage = document.querySelector('.index-page')
+
+  const isHome = location.pathname === '/'
+  if (latestArticle) {
+    latestArticle.style.display = isHome ? 'block' : 'none'
+    readMore.style.display = isHome ? 'block' : 'none'
+    indexPage.style.display = isHome ? 'none' : 'block'
+  }
+
+  const openMenu = () => {
+    menuContainer.classList.add('open')
+    menus.forEach(menu => {
+      menu.classList.add('animated', 'fadeInLeft')
+    })
+    mask.classList.add('open')
+    contentWrapper.classList.add('is-second')
+  }
+
+  const closeMenu = () => {
+    menuContainer.classList.remove('open')
+    menus.forEach(menu => {
+      menu.classList.remove('animated', 'fadeInLeft')
+    })
+    mask.classList.remove('open')
+    contentWrapper.classList.remove('is-second')
+  }
+</script>
+</body>
+
+</html>

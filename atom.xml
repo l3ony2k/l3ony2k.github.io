@@ -1,0 +1,1090 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://ws.l3on.site</id>
+    <title>Wonder Space 🚀</title>
+    <updated>2022-08-21T04:13:23.589Z</updated>
+    <generator>https://github.com/jpmonette/feed</generator>
+    <link rel="alternate" href="https://ws.l3on.site"/>
+    <link rel="self" href="https://ws.l3on.site/atom.xml"/>
+    <subtitle>不可勝在己，可勝在敵</subtitle>
+    <logo>https://ws.l3on.site/images/avatar.png</logo>
+    <icon>https://ws.l3on.site/favicon.ico</icon>
+    <rights>All rights reserved 2022, Wonder Space 🚀</rights>
+    <entry>
+        <title type="html"><![CDATA[Alist 和观影系统的整理]]></title>
+        <id>https://ws.l3on.site/post/alist/</id>
+        <link href="https://ws.l3on.site/post/alist/">
+        </link>
+        <updated>2022-08-20T15:08:44.000Z</updated>
+        <summary type="html"><![CDATA[<p>我一直认为我是个喜欢看电影、看电视剧的人。随着看的作品东西越来越多，我也越来越想追求尽可能高的质量和尽可能好的体验。而自从在服务器简单部署了 Alist 之后，自我感觉质量和体验都得到了很大的提升。因此想写篇博客简单聊一聊。</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>我一直认为我是个喜欢看电影、看电视剧的人。随着看的作品东西越来越多，我也越来越想追求尽可能高的质量和尽可能好的体验。而自从在服务器简单部署了 Alist 之后，自我感觉质量和体验都得到了很大的提升。因此想写篇博客简单聊一聊。</p>
+<!-- more -->
+<h2 id="我的需求">我的需求</h2>
+<p>虽然我自认为我是个电影迷，但我肯定远远算不上什么发烧友，我没有顶级的屏幕、投影或者是音响，所以我不追求原盘的极致画面音效，但是我内心的那一点点完美主义倾向又总希望能在现有的条件内得到最理想的效果，所以我不想在一些很轻易能搜到的小网站上一边看电影一边了解澳门赌场，也不想用百度云的「超清」在线画质看马赛克。我的最大的屏幕——我的笔电是 1080p 的屏幕，所以我只要能看到真 1080p 的内容我就满足了。</p>
+<p>然而我又是一个比较懒惰的人，我想所有的资源都能储存在云端，想看的时候能轻松找到，同时收藏的内容也不用占据我太多的本地空间，不用担心未来可能要整理、取舍的烦恼。</p>
+<h2 id="alist-以前">Alist 以前</h2>
+<p>其实在使用 Alist 以前，我就大概摸索出了大概能够满足我需求的方法，就是想办法串流播放网盘资源的原文件。百度网盘的在线播放出了画质和字幕轨音轨都能满足我的需求，于是当时就找了一个叫 <a href="https://www.airexplorer.net/en/">Air Explorer</a> 的应用，可以直接调用默认的媒体播放器播放对应百度云资源的原片。我还记得当时第一次用这个应用播放《咱们裸熊》时我内心的想法：「原来我找的资源这么清晰。」</p>
+<figure data-type="image" tabindex="1"><img src="https://vip2.loli.io/2022/08/18/Hpi7eCjqY64E2bk.webp" alt="Air Explorer 可以直接读取播放百度网盘的原文件" loading="lazy"></figure>
+<p>后来阿里云盘流行起来，一段时间阿里云盘的资源到处都是，我因为参与了阿里云盘的内测领了挺多容量，就存了一些想收藏的经典资源。但是试用了一下在线播放就发现，虽然是号称不限速，但是经过转码的资源还是和百度一样，明显码率严重不足。好在后来发现了 <a href="https://github.com/liupan1890/aliyunpan">阿里云盘小白羊版</a>，同样能提供原文件直接播放，而且体验比 Air Explorer 明显更好，不需要特意将想看的资源移动到一个特定的路径，在线播放也是直接单击即可，而且支持自定义播放器，可以说基本上就是相当于一个更加好用的第三方客户端。</p>
+<figure data-type="image" tabindex="2"><img src="https://vip2.loli.io/2022/08/19/iw6tZxkbfrVlaJS.webp" alt="小白羊也可以方便地管理、播放阿里云盘的原文件" loading="lazy"></figure>
+<p>于是我用阿里云盘慢慢就多了起来，甚至把很多以前百度云盘的资源都下载下来上传到阿里云盘，然后通过分享转存 <sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup> 又赚了一大把容量，让我逐渐只用阿里云盘了。</p>
+<p>到这里一切看起来都挺美好，直到阿里云盘似乎突然反应过来要审核内容，我花费了一些心思整理的资源开始丢失，很多存的合集少一两部，IMDb Top 250 一路翻下来几乎每一屏都有被标记违规的，而且我似乎永远无法把《色，戒》以一种可以在线播放的形式上传到阿里云盘，洗码几次都不行，改文件名也不行，如果所有资源都要加密上传，那我使用云盘也就失去了意义。</p>
+<p>这时候恰好另一个云盘又流行了起来，也就是很多人听到可能会笑的 <a href="https://mypikpak.com/">PikPak</a>。我有过一些 BT / PT 下载的经验，但是下到本地又会觉得麻烦和浪费时间，百度云的离线几乎是半残废，当时也一直没有去尝试大名鼎鼎的 115，所以就一直靠着大家的分享链接转存资源。当时 PikPak 还每周都会发放会员兑换码，基本就是让大家免费用，我想着反正试用不亏就下载了。一般电视剧的更新 RARBG 比较及时，所以当时我就试了几个比较火的种子，速度和成功率都很让人满意，我就一直用了下去。唯一的遗憾就是当时官方只有 Android 客户端，不过好在有很多开发者提供了各平台的第三方客户端，能基本实现大部分功能（对我来说就是提取直链功能），选择很多，这里就不推荐了。</p>
+<figure data-type="image" tabindex="3"><img src="https://vip2.loli.io/2022/08/19/2lP5Gbc8ME6Hoph.webp" alt="使用 PikPak 的第三方网页客户端获取直链" loading="lazy"></figure>
+<p>很长一段时间这几乎就是我使用网盘的常态了——阿里云盘和 PikPak 互相补充，阿里云盘不判违规的就用小白羊，阿里云盘会判违规的或者只有在特定种子站才能下载到的就用第三方的 PikPak，拿到直链，然后用本地的播放器播放。</p>
+<p>但这样还是存在一些问题，首先我无法在移动端播放，虽然我一有机会都会优先选择笔电的屏幕，但是难免会有想用 iPad 或者手机的时候，这时我只能选择使用他们各自提供的在线播放了，PikPak 的在线播放功能还算完整，阿里云盘只能说聊胜于无了。其次，各种各样的资源分散在各处，虽然我能够记得他们在哪里，但是有时候同时打开几个软件，网页端关掉又重新打开还是有点让人烦躁。</p>
+<p>最后最重要的还是我很早就看上了 Alist，早在我开始折腾 VPS 之前我就在 GitHub 上看到了，可以说是我最早接触到的自建项目，当时看了他的 demo 就觉得好酷，可以在线预览，相当于硬字幕的资源可以直接在线看，也可以方便地直接一个链接分享给朋友，甚至还提供了 WebDAV 功能，相当于移动端使用的需求也被解决了。</p>
+<h2 id="alist-以后">Alist 以后</h2>
+<p>所以我终于下手服务器之后就着手开始弄了 Alist，安装过程相对简单，只要有一定的基本了解，参考 <a href="https://alist-doc.nn.ci/docs/intro">Alist Document</a> 进行操作，不论是用一键脚本或者是用 Docker 都能在几分钟内搞定，具体的搭建方法大家可以看 <a href="https://blog.laoda.de/archives/docker-install-alist">咕咕的文章</a>，这里不再赘述。至于每种网盘如何挂载也在文档中给出了具体的步骤（甚至作者还自己搭建了一个获取阿里云盘 Refresh Token 的工具），按部就班很快就可以完成。</p>
+<figure data-type="image" tabindex="4"><img src="https://vip2.loli.io/2022/08/19/c8HqGhYbmx1FRoZ.webp" alt="" loading="lazy"></figure>
+<figure data-type="image" tabindex="5"><img src="https://vip2.loli.io/2022/08/19/XzF1OqbUfrujDiQ.webp" alt="" loading="lazy"></figure>
+<p>一切都部署好后，我几乎把我能想到的我可能会存有影视资源的网盘全部都加入到了 Alist，主要的大概就是：</p>
+<ul>
+<li>阿里云盘：所有在各种渠道转存的资源和之前手动上传的资源，一般新剧的资源也会在这里；</li>
+<li>PikPak：所有阿里云盘的违禁资源，以及在 RARBG、1337x 离线的资源；</li>
+<li>Google Drive：加入了网友的团队盘；</li>
+<li>另一台储存 PT 资源的服务器下载目录；</li>
+<li>百度云盘：过去长期积累的各种硬字幕资源和部分 PT 站的资源（会员还有一年过期，放着也是放着）；</li>
+<li>夸克云盘：反正一冲动买了会员，放着也是放着……</li>
+</ul>
+<p>由于我的需求仅限于串流视频，我个人在添加服务时，除非必要完全不选择任何代理，所以服务器本身的线路、流量对播放的影响并不大。</p>
+<p>完场以上繁琐的过程后使用了几天，可以说是完全满足了我的需要。日常播放时只需要打开地址，进入目录，右键选择复制直链，然后在 mpv.net 中用我自定义的快捷键 <code>Ctrl</code> + <code>L</code> 一键加载链接，然后就可以播放了。</p>
+<figure data-type="image" tabindex="6"><img src="https://vip2.loli.io/2022/08/19/WjThNiQdJ8MCUDf.webp" alt="" loading="lazy"></figure>
+<figure data-type="image" tabindex="7"><img src="https://vip2.loli.io/2022/08/19/2URAytk1YXqIJOs.webp" alt="" loading="lazy"></figure>
+<p>按照我的体验，阿里云盘和 PikPak 在正常的互联网环境下，我保存的普通 1080p 资源基本可以短时间加载并随意拖动进度条，x265 10bit 的资源甚至和本地机械硬盘的体验差不多。但是百度网盘（使用了破解接口）和夸克云盘（需要经过服务器中转）的体验就比较一般，经常黑屏接近十秒才能加载，就算加载出来也只能小心翼翼播放，跳转、更换音轨字幕轨的操作一般都会引起很久的卡顿。好在我主要时间都不使用他们，所以影响不大。</p>
+<p>后来看电视剧时想进一步偷懒，不想每一集都切出复制粘贴一次直链，我用 RaiDrive 把 Alist 挂载到了本地。这样不仅可以使用 MPV 中的播放列表功能快速切换集数，在设定好规则的前提下，外挂的字幕文件也可以正常读取。除了要多一个软件常驻后台，除此之外我是毫无怨言。</p>
+<figure data-type="image" tabindex="8"><img src="https://vip2.loli.io/2022/08/19/oJTeNusw7ZWUvHr.webp" alt="可以直接调用文件列表选择播放集数，也可以加载位于 Subs 文件夹内的对应字幕" loading="lazy"></figure>
+<p>可能很多人会说为什么不用 Emby, Kodi, Jellyfin, Plex 之类的，我猜我可能还是太懒 + 没有需求，对我来说能够像管理文件一样管理我的影视资源已经足够。我没有电视投影一类的设备，意味着我不需要遥控操作，也不需要海报墙媒体信息等多余的元素，对我来说最重要的还是我能方便找到文件并正常播放出来，就完全足够了。</p>
+<h2 id="现在的资源获取方式">现在的资源获取方式</h2>
+<p>说完这么多，也想趁此机会梳理一下我获取想观看的影视资源的各种渠道：</p>
+<p>首先第一顺位的是流媒体平台。我目前有 Netflix 和 Disney+ 两家的订阅，基本上可以满足我 60% - 70% 的需求。尤其是 Disney+ 新加坡区有 Star 的支持，一下扩充了许多之前在 Netflix 上无法看到的节目。所以遇到想看的影视剧，我一般直接在搜索引擎搜索名字，如果有 Netflix 或者 Disney+ 的链接，问题直接解决。对于这个方法唯一不太喜欢的就是难以自定义的字幕样式，可能是字幕组作品看多了，我更偏爱双语字幕的感觉，可以借助 <a href="https://chrome.google.com/webstore/detail/dualsub/gnlibmlfpencglodjpgnalbdebfhpmfp">Dualsub</a> 这个插件在网页版实现，并且该插件还有丰富的字幕样式自定义选项。配合该插件，Netflix 的网页体验很完美，只要使用 Chromium 内核的 Edge 并在 flags 中开启 PlayReady DRM<sup class="footnote-ref"><a href="#fn2" id="fnref2">[2]</a></sup>，就可以正常观看 1080p 的内容，对于我来说是足够了，甚至网页版的界面个人认为比 UWP 版更加完善。可惜美中不足的是，我找不到能在浏览器上以 1080p 的分辨率播放 Disney+ 内容的方法，如果想要自定义的字幕样式，只能在网页端看 720p 的内容，这让我有点无法接受，所以看 Disney+ 我是还是只能用 UWP 客户端。</p>
+<p>第二顺位就是搜索阿里云盘的资源。如果想看的节目在 Netflix 和 Disney+ 上都找不到，我就会在 Telegram 搜索节目的英文名字，因为关注了一些资源频道，所以一般不太冷门的资源都能找到他人共享的链接，一般我会根据文件名对资源的质量进行一些简单的判断 <sup class="footnote-ref"><a href="#fn3" id="fnref3">[3]</a></sup>，看上去靠谱的就可以直接点赞收走了。阿里云盘转存方便，播放快速，相对来说是我最偏向的方案。</p>
+<p>第三顺位就是万能的种子站了。这个话题是个很深的兔子洞，三言两语道不明。但是从我个人经验来看，RARBG 和 1337x 这两个站基本可以满足我全部的需求了。RARBG 主要是资源更新及时，需要蹲更新的美剧我就会在 RARBG 解决（个人比较偏爱 NTb 压制的资源），而 1337x 上有两个专门发 x265 10bit 资源的制作组（分别是 QxR 和 UTR<sup class="footnote-ref"><a href="#fn4" id="fnref4">[4]</a></sup>），想看一些以前上映的电影时，我就会搜索 <code>电影名字</code> + <code>年份</code> + <code>qxr</code> / <code>utr</code>，这样一般就能搜索到体积比较小但质量仍然很高的种子了。然后就是将磁力链粘贴到 PikPak 离线 <sup class="footnote-ref"><a href="#fn5" id="fnref5">[5]</a></sup>，到今天很多种子基本上都是秒离了。离线完成后，就可以直接在 Alist 取得直链然后播放了。</p>
+<figure data-type="image" tabindex="9"><img src="https://vip2.loli.io/2022/08/20/CNdV3e2UbAfIPHO.webp" alt="" loading="lazy"></figure>
+<p>这里一次性列举一些可能用到的种子站以供参考：</p>
+<ul>
+<li><a href="https://1337x.to/">1337x</a>：见上文
+<ul>
+<li><a href="https://1337x.to/user/QxR/">QxR</a></li>
+<li><a href="https://1337x.to/user/UTRCorp/">UTRCorp</a> <code>UTR</code></li>
+</ul>
+</li>
+<li><a href="http://rar.bg/">RAR BG</a>：见上文</li>
+<li><a href="https://piratebay.org/">Pirate Bay</a>：大名鼎鼎的海盗湾</li>
+<li><a href="https://pianyuan.org/">片源网</a>：国内的影视资源站，似乎关闭注册了</li>
+<li><a href="https://torlook.info/">TorLook</a>：一个相对好用的种子搜索引擎，我在这里找到了 open matte 版本的《黑客帝国》三部曲</li>
+<li><a href="https://www.grab4k.com/">Grab4k</a>：4k 影视剧</li>
+<li><a href="https://yifystatus.com/">YTS YIFY Official</a>：小体积的影视，真的很小</li>
+<li><a href="https://www.torrentdownloads.pro/">Torrent Downloads</a></li>
+</ul>
+<p>还有一些不太适合纳入以上顺序的方法。</p>
+<p>首先是一些在线资源站，好吧不是一些，就是 <a href="https://ddys.tv/">低端影视</a> 这一个网站，可能很多人早已经知道，但是我还是想让更多不知道的人发现这个宝藏。前面我说过我不能再满足于在线网站了，原因是一般常见的在线播放网站和黑灰产差不多，四处擦边广告，资源质量也是参差不齐，观影体验不太理想。但是低端影视完全不同，网站上简单的贴片广告全屏后就可以无视，播放流畅而且完全没有广告，资源更新速度也十分及时。新的资源看来都是站里自己压的，质量都十分有保障。是我为数不多会打开 uBlock 白名单的网站之一。硬要比质量肯定还是和播放网盘离线种子的原文件没得比，但是胜在方便快捷门槛很低，以前朋友问我要资源我还会发网盘链接，现在只要是低端影视有的资源，我都是直接甩一个低端影视的链接。</p>
+<p>其次就是 Emby 公益服。有一段时间 Emby 特别火，我运气比较好就注册到了一个公益服的账号，比较珍惜所以到现在也还能用。记得当时想看《双峰》但是一直找不到资源，结果忍着在一个小网站看了很多集，最后在公益服竟然找到了，而且还是 1080p Blu-ray 的版本，真的很敬佩运营公益服的大佬。和影视站一样，Emby 服务器也省去了自己找资源的麻烦，只要能在服务器找到基本就能播，但是可能是由于质量太高或者我的网络不好，一般速度都十分缓慢，拖动进度条也要加载很久，所以我也不太常用了。</p>
+<p>以上如果算是偷懒的解决方法，下面这个估计就是给自己找麻烦的解决方法，也就是传统意义的 PT / BT。我有一个大盘鸡专门用来挂 PT 的种子，但由于技术不佳并且财力不足，总是抢不到上传，要经常盯着新种子蹭上传量，导致我陷入了一个奇怪的困境：下载的东西我几乎从来不看，只是为了上传而下载；而上传又是为了保住我的账号，但我却几乎从来用不到这个账号（因为大部分情况我需要的资源前几种方法都可以找到）。所以 PT 真的还是一个有门槛的圈子，我的现状并不太适合在这个圈子里，所以只能过得比较挣扎（笑）。至于挂的普通 BT 种子就是一些我个人特别喜欢的资源，我不希望种子死掉，所以也就一直挂着了。</p>
+<h2 id="正版盗版">正版？盗版？</h2>
+<p>越说越离题了，但反正上面已经说了这么多，不如就继续随意聊聊。我深知我消费影视的方式的相当一部分都是观看盗版，如果有人以这一点指责我我自然无法反驳 <sup class="footnote-ref"><a href="#fn6" id="fnref6">[6]</a></sup>。</p>
+<p>与他人合租的 Netflix 和 Disney+ 虽然我也不清楚算不算得上完全符合他们的 TOS，但已经是我能做到的最接近支持正版的方法了。除此之外，刚上大学那阵我也尝试过爱奇艺和腾讯视频，但是即使购买了二者的会员，我也仍然觉得我整天还是在看广告，我对他们几乎硬塞的推荐也不感冒，我对综艺和大头贴对白肥皂剧提不起兴趣。我也试过用爱奇艺观看电影，但是即使眼睛迟钝如我，也能看出爱奇艺视频的码率严重不足，一遇到复杂的场景就满屏雪花，加上还是硬字幕、甚至右上角还有爱奇艺的贴片，体验甚至比我直接在随处可见的灰产影视站看相差无几（难怪这种影视站仍然大量存在，相同的体验只不过不用花钱）。那几个月之后我就几乎再也没有碰过国内的「流媒体平台」了。</p>
+<p>视频质量、使用体验上的落后其实不至于让我完全失去信心，对我影响最深的还是那次 Bilibili 宣布引入《老友记》的事件。《老友记》在上世纪九十年代播出，可以说是无数人回忆中最经典的喜剧类美剧，曾经在搜狐视频上可以观看，然后经过了一些我不知道的事情，国内就几乎一直没有正规的观看渠道了，我自己是在 Netflix 引入老友记后在 Netflix 补完的。后来听说 Bilibili 要引入我一度特别兴奋，我对 B 站的印象比爱优腾好不少（可能主要来源于一些熟悉的 up 主和哈利波特的特效字幕、特制进度条），甚至还记下了播出的日期，打算就在 B 站完成二刷。</p>
+<p>然后的事情就不需要我说明了，我只能描述那个晚上看到这些消息内心的感受：我先是气愤，觉得怎么能任由他们对别人的作品这样歪曲修改；然后是不甘，因为这是九十年代的电视剧，九十年代都能播出，早前搜狐视频也能播出；最后是觉得怪诞和可笑。</p>
+<p>我无意再讨论这个问题，我只能说从那次以后我对我看盗版的自我批评就变得温和了。如果酒类专营，官酒都是假酒，我的选择是要么不喝酒，要么喝走私的真酒。不巧的是我是个爱喝酒的人。</p>
+<h2 id="其他">其他</h2>
+<p>其实即使没有 VPS，没有 Alist，用我前面提到的方法，还是可以自己动动手用相关的软件打造一个相对舒适的观影系统。除了我上面提到的软件，如果路由器支持，也可以使用 <a href="https://github.com/messense/aliyundrive-webdav">messense/aliyundrive-webdav</a> 这个项目（甚至可以直接把 Alist 挂路由器上），如果希望阿里云盘挂载到本地，可以试试 <a href="https://t.me/s/cloud_nas/">CloudNAS – Telegram</a> 这个应用。</p>
+<p>至于 Alist，使用它来看电影只是他极小的一部分功能，他分享直链的功能能方便地与国内朋友分享大文件，也能方便和多个 VPS 互传文件（直接用 <code>wget</code> 就可以下载直链了），经过设置也能支持游客上传功能，可以用来收集表格、作业等等。总之真心推荐一下这个有趣的项目，如果你还没有试过，去试试吧，一定不会后悔的。</p>
+<hr class="footnotes-sep">
+<section class="footnotes">
+<ol class="footnotes-list">
+<li id="fn1" class="footnote-item"><p>说起这个还挺有意思，我很早很早之前玩过一阵子 PT，但是我又没有 VPS 也没有 NAS，于是我就用我的电脑挂种子……虽然确实收了挺多资源，但是几乎把笔记本电池都弄报废了。后来觉得这样不是办法，就把本地资源上传了一份百度云然后删掉了。现在想想还是觉得挺搞笑的，又登陆了那个站看了一眼，果然我已经被封禁了（估计是太久没有登陆）。 <a href="#fnref1" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn2" class="footnote-item"><p>方法来自知乎的一篇文章：<a href="https://zhuanlan.zhihu.com/p/345393377">Microsoft Edge Chromium内核版已经支持Netflix 奈飞4K播放</a> <a href="#fnref2" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn3" class="footnote-item"><p>一般符合 PT / BT 站命名惯例的资源相对靠谱一些，运气好的话甚至能直接找到认识的组出的资源，但有些资源商业气息太浓，一般我就不会选择这种资源了。 <a href="#fnref3" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn4" class="footnote-item"><p>似乎二者之间存在一些渊源，但是我不是很了解，因为是两个名字，所以我就称为两个制作组了。 <a href="#fnref4" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn5" class="footnote-item"><p>我时常质疑自己这样做的道德性，但是懒惰的魔鬼经常打败助人为乐的天使……我会这样安慰自己：几乎所有的种子都是秒离，说明服务器早就有这个文件了，对于种子来说，这么多人的离线只是一次 leech，但是对于我来说，我节省了大量的时间和精力。当然对于一些我真的特别喜欢的资源，我还是有在自己的服务器上做种的。 <a href="#fnref5" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn6" class="footnote-item"><p>说到这想到一个很有意思的事情。有一次某嘉宾来我们学校演讲，我帮忙调试设备，测试音响时我随手点了一个电脑上的视频文件，应该是当时正在更新的权游。嘉宾看到了朝我扮鬼脸说：你看盗版，我要举报你。我小声说：你怎么看的正版。我们都笑了。 <a href="#fnref6" class="footnote-backref">↩︎</a></p>
+</li>
+</ol>
+</section>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[从 Gitalk 迁移到 giscus]]></title>
+        <id>https://ws.l3on.site/post/gitalk-to-giscus/</id>
+        <link href="https://ws.l3on.site/post/gitalk-to-giscus/">
+        </link>
+        <updated>2022-04-17T13:39:20.000Z</updated>
+        <summary type="html"><![CDATA[<p>将静态博客的评论系统从 <a href="https://github.com/gitalk/gitalk">Gitalk</a> 迁移到 <a href="https://giscus.app/zh-CN">giscus</a>。</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>将静态博客的评论系统从 <a href="https://github.com/gitalk/gitalk">Gitalk</a> 迁移到 <a href="https://giscus.app/zh-CN">giscus</a>。</p>
+<!-- more -->
+<p>从第一天建站起，这里的评论系统就是使用的 Gitalk，老实说 Gitalk 也可以满足我基本的评论需求，我也收到了为数不多的网友通过 Gitalk 发给我的珍贵的留言。但是看着自己博客的项目里有那么多个开着的 issue，总觉得有点想消除掉红点的那种强迫症。而 GitHub 也早已推出了更加适合留言、讨论的 Discussions 功能，所以我就想着一定会有开发者使用 Discussions 的 API 来提供类似 Gitalk 的功能。前段时间翻看 nobelium 项目的 issue 的时候，就看到 giscus 的开发者建议 nobelium 适配 giscus，今天正好这里的 Gitalk 模块又出了问题，就想着干脆把整个评论系统换掉。</p>
+<h2 id="关于-giscus">关于 giscus</h2>
+<p>可以参考官方文档中关于「它如何运作」的表述：</p>
+<blockquote>
+<p>giscus 加载时，会使用 <a href="https://docs.github.com/en/graphql/guides/using-the-graphql-api-for-discussions#search">GitHub Discussions 搜索 API</a> 根据选定的映射方式（如 URL、<code>pathname</code>、<code>&lt;title&gt;</code> 等）来查找与当前页面关联的 discussion。如果找不到匹配的 discussion，giscus bot 就会在第一次有人留下评论或回应时自动创建一个 discussion。</p>
+<p>要评论，访客必须按 GitHub OAuth 流程授权 <a href="https://github.com/apps/giscus">giscus app</a> <a href="https://docs.github.com/en/developers/apps/identifying-and-authorizing-users-for-github-apps">代表他发帖</a>。或者访客也可以直接在 GitHub Discussion 里评论。你可以在 GitHub 上管理评论。</p>
+</blockquote>
+<h2 id="迁移">迁移</h2>
+<p>如前所说，虽然数量不多，但是网友们给博客的留言是我不愿放弃的，好在我的静态博客始终都存放在一个 GitHub 仓库，而 GitHub 目前是支持从 issue 到 Discussion 的内容转移的（参见 <a href="https://docs.github.com/en/discussions/managing-discussions-for-your-community/managing-discussions#converting-issues-based-on-labels">文档</a>）。</p>
+<p>首先我们打开自己的博客仓库，在 Settings 中确保 Discussions 功能已经开启；</p>
+<figure data-type="image" tabindex="1"><img src="https://vip1.loli.io/2022/04/17/tdbBoXpEhZk4DCn.png" alt="开启 Discussions" loading="lazy"></figure>
+<p>接着在 Discussions 标签选择开始，准备工作就算完成了。</p>
+<p>然后转到 Issues，点击 Labels，Gitalk 生成的 issues 都自带一个 <code>Gitalk</code> 标签，对这个标签选择 <strong>Convert issues</strong>，根据提示选择一个类别（我选择了 General），点击确定即开始转换。</p>
+<figure data-type="image" tabindex="2"><img src="https://vip2.loli.io/2022/04/17/GrDMctCY3fEzs1u.png" alt="Issues - Labels" loading="lazy"></figure>
+<p>等待一会后，再次刷新 Discussions 页面，就可以看到所有的 issue 和回复都迁移成功了。</p>
+<h2 id="部署">部署</h2>
+<p>访问 <a href="https://giscus.app/zh-CN">giscus 首页</a>，里面已经将部署的流程解释清楚。对于仓库的要求有以下三点：</p>
+<blockquote>
+<ol>
+<li><strong>此仓库是 <a href="https://docs.github.com/en/github/administering-a-repository/managing-repository-settings/setting-repository-visibility#making-a-repository-public">公开的</a></strong>，否则访客将无法查看 discussion。</li>
+<li><strong><a href="https://github.com/apps/giscus">giscus app</a> 已安装</strong>否则访客将无法评论和回应。</li>
+<li><strong>Discussions</strong> 功能已 <a href="https://docs.github.com/en/github/administering-a-repository/managing-repository-settings/enabling-or-disabling-github-discussions-for-a-repository">在你的仓库中启用</a>。</li>
+</ol>
+</blockquote>
+<p>我们的仓库已经公开，Discussions 功能也已经启动，但是第二第还没有满足。点击第二条中的 giscus app，安装并授权。至此已经完成所有准备工作。我们将满足条件的仓库以 <code>username/repo</code> 的格式填入网页中。</p>
+<p>接下来只要一边向下滚动页面，一边根据自己的需要选择即可。</p>
+<p>在映射关系这一项，由于是从 Gitalk 迁移而来，Gitalk 生成的 issue 标题就是博客文章的 <code>&lt;title&gt;</code>，所以我们这里选择 title 这一项。分类这一项中，由于我们刚刚迁移时选择了 General，所以这里继续保持一致。</p>
+<p>在特性中，我打开了 reaction，就是类似 Slack 中可以通过一个 emoji 对帖子进行反应。同时开启了评论框置顶（不然要翻到最下面才可以找到评论框），也开启了懒加载。</p>
+<p>主题我选择了 <code>Transparent Dark</code>，这样和我自定义过的网页背景色搭配起来也更加协调。</p>
+<p>完成了所有的设置之后，giscus 网页就已经给我们自动生成好了一段 script 标签，将这段标签放在主题文件夹中 <code>post.ejs</code> 文件的尾部。</p>
+<figure data-type="image" tabindex="3"><img src="https://vip2.loli.io/2022/04/17/vEdptLobzO4kq17.png" alt="修改主题文件" loading="lazy"></figure>
+<p>注意这里的位置不同的主题有所不同，只要和 Gitalk 在同一对标签以内，应该就不会太有问题。</p>
+<p>重启 Gridea，然后在 Gridea 的 <code>远程</code> &gt; <code>评论配置</code> 中关闭评论显示（因为 Gridea 自带的评论显示是 Gitalk 和 Disqus 的，而 giscus 的评论我们已经强行加到 <code>post.ejs</code> 文件中了）预览一下应该就成功了。</p>
+<p>同步，然后手动 push 一下，等待部署完成后访问，效果正如预期，所有原来的评论也都在。</p>
+<h2 id="总结">总结</h2>
+<p>迁移的过程比我想象的简单很多，迁移带来的好处除了消除 issue 越堆越多的感觉之外，还有附加的 reactions 功能。nobelium 那个博客前段时间我也折腾了一下 cusdis 评论系统，选择了在 Vercel 上自建一个，自定义了一些样式让评论风格和主站更加协调。</p>
+<p>最近还开了一台 VPS，在上面用 Typecho 建了一个 PHP 博客，折腾的东西实在有点太多，估计是懒得又写一篇超超长的文章了。在 Typecho 上终于用上了我心水已久的 VOID 主题，欢迎大家去看看：<a href="https://l3on.site/">https://l3on.site/</a>。</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[英文语法简明体系]]></title>
+        <id>https://ws.l3on.site/post/grammar/</id>
+        <link href="https://ws.l3on.site/post/grammar/">
+        </link>
+        <updated>2022-03-15T10:38:15.000Z</updated>
+        <summary type="html"><![CDATA[<p>这是一篇英语兔视频学习笔记，视频以动词为核心，构建了一个简单清晰的英文语法体系。边看边做笔记，只觉得获益匪浅，不敢私藏，所以整理一下视频笔记，分享给大家。强烈推荐大家看看原片。</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>这是一篇英语兔视频学习笔记，视频以动词为核心，构建了一个简单清晰的英文语法体系。边看边做笔记，只觉得获益匪浅，不敢私藏，所以整理一下视频笔记，分享给大家。强烈推荐大家看看原片。</p>
+<!-- more -->
+<ul>
+<li>原片地址：<a href="https://youtu.be/is7vn5URVcc">YouTube</a> | <a href="https://www.bilibili.com/video/BV1r54y1m7gd/">Bilibili</a></li>
+<li>我在 WorkFlowy 的大纲笔记：<a href="https://workflowy.com/s/9bbcebc39c65/vAuQlBXk7vdwA1H1">视频笔记</a></li>
+</ul>
+<h2 id="问题的提出为什么学习语法">问题的提出：为什么学习语法</h2>
+<p>首先要明确的一个问题，就是我们为什么要学习英语语法。</p>
+<p>一般我们将英语的学习分为三部分：词汇、发音和语法。相比其他两个部分，我们按照语法才能将词语符合规范地连成句子，因此英语语法最重要的功能就是<strong>造句</strong>。</p>
+<h2 id="简单句">简单句</h2>
+<p>英语的句子可长可短，但是我们可以探寻句子的最小单元，我们将长句拆开，拆到<strong>不可再拆</strong>的地步，就称为简单句，那么所有的长句都可以视为是简单句的组合。接下来我们研究简单句。</p>
+<p>所有的简单句其实都可以概括为：</p>
+<blockquote>
+<p>💡 什么 + 怎么样</p>
+</blockquote>
+<p>这里的「什么」我们称之为 <strong>主语</strong> (subject)，「怎么样」（也就是除主语外的所有部分）称之为 <strong>谓语</strong> (predicate)。</p>
+<figure data-type="image" tabindex="1"><img src="https://ws.l3on.site/post-images/Untitled.png" alt="" loading="lazy"></figure>
+<p>这里不要将「谓语」和「谓语动词」混淆，后面也会讲到为什么这里简单句成分的概括和我们平常想到的「主谓宾」结构不一样。</p>
+<h2 id="基本句型-谓语动词的分类和一些句子成分">基本句型、谓语动词的分类和一些句子成分</h2>
+<p>如上所述，简单句的句子成分就是 <strong>主语</strong> (subject) 和 <strong>谓语</strong> (predicate)。</p>
+<p>主语中一般是人或物；谓语一般是一个「动作」，注意这里的动作不是指一个具体的、行动的动作，而是一个广义的、概括的概念。</p>
+<p>这种「动作」可以分为以下五类，而这里的分类，可以概括五种不同的<strong>谓语动词 predicate verb</strong>、五种英语<strong>基本句型</strong>和一部分<strong>句子成分</strong>：</p>
+<h3 id="可以独立完成的动作"><strong>可以独立完成的动作</strong></h3>
+<blockquote>
+<p>Andy sleeps.</p>
+</blockquote>
+<p>这里 sleep 没有一个动作的承受者就可以表示完整的意思，这种动词被称为<strong>及物动词 intransitive verbs</strong>。</p>
+<p>这个基本句型就是：<strong>主语 + 不及物动词</strong></p>
+<h3 id="有一个承受者的动作">有一个承受者的动作</h3>
+<blockquote>
+<p>Andy likes you.</p>
+</blockquote>
+<p>这里 like 的动作有一个承受者，如果没有承受者，表意便不完整，这种动词称为及物动词。为了和下面的例子区分开我们把这种只有一个承受者的动词称为<strong>单及物动词 monotransitive verbs</strong>。</p>
+<p>而动作的承受者 you 就称为<strong>宾语 object</strong>。</p>
+<p>基本句型为：<strong>主语 + （单及物）动词 + 宾语</strong></p>
+<h3 id="有两个承受者的动作">有两个承受者的动作</h3>
+<blockquote>
+<p>Andy teaches you English.</p>
+</blockquote>
+<p>这句话种 teach 这个动作有两个承受者，既然有承受者就属于及物动词，和单个承受者的动词区分开，就叫做<strong>双及物动词 ditransitive verbs</strong>。</p>
+<p>句子中的 you 是动作的一个承受者，代表动作的对象，我们称为<strong>间接宾语 indirect object</strong>。如果将 you 省略，句子变成「安迪教英语」，语义也是完整的，因此间接宾语可以省略，不影响语义完整。</p>
+<p>而句子中的 English 是动作的内容，属于<strong>直接宾语 direct object</strong>。如果将这一部分省略，句子则变成「安迪教你」，如果缺少上下文，句子的语义就不完整了，因此直接宾语一般不认为可以省略。</p>
+<p>这类句子的基本句型为：<strong>主语 + （双及物）动词 + 间接宾语 + 直接宾语</strong></p>
+<h3 id="只有一个承受者-但是不同于第二种的动作">只有一个承受者、但是不同于第二种的动作</h3>
+<blockquote>
+<p>Andy considers you smart.</p>
+</blockquote>
+<p>这里动作同样是有一个承受者 you，但是这里和第二种情况不一样，除了 you 之外还有一个 smart，而且这里的 smart 不是说动作 smart，而是说 you samrt。同时去掉 smart 后明显语义不完整，这种动词叫做<strong>复杂及物动词 complex-transitive verbs</strong>。</p>
+<p>而这里的 smart 由于不是动作的承受者，自然也就不是宾语的一种，而是由于这个动作对宾语的一种形容，我们称为<strong>宾语补语 object compliment</strong>。</p>
+<p>这类句子的基本句型为：<strong>主语 + （复杂及物）动词 + 宾语 + （宾语）补语</strong></p>
+<h3 id="不是狭义动作的动作">不是狭义动作的「动作」</h3>
+<blockquote>
+<p>Andy is tall.</p>
+</blockquote>
+<p>这种句子中没有一个狭义理解的动作，而是说「安迪是高的」，这里只是将 tall 这个性质赋予了 Andy，这里的动词表达的是前后的一种连系，我们把这种有赋予性质的词称为<strong>连系动词 linking verbs</strong>。</p>
+<p>而 tall 也不是系动词的承受者，而是对主语 Andy 的一种修饰，符合补语的定义，我们称为<strong>主语补语 subject complement</strong>，也称为<strong>表语 predicative</strong>。</p>
+<p>这种句子结构就是常说的「主系表」结构，即 <strong>主语 + （连）系动词 + 表语（主语补语）</strong></p>
+<h2 id="中途小结">中途小结</h2>
+<p>这里简单小结一下，我们学习语法是为了造句，研究句子从<strong>简单句</strong>（不可再分的句子）入手，每个简单句都是代表了 什么 怎么样 的含义，即 <strong>主语</strong> 和 <strong>谓语</strong>。</p>
+<p>接下来我们对简单句进行了分类，分类完成后就有了五类<strong>基本句型</strong>，而这五类基本句型对应了五种不同的<strong>谓语动词</strong>，也对应了五种谓语动词需要的那些其他使句子完整的<strong>句子成分 clause elements / sentence members</strong>。</p>
+<p>这里要注意，谓语和谓语动词是不同的，这里讨论的谓语是除主语之外的全部内容，而谓语动词只是谓语的一部分。日常生活中我们有时会把谓语动词简称为谓语，也有一种「主谓宾」的说法，经过上面的分析，可见「主谓宾」结构只是英语五种基本句型的其中一种（即第二种）。</p>
+<h2 id="其他句子成分">其他句子成分</h2>
+<p>除了上面五种基本句型中提到的<strong>主语</strong>、<strong>谓语动词</strong>、<strong>宾语</strong>、<strong>补语</strong>（<strong>表语</strong>），句子成分还包括定语、状语、同位语。</p>
+<h3 id="定语-attribute">定语 attribute</h3>
+<blockquote>
+<p>The little white rabbit ate a large carrot.</p>
+</blockquote>
+<p><strong>定语</strong>是主语宾语或修饰。如上句中的 the little white 是主语 rabbit 的定语；a large 是宾语 carrot 的定语。</p>
+<h3 id="状语-adverbial">状语 adverbial</h3>
+<blockquote>
+<p>The rabbit ate quickly.</p>
+</blockquote>
+<p><strong>状语</strong>修饰谓语动词。Quickly 是 ate 的状语。</p>
+<h3 id="同位语-appositive">同位语 appositive</h3>
+<blockquote>
+<p>Papa Rabbit, an English teacher, eats a carrot.</p>
+</blockquote>
+<p>所谓同位即地位相同，<strong>同位语</strong>可以简单理解为再把主语、宾语说一遍，上句中 an English teacher 和主语相当于同等地位，就是主语的同位语</p>
+<h2 id="句子成分总结">句子成分总结</h2>
+<ol>
+<li>主语 subject</li>
+<li>谓语动词（谓语）predicate verb</li>
+<li>宾语 object</li>
+<li>宾语补语 object complement</li>
+<li>主语补语（表语）subject complement (predicative)</li>
+<li>定语 attributive</li>
+<li>状语 adverbial</li>
+<li>同位语 appositive</li>
+</ol>
+<h2 id="复合句与复杂句简单句的并列与嵌套">复合句与复杂句：简单句的并列与嵌套</h2>
+<p>有了简单句，我们就可以把简单句通过组合创造更长的句子，简单句的组合方式有两种，通过两种方式可以得到 <strong>复合句 compound sentences</strong> 和 <strong>复杂句 complex sentences</strong>。</p>
+<h3 id="复合句">复合句</h3>
+<blockquote>
+<p>simple sentence + simple sentence</p>
+</blockquote>
+<p>即若干个简单句的并列叠加，因此有时也称为并列句。</p>
+<h3 id="复杂句">复杂句</h3>
+<blockquote>
+<p>[simple (simple sentence) sentence]</p>
+</blockquote>
+<p>简单句的嵌套，一个简单句通过一些变换后，做另一个句子的一个句子成分，而这种嵌套可以无限进行。</p>
+<p>有了嵌套就有了主从，外层的句子我们便称为 <strong>主句</strong>，而内层通过变换做句子成分的句子，我们称为<strong>从句</strong>。</p>
+<p>而一个从句做不同的句子成分，我们又有不同的名称，分为</p>
+<ul>
+<li>主语从句</li>
+<li>宾语从句</li>
+<li>表语从句</li>
+<li>同位语从句</li>
+</ul>
+<p>以上的从句多是名词性的，因此合称为<strong>名词性从句</strong>。除此之外还有</p>
+<ul>
+<li>定语从句</li>
+<li>状语从句</li>
+</ul>
+<h2 id="词类">词类</h2>
+<p>刚刚提到有的从句是「名词性」的，这里的名词就是一种词类。即使在相同的句子成分中，也有可能有不同的词类</p>
+<ul>
+<li>Elena is a girl.</li>
+<li>I am tall.</li>
+<li>That is me.</li>
+<li>Loving you is red.</li>
+</ul>
+<p>这三个句子都是所谓的「主系表」结构，即上面提到的第五类基本句型，对应的句子成分都是主语、系动词、表语，但是我们明显可以看到 girl 和 tall 不是一个词类。</p>
+<p>我们将英语的词汇分为十大类，分别是：</p>
+<ol>
+<li><strong>名词 nouns</strong>：表人和物</li>
+<li><strong>冠词 articles</strong>：说明人和事物</li>
+<li><strong>代词 pronouns</strong>：替代人和物</li>
+<li><strong>形容词 adjectives</strong>：形容人和物</li>
+<li><strong>数次 numerals</strong>：表数量</li>
+<li><strong>副词 adverbs</strong>：修饰动词或形容词</li>
+<li><strong>介词 prepositions</strong>：表示和其他词的关系</li>
+<li><strong>叹词 interjections</strong>：表感叹</li>
+<li><strong>连词 conjunctions</strong>：连结词、句</li>
+<li><strong>动词 verbs</strong>
+<ol>
+<li>不及物动词 intransitive verbs</li>
+<li>单及物动词 monotransitive verbs</li>
+<li>双及物动词 ditransitive verbs</li>
+<li>复杂及物动词 complex-transitive verbs</li>
+<li>（连）系动词 linking verbs</li>
+</ol>
+</li>
+</ol>
+<p>需要注意的是，句子成分和词类完全是两个不同的概念，句子成分只是对句子结构的考察，一个句子成分内不仅可以有不同的词类，又是甚至都不止一个词（如上面第三个例句中做主语的 loving you），而词类更多的是一个个别单词的性质，与句子成分一般无关。</p>
+<p>这里除了谓语动词这个句子成分必须是动词，其他句子成分可能包含各种不同的词类。</p>
+<figure data-type="image" tabindex="2"><img src="https://ws.l3on.site/post-images/21c34272-8db1-43d1-b54b-f003d7316839.png" alt="" loading="lazy"></figure>
+<h2 id="时态和语气谓语动词的功能">时态和语气：谓语动词的功能</h2>
+<p>再回到谓语动词上来，谓语动词具有中文的动词不具有的三个功能，即表达动作的时间、状态和语气</p>
+<h3 id="时态">时态</h3>
+<p>首先，谓语动词可以表示动作的时间，英语将谓语动词的时间分为四类，分别为</p>
+<ul>
+<li>现在</li>
+<li>过去</li>
+<li>将来</li>
+<li>过去将来（从过去某个时间点算将来）</li>
+</ul>
+<p>同时，谓语动词还可以表示动作的状态（体），英语也将状态分为四类，分别为</p>
+<ul>
+<li>一般（未说明）</li>
+<li>完成</li>
+<li>进行</li>
+<li>完成进行（不但完成而且继续）</li>
+</ul>
+<p>这两者的组合，便是我们常说的「<strong>时态</strong>」。所以，时态并不仅仅是指动作的时间，还有动作的状态，众多的时态也不是线性分布的，而是四种时间和四种状态排列组合的结果。</p>
+<figure data-type="image" tabindex="3"><img src="https://ws.l3on.site/post-images/4cdbee61-d2c4-4cb5-8805-4135d00034d1.png" alt="" loading="lazy"></figure>
+<h3 id="语气">语气</h3>
+<p>除时态外，谓语动词还可以表示动作的语气。这里的「语气」不是说话的语气，而是一个语法的专有名字，指动作的假设、情感等。例如陈述语气、虚拟语气、祈使语气等。</p>
+<ul>
+<li>I am a boy.</li>
+<li>If I were a boy.</li>
+<li>Be a boy.</li>
+</ul>
+<p>综上所述，谓语动词的三个重要功能简称「时体气」即英文的 TAM。</p>
+<figure data-type="image" tabindex="4"><img src="https://ws.l3on.site/post-images/d9366808-aab9-444a-ab2b-9521056356bd.png" alt="" loading="lazy"></figure>
+<h2 id="助动词-auxiliary-verbs谓语动词功能的实现">助动词 auxiliary verbs：谓语动词功能的实现</h2>
+<p>但是，谓语动词不能独立完成上述的功能，还需要一些额外的动词的帮助，这些额外的动词就是助动词。举例如下图：</p>
+<figure data-type="image" tabindex="5"><img src="https://ws.l3on.site/post-images/76523d4a-aaf0-4da3-b696-b79835024f60.png" alt="" loading="lazy"></figure>
+<p>值得注意的是，虽然在做助动词时无实义，只是辅助谓语动词，但一些助动词本身是可以有实际意义的（如 have 拥有、be 存在、can 开易拉罐），要连系句子上下文区分具体情况中是做实义动词还是助动词。</p>
+<h2 id="非谓语动词动词不充当谓语">非谓语动词：动词不充当谓语</h2>
+<p>上面说句子成分和词类时，说到谓语动词只能是动词，但是并没有把谓语动词和动词直接等同，是因为动词不一定要充当谓语，那些不充当谓语动词的动词称为非谓语动词。</p>
+<p>充当非谓语动词的动词需要经过一些修改例如动词不定式、现在分词、动名词、过去分词等。</p>
+<ul>
+<li>动词不定式 to <strong>eat</strong>
+<ul>
+<li>和原形一样，必须联系上下文</li>
+</ul>
+</li>
+<li>现在分词 <strong>eating</strong>
+<ul>
+<li>无法确定是谓语动词进行中、现在分词还是动名词</li>
+<li>必须联系上下文</li>
+</ul>
+</li>
+<li>动名词 <strong>eating</strong>
+<ul>
+<li>无法确定是谓语动词进行中、现在分词还是动名词</li>
+<li>必须联系上下文</li>
+</ul>
+</li>
+<li>过去分词 <strong>eaten</strong>
+<ul>
+<li>和完成状态一样，也要联系上下文</li>
+</ul>
+</li>
+</ul>
+<p>非谓语动词可以充当句子的成分，自然也可以在需要的情况下取代从句，简化句子。需要注意的时，非谓语动词不再具有谓语动词的表示动作时体气功能，这点很好理解，因为这个动作都不是谓语了，也就不是句子的核心了，自然就不能代表整个句子中这个动作的时体气了。</p>
+<h2 id="总结动词作为核心">总结：动词作为核心</h2>
+<p>刚刚提到动词是句子的核心，其实动词可以作为整个英语语法体系的核心。以动词作为核心梳理一下以上全部内容，就得到了一个英语语法的粗略框架：</p>
+<figure data-type="image" tabindex="6"><img src="https://ws.l3on.site/post-images/2d291acf-13aa-4c97-a018-21a2efa7b0d7.png" alt="" loading="lazy"></figure>
+<p>首先动词分为<strong>谓语动词</strong>和<strong>非谓语动词</strong>。</p>
+<p>谓语动词分为五种：决定五种<strong>基本句型</strong>；囊括主语、谓语动词、宾语、补语、表语这五个<strong>句子成分</strong>。除此之外<strong>句子成分</strong>还有定语、状语、同位语。</p>
+<ul>
+<li>这里解决了谓语动词的分类、五种基本句型、句子成分。</li>
+</ul>
+<p>简单句可以组合为长句，具体包括并列关系的<strong>复合句</strong>、从属关系的<strong>复杂句</strong>。而复杂句中有主句和充当句子成分的<strong>从句</strong>。从句又可以根据所充当的句子成分进行分类</p>
+<ul>
+<li>这里解决了复合句、复杂句、主句、从句、从句分类</li>
+</ul>
+<p>同时，句子成分可以由不同<strong>词类</strong>充当。词类具体包括：动词、名词、代词、冠词、形容词、数词、副词、介词、叹词、连词。</p>
+<ul>
+<li>这里解决了词类。</li>
+</ul>
+<p>回到谓语动词，谓语动词可以表达动作的<strong>时间</strong>、<strong>状态</strong>、<strong>语气</strong>。</p>
+<ul>
+<li>这里解决了句子的时态、语气。</li>
+</ul>
+<p>而谓语动词要实现时态、语气的功能需要用到<strong>助动词</strong>，除时态、语气之外，助动词还可以表达谓语动词的否定、被动、可能、义务。</p>
+<ul>
+<li>这里解决了助动词。</li>
+</ul>
+<p>剩下不充当谓语的动词即<strong>非谓语动词</strong>，非谓语动词可以视为改动后的动词，可以充当除谓语动词外的所有句子成分，取代几乎所有从句，简化句子。</p>
+<ul>
+<li>这里解决了非谓语动词。</li>
+</ul>
+<h2 id="余论">余论</h2>
+<p>以上的框架可以说是英语语法体系的核心，其他各类规则、特例无非是对此的丰富和补充。但是值得注意的是，英语语法并不是十分规则，以上的体系只是对英语语法的一个全局性的、脉络性的、高度抽象的概括，一定程度上牺牲了细节的准确性。因此，熟练掌握英语语法没有捷径，方法无非——重复、积累。</p>
+<hr>
+<p>📌 <strong>图片版权声明</strong></p>
+<ul>
+<li>本文为个人笔记分享，文字部分为我合理使用内容，遵守 CC BY-NC-SA 4.0 协议；</li>
+<li>文中图片为英语兔视频截图，我无权授予知识共享许可协议授予的任何权利，转引请联系原作者。</li>
+</ul>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[记录新博客：nobelium, Vercel, Tailwind CSS 和域名]]></title>
+        <id>https://ws.l3on.site/post/nobelium/</id>
+        <link href="https://ws.l3on.site/post/nobelium/">
+        </link>
+        <updated>2022-03-10T18:37:51.000Z</updated>
+        <summary type="html"><![CDATA[<p>长文预警（一不小心写了一万多字…… 真希望我写论文有这动力）。这几天可能是为了逃避一些现实的压力，我疯狂折腾了几天。用 <a href="https://github.com/LeonWong0609/nobelium/">nobelium</a> 搭建了一个新的博客，折腾了一下 Tailwind CSS，顺便买了一个域名，给自己的博客都上了自己的域名。</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>长文预警（一不小心写了一万多字…… 真希望我写论文有这动力）。这几天可能是为了逃避一些现实的压力，我疯狂折腾了几天。用 <a href="https://github.com/LeonWong0609/nobelium/">nobelium</a> 搭建了一个新的博客，折腾了一下 Tailwind CSS，顺便买了一个域名，给自己的博客都上了自己的域名。</p>
+<!-- more -->
+<p>其实去年的时候我就发现了 <a href="https://github.com/LeonWong0609/nobelium/">nobelium</a> 这个项目，也成功搭建了，但是网站的排版样式我一直想调整一下，但是当时不会也没花时间折腾，这几天我就集中现学现卖折腾了一下。</p>
+<h2 id="部署过程">部署过程</h2>
+<p>如何搭建在 nobelium 的 <a href="https://github.com/craigary/nobelium#quick-start">README</a> 中已经描述的十分清楚，这里简单叙述一下。首先需要准备的是 GitHub 账号，Notion 账号和 Vercel 账号（可以直接用 GitHub 登录），Fork 一下 craigary/nobelium 这个仓库。</p>
+<figure data-type="image" tabindex="1"><img src="https://ws.l3on.site/post-images/4b02dbcf-2664-4d8e-be73-df09fe9ba60d.png" alt="" loading="lazy"></figure>
+<p>然后 Duplicate 一下 craigary 提供的 <a href="https://craigary.notion.site/adc3552cfc73442ab5048d4b1eb0079a">Notion 模板</a>（一个 database）到自己的 Notion 账号，在自己的 Notion 中分享这个 database。</p>
+<figure data-type="image" tabindex="2"><img src="https://ws.l3on.site/post-images/9c5d8e0d-23c4-4e2a-9774-2aa4a12d4bdc.png" alt="" loading="lazy"></figure>
+<p>分享之后需要记录一下自己的 Page ID，每个 database 都不一样，craigary 的这张图说明十分清楚。</p>
+<figure data-type="image" tabindex="3"><img src="https://ws.l3on.site/post-images/fde0efc8-db27-46e0-9dbc-c080616075c5.png" alt="" loading="lazy"></figure>
+<p>再登录 Vercel，选择新建项目，从 GitHub 中导入刚刚 Fork 的仓库，操作都比较符合直觉，这里就不截图了，然后选择 Next.js 框架。然后，设置好环境变量，名称为 <code>NOTION_PAGE_ID</code> ，内容为自己页面的 Page ID，让 Vercel 自动部署。</p>
+<figure data-type="image" tabindex="4"><img src="https://ws.l3on.site/post-images/ecfe59c4-461b-4efc-bd8e-47b56e352d58.png" alt="" loading="lazy"></figure>
+<figure data-type="image" tabindex="5"><img src="https://ws.l3on.site/post-images/eb59c5bd-c689-47dd-9394-79d3f914c064.png" alt="" loading="lazy"></figure>
+<p>部署成功之后，访问 Vercel 提供的网址，应该就可以看到内容了。这时候可以看看那个模板 database，里面的每个属性的含义应该都很清楚了</p>
+<ul>
+<li>title: 文章的标题；</li>
+<li>date: 文章发布的时间，如果留空默认是文章创建的时间；</li>
+<li>slug: 文章 URL 尾部的字符，也就是 <code>.com/xxx</code> 中 xxx 的部分，建议使用英文，用 <code>-</code> 代替空格，如果使用中文或者空格、标点，会被 UrlEncode 变成一长串，链接会显得很长；</li>
+<li>summary: 文章简介，会显示在主页标题的底部；</li>
+<li>tags: 文章标签，可以对文章进行分类；</li>
+<li>status: 文章状态，只有 <code>Published</code> 状态的文章会在博客公开显示；</li>
+<li>type: <code>Post</code> 会直接显示在主页，<code>Page</code> 只有直接访问 URL 会显示，不会出现在主页文章列表中。</li>
+</ul>
+<p>我个人使用了 Notion 的 Group（分组）功能把这个 database 按照 status 进行了分组，这样我能更方便集中管理已经发布和未发布的内容。</p>
+<figure data-type="image" tabindex="6"><img src="https://ws.l3on.site/post-images/c3010767-0261-4aa8-96bd-fd5b6096bec2.png" alt="" loading="lazy"></figure>
+<p>之后，我找了几篇以前写的东西，粘贴到了 Notion 模板里，再回到博客，直接刷新页面就可以看到文章了。</p>
+<h2 id="开始自己折腾">开始自己折腾</h2>
+<h3 id="blogconfig">blog.config</h3>
+<p>把自己 Fork 的仓库 clone 到本地，就可以开始折腾了。</p>
+<p>按照 README 中的介绍，可以修改 <code>blog.config.js</code> 文件对博客进行第一步的自定义。可以自定义的内容在文件中也有很详细的注释了，不要修改作者注释了 do not change 的地方。这里介绍两个我觉得需要注意的地方。</p>
+<ul>
+<li>首先是 <code>email</code> 要记住自己填写了什么，因为和头像有关，后面再详细说明；</li>
+<li>其次 <code>comment</code> 我个人选择了 Cusdis 而不是 Gitalk，后面也会详细说明。</li>
+</ul>
+<h3 id="头像gravatar">头像：<a href="https://gravatar.com/">Gravatar</a></h3>
+<p>默认状态下，nobelium 的头像是 这样的：</p>
+<figure data-type="image" tabindex="7"><img src="https://ws.l3on.site/post-images/9d517f15-9380-450c-9b23-72cdb1a0009b.png" alt="" width="100" loading="lazy"></figure>
+<p>十分眼熟，因为这是 Gravatar 的默认头像。需要到 <a href="https://gravatar.com">Gravatar 官网</a> 注册一个账号（用 WordPress）账号也可以，注意这里要用刚才在 <code>email</code> 中填写的邮箱注册，然后按照提示上传头像，成功后等待一会，博客应该就会刷新出自己的头像了。</p>
+<p>原理应该就是 nobelium 会自动使用 Gravatar 生成的头像 URL 获取头像，只需要在 <code>https://gravatar.com/avatar/</code> 后加上注册邮箱的 md5 值，就可以直接获取头像了，在 <code>layout.js</code> Ln45 可以看到。</p>
+<h3 id="评论cusdis">评论：<a href="https://cusdis.com">Cusdis</a></h3>
+<p>以前在 Gridea 使用的评论系统是 Gittalk，和仓库绑定后，就可以通过 issue 实现评论功能，可以支持 Markdown，只要有 GitHub 账号就可以评论。但是体验上还是有点沉重，在国内的互联网环境更是经常加载不出来，也有人认为这是对 GitHub 的 issue 功能的误用。但对我来说最难受的部分还是自定义样式比较难。</p>
+<p>所以这次在 nobelium 发现 Cusdis 之后就试了试，结果很惊喜。按照官网的介绍，Cusdis 是 Disqus 的轻量开源替代，大小只有 5kb，设置成功后基本上是和网页同步加载成功，而且不需要注册任何账号就可以评论。</p>
+<figure data-type="image" tabindex="8"><img src="https://ws.l3on.site/post-images/a87a79ec-81b2-4e04-a4ce-f862f4651690.png" alt="" loading="lazy"></figure>
+<p>Cusdis 可以选择自己部署，也可以使用官方提供的服务器。只需要在官网注册账号，添加一个网站，记住 <code>data-app-id</code>，并填写到 <code>blog.config.js</code> 对应的位置，如果使用官方提供的服务器，可以直接按照这样填写：</p>
+<pre><code class="language-javascript">cusdisConfig: {
+  appId: '替换自己的 data-app-id', // data-app-id
+  host: 'https://cusdis.com', // data-host, change this if you're using self-hosted version
+  scriptSrc: 'https://cusdis.com/js/cusdis.es.js' // change this if you're using self-hosted version
+}
+</code></pre>
+<p>完成后就可以把所有的更改 push 到 GitHub，等待 Vercel 部署完成，就可以刷新查看成果了！</p>
+<h3 id="tailwind-css">Tailwind CSS</h3>
+<p>以上是最基本的自定义，但对于我这种折腾的人肯定不能满足，我还是喜欢折腾 CSS。</p>
+<p>第一天刚刚搭建好 nobelium 的时候我其实就已经折腾了一下样式，但是由于没有仔细看文档，上来我就修改了仓库里比较明显的 <code>global.css</code>  和 <code>notion.css</code>  两个文件，不管里面本来看不懂的内容，直接配合检查工具直接把自己想用的样式用 CSS 硬写了一些，然后野蛮地加上 <code>!important</code> ，强制生效。然而第二天的时候我仔细看了看 nobelium 的文档，发现 nobelium 在介绍中也说自己使用的是 Tailwind CSS / JIT 框架，方便自定义，于是我就查了一下这个似曾相识的名字，发现我错过了太多，之前的自定义基本也就是野路子，实在不算优雅。</p>
+<p>我说说我简单的理解，nobelium 的两个 CSS 文件其实是负责两个部分 <code>global.css</code> 主要负责整体的框架，包括导航栏、首页、footer、文章作者等部分；<code>notion.css</code> 主要负责文章正文部分。可以理解为 nobelium 是为 Notion 中的内容提供了一个展示的框架，正文外的其他内容由 nobelium 生成，然后从 Notion 中取正文内容再通过指定的样式渲染，最终展现一个完整的博客。</p>
+<p>回到 Tailwind CSS 上，根据我的理解，Tailwind CSS 提供的是一种快速在 HTML 文件中指定样式的框架，只需要在 HTML 元素中指定一些特定的 class，就可以自动生成对应的 CSS 属性，从而达到不离开 HTML 文件快速实现样式自定义的效果。因此再回到两个 CSS 文件中，其中的内容便似乎可以看得懂了。</p>
+<p>举个例子，在 <code>notion.css</code> 文件中我自定义了这些：</p>
+<pre><code class="language-css">.notion-h1, .notion-h2, .notion-h3 {
+  @apply mb-2;
+  @apply text-left;
+}
+</code></pre>
+<p>由于是在 CSS 中使用 Tailwind，所以选择器的规则和 CSS 一样，然后在 <code>@apply</code> 后的内容就是 Tailwind CSS 的「语法」了。 <code>mb-2</code> 是代表 <code>margin-bottom: 0.5rem; /* 8px */</code> ，<code>text-left</code> 代表 <code>text-align: left;</code> 。</p>
+<p>然而并不是所有的样式都在这两个 CSS 中被指定，前面说 Tailwind CSS 最主要的功能是在 HTML 文件中快速指定样式，因此我们还可以在生成 HTML 文件的几个 js 文件中找到 Tailwind CSS 的痕迹。</p>
+<p>再举个例子，<code>BlogPost.js</code> 我修改成了这样：</p>
+<pre><code class="language-javascript">const BlogPost = ({ post }) =&gt; {
+  return (
+    &lt;Link href={`${BLOG.path}/${post.slug}`}&gt;
+      &lt;a&gt;
+        &lt;article key={post.id} className=&quot;mb-6 md:mb-8&quot;&gt;
+          &lt;header className=&quot;flex flex-col justify-between md:flex-row md:items-baseline&quot;&gt;
+            &lt;h2 className=&quot;text-lg md:text-xl font-bold mb-2 cursor-pointer text-black dark:text-gray-200&quot;&gt;
+              {post.title}
+            &lt;/h2&gt;
+            &lt;time className=&quot;flex-shrink-0 text-gray-600 dark:text-gray-500&quot;&gt;
+              {formatDate(post?.date?.start_date || post.createdTime, BLOG.lang)}
+            &lt;/time&gt;
+          &lt;/header&gt;
+          &lt;main&gt;
+            &lt;p className=&quot;hidden md:block leading-7 text-gray-700 dark:text-gray-400&quot;&gt;
+              {post.summary}
+            &lt;/p&gt;
+          &lt;/main&gt;
+        &lt;/article&gt;
+      &lt;/a&gt;
+    &lt;/Link&gt;
+  )
+}
+</code></pre>
+<p>这个文件其实就是主页的显示效果，我想把简介的文字调暗一点，让文章标题文字更加突出，于是将最后一个 <code>&lt;p&gt;</code> 元素的 <code>className</code> 修改为 <code>text-gray-700</code> 和 <code>dark:text-gray-400</code>，查阅文档可知 <code>text-color-###</code> 代表字体颜色为指定的颜色，其中 <code>gray-700</code> 是 Tailwind CSS 默认调色盘中的一种灰色，而 <code>dark:</code> 前缀代表在系统深色模式下适用，所以代表在深色模式下，这里文字颜色使用 <code>gray-400</code> 颜色，比原来的更暗一些，可以实现我的效果。</p>
+<p>如此类推，详细的对应关系可以在 Tailwind CSS 的 <a href="https://tailwindcss.com/docs/">官方文档</a> 中找到，文档有很方便的搜索功能，作为纯业余的我折腾体验也不错。另外网上还有 <a href="https://www.tailwindcss.cn/docs">中文翻译版的文档</a> 可供参考。</p>
+<p>之后，可以再对一些元素进行进一步的修改，例如我给 footer 加上了 CC BY-NC-SA 的图标，并超链接到博客的版权页，拿掉了原来 Vercel 的徽章（放到了关于页里）。</p>
+<h3 id="og-image">OG image</h3>
+<p>折腾完以上的部分之后休息了一天，今天又心痒了看了看项目文件，发现在 <code>blog.config.js</code> 文件中的 <code>ogImageGenerateURL</code> 。这也是 nobelium 的一个 feature 之一，自带 Open Graph，但我折腾之后又发现了一些问题。</p>
+<p>在原来的文件中，填写的是 craigary 自己部署的一个域名，在 <code>Container.js</code> 文件中 Ln39 被引用：</p>
+<pre><code class="language-html">&lt;meta
+  property=&quot;og:image&quot;
+  content={`${BLOG.ogImageGenerateURL}/${encodeURIComponent(
+    meta.title
+  )}.png？theme=dark&amp;md=1&amp;fontSize=125px&amp;images=https%3A%2F%2Fassets.vercel.com%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fvercel-triangle-white.svg&amp;images=https%3A%2F%2Fgithub.com%2FLeonWong0609%2Fnobelium%2Fraw%2Fmain%2FNobelium-Logo.svg&amp;widths=200&amp;widths=200&amp;heights=undefined&amp;heights=200`}
+/&gt;
+</code></pre>
+<p>也就是说会将 OG image 指向一个域名，这个域名包含了被 UrlEncode 的文章标题和一些其他内容，可以推测应该也和 Gravatar 差不多，是可以通过 URL 直接提供 OG image 的。</p>
+<p>于是我在 GitHub 找到了原来的仓库，也是 Vercel 的一个项目：<a href="https://github.com/vercel/og-image">Open Graph Image as a Service</a>。简言之就是可以直接通过 URL 快速生成带有文字的图片，从而实现不用每张 OG image 都手动制作的效果。既可以直接访问网页在网页上制作，也可以直接使用特定的 URL 就会返回特定的图像。可以说和平常转换机场订阅节点的 API 很像了。</p>
+<p>但是 craigary 提供的网址没有 nobelium 的 logo，只显示文字。猜测是指定的 logo URL 失效了吧。</p>
+<figure data-type="image" tabindex="9"><img src="https://ws.l3on.site/post-images/244472db-eeec-4ac7-95db-6ee2350da496.png" alt="" loading="lazy"></figure>
+<p>访问 Vercel 官方的链接，可以显示并自定义 Logo，但是没有支持中文的字体：</p>
+<figure data-type="image" tabindex="10"><img src="https://ws.l3on.site/post-images/cb15aea3-fd30-48db-9bb7-e251ceeb6bd2.png" alt="" loading="lazy"></figure>
+<p>这些方块都是中文……</p>
+<p>于是自己折腾的机会又到了！</p>
+<p>翻了翻 <a href="https://github.com/vercel/og-image">官方仓库</a> 的 issue，发现 <a href="https://github.com/vercel/og-image/issues/108">#108</a> 提到韩语显示问题，果不其然是因为缺少字体。在这条下有 <a href="https://github.com/vercel/og-image/issues/108#issuecomment-657078789">hoosan 的回复</a> 详细说明了他对于同样的日文字体的解决方法。看起来对于中文也是可以适用的。于是我就打算动手自己部署一个，然后修改一下应该就可以解决问题了。</p>
+<p>首先我们要自己部署一个原版的 vercel/og-image 项目，同样的还是首先 Fork 一下官方仓库，然后按照 README 的指引修改 <code>vercel.json</code> 文件中的内容，我直接删掉了架构、区域两行，然后调低了一点 memory，rewrite 保持不变，最后文件看起来是这样：</p>
+<pre><code class="language-json">{
+  &quot;functions&quot;: {
+  &quot;api/**&quot;: {
+    &quot;memory&quot;: 1024
+  }
+},
+&quot;rewrites&quot;: [
+    { &quot;source&quot;: &quot;/(.+)&quot;, &quot;destination&quot;: &quot;/api&quot; }
+  ]
+}
+</code></pre>
+<p>现在应该就可以到 Vercel 网站开始部署了，步骤和以前一样，还是从 GitHub 导入，框架选择其他，然后就可以让 Vercel 自动部署了。部署成功后可以打开网页看看，然后就可以开始进一步的修改了。</p>
+<p>首先是添加字体文件。</p>
+<p>Google Fonts 网站有提供各种 Noto 字体，那种由于字体缺失显示不出来的方框被大家叫做 tofu（豆腐），这套字体之所以叫 Noto，就是想要解决 tofu 问题，这里用这种字体感觉挺合适的。看到项目中其他字体文件都是 woff2 格式的，而 Google Fonts 网站本身不支持 woff2 格式的下载，所以我进行了一些搜索，发现了 <a href="http://google-webfonts-helper.herokuapp.com/fonts">google-webfonts-helper</a> 这个网站，可以直接下载 woff2 格式的字体文件。</p>
+<p>我选择下载了 Noto Sans SC medium 字体，勾选中文字符集和 500 字重，滚到页面底部可以直接下载所有字体文件。下载成功后解压，将 woff2 格式的文件保留备用。</p>
+<figure data-type="image" tabindex="11"><img src="https://ws.l3on.site/post-images/f3b054b9-ec3c-4e16-ab29-5b2ee28155da.png" alt="" loading="lazy"></figure>
+<p>为了方便，我将字体文件更名为了 <code>noto-sans-sc-medium.woff2</code> ，并将该文件添加到自己项目的 <code>api/_fonts</code> 文件夹。</p>
+<p>然后打开 <code>api/_lib</code> 文件夹下的 <code>template.ts</code> 文件，声明一个新的 const 读取刚刚的字体文件：</p>
+<pre><code class="language-typescript">const noto = readFileSync(`${__dirname}/../_fonts/noto-sans-sc-medium.woff2`).toString('base64');
+</code></pre>
+<figure data-type="image" tabindex="12"><img src="https://ws.l3on.site/post-images/8029e5f6-6f5c-492b-83e6-1a9014fd095f.png" alt="" loading="lazy"></figure>
+<p>同一个文件向下翻，再添加如下一段 CSS 代码在下图位置：</p>
+<pre><code class="language-css">@font-face {
+  font-family: 'Noto Sans SC';
+  font-style:normal;
+  font-weight: medium;
+  src: url(data:font/woff2;charset=utf-8;base64,${noto}) format('woff2');
+}
+</code></pre>
+<figure data-type="image" tabindex="13"><img src="https://ws.l3on.site/post-images/23f24018-8293-4e7d-b557-bfade3cabf04.png" alt="" loading="lazy"></figure>
+<p>接着再向下翻，在 heading class 的 CSS 中添加刚刚的字体：</p>
+<figure data-type="image" tabindex="14"><img src="https://ws.l3on.site/post-images/a960ee54-8c22-428e-b8bc-00436312e082.png" alt="" loading="lazy"></figure>
+<p>保存结束以上的修改，再将以上的修改推到 GitHub，Vercel 应该又会自动开始部署了，等到部署完成再打开网页，虽然外观没有变化，输入中文试试吧。</p>
+<figure data-type="image" tabindex="15"><img src="https://ws.l3on.site/post-images/312cb90b-7c38-4c61-8b08-d0ad0399276b.png" alt="" loading="lazy"></figure>
+<p>大功告成，又有图片又有中文支持的自动生成 OG image 网站就完成了。接下来进行一些小调整，使用暗色背景，增加了一个 nobelium 图标，字体大小增大了一点点，大概看起来就是这样：</p>
+<figure data-type="image" tabindex="16"><img src="https://ws.l3on.site/post-images/4c310e63-d8e7-4d37-82fd-b8878afa9d0f.png" alt="" loading="lazy"></figure>
+<p>但是只在前端操作不是我们的目标，我们做一个可以自动根据文章标题生成对应 OG image 的链接。所以我们点击右侧的图片复制地址，得到了这样的一个 URL</p>
+<pre><code class="language-html">https://og-image-l3on.vercel.app/**Hello**%20World%20%E4%B8%AD%E6%96%87%E6%B5%8B%E8%AF%95.png?theme=dark&amp;md=1&amp;fontSize=125px&amp;images=https%3A%2F%2Fassets.vercel.com%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fvercel-triangle-white.svg&amp;images=https%3A%2F%2Fgithub.com%2FLeonWong0609%2Fnobelium%2Fraw%2Fmain%2FNobelium-Logo.svg&amp;widths=200&amp;widths=200&amp;heights=undefined&amp;heights=200
+</code></pre>
+<p>可以看到，<code>**Hello**%20World%20%E4%B8%AD%E6%96%87%E6%B5%8B%E8%AF%95</code> 这一段应该就是我们的标题经过 UrlEncode 的文本，<code>.png</code> 是选定的文件类型，而 <code>theme=dark</code> <code>md=1</code> <code>fontSize=125px</code> 等内容就是我们其他的自定义设定了。因此我们现在要做的就是在之前提到的 <code>blog.config.js</code> 和 <code>Container.js</code> 文件中修改使用我们自己的域名和设置就好。</p>
+<p>首先将 <code>blog.config.js</code> 文件中的 <code>ogImageGenerateURL</code> 修改为自己部署的 og-image 的域名（Vercel 会自动分配的），然后再到 <code>Container.js</code> 文件中，找到 <code>&lt;meta&gt;</code> 标签下 property 为 <code>og:image</code> 的内容，将包括 <code>.png?theme=</code> 在内后面的内容选中，替换为刚才的那个 URL 中对应的内容即可。下面的 Twitter Card 设置也可以进行一样的修改。我的设置如下：</p>
+<pre><code class="language-html">&lt;meta
+  property=&quot;og:image&quot;
+  content={`${BLOG.ogImageGenerateURL}/${encodeURIComponent(
+    meta.title
+  )}.png?theme=dark&amp;md=1&amp;fontSize=125px&amp;images=https%3A%2F%2Fassets.vercel.com%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fvercel-triangle-white.svg&amp;images=https%3A%2F%2Fgithub.com%2FLeonWong0609%2Fnobelium%2Fraw%2Fmain%2FNobelium-Logo.svg&amp;widths=200&amp;widths=200&amp;heights=undefined&amp;heights=200`}
+/&gt;
+</code></pre>
+<pre><code class="language-html">&lt;meta
+  name=&quot;twitter:image&quot;
+  content={`${BLOG.ogImageGenerateURL}/${encodeURIComponent(
+    meta.title
+  )}.png?theme=dark&amp;md=1&amp;fontSize=125px&amp;images=https%3A%2F%2Fassets.vercel.com%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fvercel-triangle-white.svg&amp;images=https%3A%2F%2Fgithub.com%2FLeonWong0609%2Fnobelium%2Fraw%2Fmain%2FNobelium-Logo.svg&amp;widths=200&amp;widths=200&amp;heights=undefined&amp;heights=200`}
+/&gt;
+</code></pre>
+<p>可见这里的内容就是先取刚才的 <code>blog.config.js</code> 中的 <code>ogImageGenerateURL</code> 内容，加上斜杠，再加上 UrlEncode 后的文章标题，再加上一串自己代表特定样式的字符串，拼成了一整个动态生成 OG image 的 URL。</p>
+<p>保存修改，再推到 GitHub，等待 Vercel 部署完成，再打开博客，使用检视工具就可以看到 OG image 链接了。再使用 Telegram 和 Twitter 测试一下，完美符合预期！</p>
+<figure data-type="image" tabindex="17"><img src="https://ws.l3on.site/post-images/50ff0a20-f926-43ff-b6f8-5a701111cac0.png" alt="" loading="lazy"></figure>
+<h2 id="优势">优势</h2>
+<p>打开 nobelium 的网页，第一个感觉就是快。比起以前搭建在 GitHub Page 的静态博客，这可快多了，基本看不到加载，点击一个链接后立刻就会有内容显示。</p>
+<figure data-type="image" tabindex="18"><img src="https://ws.l3on.site/post-images/74154982-aa1c-4fad-b47e-0b7bde644b2d.png" alt="" loading="lazy"></figure>
+<p>作为对比，这里也展示一下原来的 Gridea 静态博客的 Lighthouse 分数：</p>
+<figure data-type="image" tabindex="19"><img src="https://ws.l3on.site/post-images/7b0498af-b9c9-455d-9fe4-14efbff1213b.png" alt="" loading="lazy"></figure>
+<p>其次，使用 Notion 作为 CMS 也比以往 Gridea 中编辑 Markdown 文件更加方便。以往写一篇博客虽然也可以先在别的地方写，然后在移动到 Gridea 中，但是最后一步的发布还是要在电脑上操作。而且如果博文有图片，还要解决图片问题，要么使用图床，要么就要一个个图片文件导入到 Gridea 中。并且我的 Gridea 可能是因为网络问题，长期无法在客户端 push 成功，我每次都要在客户端点击同步，然后退出，检查 output 文件夹中的静态页面文件是否更新成功，最后再用 Git 手动 Push 一下。比起在 Notion 中编辑完成，把标签直接改成 Published 就能实现发布，实在称不上方便。</p>
+<figure data-type="image" tabindex="20"><img src="https://ws.l3on.site/post-images/b50004ca-2c4a-4995-8fce-d25e126e1233.png" alt="" loading="lazy"></figure>
+<p>但 nobelium 的方案也称不上完美，还是有几个地方让我怀念 Gridea 的 Markdown 文件。</p>
+<p>首先是灵活性收到了一定程度上的限制。Markdown 文件可以直接向上（下？）兼容 HTML，所以有时候一些个别的、需要自定义的元素（比如一些 badge 或者居中的文字什么的）可以直接用 HTML 写出来，但是在 nobelium 下，博文的内容其实就是 Notion 页面的内容，而且也并非支持 Notion 中全部的 block 种类（例如新推出的简单表格、可折叠的标题就还没有支持），文字也无法居中等。可以说对于简单的图文博客，偶尔插个视频那是完全够用，但是如果对于控制博客页面有更高的要求，nobelium 使用 Notion 的方法可能比不上直接使用 Markdown 灵活。</p>
+<figure data-type="image" tabindex="21"><img src="https://ws.l3on.site/post-images/d7fa674b-cd68-401e-921e-5b9702d3124c.png" alt="" loading="lazy"></figure>
+<p>此外，nobelium 还要从 Notion 中取内容，所以一般会选择公开一个 Notion database，如果选择真的使用 Notion 当作博客的内容管理系统（使用标签区分发布和草稿的内容），那么公开的 database 可能会让一些没有准备好发布的内容公布在互联网上。我个人是完全没有这方面的顾虑，因为我很少直接在 Notion 中写作。nobelium 还提供了一种使用 <code>NOTION_ACCESS_TOKEN</code> 来获取内容的方法，可以不用共享 nobelium 的 Notion database，看起来就是携带 Token 访问 Notion 内容，一个 Token 有效期是 180 天，对于我这种金鱼脑，我自然不会选用这种方法。根据作者 craigary 的 <a href="https://www.notion.so/craigary/Public-Roadmap-3cfc4d0f0ca642ef8f652673c37add22">roadmap</a>，nobelium 未来应该会支持从 Notion 官方的 API 获取内容，最近 Notion API 也正式结束 beta 阶段了，对 craigary 更新表示期待！</p>
+<p>最后，我原来的 Gridea 站点已经断断续续打磨了很久，很多细节已经符合我的喜好，这可能算是一次性迁移到 nobelium 的「沉没成本」吧，我无法舍弃原来的 Wonder Space 那快两年的修补、自己加的一堆的样式、Telegram 即时预览模板、OG 属性、还有以前网友的评论。</p>
+<h2 id="域名">域名</h2>
+<p>折腾完上面的东西，已经过去两天了，但是当时我完全没有停下的意思。有一天看网邻罗二德的 <a href="https://lorde627.xyz">博客</a>，发现他原来的 GitHub Page 有了自己的域名，我就想起来我一直想要有个域名。那天其实已经是凌晨两三点了，但我还是说干就干开始搜索有关购买域名的信息。</p>
+<p>我以前看的购买域名之类的内容多是在 GoDaddy 之类的网站购买，需要外币支付手段，当时看到我就被劝退了。那天搜索之后发现其实国内各种云就可以直接购买域名，于是我就在阿里云的万网搜索了一下。不看不知道，我之前一直以为域名一年至少是几顿饭的支出，但我搜了一下我想要的 L3ON 前缀，发现 <code>l3on.site</code> 这个看起来还挺酷的域名一年竟然只要 6 元……我一边后悔怎么没早点动手，一边下单了一年。</p>
+<p>在万网购买只需要支付宝账号就可以登录，也可以直接用支付宝绑定的手机号做实名认证。我接受了这种隐私换来的方便（反正我博客内容还是挺阳光的吧），上传身份信息，不到半个小时就搞定了实名认证，当时已经凌晨四点多了，系统提示实名认证可能要 24-48 小时，我就想着睡觉了，过几天再折腾。</p>
+<p>结果第二天醒来就看到了收件箱的邮件，当天早上 6:50 我就收到了实名认证通过的消息，希望是机器识别的，不然阿里员工上班时间有点过早了。</p>
+<p>Vercel 的域名绑定其实很简单，只需要进入项目的设置，填写自己的域名，然后再在域名的 DNS 设置中加入一条 CNAME 记录就可以了，我出于折腾的本性，还把域名的 DNS 改成了 Cloudflare 的，添加了 CNAME 后，不到五分钟 <code>blog.l3on.site</code> 域名就生效了。记得当时我就对着屏幕，看着浏览器地址栏中这一串在浩瀚互联网世界中代表我的角落的一串字符，一次次刷新页面，觉得一点一点变开心。</p>
+<p>原来的 GitHub Page 也可以自定义域名，和 Vercel 一样简单，只需要在仓库的根目录新建一个 <code>CNAME</code> 文件，内容为自己的域名，我选了 <code>ws.l3on.site</code> ，或者直接在 Gridea 的远程设置中填写自己的域名，再把变动 push 到远端就可以了。之后再在 Cloudflare 增加一条 CNAME 记录，指向原来的 <code>github.io</code> 域名即可。现在，我在互联网有两个差不多的角落了。</p>
+<h2 id="总结">总结</h2>
+<p>所以这两个博客我该留一个放弃一个吗，我暂时觉得我可以一个都不放弃。Gridea 更像一个完整的博客网站，自定义程度更高，但是对应的管理也会相对复杂；nobelium 强大而快捷，让我体验了一把一些相对先进的技术，也给我带来了几个晚上学到新东西的快乐。所以我觉得没必要要求自己二选一。因为博客对于我来说，不是我的工作也不是我的负担，更多是我的玩具，连小孩子都不会拒绝两个玩具，我当然两个都要。</p>
+<p>但是我也不想只专注于这些东西而忘记了内容。技术对我有一种莫名的吸引力，总想让我去尝试新的东西，但是真的遇到难对付的问题时，我又往往懒于进行深度系统的学习，可能这也是我为什么长期三脚猫功夫的原因吧。这次整理博客的时候又看了一下我的第一篇博文，我想起我的初心还是想有个自己能写下自己所学所想的东西的地方，之前的两篇随感类的博客比较符合想象中的博客的样子，就是和自己、也和一群看不见的读者分享一些自己最想说的话。</p>
+<p>所以前几天折腾完博客，筋疲力尽，开心中又夹杂着一点点负罪感，我怕我又是在玩物丧志，正事不做只知道瞎折腾，虽然有做了很多事情的成就感，但是又觉得如果我什么都不记录下来，就算我当时以为我会了的东西我也会慢慢遗忘，然后这些花费我大量时间的事情似乎没有意义。所以我很庆幸我今天一时冲动就开始打字了，从上午到深夜，一口气写了一万多字，我也被自己惊讶到。未来的一段时间，我可能要从爱好中抽身，转移更多的精力到生活中一些现实的问题上了，所以这篇长文也有点像收心前最后的狂欢吧。</p>
+<p>最后的最后，如果你看到了这里，谢谢你。如果文章对你有那么一点点的信息增量甚至是帮助，那是我的荣幸，不论你是在我的哪个角落看到这篇文章，欢迎留言交流，也欢迎你到我另一个角落玩。</p>
+<ul>
+<li><a href="https://ws.l3on.site">Wonder Space (Gridea / GitHub Page)</a></li>
+<li><a href="https://blog.l3on.site">Wonder Space (nobelium / Notion / Vercel)</a></li>
+</ul>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[好久不见]]></title>
+        <id>https://ws.l3on.site/post/been-a-while/</id>
+        <link href="https://ws.l3on.site/post/been-a-while/">
+        </link>
+        <updated>2022-02-14T16:12:43.000Z</updated>
+        <summary type="html"><![CDATA[<p>各位好，好久不见。上次更新小站已经是一年多以前了，虽然这么久没再在博客敲字了，但我内心没有放弃的意思。我在这里写的东西不多，但总感觉像这样写写东西已经成了我生活的一部分，这一年来每每有些新奇的想法，做出了一些有意思的东西，我都有一种在这里写下来的冲动。</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>各位好，好久不见。上次更新小站已经是一年多以前了，虽然这么久没再在博客敲字了，但我内心没有放弃的意思。我在这里写的东西不多，但总感觉像这样写写东西已经成了我生活的一部分，这一年来每每有些新奇的想法，做出了一些有意思的东西，我都有一种在这里写下来的冲动。</p>
+<!-- more -->
+<p>可惜的是去年自己真的心理健康状态堪忧，生活作息一塌糊涂，靠着身边的朋友的拉扯才勉勉强强度过一天又一天。现在想想那段时间，真觉得暗无天日，或许哪天心血来潮，也可以写一写这段经历。</p>
+<p>可以想象，对于连下床都觉得动力不足的我来说，即使我再热爱，坚持写博客也还是太困难了，我内心一次次质疑我生活当中一切的意义，想到自己在折腾、写博客上花的时间别人都花在学习上，更觉得急躁不安。然而我一边这样想，一边却完全没有花更多的时间在「我应该做的」事情上，相反，我陷入这种一边觉得自己不务正业，一边也不去真正做「正业」的困境里，到最后的结果就是什么也没做。</p>
+<p>过年后，从江苏回到广州，还有一段假期，两篇论文没写，但是毫无看文献动脑子的动力。今天上午，双一流评选结果公布后，我校更是不负众望成功落选，消息一出，朋友圈一篇哀鸿遍野。我也没忍住我的情绪，发了一条长朋友圈吐槽了一下，出乎意料的是收到了一些有段时间没联系的朋友的安慰，看来大家都在经历成长的阵痛吧。大家给的建议归纳起来都比较类似，就是停止责备自己，放下过去的选择，抓住还可以控制的当下。当然，对我来说大家安慰的内容已经不重要了，知道自己没那么糟糕，还有很多人在乎关心，内心波动的情绪也慢慢稳定下来了。</p>
+<p>坐在电脑前面，我就想着管他呢，反正有时间，与其什么都不做，为什么不放下对自己的责备，做一些自己觉得酷的事情呢。于是我就打开电脑，没多思考就开始敲字了。暂停的一年也给了我思考的机会，虽然说这个博客完全是因为兴趣而起，但多少有点表演的成分，我在技术方面是个外行，但是又觉得聊技术的东西很酷，遇到问题时要是搜到了一些技术文章我也会觉得作者很厉害。所以我写东西的时候都尽量想用满各种 Markdown 语法，让页面看起来十分炫酷，然而内容现在看看却有的幼稚，有的强拼硬凑，为了写而写，为了酷酷的外观而写。我觉得这样没什么意思，所以我打算让我的博客能成为我的一小块自留地，我纯粹为了自己的快乐而写，写一切我觉得有趣的东西，即使他们不酷。我可以写我看到的一张好看的照片，我可以写看到的好看的电视剧电影，也可以像现在这样，在脑海中和可能看到这里的你们（其实也是和自己）聊聊天。</p>
+<p>总之，我想我的博客成为我真正的爱好，而不是一种负担。写博客的本身已经让我快乐，然后我将让我快乐的事情分享出来，如果能帮助到哪怕一个人，那我的快乐便也更有意义了。所以，谢谢看到这里的每个你，正是你们的存在，让我这个看起来有点可笑的爱好有了除了满足我自己外的其他意义。</p>
+<p>2022 年，希望我能捡起这个爱好，也希望我能从这里开始，想起生活本身的美好，然后更加勇敢地去面对未来的挑战。</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[痛苦的时候就去跑步吧]]></title>
+        <id>https://ws.l3on.site/post/go-running/</id>
+        <link href="https://ws.l3on.site/post/go-running/">
+        </link>
+        <updated>2021-06-29T20:15:19.000Z</updated>
+        <summary type="html"><![CDATA[<p>记录一次跑步的时候想的东西……</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>记录一次跑步的时候想的东西……</p>
+<!-- more -->
+<p>这段时间心情一直不太好，困扰我的无非就是那些已经说烦的事情，对自己不满意，对世界有太多要求，对过去有太多后悔之类的事情。加上正处期末，不能挂科的恐惧给我制造了很多不必要的焦虑，结果前段时间在志愿者一次排练中丢了耳机，我心爱的刚买了不到一年的 Airpods Pro，于是我的心情一下因为这个塌方了，我总觉得不可能这么差的事情会接连发生在我身上，总觉得是世界在针对我……</p>
+<p>我的痛苦在大部分时候是自己的事情，但是和我关系亲密的人必然会受影响，有一个一直闷闷不乐的人待在身边影响心情，换我我早就翻脸了。但我彼时自身难保，想到还要顾及身边的人的感受，只觉得疲惫。我想世界能停止一会会，让我站在原地整理一下自己混乱的思绪，让我稍稍喘息一下，让我稍稍安静地流一会泪。但是时间不会停止，琐碎的事情就像雨点一样朝自己打来，一想到我就会越陷越深，觉得不能呼吸。于是我想转移一下注意力。</p>
+<p>不知道是被什么驱动，我收拾好了衣柜，换了衣服和鞋子，去操场跑步。</p>
+<p>我没带手机，只带上了高中经常用的 mp3 和有线耳机。我戴着耳机边听歌边走，只觉得耳机线刮擦着衣服的听诊器效应很不习惯，后来才想起来以前跑步时我会把耳机线从衣服底下穿过，不让它乱跳。<br>
+到达操场，气温不高，空气还因白天的雨而比较湿润。操场的人比平常多，有三三两两一起走路的，有散坐在看台的，正值毕业季，我猜大多是毕业生吧。</p>
+<figure data-type="image" tabindex="1"><img src="https://vip2.loli.io/2022/04/15/fscNW4oTHygBpLJ.jpg#vwid=1920&amp;vhei=729" alt="毕业后那个暑假，回学校爬上了行政楼的顶楼，能俯瞰全校的风景" loading="lazy"></figure>
+<p>我和以前一样，从百米的起跑线开始跑。这个习惯还来自高二，当时校运会因为班上男生人数不够，我不得不参加男子 4×100，我负责第三棒，于是我就把自己跑圈的终点设成了第三棒的赛段，每次跑到这最后一段就冲刺跑过，这样我冲刺跑过的路程就是我比赛要跑的路程，每天跑步都相当于在适应。深呼吸几次，迈开腿，我开始跑了。</p>
+<figure data-type="image" tabindex="2"><img src="https://vip1.loli.io/2022/04/15/NVcBO4HIwLGenu1.jpg#vwid=1347&amp;vhei=898" alt="某年的运动会" loading="lazy"></figure>
+<h2 id="第一圈">第一圈</h2>
+<p>我保持着呼吸稳定，脚步轻盈。我跑步的习惯从高二就开始了，严格意义上说是 17 年 10 月份，但当时只是为了应付校运会，真正开始有规律的每天跑步还是高三那一年。不能说雷打不动，因为只要打雷我就不去跑步了，但除此之外我坚持每天都要跑六圈。一般都是下午最后一节课结束后，有一段很长的自由时间给我们吃晚饭、洗澡和洗衣服，我就在这个时间跑步，如果下午没空那就中午跑，如果中午也没空那就下晚自习去跑。管他烈日当空还是漆黑一片，暴雨倾盆还是寒冷刺骨，在橡胶跑道上机械地交换双腿，一点点向前移动的状态，让当时的我很安心。整个高三印象最深的感觉应该就是腿疼，在下楼梯，搬作业和睡前最为明显，其次才是困倦与疲惫。记得当时还有体育课，老师基本也就是放我们自由活动，一次想和男生们一起踢足球，结果在球场上，我根本没法快速抬腿完成任何动作，一旦想要在跑步的过程中迅速变向，我支撑腿的小腿和膝盖就疼痛得支撑不住自己，磕磕绊绊几次之后，我果断离开球场去跑道跑步了，虽然腿还是疼，但跑步带来的这种稳定、缓慢的疼痛至少在可接受的范围内。从此以后我每次体育课都是完成当天的跑圈任务。看着现在一圈快完了，我还没感觉太累，不禁暗自庆幸，自己已经放下几年了，状态却感觉还不错。</p>
+<figure data-type="image" tabindex="3"><img src="https://vip1.loli.io/2022/04/15/ZmWFlGACYxgazvE.jpg#vwid=1338&amp;vhei=888" alt="某年的运动会，我和其中一个运动健将室友" loading="lazy"></figure>
+<h2 id="第二圈">第二圈</h2>
+<p>呼吸开始急促，我尝试增加步频，减小步伐。想起来当时有个室友每次跑步都和我一起，他对学业有一种苦行僧般的信仰，除了柯南他似乎没有别的「课余」兴趣，对于人文社科更是涉猎广泛，基本上是活体历史事件年表和地图册；自律程度常人不可企及，我不记得他什么时候赖过一次床，错过过一次值日，漏过一次作业。不记得有多少次下午下课我因为手头的事情没完成或者纯粹想要偷懒，对他说我们今天别去了。他的回答永远是「那我自己去了」，然后我就会丢下手上的东西追上他。后来发现，事实上我为了不去跑步而舍不得放下的事情，即使中途放下了也没有任何影响。现在回想，我当时能保持这个折磨人的习惯大半功劳可能要归于他。他高考发挥似乎不是很好，最后去了广外读汉语言，看他为数不多的朋友圈，他似乎也学了日语，参加了翻译小组，每学期结课时间也会发课程的合影。我还记得高考结束后学校开志愿填报说明会的时候遇到他，躺在礼堂椅子上，露出门牙地微笑，仿佛没有任何事情会让他难过。</p>
+<figure data-type="image" tabindex="4"><img src="https://vip2.loli.io/2022/04/15/1t6h2JdyWc3IBAs.jpg#vwid=1334&amp;vhei=885" alt="高考前的晚霞。不知道为什么，我总感觉在中学经常见到晚霞。" loading="lazy"></figure>
+<h2 id="第三圈">第三圈</h2>
+<p>我的心率突然升高，开始上气不接下气，自从上了大学以来我就几乎没有再跑步了，看来想要几年不跑再跑还能保持几年前的状态是不可能的。想起来高三刚开始时有一次家长会，每个老师坐在一张桌子前，家长带着孩子去不同老师桌前和老师谈话。当天很热，教室人特别多且进进出出，空调的冷气根本盖不住那么多人的体温，我烦躁地和我妈坐到历史老师的桌前，历史是我拿手的科目，我不认为老师能提出什么值得听的东西，只想快点结束好离开。历史老师看着我不停扯衣服扇风的手，推了一下眼镜，她说「WL 很聪明，」不出我所料，「但是他太聪明，所以一直学不太好。」我觉得诧异。</p>
+<p>这位历史老师与我初中的历史老师兼班主任正好是夫妻，我自以为是她先生器重的学生，他可从来没说过我历史学得不好这种话。「他聪明所以能很快掌握课本上的东西，也能很快背下来，」她继续说，「但是他容易满足于这些东西，满足于舌尖效应。」她甚至伸出舌头用手里的红笔指了一下自己的舌尖，「而且他不听课的时候，还是有选择地不听课，只要我讲到重要的东西，他就知道抬头听记下来，讲完了他又继续不听了。」我一时不知道这是在夸我还是在批评我，「但是这是自作聪明，历史想学好，只理解了这些重点是不够的，可能应付新课可以，高考是肯定不够的。」说完她就两手抱着一只膝盖，躺到了椅背上，似笑非笑地看着我窘迫的反应，仿佛早就知道我会对她的评价很有信心而成功出乎我的意料一般。我妈看了我一眼，继续和老师交谈，我却没听进她们交谈的内容。我还在想着什么舌尖效应的东西。</p>
+<p>从此以后我仿佛心里就有了一个疙瘩，每次上历史课我都留意着自己不要又被她发现走神，我不想成为那种她一眼就看出我在耍小聪明的学生。不知不觉一年后，每当我翻看满满笔记的历史书，看着章节标题这章的内容就能在我脑中缓缓展开，在课上轻松回答出老师说「这个可能有点难」的问题的时候，都感谢她当时一针见血的坦诚。后来一次在操场遇到她，我在单杠，她在散步，她远远地看向我这边，似乎认出了我但又不敢确认，眯着眼睛又朝我这边走来，我朝她招了招手，她才笑着回头走回跑道。</p>
+<h2 id="第四圈">第四圈</h2>
+<p>已经开始累了，我告诉自己，至少要完成这一圈。有一次连周的周末，我晚上跑步，新来的数学老师正好回公寓，叫住了我。他是学校从湖北返聘的，专门只教我们一个班，宣布这件事的时候我们班主任「吐槽」我们校长，说这个老师完全可以带一个数学教研组，可惜校长坚持要杀鸡用牛刀。学校专门给他在操场旁边礼堂的楼下安排了房间，平日里他就一个人住在那里。这个湖北老师一副老知识分子的模样，花白的头发剪的平头，永远都是白衬衫黑西裤和平底布鞋。只是一开口浓厚的孝感口音让人绷不住笑，可他又是个很严肃的人，不像能随便开玩笑，因此我们班同学在他的前几节课憋笑真的很辛苦。而我应对这种典型的老师形象，一直都是以叛逆难搞的学生自居，所以不交作业或者潦草了事也是常态，为此他不止一次课上批评我们这群人。</p>
+<p>那天我正好在操场入口，他招手叫住我，慢悠悠走近，我们并排走了几步，他才开口问道问我有目标了吗，想考哪个大学，我自然没好气，嬉皮笑脸回了个「复旦」。他嘴里嘶一声，眉头皱着向上看，仿佛在回忆什么，可能是我的成绩，可能是复旦的分数线，也可能是某个精神医生的号码。毕竟在我们这个当时前几届连重本率过半都要拿出来宣传的学校，复旦可能不在他预料的答案之内。「那你现在的状况，只能说还是有点难度的，」他操着浓厚的口音说，我吃力地理解，「那你要很努力才可以，我相信如果你以复旦作为目标要求自己，最后考出来你一定会很优秀。」当时还不流行阴阳怪气（即使流行了他也不会吧），本以为他会意识到我在开玩笑，这下我被他的认真一下搞得有点不知所措，应付了几句打算继续跑，他又叫住我：「有时间抓紧回去睡觉。」</p>
+<p>第二天周末，我们自习，早上我回教室路过办公室，透过窗户看到老师基本都不在，只有他孤零零的声音伏在办公桌前写着什么，可能是没戴眼镜，他身子很低。中午去吃饭路过办公室，他还在写，晚上回去，他还在写，甚至姿势都没怎么变过。后来我才知道，这就是他的状态，有课站着讲课，没课坐着备课，下午在操场走几圈思考问题，如此往复。</p>
+<p>高手的实力总是慢慢展现的，当大家适应了他的口音，开始理解口音背后的内容后，我们终于知道为什么说教我们是杀鸡用牛刀了，他基本就是高考大纲和所有数学题的答案解析的结合体，上课说的话基本没一句废话，都像参考书上那样简洁准确（后来和班主任聊起此事，班主任说以前他们那边很多参考书就是他出的），如果想跟上他的思路，那基本上一秒都不能走神，他几乎从来不用幻灯片讲课，在黑板上从左上角开始写，写满一列再从最顶端开始一列，写满一黑板再擦掉最左边的一列，要是不跟着他的节奏，他现在在写的东西和黑板上的其他东西是不是一题的内容都可能不知道。</p>
+<figure data-type="image" tabindex="5"><img src="https://vip1.loli.io/2022/04/15/lOqHSDFjfcb26MT.png#vwid=999&amp;vhei=578" alt="高三某次黑板报，画画的同学给每个老师都画了画像" loading="lazy"></figure>
+<p>印象中我们班从前很少有人下课问老师问题，但他来了之后，很快十分钟的课间不够大家问他问题了，到后来甚至要去办公室问问题也要先从窗户去看看有没有人（因为有些理科班的家伙偶尔也来问），很多同学都是攒着题目，恨不得遇到一次机会要把一周不会的题都问个遍。我们问他的题目他一般看一眼就能大概给出几种思路，让我们自己下去试那种最好，我的印象中似乎就没有难住他的问题。他在课上说，其实学数学就像爬山，「为什么有的学霸自学了大学数学高考很轻松就能拿满分呢？因为那是站在高处往下看山路，自然是清楚的，但是站在山路里找路，就容易找不到了。」</p>
+<p>我自然是不会这样和他们抢的，之前我每天下午跑步的时候都会看见他在操场散步，于是我就把需要问的题目提前记着，遇到他就追上去边走边问，他听完题目会边走边皱着眉头往上看一会，然后开始给出解法，我再尽可能都记着步骤，回教室再开始算。有时候遇到复杂的题目，他还会晚自习时把我叫到办公室给我补一个更简单的办法，一边给我解释，一边在纸上演算，回头把这张纸也给我一起带走。有时候如果遇到典型的题目，他就会在他一叠叠笔记本中找出翻这个类别的笔记，然后在红红蓝蓝写满了笔记的一页页纸中翻找到归纳了这类题目解法的笔记，然后一把撕下来，叮嘱我给大家传着看看。但更多时候还是他翻着翻着说「坏了，我好像已经撕给 xx 同学了，你去找他抄一下」。虽然后来我写自己的高考目标的时候还是写了中大，但我最后高考的数学成绩还是令我满意。</p>
+<p>我本有点后悔，没有更多了解这个老师，仿佛除了工作之外我根本不了解这个老师的其他方面。但后来想到，或许教育真的就是他生活的全部，可能他已经将自己向我们展露无遗。毕业后暑假，出高考分的那天，我考得不错，想起来向他发微信感谢栽培，听同学说他已经在学校准备下一届高三的复习。我向他说了我这一路的进步，向他道谢，他对我说：「继续坚持，大学的你会更优秀。」</p>
+<h2 id="第五圈">第五圈</h2>
+<p>可能是开始撞墙了，我双腿抬不动、撑不稳，足弓开始有抽筋前的感觉，我腰疼，嗓子因干燥而刺痛，火辣辣的，我仍尽量保持用鼻子吸气，用口呼气，鼻子吸气时夹杂着淡淡的血腥味，我开始主动摆动手臂，希望能借此带动双腿动起来。跑到第一个弯道，我想起成人礼。在我的高中，成人礼可能是大家最期待的盛会。我们学校的活动其实不少，运动会、艺术节、社团活动展……虽然每个活动我们都觉得是学校作秀，但成人礼让我们最期待，可能是因为这个活动和我们每个人都有关，我们会穿着正装穿过成人门，大家都可以自由打扮，甚至有的同学会把化妆师请到学校。高中学校的礼堂就在第一个弯道外面，我那年的成人门正好就放在第一个弯道上。</p>
+<figure data-type="image" tabindex="6"><img src="https://vip2.loli.io/2022/04/15/jgU1a3XoPsYQ2fc.jpg#vwid=1347&amp;vhei=898" alt="学校的礼堂" loading="lazy"></figure>
+<p>成人礼是在下午，整个午休，室友几乎没睡就起床开始鼓捣头发，而我躺在床上拼命想睡着，但一直按耐不住内心隐隐的兴奋。于是我强迫自己一动不动，慢慢也就意识模糊了，直到吹风机的声音把我惊醒，看到室友基本都穿戴整齐了，我才想起来我还是策划和主持人，我要提前到礼堂，和其他主持人再对对词，也要看看后台的准备。我爬下床洗了把脸，胡乱刮了刮胡子，从衣柜里拿出来还套着防尘袋的西服，三下五除二穿上，抓抓头发照照镜子就出门了。比起平时宽大的运动校服，我总觉得西装很紧绷，走路的时候也不自觉地挺胸抬头。走在宿舍的走廊上，换好西装的男生们相互打量开玩笑，没换好衣服的人每个人看起来都急匆匆的，拿着从可能是从别的宿舍借来的喷雾、古龙水、卷发棒四处穿梭。整个走廊全是定型喷雾、body spray 和香水的味道，全是交谈、欢笑和急促的拖鞋声。</p>
+<p>我离开宿舍，学校水泥路上反射的阳光亮得刺眼。我快步走去课室，拿打印成卡片的主持稿。现在时间还早，低年级的同学还没有午休结束，教学楼空空荡荡的，我松了一口气，我有点怕穿着西装被大家打量的感觉。我拿上了我们几个人的主持稿，厚厚的一沓，出教室在走廊上，远远看到地理老师和我相向走来。</p>
+<p>地理老师是个高个子，比我差不多高了半个头。他永远穿 polo 衫，束在裤子里，显得腿长得夸张。他的脸上常常带着一种苦相，他也是高三才带我们班，第一次见到他不苟言笑的样子，我就怕他不好对付。他说话经常让我感觉到他有一种对自己命运的不甘，手画地图、全球经纬度定位只是基本操作，讲起课来更是常常引经据典，从孔子孟子老子到毛泽东，从柏拉图亚里斯多德到马克思海明威，古今中外无所不包。但更让我佩服的是他的业务能力（也就是找题目印卷子的能力）。我因为经常光顾老师的办公室，经常被各种老师拜托去文印室取卷子。其他科目的老师的卷子一般一次也就薄薄一沓，甚至可以对折起来拿在手里，他的卷子一次能叠十几厘米高，而我们班只有 36 个人。他常说地理卷子看起来多是因为字少图多，实际内容很少，但我每天花在地理卷子上的时间显然不同意这种说法。我每次最怕他上课说某道题大家做得不好，下去他再找几个同类的题，他要是真的随便糊弄只知道布置作业就算了，关键是他每次真的能找到大量的、且同类的题，让我想吐槽都无处下口。他写的一手好字，即使在黑板上也是，他在晚自习偶尔会看一些我连名字都不会读的书，然后向前排同学借现代汉语词典，说是要查一个字。</p>
+<p>我其实真心佩服他，但我不想当敬佩老师的好学生。我以我的小聪明为荣，而他似乎看不惯不踏实只知道耍小聪明的学生。所以我们一直不对付，家长会上，他会直白说我好像看不惯他，我妈有点夸张地大笑说不会吧，企图化解尴尬，我只低头无语。</p>
+<p>一轮复习前我们班开了一次动员会，除了班主任训话，数学老师和地理老师也有发言。数学老师的发言持续了快一个小时，准备了几十页幻灯片，从一轮的作用、重要性、时间安排、心态准备等等方面进行了完整细致的剖析，听得我五体投地，顺便也为接下来发言的地理老师捏一把汗。毕竟数学老师讲完这些，还讲一轮复习真的没什么可讲的了。只见他带着和每次上课一样的表情，从容走上讲台，什么稿子都没带，扶着桌子说：「我送给同学们十句话」。我抬起已经听一轮听麻木的脑袋，他的十句话全部是「名人名言」，全部内容我不记得了，只记得一句是「吾爱吾师，吾更爱真理」，让我们除了听老师讲课，也要有自己的思考。一句是「没有人是自成一体/与世隔绝的孤岛/每一个人都是广袤大陆的一部分/如果海浪冲掉了一块岩石/欧洲就变少/如同一个海岬失掉一角/如同你的朋友或者你自己的领地失掉一块/每个人的死亡都是我的哀伤/因为我是人类的一员/所以不要问丧钟为谁而鸣/它就为你而鸣。」告诉我们在备考过程中，老师和同学其实是一个整体，是同一个战线的战友。我有点自以为是，我觉得这句话似乎是对我说的。他的发言完毕，掌声似乎比数学老师发言结束之后的还热烈，我一边鼓掌一边想他是怎么记住他要说的十句话的。</p>
+<p>所以在楼道遇到他，又想到我现在还穿着西装，我突然觉得局促不安，走起路来都觉得行动有些不协调。最后走到他一定看清了我的距离，我看到他露出了那种忍不住的笑，我小声向他道老师好，他点点头，把头扭到我的另一边，脸上还挂着笑。他很少笑，这也不像那种恶意的讥笑，想着想着，我也忍不住笑了。</p>
+<p>我来到操场，路上挂满了彩旗，天上飘着气球，一条长长的红毯从中场铺到弯道的成人门，然后铺到礼堂。红毯两边已经站了一些人，看起来是等待的家长，我和几个主持的同学碰面，把稿子给了他们。我们几个要最先去礼堂，所以我们也要最先走红毯。我等到了我爸妈，我妈说我嘴唇很干，一把抓住我的脸给我涂了唇膏，直到后来看照片里我的烈焰红唇，我才知道唇膏是会变色的那种。</p>
+<p>穿着校服的低年级慢慢走来，一波一波聚拢到红毯两边，操场慢慢热闹起来，后来音乐也响了起来，直到最后我们在红毯旁边说话都要提高音量。终于到我们走红毯了，前面的几个主持人相继走过，我不得不跟在他们后面。我走上红毯，铺在操场上的红毯让绿茵场更软了，夹道的低年级同学不断的尖叫声填满了我的耳朵，前面同学身上的香味填满了我的鼻子，镜头、彩带、气球和前面女上穿着礼服的背景填满了我的眼睛。我觉得轻飘飘的，意识似乎陷入了模糊，因为等我回过神来我已经在后台了，我甚至不记得我是怎么走过成人门的。</p>
+<figure data-type="image" tabindex="7"><img src="https://vip1.loli.io/2022/04/15/rv9J5qfd7ize4Xb.jpg#vwid=1341&amp;vhei=886" alt="红毯" loading="lazy"></figure>
+<p>那天的仪式很顺利，每当我回忆那天我都会获得一点短暂的快乐，我记得那些一下变得漂亮得不认识的女生，我总是忍不住多看几眼，那些似乎一下成熟的男生，举止间带着羞涩和自豪，记得大家互相祝贺，空气中是那种兴奋的氛围，还有地理老师忍不住笑的样子。当然，很快就会陷入「青春不再」的感伤，走红毯前历史老师问我几月出生的，我说是 6 月，历史老师说那还差半年呢，你是「被成年」了。那时才十七岁，那时最现实的压力只是把那名为成绩的数字提高，那时一切似乎都有可能。</p>
+<h2 id="第六圈">第六圈</h2>
+<p>我真的跑不动了，可能速度没有比走路快多少，我告诉自己，如果我能坚持跑完六圈，我接下来的人生也就没什么困难我不能挺过去了。我咬牙继续。高考前前一个月我的状态不太好，可能是焦虑紧张，也可能就是自然的状态波动，老师们都挺紧张，基本都找我谈话，叮嘱我最后阶段了，不要泄气，坚持下去就是胜利云云，把我听得心烦意乱。一天晚上政治老师也叫我出去，笑着看着我说「怎么样，其他老师都找了你吧？」他一向是个和同学走得比较近的老师「其实我不想找你，但是我怕不找你你觉得我不重视，」他突然露出那种熟悉的狡黠的笑，「我其实很重视，但我相信你自己有数，我多说没什么用。」政治一直是我文综的短板，理论学得滚瓜烂熟，但一到材料还是无处下手，可政治老师又经常莫名其妙地硬捧我，尝尝让我感到无地自容。有次在班上讲课，讲着讲着突然开始在全班面前说起他班上（他带我们下一届的文科重点班）一个学生是我的「粉丝」的事，我本来趴在书上准备闭眼，听到我的名字突然惊醒，但我没有抬头，因为班上已经开始大笑了，他没有要停的意思，继续说着他在他的班上是如何以我们班为榜样，「尤其是 WL 和 X 同学，真的很优秀……」他继续说，「我也经常在我们班同学面前表扬他们两个……」我内心充满着一种说不出来的尴尬羞耻和开心得意的混合情绪，我终于忍不住抬起头但用手捂着脸，还好透过指缝，我只看到了几个和我熟悉的同学在看着我笑。他对我的吹捧和放纵真的到了有点莫名其妙的程度，还好这次他依然选择「信任」我，我反倒觉得释然，起码说明我只是状态有点偏移，肯定没有脱轨。要是他也和我说要重视要调整心态，我可能就会觉得我要完了。</p>
+<figure data-type="image" tabindex="8"><img src="https://vip1.loli.io/2022/04/15/AbrzF4weqjxdGZW.jpg#vwid=1920&amp;vhei=662" alt="一次篮球比赛后，全班的合影。我虽然不在里面，但是我是拍照的人" loading="lazy"></figure>
+<p>同样的原因，后来英语老师也找我，她也是高三才带的我们，口音来看估计也是学校从湖北挖来的。第一天来班上的时候她穿的上衣没有袖子，当时宿舍一个打篮球的室友坐在我旁边，他看了她的三角肌一眼，张着嘴眨了眨眼睛，扭过头来跟我说他觉得这个老师能做俯卧撑的数量应该比他多。可能因为年轻，她很快就和班上的女生混得很熟，至于我，一向不太和老师对付，尤其是英语是我擅长的学科，基本上也没什么机会和她交流，所以当她也叫我去谈话的时候总觉得有些尴尬。走廊上她抱着手看了我一会，只问最近睡眠怎么样，我说不太好，她说「那不行，要重视睡眠才行，今天回去别熬夜写作业了，好好睡觉。」我有一种说不出的感觉，因为没有老师，甚至我爸妈都很少过问我的睡眠。高考前，她给每个人都准备了透明文件袋用来装文具以及一张鼓励的卡片，我的写的是 Be careful and you will success。高考当天，考场上语文写不完作文的我响铃后还在匆匆写着，监考老师可能看到了我，命令停止答题，我不管仍拼命继续写，我握笔的右手已经颤抖地写不出直线，于是老师要求全体起立才开始收卷。出考场后，我觉得嗓子发酸，一边走一边拼命咽口水。走廊上遇到她，她朝我笑了笑，我忍不住说我没写完作文，说完就径直头也不回地加速往前走。我不知道我为什么要这么做，我只听到她在我背后说「这没什么的！」她说得很大声，我和这层楼的其他同学听得很清楚。我抬起头，但眼泪还是因为我走路的颠簸从我的眼眶里滑落。</p>
+<p>到了最后一个弯了，我开始加速，拼命地甩动手臂，步伐也慢慢地加大，我感觉我的大腿已经有点不听使唤，脚步已经深浅不一了，我的头也跟着我心跳的频率一涨一涨，想不了那么多了，我不停加速，我感觉到我脸上的汗珠在更快地下落，速度加快让风变大了、穿透了我的衣服，我整个胸口都开始感觉到了水分蒸发带来的清凉。</p>
+<h2 id="拉伸">拉伸</h2>
+<p>我冲过最后一个弯道，慢慢变成走路，起风了，但我的肺依然像着火般疼痛，我爬去器材那边拉伸了一会，我开始做引体向上，做了三个就累了，于是我用力做了一个，然后停在上面保持着。「向上」似乎一直是违反人的本能的，比起站着我们喜欢坐着，比起坐着我们喜欢躺着，重心越低越舒适，但舒适不是我们存在的目的，不然没有人会做引体向上。我不停重复这一过程，做三个，停住，下来，休息一会，再来一轮，直到力竭。</p>
+<p>我胸背手臂肩膀腰腿都传来阵阵疼痛，我怀念这种疼痛。地理老师和我们说过为什么在半路遇难的登山者都会面容安详，因为失温后大脑功能被抑制，感觉不到疼痛和寒冷，最终只会陷入昏迷，在虚幻的温暖中微笑死去。我闭上眼睛静静感受这疼痛，在那些充满焦虑和不确定的日子里，这些让人安心的疼痛，正是我还好好活着的体现。</p>
+<figure data-type="image" tabindex="9"><img src="https://vip1.loli.io/2022/04/15/REYmSJfsDOM94Bj.jpg#vwid=1920&amp;vhei=1280" alt="当时学校还在建的行政楼，第二年就建好了" loading="lazy"></figure>
+<p>我又下到操场，想走几圈平复一下心率。夜晚的微风还在继续吹着，不知道是不是我刚才没留意，操场的人好像又多了些。大多数人和我一样，只是沿着操场在走，我猜都是一些毕业生在一起最后聊聊天、看看校园。路过最后一个直道的时候，一个看起来像毕业生的女生直直地站在跑到边，面向绿茵场，抬头不知道看着哪里。绿茵场上，几个人在昏暗的灯光下踢足球，周围跑道上充满了细碎的谈笑声，学校外的高架桥上，一架地铁正呼啸而过，而她一动不动，只有晚风卷动着她的裙摆。我突然想到我高考前几天也会像这样站在高中的操场发呆，不为别的，我就只想多看看学校的一切。我在这个大学也许多年了，早晚有一天，我也要毕业，从这里毕业的感受是怎么样的呢，我想会比高中毕业更加复杂吧。我会还会像她一样静静地站在学校哪里，再看看学校没什么可看的风景吗？</p>
+<p>或许不论五年还是六年，都只是人生的一小段，越长大时间越不允许我们停下脚步，我们不论开心也好，不开心也罢，相对我们的每一段经历、每一个居所来说，我们都匆忙得像个不熟悉的过客。这样想着，我突然觉得现在脚下这个操场和几年前几千公里外的那个操场仿佛连在一起了，在那个操场奔跑的我曾经是多么自在洒脱的存在，那个我坚信我的人生要永远保持天真和好奇，认为存在的目的就是不断获取新的信息，学习掌握它们，变成新的知识，那个我希望着自己能一生温柔而坚定，那个我每天都写 Bullet Journal，完成每一科作业的时间记录精确到分钟，以确保时间尽可能不浪费，那个我可以通过同学们的答卷帮他们到他们理解错的知识点在哪，并帮助他们真正弄懂那些知识，还可以帮他们优化做笔记的方法，那个我也可以帮我的室友确认他是不是追一个女生有戏，那个我可以确信自己一定会是任何评奖评优的候选人，能和一群人策划一个年级的成人礼玩会被打趣说是幕后的年级主任，那个我可以在不认识的人路过的时候继续一个个做引体向上，生日会收到很多卡片和礼物，有人会在卡片上写说「你是一个善良的人」，那个我一次模拟考心情不好没写作文，校长会找我谈心，告诉我他那时流行的诗「所有的日子/所有的日子都来吧/让我编织你们/用青春的金线/ 和幸福的璎珞/编织你们」，甚至毕业之后，会有人发朋友圈说「操场看不见 WL 了，有点不习惯」。当然那个我也会有痛苦和迷茫，但那个我一直告诫自己要保持清醒，那个我能将情绪和理智分开，即使面临巨大的压力，也能用自己幻想的一个完全理智的人格自己开导自己，解决了心里的问题后继续去做该做的事情……</p>
+<figure data-type="image" tabindex="10"><img src="https://vip1.loli.io/2022/04/15/jTY6b1s8ouHE3kl.jpg#vwid=1347&amp;vhei=898" alt="一次运动会后，全班的合影。当时班服还是和几个同学课余偷偷用手机联系商家设计的" loading="lazy"></figure>
+<p>而这一切，其实也没有离开多远，我本身也没有和那时有多么大的不同，我只是面对一些新的痛苦，一时乱了阵脚，失去热情，选择不去做了而已。所以痛苦的时候就跑步吧，回忆一下那段更关键也更充满勇气的时间，生活总要继续的，或许只要我鼓起勇气面对生活时，就会发现迎面而来困难，不过是跑道上拂面的微风，它永远都会环绕在你的身边，但只要保持身体平稳，双腿交替，你就在向前。</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[使用 Dark Reader 为博客添加深色主题]]></title>
+        <id>https://ws.l3on.site/post/dark-theme/</id>
+        <link href="https://ws.l3on.site/post/dark-theme/">
+        </link>
+        <updated>2021-01-21T12:24:31.000Z</updated>
+        <summary type="html"><![CDATA[<p>这两天又心血来潮了，想给博客增加深色主题，因为技术的限制，不可能自己重写一套，因此想着尝试使用一键生成深色主题的脚本，尝试了几次之后选择了 Dark Reader（是的就是那个浏览器扩展插件），记录一下。</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>这两天又心血来潮了，想给博客增加深色主题，因为技术的限制，不可能自己重写一套，因此想着尝试使用一键生成深色主题的脚本，尝试了几次之后选择了 Dark Reader（是的就是那个浏览器扩展插件），记录一下。</p>
+<!-- more -->
+<hr>
+<h2 id="一些碎碎念">一些碎碎念</h2>
+<p>可能是小时候看科幻片的影响，我一直很喜欢黑色背景上面闪烁着亮色文字的交互界面。初中刚毕业有自己的手机之后，就给手机刷上了 CyanogenMod，然后把能搜到的深色主题一个个尝试。当时用的三星 Galaxy S6，OLED 屏幕下全黑色像素不发光的特性只让我觉得深色界面更酷了，完全不在乎烧屏这回事。我记得当时很多 CM 主题都包括了对国外常用软件的界面修改（Instagram 之类的），而对于国内的应用就没什么办法。所以当时还用 Xposed 框架上的一个模块来修改微信的界面，再替换微信的聊天背景，才能让微信的对话界面达到相对统一的暗色。</p>
+<p>后来到高中以后，我的手机又换成了家人「退役」的 iPhone，玩手机的时间也大大减少，更关键的是手里的 iPhone 前面板是白色的，一段时间内就都没有特意追求过深色界面了。然而后来 iPhone 也换用了 OLED 屏幕，iOS 13 更是直接加上了系统级的深色模式界面，在 iOS 的号召力下，众多国内应用也开始适配深色模式了。前段时间微信也终于增加了深色模式，又是一个「有生之年」的事件实现了。</p>
+<p>至于桌面端，微软在前段时间的某个版本也加入了深色模式，主要使用的一些软件也基本都有深色模式的适配（除了 Evernote）。至于浏览器，自从发现了 Dark Reader 这个插件之后，就从来没有换过，插件自动优化的效果也很好，我也就基本上也实现了桌面端深色界面的覆盖。</p>
+<p>除了使用插件之外，越来越多的网站也适配了深色模式，我常用的一些网站包括少数派、GitHub 之类的也陆陆续续从我的 Dark Reader 名单里排除了。然而受制于水平，我自己的博客却从来没适配上深色模式。虽然说 Walker 这个主题的白色已经足够简洁优雅，但是我一直觉得如果能加上深色模式的话，虽然没什么用，但是会很酷。这个理由对我来说足够了。</p>
+<p>说干就干，我觉得既然 Dark Reader 能对每个网站都能实现效果相对比较好的深色模式适配，那么网上一定有人造了自动生成网页深色模式的轮子，可以的话我拿来用就好。</p>
+<hr>
+<h2 id="darkmodejs">Darkmode.Js</h2>
+<p>做了一些搜索之后，我最先发现的是一个叫 Darkmode.Js 的项目，在 <a href="https://darkmodejs.learn.uno/">官网</a> 就能预览这个脚本的效果，一个小按钮会漂浮在网页右下角，点击一次之后还会有平滑的过渡动画，网页嵌在了下面，只要点击右下角的图标就可以看到效果。</p>
+<p>
+<div style="width:100%;height:500px;overflow:hidden;border:0px">
+<div style="width:100%;height:500px;margin: 0px 0px 0px 0px;">
+<iframe src="https://darkmodejs.learn.uno/" style="width: 100%;margin: 0;padding: 0;border: 0;height:500px;" scrolling="yes">
+</iframe>
+</div>
+</div>
+</p>
+<p><small>👆 Darkmode.Js 的官网，点击右下角的 🌓 图标可以切换网页主题</small></p>
+<p>适配到自己网站也特别简单只要按照教程 include 到自己的网页就可以了。然而试了一下之后效果并不满意，这个实现的效果有点像静态反色，对于已经设定了背景色的元素会选择直接不做修改。因为网站的主题代码我自己修改过，可能有些地方不太规范，所以这个脚本不能实现很好的效果，我当时也没想到要写这篇博文，也就没有截图。</p>
+<h2 id="dark-reader">Dark Reader</h2>
+<p>之前说过 Walker 这个主题颜色比较简单，因此在开启 Dark Reader 插件的时候，自动生成的深色模式效果一直很好。我就在想，既然 Dark Reader 是开源的，会不会有人做过能利用 Dark Reader 的代码直接生成网页深色模式的脚本呢。于是我去 Dark Reader 的开源仓库上一看，开发者给出了在自己的网站使用 Dark Reader 的 <a href="https://github.com/darkreader/darkreader#using-for-a-website">方式</a>。</p>
+<p>我们只需要通过 jsDelivr 来把脚本 include 到自己的网页中，就可以使用开发者提供的 API 了。我在网页中使用了根据设备系统设置自动选择是否启用深色模式，那么就在 <code>head.ejs</code> 添加以下内容：</p>
+<pre><code class="language-html">&lt;!-- dark reader --&gt;
+&lt;script src=&quot;https://cdn.jsdelivr.net/npm/darkreader@4.9.26/darkreader.min.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+    // Enable when system color scheme is dark.
+    DarkReader.auto({
+        brightness: 105,
+        contrast: 95,
+        sepia: 0,
+        grayscale: 15
+    });
+&lt;/script&gt;
+</code></pre>
+<p>但是我还是希望可以增加一个可以自由选择颜色主题的选项，无奈一方面水平不够，另一方面也不想打破网站原有的设计，所以找了 sidebar 里 footer 的位置，RSS 链接的旁边加入了两个按钮：</p>
+<pre><code class="language-html">&lt;div class=&quot;site-footer&quot;&gt;
+    &lt;div class=&quot;py-4 text-gray-700&quot;&gt;&lt;%- themeConfig.footerInfo %&gt;&lt;/div&gt;
+    &lt;a class=&quot;rss&quot; href=&quot;&lt;%= themeConfig.domain %&gt;/atom.xml&quot; target=&quot;_blank&quot; style=&quot;margin: 5px;&quot;&gt;RSS&lt;/a&gt;
+    &lt;button onclick=&quot;DarkReader.disable()&quot; style=&quot;margin: 5px;&quot;&gt;🌖&lt;/button&gt;
+    &lt;button onclick=&quot;DarkReader.enable({brightness: 105, contrast: 95, sepia: 0, grayscale: 15})&quot; style=&quot;margin: 5px;&quot;&gt;🌒&lt;/button&gt;
+&lt;/div&gt;
+</code></pre>
+<p>最后的实现效果如图，点击亮的月亮就是切换成亮色模式，暗的月亮就是深色模式。</p>
+<figure data-type="image" tabindex="1"><img src="https://ws.l3on.site/post-images/1611325163678.png" alt="" width="500" loading="lazy"></figure>
+<p>直接点开左上角的菜单栏就可以直接试试效果啦！</p>
+<h2 id="其他碎碎念">其他碎碎念</h2>
+<p>总体来说使用现有的脚本来添加网页的深色模式比我原来想象的简单很多，尤其是使用 Dark Reader 之后，一些我自己乱加的毛玻璃效果都能得到很好的适配。或许在这些各种强大工具的加持下，以后将创意实现的难度会越来越低，这样看来，未来各种设计类工作中技术作为竞争力的重要程度也许会越来越低，真正重要的可能就只有创意了。</p>
+<h2 id="补充">补充</h2>
+<p>使用 Dark Reader 为博客成功添加深色主题后，内心还有一点小遗憾。我个人偏好 0 饱和度的深色模式，也就是不希望在深色中加入偏色。但是 Dark Reader 可能是处于护眼的考虑，默认的背景色和文字颜色都有少许的偏黄。以前使用插件时也一直存在这个遗憾，但是最近的一次更新让 Dark Reader 能够指定主题的背景色和文字颜色。</p>
+<p>打开的方式也很简单，只需点击打开插件后点击右下角的 <code>Dev tools</code> ，</p>
+<figure data-type="image" tabindex="2"><img src="https://raw.githubusercontent.com/LeonWong0609/LeonPicbed/master/20210704004807.png" alt="插件设置" loading="lazy"></figure>
+<p>在弹出来的窗口中点击右下角的 <code>Preview new design</code>，</p>
+<figure data-type="image" tabindex="3"><img src="https://raw.githubusercontent.com/LeonWong0609/LeonPicbed/master/20210704005008.png" alt="预览新界面" width="500" loading="lazy"></figure>
+<p>完成后再点击插件图标，看到的就会是新的界面了。</p>
+<figure data-type="image" tabindex="4"><img src="https://raw.githubusercontent.com/LeonWong0609/LeonPicbed/master/20210704005452.png" alt="插件新界面" loading="lazy"></figure>
+<p>这时就可以通过设置指定背景颜色和文字颜色，甚至可以指定是否要更改滚动条和选取文字的背景颜色。</p>
+<p>这就启发了我思考 Dark Reader 提供的脚本能不能指定背景颜色和文字颜色，当时想着有空就做，结果一不小心鸽了大半年。正好今天背书背到自闭，无聊翻 GitHub 的时候突然想到这件事，于是就去看了一眼他们的 <a href="https://cdn.jsdelivr.net/npm/darkreader@latest/darkreader.js">脚本内容</a>，简单搜索了一下就发现了这一段</p>
+<pre><code class="language-js">var themeCacheKeys = [
+    'mode',
+    'brightness',
+    'contrast',
+    'grayscale',
+    'sepia',
+    'darkSchemeBackgroundColor',
+    'darkSchemeTextColor',
+    'lightSchemeBackgroundColor',
+    'lightSchemeTextColor',
+];
+</code></pre>
+<p>于是我就把 <code>head.ejs</code> 里添加的内容改成了这样</p>
+<pre><code class="language-html">&lt;!-- dark reader --&gt;
+&lt;script src=&quot;https://cdn.jsdelivr.net/npm/darkreader@4.9.26/darkreader.min.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+    // Enable when system color scheme is dark.
+    DarkReader.auto({
+        darkSchemeBackgroundColor: '#121212',
+        darkSchemeTextColor: '#ffffff'
+    });
+&lt;/script&gt;
+</code></pre>
+<p>重试了一下竟然就成功了，现在再用深色模式看这个网页，背景和文字终于是舒服的灰色，而不会偏黄了。</p>
+<p>本来到这里打算合电脑睡觉了，结果发现上面 side bar 里的两个中启动深色模式的那个按钮还是指定的原来的颜色，一点就又回到了偏黄的颜色了。于是把第二个按钮也改了一下：</p>
+<pre><code class="language-html">&lt;button onclick=&quot;DarkReader.enable({darkSchemeBackgroundColor:'#121212',darkSchemeTextColor:'#ffffff'})&quot; style=&quot;margin: 5px;&quot;&gt;🌒&lt;/button&gt;
+</code></pre>
+<p>这样颜色终于就没问题了。但是还是存在改动了主题之后刷新一下页面又回到默认主题的情况，我猜如果要解决这个问题可能就要把指定的主题写到 cookie 里面了吧，远远超出我的能力范围，就有缘再做吧。</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[让博客在社交媒体的预览效果更丰富：OG 协议]]></title>
+        <id>https://ws.l3on.site/post/add-open-graph-to-my-blog/</id>
+        <link href="https://ws.l3on.site/post/add-open-graph-to-my-blog/">
+        </link>
+        <updated>2021-01-14T10:25:59.000Z</updated>
+        <summary type="html"><![CDATA[<p>今天心血来潮对小站进行了一些调整，主要是使用了 OG 协议让博客在社交媒体上有更丰富的链接预览。</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>今天心血来潮对小站进行了一些调整，主要是使用了 OG 协议让博客在社交媒体上有更丰富的链接预览。</p>
+<!-- more -->
+<p>前几天在看 Telegram 的时候，看到了 <a href="https://t.me/appinnfeed">小众软件的频道</a> 发了一篇 <a href="https://fliqlo.com/#/screensaver">Fliqlo</a> 近期升级了的 <a href="https://t.me/appinnfeed/3350">消息</a>。Fliqlo 我自己一直在用，前几天 Adobe 正式关闭了 Flash 之后，Fliqlo 也无法正常显示了，于是我干脆就卸载了它。结果晚上就看到了升级的消息，赶忙又装了回来。而让我动了折腾博客的念头的，是他们频道的消息样式。他们永远都是只发送一条网站的链接，但是链接预览的内容却非常丰富：</p>
+<figure data-type="image" tabindex="1"><img src="https://ws.l3on.site/post-images/1610628900435.png" alt="" width="500" loading="lazy"></figure>
+<p>不仅是小众软件，少数派的 Telegram 频道也有这样的效果：</p>
+<figure data-type="image" tabindex="2"><img src="https://ws.l3on.site/post-images/1610628910214.png" alt="" width="500" loading="lazy"></figure>
+<p>而我的博客链接发在 Telegram 中时却只能显示站点名称和一行站点描述：</p>
+<figure data-type="image" tabindex="3"><img src="https://ws.l3on.site/post-images/1610628919171.png" alt="" width="500" loading="lazy"></figure>
+<p>这个问题我在写关于 Telegram Instant View 的 <a href="/post/add-instant-view-to-my-blog">那篇博文</a> 的时候就有留意到，但是当时实现了 Instant View 之后就忘记了这件事。既然今天想起了这件事，择日不如撞日，说干就干。</p>
+<p>我的需求就是优化自己的网站中 Telegram 链接预览的丰富程度，简单的搜索后很轻易地就找到了一些讨论的帖子，里面都提到了要在 <code>&lt;meta&gt;</code> 元素中加入 Open Graph。于是我就又开始搜索 Open Graph 相关的内容，经历了一下午的折腾和碰壁，终于实现了想要的效果，以下记录其中的过程。</p>
+<h2 id="the-open-graph-protocol-是什么">The Open Graph protocol 是什么</h2>
+<p>根据 The Open Graph protocol <a href="https://ogp.me/">官方页面</a> 的介绍，它能让网页在社交媒体中作为 Rich Object 存在。</p>
+<blockquote>
+<p>The Open Graph protocol enables any web page to become a rich object in a social graph. For instance, this is used on Facebook to allow any web page to have the same functionality as any other object on Facebook.<br>
+— <a href="https://ogp.me/#intro">The Open Graph protocol / Introduction</a></p>
+</blockquote>
+<p>按照我的理解，也就是说使用 OG 协议来告诉社交媒体这个网页的标题、类型、摘要、题图等信息分别是什么，然后由社交媒体进行展示。</p>
+<p>OG 协议写在 HTML 文件头部的 <code>&lt;meta&gt;</code> 标签中，按照官方说明，有四个属性是必备的，摘录如下：</p>
+<ul>
+<li><code>og:title</code> - The title of your object as it should appear within the graph, e.g., &quot;The Rock&quot;.</li>
+<li><code>og:type</code> - The <a href="#types">type</a> of your object, e.g., &quot;video.movie&quot;. Depending on the type you specify, other properties may also be required.</li>
+<li><code>og:image</code> - An image URL which should represent your object within the graph.</li>
+<li><code>og:url</code> - The canonical URL of your object that will be used as its permanent ID in the graph, e.g., &quot;https://www.imdb.com/title/tt0117500/&quot;.</li>
+</ul>
+<p>同时 OG 官网也给了一个 IMDb 的网页作为例子，也摘录如下：</p>
+<pre><code class="language-html">&lt;html prefix=&quot;og: https://ogp.me/ns#&quot;&gt;
+&lt;head&gt;
+&lt;title&gt;The Rock (1996)&lt;/title&gt;
+&lt;meta property=&quot;og:title&quot; content=&quot;The Rock&quot; /&gt;
+&lt;meta property=&quot;og:type&quot; content=&quot;video.movie&quot; /&gt;
+&lt;meta property=&quot;og:url&quot; content=&quot;https://www.imdb.com/title/tt0117500/&quot; /&gt;
+&lt;meta property=&quot;og:image&quot; content=&quot;https://ia.media-imdb.com/images/rock.jpg&quot; /&gt;
+...
+&lt;/head&gt;
+...
+&lt;/html&gt;
+</code></pre>
+<p>当然，OG 协议还有很多其他可选的属性，官方页面说明也很详尽，这里不赘述。</p>
+<h2 id="动手修改">动手修改</h2>
+<p>了解这些后，就可以上手修改主题中的模板文件了。最开始我直接在通用的头部文件 <code>head.ejs</code> 中引入 OG 协议，但这样发现首页和文章页无法兼顾，因此我选择在首页文件 <code>index.ejs</code> 和文章页文件 <code>post.ejs</code> 中分别加入不同的 OG 标签。</p>
+<h3 id="首页-indexejs">首页 <code>index.ejs</code></h3>
+<p>博客的首页我希望在社交媒体中能显示博客名称、简介、地址以及头像，因此做如下修改：</p>
+<pre><code class="language-html">&lt;html&gt;
+    &lt;head&gt;
+        &lt;%- include('./includes/head', { siteTitle: themeConfig.siteName }) %&gt;
+        &lt;!-- OG --&gt; 
+        &lt;meta property=&quot;og:locale&quot; content=&quot;zh_CN&quot;&gt;
+        &lt;meta property=&quot;og:title&quot; content=&quot;&lt;%= themeConfig.siteName %&gt;&quot; /&gt;
+        &lt;meta property=&quot;og:type&quot; content=&quot;blog&quot; /&gt;
+        &lt;meta property=&quot;og:description&quot; content=&quot;&lt;%= themeConfig.siteDescription %&gt;&quot;&gt;
+        &lt;meta property=&quot;og:url&quot; content=&quot;https://leonwong0609.github.io/&quot; /&gt;
+        &lt;meta property=&quot;og:site_name&quot; content=&quot;&lt;%= themeConfig.siteName %&gt;&quot;&gt;
+        &lt;meta property=&quot;og:image&quot; content=&quot;&lt;%= themeConfig.domain %&gt;/images/avatar.png?v=&lt;%= site.utils.now %&gt;&quot; /&gt;
+        &lt;meta property=&quot;og:image:secure_url&quot; content=&quot;&lt;%= themeConfig.domain %&gt;/images/avatar.png?v=&lt;%= site.utils.now %&gt;&quot;&gt;
+        &lt;meta property=&quot;og:image:height&quot; content=&quot;300&quot; /&gt;
+        &lt;meta property=&quot;og:image:alt&quot; content=&quot;&lt;%= themeConfig.siteName %&gt;&quot;&gt;
+</code></pre>
+<p>这里 <code>content</code> 的引号内用 <code>&lt;%=</code> 和 <code>%&gt;</code> 标签夹住的就是 EJS 中输出的动态内容，这里是个坑，刚设置好主页的时候还没发现，后面到设置文章页的时候折腾了很久。</p>
+<h3 id="文章页-postejs">文章页 <code>post.ejs</code></h3>
+<p>文章页也就是每一篇博文的页面，是我主要想展示的内容，因此我希望能展示文章的标题、<strong>文章的</strong>简介（而不是网站的简介）、文章的链接，以及每篇公开文章我都会设置的题图。于是按照需求，我又用和上面一样的方法做了修改，然而中间遇到了很多问题，这里先把最终结果展示出来，问题慢慢讲：</p>
+<pre><code class="language-html">&lt;html&gt;
+    &lt;head&gt;
+        &lt;%- include('./includes/head', { siteTitle: `${post.title} | ${themeConfig.siteName}` }) %&gt;
+        &lt;meta name=&quot;description&quot; content=&quot;&lt;%= post.description %&gt;&quot; /&gt;
+        &lt;!-- OG --&gt; 
+        &lt;meta property=&quot;og:locale&quot; content=&quot;zh_CN&quot;&gt;
+        &lt;meta property=&quot;og:title&quot; content=&quot;&lt;%= post.title %&gt;&quot; /&gt;
+        &lt;meta property=&quot;og:type&quot; content=&quot;article&quot; /&gt;
+        &lt;meta property=&quot;og:description&quot; content=&quot;&lt;%= post.description %&gt;&quot;&gt;
+        &lt;meta property=&quot;og:url&quot; content=&quot;&lt;%= post.link %&gt;&quot; /&gt;
+        &lt;meta property=&quot;og:site_name&quot; content=&quot;&lt;%= themeConfig.siteName %&gt;&quot;&gt;
+        &lt;meta property=&quot;og:updated_time&quot; content=&quot;&lt;%= post.dateFormat %&gt;&quot;&gt;
+        &lt;meta property=&quot;og:image&quot; content=&quot;&lt;%= post.feature %&gt;&quot; /&gt;
+        &lt;meta property=&quot;og:image:secure_url&quot; content=&quot;&lt;%= post.feature %&gt;&quot;&gt;
+        &lt;meta property=&quot;og:image:alt&quot; content=&quot;&lt;%= post.title %&gt;&quot;&gt;
+</code></pre>
+<h2 id="遇到的问题">遇到的问题</h2>
+<p>首先是上方 <code>post.ejs</code> 文件中 <code>og:description</code> 这一行，按照我的理解，此处内容对应的应该就是链接预览中标题下方的简介内容，当时我最先想到的就是可以直接用 <code>post-list.ejs</code> 中标题下的 <code>post.abstract</code>，也就是文章摘要。于是我就将 <code>post-list.ejs</code> 文件中的代码直接拷贝过来，把这一行写成了：</p>
+<pre><code class="language-html">&lt;meta property=&quot;og:description&quot; content=&quot;&lt;%- post.abstract %&gt;&quot;&gt;
+</code></pre>
+<p>然而当我预览时却出现了很多奇奇怪怪的问题，这样写主要错误在于没有分清 <code>&lt;%-</code> 和 <code>&lt;%=</code> 的不同效果，在 <code>post-list.ejs</code> 中，写法是这样的：</p>
+<pre><code class="language-html">&lt;div class=&quot;content&quot;&gt;
+    &lt;a href=&quot;&lt;%= post.link %&gt;&quot;&gt;
+        &lt;h2 class=&quot;post-title text-xl font-extrabold mt-5 md:mt-0&quot;&gt;&lt;%= post.title %&gt;&lt;/h2&gt;
+    &lt;/a&gt;
+&lt;div class=&quot;post-abstract text-gray-700 font-light my-4&quot;&gt;
+    &lt;%- post.abstract %&gt;
+&lt;/div&gt;
+</code></pre>
+<p>可以看到上面倒数第二行 <code>&lt;%- post.abstract %&gt;</code> 直接代表了这个作为摘要的 div 中的 HTML 内容，换言之，使用 <code>&lt;%-</code> 输出的就是 HTML 内容，因此我在上面头部文件的 OG 标签中让它直接输出了 HTML 内容是不合适的。相对应的，<code>&lt;%=</code> 输出的内容是将指定的内容视为纯文本，因此查看源码可以发现输出的内容中如果含有 HTML 标签，是会直接被转义的。于是我暂时将这一行改成了：</p>
+<pre><code class="language-html">&lt;meta property=&quot;og:description&quot; content=&quot;&lt;%= post.abstract %&gt;&quot;&gt;
+</code></pre>
+<p>但即使这样写，实际上还是存在问题，因为 <code>post.abstract</code> 是一段带有 HTML 标记的文本，因此在社交媒体的预览中仍然能看到被保留下来的 HTML 标签，十分影响观感：</p>
+<figure data-type="image" tabindex="4"><img src="https://ws.l3on.site/post-images/1610629068978.png" alt="" width="500" loading="lazy"></figure>
+<p>因此我就折腾了很久想找办法使 <code>post.abstract</code> 输出的内容转换为纯文本，就当我准备开始折腾用正则的时候，我不久前发的求助消息得到了回应，@eryouhao 大佬说可以换用 <code>post.description</code>，并且附上了 Gridea 的 <a href="https://gridea.dev/theme-structure/#post">主题目录结构与页面变量文档</a>。其中对 <code>post.abstract</code> 和 <code>post.description</code> 的描述分别为：</p>
+<pre><code class="language-js">post: {
+    content: '&lt;p&gt;&lt;strong&gt;Gridea&lt;/strong&gt; 一个静态博客写作客户端 &lt;!-- more --&gt;&lt;/p&gt;\n&lt;p&gt;👏 欢迎使用 &lt;strong&gt;Gridea&lt;/strong&gt; ！  &lt;/p&gt;\n&lt;p&gt;🌈 &lt;strong&gt;Gridea&lt;/strong&gt; 一个静态博客写作客户端。你可以用它来记录你的生活、心情、知识、笔记、创意... ... &lt;/p&gt;',
+    abstract: '&lt;p&gt;&lt;strong&gt;Gridea&lt;/strong&gt; 一个静态博客写作客户端 &lt;/p&gt;\n',
+    description: '一个静态博客写作客户端 欢迎使用 Gridea！Gridea 一个静态博客写作客户端。你可以用它来记录你的生...', // 智能截取文章开始内容填充此字段，可用作未设置摘要时备用字段
+}
+</code></pre>
+<p>由此可见，<code>post.description</code> 正好是不带标签的纯文本，完美满足我目前的需求。因此最终将这一行改为：</p>
+<pre><code class="language-html">&lt;meta property=&quot;og:description&quot; content=&quot;&lt;%= post.description %&gt;&quot;&gt;
+</code></pre>
+<p>试验了之后果然符合要求，以后动手前一定要先看文档。</p>
+<p>做出以上的修改后，博客文章在 Telegram 中的预览终于变成了想象中的样子：</p>
+<figure data-type="image" tabindex="5"><img src="https://ws.l3on.site/post-images/1610629153978.png" alt="" width="500" loading="lazy"></figure>
+<h2 id="twitter-cards">Twitter Cards</h2>
+<p>类似的，我还为博客增加了 <a href="https://developer.twitter.com/en/docs/twitter-for-websites/cards/guides/getting-started">Twitter Cards</a>，同样也是修改文件头部 <code>&lt;meta&gt;</code> 标签中的内容，同样也是对主页和文章页分别设置：</p>
+<pre><code class="language-html">&lt;!-- Twitter (index.ejs) --&gt;
+&lt;meta name=&quot;twitter:card&quot; content=&quot;summary_large_image&quot;&gt;
+&lt;meta name=&quot;twitter:title&quot; content=&quot;&lt;%= themeConfig.siteName %&gt;&quot;&gt;
+&lt;meta name=&quot;twitter:description&quot; content=&quot;&lt;%= themeConfig.siteDescription %&gt;&quot;&gt;
+&lt;meta name=&quot;twitter:site&quot; content=&quot;@WBoy0609&quot;&gt;
+&lt;meta name=&quot;twitter:creator&quot; content=&quot;@WBoy0609&quot;&gt;
+&lt;meta name=&quot;twitter:image&quot; content=&quot;&lt;%= themeConfig.domain %&gt;/images/avatar.png?v=&lt;%= site.utils.now %&gt;&quot;&gt;
+</code></pre>
+<pre><code class="language-html">&lt;!-- Twitter (post.ejs) --&gt;
+&lt;meta name=&quot;twitter:card&quot; content=&quot;summary_large_image&quot;&gt;
+&lt;meta name=&quot;twitter:title&quot; content=&quot;&lt;%= post.title %&gt;&quot;&gt;
+&lt;meta name=&quot;twitter:description&quot; content=&quot;&lt;%= post.description %&gt;&quot;&gt;
+&lt;meta name=&quot;twitter:site&quot; content=&quot;@WBoy0609&quot;&gt;
+&lt;meta name=&quot;twitter:creator&quot; content=&quot;@WBoy0609&quot;&gt;
+&lt;meta name=&quot;twitter:image&quot; content=&quot;&lt;%= post.feature %&gt;&quot;&gt;
+</code></pre>
+<p>原理类似，这里不重复了，最后的效果也挺不错的：</p>
+<figure data-type="image" tabindex="6"><img src="https://ws.l3on.site/post-images/1610629039317.png" alt="" width="500" loading="lazy"></figure>
+<h2 id="其他">其他</h2>
+<p>除了这些在文档头部进行的、网页上无法直接体现的变化之外，我这次还微调了博客的一些排版问题，现在正文的对齐方式我改成了 <code>justify</code> 即两端对齐，这样看起来文章左右两侧都更加整齐，不会出现左侧对齐但右侧错落的难受情况。</p>
+<p>总感觉上一篇博客没写完多久，结果没想到一不小心就过去了半年。之前一直想写的 My Little Airport 和一堆电影的影评到现在还拖着。还是希望以后有空闲的时候能多写写东西，毕竟消费信息快餐的记忆很快就会过去，最后什么都没留下；而写作的记忆，会和写下的文字共存。</p>
+<h2 id="also-see">Also see…</h2>
+<ul>
+<li><a href="https://stackoverflow.com/questions/35268940/how-to-force-telegram-to-update-link-preview">How to force telegram to update link preview? -Stack Overflow</a></li>
+</ul>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[写在 20 岁生日的反思 🎂]]></title>
+        <id>https://ws.l3on.site/post/20/</id>
+        <link href="https://ws.l3on.site/post/20/">
+        </link>
+        <updated>2020-07-11T15:49:49.000Z</updated>
+        <summary type="html"><![CDATA[<p>这篇文前后断断续续写了三次。本来打算在 9 号当天写完的，结果内容有点多，加上拖延症一犯就拖到了 29 号（正好五月初八）又写了一点，但当时正赶上期末，也没有多少能认真写东西的时间，现在是 11 号，刚刚考完试，终于有点空把这篇东西写完了。</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>这篇文前后断断续续写了三次。本来打算在 9 号当天写完的，结果内容有点多，加上拖延症一犯就拖到了 29 号（正好五月初八）又写了一点，但当时正赶上期末，也没有多少能认真写东西的时间，现在是 11 号，刚刚考完试，终于有点空把这篇东西写完了。</p>
+<!-- more -->
+<p><ul class="markdownIt-TOC">
+<li>
+<ul>
+<li><a href="#%E6%88%91%E6%98%AF%E4%BB%80%E4%B9%88%E6%A0%B7%E7%9A%84%E6%88%91">我是什么样的我？</a>
+<ul>
+<li><a href="#%E6%9B%BE%E7%BB%8F%E7%9A%84%E6%88%91">曾经的我</a></li>
+<li><a href="#%E7%8E%B0%E5%9C%A8%E7%9A%84%E6%88%91">现在的我</a></li>
+</ul>
+</li>
+<li><a href="#%E6%88%91%E5%B8%8C%E6%9C%9B%E6%88%90%E4%B8%BA%E4%BB%80%E4%B9%88%E6%A0%B7%E7%9A%84%E6%88%91">我希望成为什么样的我？</a></li>
+<li><a href="#%E5%B0%BE%E5%A3%B0">尾声</a></li>
+</ul>
+</li>
+</ul>
+</p>
+<blockquote>
+<p>转眼间就迎来 20 岁的生日了，最近时间过得越来越快了，回想去年、前年生日似乎都还没有过多久。虽然这几年都不是什么人生高光时刻，但是这样一个整数的生日，似乎不写点什么太没有仪式感了。</p>
+</blockquote>
+<p>20 岁，一个曾经的我觉得完全遥不可及的年龄，已经悄悄来到身边了。我到现在还有点不敢相信自己已经是奔三的年纪，我曾经常和别人讲我对「八岁」的影响特别深刻，然而一转眼八岁那年也过了十二年了。</p>
+<p>这 20 年，我在泰州出生，在老家待了几年后去过郑州，后来在广州生活了很长一段时间：从幼儿园一直到高中毕业；直到大学阶段开始，北京这个城市又进入了我的生活。</p>
+<p>如果要我描述一下 20 岁的我的状态，我的答案可能和上了大学的这两年一样：<strong>迷茫</strong>。真的很迷茫，自从考上大学之后，痛苦和迷茫似乎成了我生活的底色。不知道是因为迷茫而痛苦还是因为痛苦而迷茫，或许这两者本身就是相互促成的吧。我不想这种状态继续，既然 20 岁是这样特殊的一个时间节点，不如就趁这个机会，好好反省一下自己的过去，思考一下自己的未来。</p>
+<h2 id="我是什么样的我">我是什么样的我？</h2>
+<p>这个问题我从很小就开始问自己。我曾经特别害怕自我介绍（当然我现在还是很怕，我也不知道我为什么要说「曾经」），因为我总觉得我不会用几个词几句话来形容概括自己。</p>
+<h3 id="曾经的我">曾经的我</h3>
+<p>年纪小的时候可能不会想那么多，幼儿园小学的时候总是和大家没心没肺地疯玩，或许是记忆不深刻了，但是那时候似乎很少有特别伤心难过的时候。真正对自己「不满意」可能是从六年级到刚上初中那段时间开始。当时就总想着为什么大家总不喜欢和我玩（哈哈好幼稚）？现在看来，当时我的脾气真的可以说是「古怪」。最近有次心血来潮翻了翻以前 QQ 空间的说说，当时就把我看傻了，不知道怎么形容我那种说话的语气，在现在的我看来，真的是感觉当时的那些句子都特别生硬，对他人的态度更是接近于无礼。看到偶尔发的一些聊天截图和评论区和好友的互动，我简直觉得我这种性格无比陌生。或许是当时觉得自己不够「酷」，想要通过一些特别的态度让周围的人留意我吧，很遗憾我选择了这种让人讨厌的态度，而且真的做过头了。那段时间的我确实很傻很傻，周围人不喜欢我，我也不喜欢我自己，也就没什么奇怪了。</p>
+<p>事情到了高中开始就有了变化，我至今都还记得当初刚上高中的时候内心就十分珍惜这个「新起点」的机会，我迫切地想在高中做好以前没有做好的事，想要成为一个自己满意、他人也喜欢的人。我选择了可能是最简单的办法，那就是当「好人」。高中刚开始的那段时间我真的是十分投入地「为他人着想」，和人对话的时候也总想着别人想听到什么，看见他人遇到困难的时候总想着自己能不能帮忙，有事情要做的时候总想着要不要自己来做……这些举动听着仿佛很高尚，但实际上我这么做的原因不是因为我是个高尚的人，相反，我只是很功利地希望用这些举动换回一个「好人」的形象，让大家接受我、喜欢我罢了。</p>
+<p>这个办法可能刚开始还是挺有效的，我起码不至于觉得自己不喜欢自己了。但是这种投机取巧的不良反应很快就显现了出来。首先我这些「为他人着想」「主动奉献」是有所求的，而这些举动往往又是投入回报比很低，这让我总觉得自己明明做了很多，但是周围的人却很少会愿意用我这样的程度对我。现在想想，这其实很好理解，因为大家并么有像我这样这么想获得些什么，而我又表演得像个「好人」，好人往往是发自内心的好，大家自然也不会觉得我这个「好人」其实是希求用自己的「好」来交换一些东西。然而当时的我并不懂这些，因此我常常觉得懊恼，觉得自己明明做了这么多，为什么大家还是不会像我想的那样欢迎我、对我好。现在想想，真的是幼稚到可笑。也正因此，我开始感到「迷失自我」了，大概就是从这个时候开始，我忘记了自己原来是个什么性格的人，因为我假装自己很好，一直选择迎合他人的喜好改变自己的行为方式，但我内心又深知自己并不是这样的人，所以在这种真真假假中，我把我原来的自己也丢失了。我也更加害怕自我介绍了。</p>
+<p>转折点在某天听父亲说了一句话，大意就是不要总想着大家要帮你，不论是朋友还是陌生人，<strong>永远是「帮你是情分，不帮才是应该」</strong>。我记得当时我特别有感触，因为我发现我把太多事情想成理所应当的了，尤其是我觉得我对大家好，大家就应当也对我好。但事情并不是这样简单的，很多时候这种单纯的想法只是自己的一厢情愿罢了。我「帮助」别人当「好人」是我自己的选择，同样的，别人如果愿意因此接纳我、回报我也是他们自由的选择，而不是我想的那样像「平等交易」般理所当然的；就算他们不接纳、不回报也是完全正当合理，因为这种双方都完全自愿的情况下，所谓的「义务」就根本不存在。我也开始懂得，有时候可以随性一点，只要不为了邪念伤害他人，不破坏一些最基本的原则，其实就是正常的了，没有人规定自己的价值一定要从他人的认可中取得，不是大家都喜欢才是代表性格好，其实只要大多数人不讨厌就是正常了。我之前太在意别人的想法，总觉得只有大家都认可我我才能认可我自己，但我现在觉得，他人的认可其实没我以前想的那么重要，因此我也放下了功利主义的包袱，不再为了换回他人的一句肯定而做一件事情，而是因为自己内心觉得这是对的去做一件事情。这个转变真的让我和我身边的人都轻松了很多，应该也能算是高中的我很重要的一次成长了吧。</p>
+<p>然而我并没有因为这一次的转变就记起我是个什么样的人，我依然还是害怕自我介绍（笑），但是我相信我这是向正确的方向迈进了一步吧。</p>
+<h3 id="现在的我">现在的我</h3>
+<p>可能就是因为这个转变，我不再重视大学这个「新起点」了，但是现在回想我的不重视有点过头了，简直能称得上疏忽。首先我填志愿的时候天真的以为第一志愿是稳定能进的，所以根本没有认真对待、甚至还把一个不怎么了解的新学校填了上去（是的就是我现在这个学校），志愿填报截止的当天六点躺在老家床上看《权力的游戏》，又很自信地没有做最后检查，于是我当然就得到了一个让我惊讶的录取结果。进入大学之后，我更是感觉自己没有「积极」地去面对新生活，也没有主动融入这个新环境，而是以一种慵懒的姿态，消极地任由时间流过，躺在命运的浪潮里，它把我冲到哪里我就继续在那躺着。我一边跟以前的朋友吐槽班上的人都没认齐，一边却从来不去主动参与社交；一边抱怨自己学校什么活动都没有，一边却不愿意参加少得可怜因而宝贵的学校活动；一边说自己的大学生活特别孤独平淡是个假的大学，一边却孤立自己、和身边所有人表现出一副社恐的样子，推开所有可能的朋友。总而言之，我对自己目前的状态并不满意，这种没有目标、没有动力、整天浑浑噩噩的日子真的会消磨人的意志力，如果我任由自己这样下去，我可能就离心目中那个讨厌的自己又不远了。</p>
+<p>因此我觉得有必要思考一下自己的问题，虽然从正面概括自己很难，但是从反面挑出一两个自己不满的缺点还是相对容易的。我从几个星期前就开始想，想了很多很多零零散散的东西，大抵可以分为两方面。</p>
+<p>首先我极度<strong>缺乏自控力</strong>。</p>
+<p>我数不清多少个自己雄心勃勃的下午被 YouTube 的算法击垮了，我明知道自己有事情要做，有定好的计划不能拖延，然而对于眼前的消遣娱乐，我基本上是毫无抵抗能力。每每事后回想，我都不能理解我是如何背负着被死线压着的焦虑，欣赏一个个视频、一集集电视剧、一部部电影的。但是当时的我，就是愿意在眼前的满足和长久的益处中毫不犹豫地选择前者。</p>
+<p>就因为这种怪异的坏习惯，所有的事前计划对我来说基本上都是无效的了，因为我计划做得再好，总会有一天不完成，而只要有了那一天未完成的积压，我完成计划的阻力就更大了，我也就更容易滑向低级的娱乐。</p>
+<p>我曾经也不是没有过那种理想的高效率生活，但是仿佛在我的印象中这些日子都没有长久，我一时半会想不出原因，但至少我知道当下寻找一个能让自己保持清醒、做真正有利与自己的事情的办法是迫切的。</p>
+<p>其次我<strong>十分浮躁</strong>。</p>
+<p>这种浮躁体现在很多方面，上面说的总是沉迷于短平快的消遣就是其中一种。而对于学习，我更是完美印证「舌尖效应」。这个评价最早还是高中历史老师警示我时提出的，现在看来真的十分准确，我对所有的知识满足于入门的一知半解状态，仿佛我学习这些知识并不是为了真正掌握它，而是为了让我看起来好像掌握了它。因此我沉迷各种粗浅的「科普」内容，我可以花很多时间看一堆短文章、短视频，但是我可能不愿意花同样的时间看教材、啃论文。有时候我会给自己找理由说我可能是不喜欢所学的内容，但是对于自己真正感兴趣领域，我同样也是浅尝辄止，一旦开了点头了解了一些基础的东西，我就没什么动力继续深入了。短文短视频总能轻易给我营造出一种「我在学习」的假象，其实是把我困在了刚刚迈入的舒适圈里，而我正好讨厌满足于待在舒适圈里的自己。</p>
+<p>我或许不能立马摆脱浮躁，但我相信意识到我是个浮躁的人、承认浮躁是自己的致命弱点，或许是做出改变的第一步。</p>
+<h2 id="我希望成为什么样的我">我希望成为什么样的我？</h2>
+<p>之前在网上看到很多关于「原子习惯」的内容，我的理解大概就是：我们的每个小习惯就像是构成我们的原子，换言之，我们的习惯会决定我们是什么样的人。对此我真是深感赞同，我不止一次制定计划、不止一次写下我对生活的期望、不止一次使用各种效率工具、应用，希望通过这些，我能成为理想中那种高效的人，过那种有意义的人生。然而事实情况是我不止一次被我自己讨厌的、固有的习惯打败。或许我能支撑一天两天，时间一长我就会又自动滑落回以前浑浑噩噩的生活习惯里。</p>
+<p>我不想因此就失去期望，这个充满仪式感的日子里我还是希望自己能带者虔诚的态度再次展望一下未来，幻想一下我理想中的生活，仔细思考一下我到底想成为什么样的一个人。</p>
+<p>首先我希望我能<strong>静下来</strong>。</p>
+<p>这个期望似乎从中学开始，就有无数老师给我提过，然而当时的我根本不懂什么叫做安静什么叫做浮躁。在当时相对压抑、限制很多的环境里，安静或者浮躁几乎在严格的时间表下是看不出区别的，除非天天逃课不交作业，不然真的看不出安静的人和浮躁的人有什么区别。然而到了大学，尤其是这个大学以后，当我能自由支配我的时间了，我才看到了安静和浮躁之间从心态到行为的巨大差异。当我下课合上电脑装进书包就准备回宿舍，认为今天的学习时间已经结束时，有的同学留在课室，他们的学习时间才刚刚开始；当我考试前还在焦虑地看着课本，试图理解我上课就应该熟悉掌握地知识时，已经有同学在信心慢慢地准备下一科考试；当我终于考完试觉得可以好好放松一把时，有的同学已经启动自己的研究课题，或者开始交换、出国了。差距就在每天的不经意中越拉越远，就如同我上面说的，每一个细微习惯的差别，让我和其他优秀同学完全成了两种人。</p>
+<p>因此我希望我能方下急功近利、临时抱佛脚的学习心态，回忆一下中学时期的学习状态，只不过这时候不是学校和老师压着自己，而是自己对自己的要求。不要在消费碎片信息中浪费更多的时间了。或许开始看看书，或许开始静下心来认真看一部电影，让自己能在更多的时间专注于有长远意义的事情，而不是被几分钟十几分钟的碎片内容一点点蚕食自己仅剩不多的可怜精力。</p>
+<p>其次我希望我能<strong>积极</strong>。</p>
+<p>前面说过，到了大学，我整个人都是懒散消极的。选课前夕还不知道自己能选课、该选什么课，奖学金申请材料快要截至提交了还不知道自己原来也符合申请条件，怎么计算学分、怎么申请项目、怎么出国交换一概不知，有时候我真的怀疑要是离开了我那两个认真的室友，我的大学生活还能不能好好进行。我印象中我曾经不是这样的人，我也不希望我成为这样的人。我猜想有一部分原因是我对大学阶段巨大的心理落差，但正如前面说的，这怪不了除了自己的任何人，既然已经结出苦果，那就请安静品尝，这不是选择安逸的理由。前些天和我弟一起看哈利波特，里面邓布利多有句台词我特别喜欢：<em>Happiness can be found, even in the darkest of times, if one only remembers to turn on the light.</em> 更何况我相信自己现在的状况远远还不算 <em>darkest of times</em>，我要做的就是点亮那盏灯，重新找回生活的热情，毕竟对于消极的人，生活每天撞向自己，而对于积极的人，自己每天都拥抱生活。</p>
+<p>再者我希望我能<strong>多做</strong>。</p>
+<p>有次晚上睡前聊天，我和室友倾诉我上了大学来的种种悲伤迷茫失望痛苦，室友苦笑，说他曾看过杨绛的一句话：「你的问题主要在于读书不多而想得太多。」我只觉醍醐灌顶。我花了太多的时间在无用的「想」上，我整夜整夜地想生活的不公，想过去的错误，想别人的说法，想自己的未来……然而大学阶段除了教科书我真的一本书都没读，一件大事也没干成，在思而不学中浪费了我两年的时间。我总是在抱怨生活不是我想象中的样子，我不该这样生活，然而我却从来没有为了改变现状真正做点什么，这必然不是一种健康的状态。我希望未来的我能做一个敢于行动的人，因为空想永远都是原地不动，只有迈开步子，才更有可能让自己向目标的方向前进。</p>
+<p>说到这里，最后我希望自己能找到<strong>目标</strong>。</p>
+<p>无论是什么成功学或者心灵鸡汤，都会强调目标的重要性，但我一直不以为意。因为他们说的目标总是和自己的心之所向联系在一起，什么找到热爱、找到乐趣……但我现在过的生活和我向往的完全不同，我从来没想过会真的一辈子读文科，也从来没想过这辈子专心做研究，也没想过以后做律师还是做什么。有段时间我甚至因为这个难受得睡不着觉（当然就是光难受，什么都不做的那种），然后想着什么下辈子有机会一定学计算机科学或者摄影设计之类的，因此我从来也没有认真地想过按照当下的现实，自己的目标或者说期盼的生活是什么样子的。现在坐在法学课堂上，每当听到老师说「你们以后都是以法律为业的」或者看到和法律有关的竞赛、培训的时候，我都感觉到内心一阵强烈慌乱，我内心仿佛有个声音在告诉我我永远都进不了法学这个圈子，因此只要一想到未来我可能注定就要在这个圈子里生长了，我就感到满满的慌张和不确定。但理智告诉我，一直这样想下去不是办法，现实已经如此，这场游戏里，我被发到的就是这样一手牌，我可以不打，直接离开游戏，但我目前没这个打算。既然要继续打下去，羡慕别人牌多好没有用处，也有其他比我牌更差的人，但这些我都改变不了，我能做的只是把我目前的这把牌认真地尽可能打好而已。这话说起来简单，但真正完全接受命运，不逃避直面惨烈的现实真的是一件很需要勇气的事情，而我恰好在这种事情上很缺少勇气，所以原谅我，我可能还要一点时间去适应，但是我也意识到了，这样一天天的，时间真的不多了。所以，还是希望自己能早点认清现实，放弃不切实际的空想，着手做必要的努力吧。</p>
+<h2 id="尾声">尾声</h2>
+<blockquote>
+<p>孙子曰：昔之善战者，先为不可胜，以待敌之可胜。不可胜在己，可胜在敌。故善战者，能为不可胜，不能使敌之必可胜。故曰：胜可知，而不可为。不可胜者，守也；可胜者，攻也。——《孙子兵法 · 军形第四》</p>
+</blockquote>
+<p>我一直特别喜欢《孙子兵法》里面的这句话：「不可胜在己，可胜在敌。」不论世界如何变化，提高自己永远都是一件必须做的事情，而我却经常了解太多信息，真正提高自己的事情又做的太少，因此我一直希望用这句话警示自己：在埋怨世界时先看看有没有严格要求自己。20 岁了，18 岁高考前写的时间胶囊我根本不敢打开，因为我很清晰地记得，里面的每个充满好奇和憧憬的问题，目前的我都没有颜面去回答。认真度过的一年可以很长，希望明年这个时候的我，能相对从容地面对18 岁的我对自己的期盼吧。</p>
+<p>20 岁了，我对自己的要求还是和以往一样：要永远天真，永远保持好奇，没人可以代替你过你的人生，胡思乱想的事情死后有的是时间，这辈子还请冷静而认真的生活吧。</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[给博客增加 Telegram Instant View (即时预览)]]></title>
+        <id>https://ws.l3on.site/post/add-instant-view-to-my-blog/</id>
+        <link href="https://ws.l3on.site/post/add-instant-view-to-my-blog/">
+        </link>
+        <updated>2020-05-06T15:22:23.000Z</updated>
+        <summary type="html"><![CDATA[<p><a href="https://instantview.telegram.org/">Instant View</a> 是 Telegram 一个独特的链接预览功能，今天花了一点时间写了一下模板，给自己的博客也加上了 Instant View。这里记录一下过程。</p>
+]]></summary>
+        <content type="html"><![CDATA[<p><a href="https://instantview.telegram.org/">Instant View</a> 是 Telegram 一个独特的链接预览功能，今天花了一点时间写了一下模板，给自己的博客也加上了 Instant View。这里记录一下过程。</p>
+<!-- more -->
+<p>之前一直都以为 Instant View 是 Telegram 自动生成的，但是我关注到少数派的文章没有「生成」 Instant View，然后我自己博客的文章也从来没有显示过，于是我就上网查了一下，发现要想让网站适配 Instant View 是要写模板的。很早我就开始折腾了，但是一直没有成功，前段时间正好也比较忙，就把这件事也忘记了。今天白天看了一天的论文，晚上就想着折腾一下，正好就想到了这个。</p>
+<p>我上网看了几篇其他人的博文，终于有了点头绪，下面介绍详细步骤。</p>
+<h2 id="创建模板">创建模板</h2>
+<p>首先登录<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup> <a href="https://instantview.telegram.org/">Instant View 的官方项目页面</a>，初次登录需要点击右下角的 <code>Login</code> 通过自己的 Telegram 账号登录，验证成功后点击右侧边栏的 <code>My Templates</code> 进入自己的模板，然后将自己的博客地址粘贴到页面中的输入框，即可新建一个模板。</p>
+<figure data-type="image" tabindex="1"><img src="https://ws.l3on.site/post-images/1588779434282.png" alt="成功创建模板" loading="lazy"></figure>
+<p>如上，我们就成功创建了一个模板。</p>
+<h2 id="修改模板">修改模板</h2>
+<p>点击模板进入模板界面后，选取一篇文章的 URL 加入到模板中，确认后会进入到模板的编辑页面：</p>
+<figure data-type="image" tabindex="2"><img src="https://ws.l3on.site/post-images/1588780034748.png" alt="模板编辑界面" loading="lazy"></figure>
+<p>如图，我们可以看到左栏是原网页的预览，中间是模板的编辑区，右侧是 Instant View 生成效果的预览。具体的模板编写语法可以参考 <a href="https://instantview.telegram.org/docs">官方 Manual</a>，下面贴上我自己的：</p>
+<pre><code class="language-shell">#先是一些基本的信息
+~version: &quot;2.1&quot; #声明版本号
+site_name: &quot;Wonder Space 🚀&quot;
+#网站的名字
+author: &quot;Leon Wong&quot;
+#作者名字，会显示在文章标题下
+author_url:&quot;https://leonwong0609.github.io/post/about/&quot;
+#点击作者名字后跳转的 URL，我这里定向到博客的关于页
+channel: &quot;@leonwong0609&quot;
+#相关的 Telegram Channel，可以显示在文章标题上，有个 Join 按钮
+
+#然后是关于文章的
+$main: //div[has-class(&quot;content-wrapper py-32 lg:p-8 lg:w-3/4 post-detail animated fadeIn __reader_view_article_wrap_22107290973894766__&quot;)]
+# 这里的 $main 是一个 Variable，我的理解就是相当于用 $main 来代替后面的一长串
+title: $main//h1
+#我的博文中需要的标题就是 $main 中的 h1
+body: //div[has-class(&quot;post-content yue&quot;)]
+#我的博文正文内容就是一个 class 为 post-content yue 的 div
+@remove: //ul[has-class(&quot;markdownIt-TOC&quot;)]
+#不需要目录所以删除掉 class 为 markdownIt-TOC 的无序列表
+@remove: //iframe
+#Instant View 不支持 iframe，所以将其从模板中去掉
+
+#最后是关于封面和略缩图
+cover: //img[has-class(&quot;post-feature-image rounded-lg mx-auto my-4&quot;)]
+#设置封面，会显示在 Instant View 页面顶部，我这里是特定 class 的 img 标签
+image_url: //img[has-class(&quot;post-feature-image rounded-lg mx-auto my-4&quot;)]
+#设置在对话气泡中的预览图，我这里设置的和封面相同
+</code></pre>
+<p>具体的网页情况可能和我这个会有不同，但是都大同小异，只要通过浏览器的检查工具找到对应内容的标签和 class 或者 id 就可以了，设置成功后，一般右侧栏就会自动出现效果的预览，我们还可以点击右上角的 <code>VIEW IN TELEGRAM</code> 将 IV 页面发送到 Telegram 中预览。预览无误后，可以点击右上角的 <code>MARK AS CHECKED</code>。</p>
+<figure data-type="image" tabindex="3"><img src="https://ws.l3on.site/post-images/1588782033026.png" alt="IV 效果" loading="lazy"></figure>
+<p>效果如上图，加载速度比起博客快了很多。</p>
+<p>可以看出这个模板的设置和网页上的标签相关，所以看来以后不能那么勤快给博客换主题了。</p>
+<p>到这一步基本上就完成了，但是我还没有弄清楚怎么样才能像 Telegra.ph 或者 Medium 那样直接输入链接就能出现 Instant View 选项。现在只有通过替换预览链接中的 URL 来实现 Instant View。例如我刚才生成的预览链接是：</p>
+<pre><code class="language-text">https://t.me/iv?url=https%3A%2F%2Fleonwong0609.github.io%2Fpost%2Fhello-world%2F&amp;rhash=c8c9ddf4bad078
+</code></pre>
+<p>那么我就可以将 <code>url=</code> 后面和 <code>&amp;rhash</code> 前面的内容替换成我们自己的博文 URL (经过 URL encode 的) 就可以了。像我的博文 URL 都是只会改变 <code>post%2F</code> 后面的东西，所以相对比较方便更改。但是无论如何这种方法只能说是曲线救国，真的发送这样的在聊天框会显得太长，我们可以通过给文字增加超链接来改变这点。当然因为我身边完全没有人用 Telegram，我也完全不需要把 Instant View 链接发给谁，所以我就没有这个忧虑。</p>
+<p>等等，既然这样我还折腾这个干嘛？</p>
+<h2 id="参考内容">参考内容</h2>
+<ul>
+<li>壮壮博客：<a href="https://zhuangzhuang.cf/2019-04-23/instant-view/">Telegram 即时预览</a></li>
+<li>方寸间：<a href="https://10101.io/2019/05/23/telegtam-instant-view">为网站添加 Telegram 即时预览</a></li>
+<li>bovasjohn @ Medium: <a href="https://medium.com/@bovasjohn/what-is-instant-view-and-how-can-i-get-it-for-my-domain-in-telegram-messenger-6064efb1ed15">What Is Instant View And How can I get It for My domain? in Telegram Messenger</a></li>
+</ul>
+<hr class="footnotes-sep">
+<section class="footnotes">
+<ol class="footnotes-list">
+<li id="fn1" class="footnote-item"><p>需要使用电脑或者显示器分辨率较高的设备登录。 <a href="#fnref1" class="footnote-backref">↩︎</a></p>
+</li>
+</ol>
+</section>
+]]></content>
+    </entry>
+</feed>

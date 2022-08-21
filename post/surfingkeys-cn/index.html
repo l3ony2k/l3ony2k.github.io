@@ -1,0 +1,662 @@
+<html>
+
+<head>
+  <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<title>
+  Surfingkeys – 用 JavaScript 和键盘扩展你的 Chrome | Wonder Space 🚀
+</title>
+
+<!-- Chrome, Firefox OS and Opera -->
+<meta name="theme-color" content="#ffffff">
+
+<!-- Apple Safari -->
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<link rel="apple-touch-icon" href="https://ws.l3on.site/images/avatar.png?v=1661055158677">
+<meta name="apple-mobile-web-app-title" content="WS 🚀">
+
+<!-- instant.page -->
+<script src="https://ws.l3on.site/media/instantpage-5.1.0.js" type="module" defer></script>
+
+<!-- dark reader -->
+<script src="https://cdn.jsdelivr.net/npm/darkreader@4.9.26/darkreader.min.js"></script>
+<script>
+  // Enable when system color scheme is dark.
+  DarkReader.auto({
+    //brightness: 105,
+    //contrast: 95,
+    //sepia: 0,
+    //grayscale: 15
+    darkSchemeBackgroundColor: '#000000',
+    darkSchemeTextColor: '#ffffff'
+  });
+</script>
+
+<link rel="shortcut icon" href="https://ws.l3on.site/favicon.ico?v=1661055158677">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,700;1,400;1,700&family=IBM+Plex+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+
+<link rel="stylesheet" href="https://ws.l3on.site/styles/main.css">
+
+<!-- umami -->
+<script async defer data-website-id="3c0f6b3c-27a9-47bd-9558-913f21633e25" src="https://umami.l3on.site/l3on.js"></script>
+
+
+    <meta name="description" content="
+原文地址 brookhong.github.io
+
+Chrome 版供墙内的同学下载 火狐版
+Surfingkeys 和现有的一些插件一样，让你尽可能的通过键盘来使用 chrome 浏览器，比如跳转网页，上下左右滚屏。但不只是给 vim ..." />
+
+    <!-- OG -->
+    <meta property="og:locale" content="zh_CN">
+    <meta property="og:title" content="Surfingkeys – 用 JavaScript 和键盘扩展你的 Chrome" />
+    <meta property="og:type" content="article" />
+    <meta property="og:description" content="
+原文地址 brookhong.github.io
+
+Chrome 版供墙内的同学下载 火狐版
+Surfingkeys 和现有的一些插件一样，让你尽可能的通过键盘来使用 chrome 浏览器，比如跳转网页，上下左右滚屏。但不只是给 vim ...">
+    <meta property="og:url" content="https://ws.l3on.site/post/surfingkeys-cn/" />
+    <meta property="og:site_name" content="Wonder Space 🚀">
+    <meta property="og:updated_time" content="12-08-2020">
+    <meta property="og:image" content="" />
+    <meta property="og:image:secure_url" content="">
+    <meta property="og:image:alt" content="Surfingkeys – 用 JavaScript 和键盘扩展你的 Chrome">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Surfingkeys – 用 JavaScript 和键盘扩展你的 Chrome">
+    <meta name="twitter:description" content="
+原文地址 brookhong.github.io
+
+Chrome 版供墙内的同学下载 火狐版
+Surfingkeys 和现有的一些插件一样，让你尽可能的通过键盘来使用 chrome 浏览器，比如跳转网页，上下左右滚屏。但不只是给 vim ...">
+    <meta name="twitter:site" content="@WBoy0609">
+    <meta name="twitter:creator" content="@WBoy0609">
+    <meta name="twitter:image" content="">
+
+</head>
+
+<body>
+
+  <div id="app" class="main px-4 flex flex-col lg:flex-row">
+    <div id="sidebar" class="sidebar-wrapper lg:static lg:w-1/4">
+  <div class="lg:sticky top-0">
+    <div class="sidebar-content">
+      <div class="flex lg:block p-4 lg:px-0 items-center fixed lg:static lg:block top-0 right-0 left-0 bg-white z-50"
+        style="backdrop-filter: blur(7px); background: hsla(0, 0%, 100%, .75); -webkit-backdrop-filter: blur(7px);">
+        <i class="ri-menu-2-line lg:mt-4 text-2xl cursor-pointer animated fadeIn" onclick="openMenu()"></i>
+        <a href="https://ws.l3on.site">
+          <img class="animated fadeInLeft avatar rounded-lg mx-4 lg:mt-32 lg:mx-0 mt-0 lg:w-24 lg:h-24 w-12 w-12"
+            src="https://ws.l3on.site/images/avatar.png?v=1661055158677" alt="">
+        </a>
+        <h1 class="animated fadeInLeft lg:text-2xl font-extrabold lg:mt-8 mt-0 text-xl" style="animation-delay: 0.2s">
+          Wonder Space 🚀
+        </h1>
+      </div>
+      
+          <div class="animated fadeInLeft" style="animation-delay: 0.4s">
+            <p class="my-4 text-gray-600 font-light hidden lg:block">
+              Contents
+            </p>
+            <div class="toc-container hidden lg:block">
+              <ul class="markdownIt-TOC">
+<li>
+<ul>
+<li><a href="#%E5%8A%9F%E8%83%BD%E7%89%B9%E6%80%A7">功能特性</a></li>
+<li><a href="#%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B">快速上手</a></li>
+<li><a href="#%E6%89%93%E5%BC%80%E8%BF%9E%E6%8E%A5">打开连接</a></li>
+<li><a href="#surfingkeys-%E6%94%AF%E6%8C%81%E7%9A%84%E6%A8%A1%E5%BC%8F">Surfingkeys 支持的模式</a>
+<ul>
+<li><a href="#normal-mode%E9%BB%98%E8%AE%A4%E6%A8%A1%E5%BC%8F">Normal mode，默认模式</a></li>
+<li><a href="#visual-mode%E7%94%A8%E4%BA%8E%E9%80%89%E4%B8%AD%E6%96%87%E6%9C%AC%E4%BB%A5%E5%8F%8A%E5%90%84%E7%A7%8D%E9%92%88%E5%AF%B9%E9%80%89%E4%B8%AD%E6%96%87%E6%9C%AC%E7%9A%84%E6%93%8D%E4%BD%9C">Visual mode，用于选中文本，以及各种针对选中文本的操作</a></li>
+<li><a href="#insert-mode">Insert mode</a></li>
+<li><a href="#%E6%9F%A5%E6%89%BE">查找</a></li>
+</ul>
+</li>
+<li><a href="#%E6%90%9C%E7%B4%A2%E6%A0%8F">搜索栏</a></li>
+<li><a href="#%E6%90%9C%E7%B4%A2%E9%80%89%E4%B8%AD%E6%96%87%E6%9C%AC">搜索选中文本</a></li>
+<li><a href="#%E7%B1%BB-vim-%E6%A0%87%E7%A4%BA">类 vim 标示</a></li>
+<li><a href="#%E5%88%87%E6%8D%A2%E6%A0%87%E7%AD%BE%E9%A1%B5">切换标签页</a></li>
+<li><a href="#%E5%91%BD%E4%BB%A4">命令</a></li>
+<li><a href="#%E9%A1%BA%E6%BB%91%E6%BB%9A%E5%8A%A8">顺滑滚动</a></li>
+<li><a href="#%E4%BC%9A%E8%AF%9D%E7%AE%A1%E7%90%86">会话管理</a></li>
+<li><a href="#%E5%89%8D%E7%BC%80%E6%95%B0%E5%AD%97%E5%8F%AF%E5%A4%9A%E6%AC%A1%E9%87%8D%E5%A4%8D%E7%9B%B8%E5%BA%94%E6%93%8D%E4%BD%9C">前缀数字可多次重复相应操作</a></li>
+<li><a href="#%E5%BC%80%E5%85%B3%E7%83%AD%E9%94%AE">开关热键</a></li>
+<li><a href="#%E4%BB%A3%E7%90%86%E8%AE%BE%E7%BD%AE">代理设置</a></li>
+<li><a href="#vim-%E7%BC%96%E8%BE%91%E5%99%A8">VIM 编辑器</a>
+<ul>
+<li><a href="#%E7%BC%96%E8%BE%91%E7%BD%91%E9%A1%B5%E4%B8%8A%E7%9A%84%E5%90%84%E7%B1%BB%E6%96%87%E6%9C%AC%E8%BE%93%E5%85%A5%E6%A1%86">编辑网页上的各类文本输入框</a></li>
+<li><a href="#%E7%BC%96%E8%BE%91-url-%E5%B9%B6%E5%9C%A8%E6%96%B0%E6%A0%87%E7%AD%BE%E9%A1%B5%E6%89%93%E5%BC%80">编辑 URL 并在新标签页打开</a></li>
+<li><a href="#%E7%BC%96%E8%BE%91%E8%AE%BE%E7%BD%AE">编辑设置</a></li>
+</ul>
+</li>
+<li><a href="#%E7%82%B9%E5%91%BD%E4%BB%A4%E9%87%8D%E5%A4%8D%E5%89%8D%E4%B8%80%E4%B8%AA%E6%93%8D%E4%BD%9C">点命令重复前一个操作</a></li>
+<li><a href="#markdown-%E9%A2%84%E8%A7%88">Markdown 预览</a></li>
+<li><a href="#%E9%85%8D%E7%BD%AE%E5%8F%82%E8%80%83">配置参考</a>
+<ul>
+<li><a href="#%E6%B7%BB%E5%8A%A0%E4%B8%80%E4%B8%AA%E6%8C%89%E9%94%AE%E6%98%A0%E5%B0%84">添加一个按键映射</a></li>
+<li><a href="#%E6%98%A0%E5%B0%84%E6%8C%89%E9%94%AE%E5%88%B0%E5%85%B6%E4%BB%96%E6%8C%89%E9%94%AE">映射按键到其他按键</a></li>
+<li><a href="#%E5%88%A0%E9%99%A4%E4%B8%80%E4%B8%AA%E6%8C%89%E9%94%AE%E6%98%A0%E5%B0%84">删除一个按键映射</a></li>
+<li><a href="#%E5%9C%A8%E6%90%9C%E7%B4%A2%E6%A0%8F%E9%87%8C%E6%B7%BB%E5%8A%A0%E6%90%9C%E7%B4%A2%E5%88%AB%E5%90%8D">在搜索栏里添加搜索别名</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            </div>
+          </div>
+          
+    </div>
+  </div>
+</div>
+
+<div class="menu-container">
+  <i class="ri-arrow-left-line text-2xl cursor-pointer animated fadeIn close-menu-btn" onclick="closeMenu()"></i>
+  <div>
+    
+      
+          <a href="/" class="menu" style="animation-delay: 0s">
+            🏠 首页
+          </a>
+          
+            
+      
+          <a href="/tags" class="menu" style="animation-delay: 0.2s">
+            🏷️ 标签
+          </a>
+          
+            
+      
+          <a href="/archives" class="menu" style="animation-delay: 0.4s">
+            📬 归档
+          </a>
+          
+            
+      
+          <a href="/post/about" class="menu" style="animation-delay: 0.6000000000000001s">
+            😶 关于
+          </a>
+          
+            
+      
+        <a href="https://l3on.site/" class="menu" style="animation-delay: 0.8s" target="_blank">
+          ⌨️ Typecho
+        </a>
+        
+            
+      
+        <a href="https://blog.l3on.site" class="menu" style="animation-delay: 1s" target="_blank">
+          🔼 Nobelium
+        </a>
+        
+            
+  </div>
+  <div class="site-footer">
+    <div class="py-4 text-gray-700">
+      <a href="/post/about">Wonder Space 🚀</a> by Leon is licensed under a <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">Creative Commons BY-NC-SA 4.0 International License</a>. <img src="https://upload.wikimedia.org/wikipedia/commons/1/12/Cc-by-nc-sa_icon.svg" width="30%" style="margin:5 auto;">
+    </div>
+    <a class="rss" href="https://ws.l3on.site/atom.xml" target="_blank" style="margin: 5px;">RSS</a>
+    <button onclick="DarkReader.disable()" style="margin: 5px;">🌖</button>
+    <button onclick="DarkReader.enable({darkSchemeBackgroundColor:'#000000',darkSchemeTextColor:'#ffffff'})"
+      style="margin: 5px;">🌒</button>
+  </div>
+</div>
+<div class="mask" onclick="closeMenu()"
+  style="backdrop-filter: blur(7px); background: hsla(0, 0%, 100%, 0.5); -webkit-backdrop-filter: blur(7px);">
+</div>
+      <div class="content-wrapper py-32 lg:p-8 lg:w-3/4 post-detail animated fadeIn">
+        <h1 class="text-3xl font-bold lg:mt-16">
+          Surfingkeys – 用 JavaScript 和键盘扩展你的 Chrome
+        </h1>
+        <div class="text-sm text-gray-700 lg:my-8">
+          12-08-2020 / 16 min read
+        </div>
+        
+            <div class="post-content yue">
+              <blockquote>
+<p>原文地址 <a href="https://brookhong.github.io/2015/09/20/surfingkeys-cn.html">brookhong.github.io</a></p>
+</blockquote>
+<p><a href="https://brookhong.github.io/assets/downloads/Surfingkeys.crx">Chrome 版供墙内的同学下载</a> <a href="https://addons.mozilla.org/en-US/firefox/addon/surfingkeys_ff/">火狐版</a></p>
+<p>Surfingkeys 和现有的一些插件一样，让你尽可能的通过键盘来使用 chrome 浏览器，比如跳转网页，上下左右滚屏。但不只是给 vim 用户使用，Surfingkeys 的基本特性是让你自己写一段 Javascript 脚本，然后通过<code>mapkey</code>映射到某些按键。之后当你按了那几个键以后，对应的 Javascript 脚本就会被执行。</p>
+<p>Surfingkeys 的配置全部写在一段 javascript 中，很容易添加自己的映射按键。如：</p>
+<pre><code class="language-JavaScript">mapkey('&lt;Ctrl-y&gt;', 'Show me the money', function() {
+    Front.showPopup('a well-known phrase uttered by characters in the 1996 film Jerry Maguire (Escape to close).');
+});
+</code></pre>
+<p><a href="#%E9%85%8D%E7%BD%AE%E5%8F%82%E8%80%83">配置参考</a></p>
+<p><a href="http://video.weibo.com/show?fid=1034:640920e0b7aa80e3a2f987c1091a7e45">演示</a></p>
+<h2 id="功能特性">功能特性</h2>
+<ul>
+<li>所有配置都用 javascript 描述，易于修改添加自己的按键。</li>
+<li>一个大号光标，这样 visual mode 不会太痛苦。</li>
+<li>搜索选中文本，在 normal mode 和 visual mode 都好用。</li>
+<li>自动生成帮助信息。</li>
+<li>在 visual mode 下，按<code>*</code> 可以搜索当前单词。</li>
+<li>滚动操作（像<code>e</code> <code>d</code>上下翻页之类）可以在顶层页面工作，也可以在一个支持滚动的 DIV 中使用。</li>
+<li>在一个有多个 frame 的页面中，<code>w</code>可以切换 frame。</li>
+<li>会话管理。</li>
+<li>一个多功能书签地址栏</li>
+<li>前缀数字可多次重复相应操作</li>
+<li>使用 VIM 编辑页面上各种输入框</li>
+<li>点命令重复前一个操作</li>
+<li><code>sm</code>预览 markdown</li>
+</ul>
+<h2 id="快速上手">快速上手</h2>
+<p>安装本插件以后，打开你要访问的站点。先按<code>?</code>或者<code>u</code>看看帮助信息，按<code>Esc</code>可以关掉帮助信息。</p>
+<p>试试帮助信息里的那些按键，比如，<code>e</code>向上翻页，<code>d</code>向下翻页，<code>se</code>打开设置。</p>
+<h2 id="打开连接">打开连接</h2>
+<p>默认的拨号键有<code>asdfgqwertzxcvb</code>，如果按了一个非拨号键，会自动退出拨号。下面的设置可以改成右手习惯：</p>
+<pre><code class="language-JavaScript">Hints.characters = 'yuiophjklnm'; // for right hand
+</code></pre>
+<p>当拨号盘有重叠上，可以按<code>Shift</code>翻转重叠的拨号盘。按住空格键可隐藏拨号盘，松开恢复。</p>
+<h2 id="surfingkeys-支持的模式">Surfingkeys 支持的模式</h2>
+<p>Surfingkeys 有三种模式：normal，visual 和 insert。</p>
+<h3 id="normal-mode默认模式">Normal mode，默认模式</h3>
+<p>当你打开一个页面时，自动进入该模式。通过函数<code>mapkey</code>添加的所有按键都只在这种模式下有用。</p>
+<h3 id="visual-mode用于选中文本以及各种针对选中文本的操作">Visual mode，用于选中文本，以及各种针对选中文本的操作</h3>
+<p>除了通过函数<code>vmapkey</code>添加的所有按键在这种模式下有用，此外还有一些内置类似 vim 的按键，如<code>j</code> <code>k</code> <code>h</code> <code>l</code> <code>b</code> <code>w``0</code> <code>$</code>等。</p>
+<p>按<code>v</code>可以切换 visual mode。在 visual mode 下，你会在页面底部看到一个提示 – <code>Caret</code>或者<code>Range</code>，页面中还有一个大号的光标。光标做得这么大，是让人在页面中好找到它。</p>
+<p><code>Caret</code> 表明当你按 jkhl 时会移动光标，<code>Range</code>则表明你移动光标会选择文本。下面有个小练习：</p>
+<ol>
+<li>按下<code>v</code>，确认你能看到<code>Caret</code>提示和光标。</li>
+<li>使用<code>j</code> <code>k</code> <code>h</code> <code>l</code> <code>b</code> <code>w``0</code> <code>$</code>试试移动光标。</li>
+<li>再按下<code>v</code>，确认你看到<code>Range</code>提示。</li>
+<li>使用<code>j</code> <code>k</code> <code>h</code> <code>l</code> <code>b</code> <code>w``0</code> <code>$</code>试试选中文本。</li>
+<li>按下<code>sg</code>看看发生了什么。</li>
+<li>再按下<code>v</code>回到 normal mode。</li>
+</ol>
+<figure data-type="image" tabindex="1"><img src="https://cloud.githubusercontent.com/assets/288207/17644215/759f1e70-61b3-11e6-8bf8-0bdff7d0c933.gif" alt="" loading="lazy"></figure>
+<h3 id="insert-mode">Insert mode</h3>
+<p>当输入焦点定位到各类输入框时（无论你是通过<code>i</code>或<code>f</code>选择定位还是鼠标点击定位的），就进入该模式。 通过函数<code>imapkey</code>添加的所有按键都只在这种模式下有用。</p>
+<h3 id="查找">查找</h3>
+<p>查找不是模式，但是它会让你自动进入 visual mode. 按<code>/</code>打开查找栏，输入你要查找的文字，你会看到所有匹配的文字会被高亮。按回车完成查找，这时你会自动进入 visual mode – <code>Caret</code>。按<code>n</code>定位下一个，<code>N</code>定位前一个。</p>
+<h2 id="搜索栏">搜索栏</h2>
+<p>一些需要用户输入的功能通过搜索栏提供，比如</p>
+<ul>
+<li>用<code>t</code>打开网页（从收藏夹或访问历史）</li>
+<li>用<code>b</code>打开收藏夹</li>
+<li>用<code>og</code>/<code>ob</code>等打开搜索引擎</li>
+<li>用<code>:</code>打开命令模式</li>
+</ul>
+<p>用<code>t</code>打开搜索栏时，</p>
+<pre><code>`Ctrl - i` 打开 vim 编辑器。
+</code></pre>
+<p>用<code>b</code>打开搜索栏时，</p>
+<pre><code>`Ctrl - d` 可以从收藏夹或访问历史中删除选中项
+</code></pre>
+<figure data-type="image" tabindex="2"><img src="https://cloud.githubusercontent.com/assets/288207/17644214/759ef1d4-61b3-11e6-9bd9-70c38c8b80e0.gif" alt="" loading="lazy"></figure>
+<h2 id="搜索选中文本">搜索选中文本</h2>
+<p>从使用 Firefox 时起，我就必装的一个插件。无论 Firefox 还是 Chrome，我用的插件都是通过右键菜单来实现的。Surfingkeys 则通过按键来实现。默认情况下，当你在 normal mode 下按<code>sg</code>，Surfingkeys 会打开 google 搜索选中文本，如果没有文字被选中，则搜索系统剪贴板里面的文字。在 visual mode 下，它只会搜索选中文本。</p>
+<p><code>sg</code>里面的<code>g</code>是个别名，用于 google，还有其他一些内置的别名，如<code>b</code>是百度的别名。这样当你按<code>sb</code>的时候就是使用百度来搜索选中文本。参考<a href="#%E5%9C%A8%E6%90%9C%E7%B4%A2%E6%A0%8F%E9%87%8C%E6%B7%BB%E5%8A%A0%E6%90%9C%E7%B4%A2%E5%88%AB%E5%90%8D">在搜索栏里添加搜索别名</a>来添加你自己的搜索别名，尤其那些用于公司内部的搜索。</p>
+<p>此外，还有<code>sog</code>可以使用 google 在本站搜索选中文本。在这个<code>sog</code>里面，<code>s</code>是 search_leader_key，<code>o</code>是 only_this_site_key，<code>g</code>是搜索别名。</p>
+<p>search_leader_key(<code>s</code>) 加上大写的别名 (<code>G</code>) 会打开搜索框让你可以修改添加搜索内容，再用 Google 搜索。其它别名和你通过<code>addSearchAliasX</code>添加的别名，大写的都可以这样工作。</p>
+<h2 id="类-vim-标示">类 vim 标示</h2>
+<p>简单说，vim 中的 marks 就是按<code>m</code>，然后跟一个字符（a-z 为当前页内标示，其它的如 0-9，A-Z 为全局标示），标示一下当前网址。之后，你随时按<code>'</code>跟上你定义的那个标示符，就会跳转到该网址。</p>
+<p>除了<code>m</code>键创建标示外，你还可以从收藏夹里按住 Ctrl，加上标示符来创建。如下：</p>
+<ol>
+<li>按下<code>b</code>打开收藏夹。</li>
+<li>随便输点啥，定位到你要标示的网址。</li>
+<li>按住 Ctrl，加上你选中的标示符，比如<code>f</code>。</li>
+</ol>
+<p>之后，按<code>'F</code>就可以直接打开该网址来。</p>
+<p>这个功能对那些你需要经常访问对网址很有用，两个键直达。<code>om</code>可以查看你已创建的标示。</p>
+<h2 id="切换标签页">切换标签页</h2>
+<p>默认情况下，按<code>T</code>会显示所有已打开标签页，然后按相应的提示键可以切到该标签页。</p>
+<figure data-type="image" tabindex="3"><img src="https://cloud.githubusercontent.com/assets/288207/10544636/245447f6-7457-11e5-8372-62b8f6337158.png" alt="" loading="lazy"></figure>
+<p>这里有个设置<code>settings.tabsThreshold</code>，当然打开的标签页总数超过它时，再按空格就会使用搜索栏来选择标签。</p>
+<figure data-type="image" tabindex="4"><img src="https://cloud.githubusercontent.com/assets/288207/10544630/1fbdd02c-7457-11e5-823c-14411311c315.png" alt="" loading="lazy"></figure>
+<p>如果你希望一直用搜索栏来选择标签页，可使用如下设置:</p>
+<pre><code>`Ctrl - &lt;any letter&gt;` 创建相应的类似 vim 的全局标示。
+</code></pre>
+<p>效果相当于：</p>
+<pre><code class="language-JavaScript">mapkey(' ', 'Choose a tab with omnibar', 'Front.openOmnibar(OpenTabs)');
+</code></pre>
+<p>无论是否在搜索栏里，标签页都按最近使用的顺序列出。如果你希望按标签页原本的顺序列出，可以设置：</p>
+<pre><code class="language-JavaScript">settings.tabsThreshold = 0;
+</code></pre>
+<h2 id="命令">命令</h2>
+<p>用<code>:</code>打开搜索栏可用于执行命令，命令执行结果会显示在搜索栏下方。可以添加你自己的命令如下：</p>
+<pre><code class="language-JavaScript">settings.tabsMRUOrder = false;
+</code></pre>
+<p>例如，</p>
+<pre><code class="language-JavaScript">command('&lt;command_name&gt;', '&lt;help message for this command&gt;', function() {
+    // to do
+});
+</code></pre>
+<p>除了命令，你还可以执行各类简单 js 代码。</p>
+<figure data-type="image" tabindex="5"><img src="https://cloud.githubusercontent.com/assets/288207/11527801/fadee82c-991d-11e5-92e9-b054796a6a75.png" alt="" loading="lazy"></figure>
+<h2 id="顺滑滚动">顺滑滚动</h2>
+<p>所有可以滚动的对象都默认支持顺滑滚动，如下可以关掉顺滑特性：</p>
+<pre><code class="language-JavaScript">command('setProxyMode', 'setProxyMode &lt;always|direct|byhost&gt;', function(args) {
+    // args is an array of arguments
+    RUNTIME('updateProxy', {
+        mode: args[0]
+    });
+    // return true to close Omnibar for Commands, false to keep Omnibar on
+    return true;
+});
+
+// 映射不同的按键到该命令，但采用不同的参数。map('spa', ':setProxyMode always');
+map('spb', ':setProxyMode byhost');
+map('spd', ':setProxyMode direct');
+</code></pre>
+<h2 id="会话管理">会话管理</h2>
+<p>用 Surfingkeys 在 Chrome 里保存会话相当于保存所有标签页的地址，打开会话则相当于在不同的标签页中打开所有保存其中的网页地址，所以会话基本上就是一个网页地址列表，每个会话有自己的名字。</p>
+<ul>
+<li><code>ZZ</code>会保存所有当前标签页到一个名为<code>LAST</code>的会话，然后退出。</li>
+<li><code>ZR</code>恢复名为<code>LAST</code>的会话。</li>
+<li><code>ZQ</code>就只退出，不保存当前会话。</li>
+</ul>
+<p>你可以在命令模式下创建／管理多个不同名称的会话。按<code>:</code>打开命令窗口，然后输入:</p>
+<p>就会创建一个名为<code>works</code>的会话，要打开该会话使用如下命令：</p>
+<p>列出已保存的所有会话：</p>
+<p>删除某个会话：</p>
+<h2 id="前缀数字可多次重复相应操作">前缀数字可多次重复相应操作</h2>
+<p>如果需要重复多次某个操作，可以在按该映射键之前按下相应的数字，比如<code>3d</code>，就会往下滚 3 页。这种方法同样适用于标签操作，比如，你现在在第一个标签页，你想切换到第四个标签页，</p>
+<ul>
+<li>按<code>3R</code>就可以</li>
+<li><code>3E</code>会切回到第一个标签页</li>
+</ul>
+<p>另一个例子是移动标签页，假设你现在开着 23 个标签页，你在第 12 个，</p>
+<ul>
+<li><code>11&lt;&lt;</code> 就把当前标签页移到第一个</li>
+<li><code>10&gt;&gt;</code> 则会把它移到最后一个</li>
+</ul>
+<p>通常情况，你不需要去数多少个标签页，如果你只是想移动到开头或者结尾的话，你按一个足够大的数字就可以，比如<code>99&lt;&lt;</code>。</p>
+<h2 id="开关热键">开关热键</h2>
+<p>默认情况下，按<code>Alt-s</code>可以在当前站点开关 Surfingkeys。当 Surfingkeys 处于关闭状态时，除了热键，其它所有按键映射都停止工作。用如下设置修改热键：</p>
+<pre><code class="language-JavaScript">settings.smoothScroll = false;
+</code></pre>
+<p>当 Surfingkeys 在某个网站被<code>Alt-s</code>关掉时，这个状态会被保存在设置里，如</p>
+<pre><code class="language-JavaScript">createSession works
+</code></pre>
+<p>再按一次<code>Alt-s</code>会从 settings.blacklist 中删除该站点。另外，<code>yj</code>可以把当前设置复制到系统剪贴板。</p>
+<p>另一个禁用 Surfingkeys 的方法是用<code>settings.blacklistPattern</code>，请参考 <a href="https://github.com/brookhong/Surfingkeys/issues/63">regex for disabling</a>.</p>
+<h2 id="代理设置">代理设置</h2>
+<p>SwitchySharp 是个很好的代理管理插件，但我的用法很简单，</p>
+<ol>
+<li>创建一个使用 PAC 脚本的配置。</li>
+<li>在 PAC 脚本里维护一个网站列表，如果当前所访问的站点在其中就使用代理。</li>
+<li>当碰到一个站点是被墙的，就把这个网站加入列表。</li>
+<li>然后点击 SwitchySharp 的图标重载配置。</li>
+<li>有时也会点击图标在配置之间切换。</li>
+</ol>
+<p>其中需要手工编辑 PAC 脚本，鼠标点击 SwitchySharp 图片切换重载配置，因此我把代理设置的功能集成进来，并提供相关的命令和快捷键。</p>
+<ul>
+<li>
+<p>setProxy, 设置代理，示例如下：</p>
+<pre><code>openSession works
+</code></pre>
+</li>
+<li>
+<p>setProxyMode, 设置代理模式，有三种模式：direct, byhost, always</p>
+<pre><code>listSession
+</code></pre>
+</li>
+<li>
+<p>addProxySite, removeProxySite, toggleProxySite, 管理你需要通过代理访问的网站，比如：</p>
+<pre><code>deleteSession works
+</code></pre>
+</li>
+<li>
+<p>proxyInfo, 列出你当前的代理设置，包括用以上命令设置的信息。</p>
+</li>
+<li>
+<p><code>cp</code>, 切换当前站点的代理设置，即是否使用代理访问当前站点。</p>
+</li>
+<li>
+<p><code>spa</code>, <code>:setProxyMode always</code>快捷键。</p>
+</li>
+<li>
+<p><code>spb</code>, <code>:setProxyMode byhost</code>快捷键。</p>
+</li>
+<li>
+<p><code>spd</code>, <code>:setProxyMode direct</code>快捷键。</p>
+</li>
+<li>
+<p><code>spi</code>, <code>:proxyInfo</code>快捷键。</p>
+</li>
+</ul>
+<h2 id="vim-编辑器">VIM 编辑器</h2>
+<p>Surfingkeys 集成了 ACE 里的 VIM 编辑器，用于：</p>
+<ul>
+<li>编辑网页上的各类文本输入框。</li>
+<li>编辑 URL 并在新标签页打开</li>
+<li>编辑设置</li>
+</ul>
+<h3 id="编辑网页上的各类文本输入框">编辑网页上的各类文本输入框</h3>
+<p>在 Normal 模式，按大写的<code>I</code>，然后按相应的字母选择一个输入框。这时会打开一个 VIM 编辑器。对于单行输入框<code>input</code>和多行输入框<code>textarea</code>，打开的 VIM 编辑器会有点细微的不同。</p>
+<p>对于单行输入框<code>input</code>，打开的 VIM 编辑器只有一行，你可以通过各类 VIM 按键编辑你的文本，按<code>Enter</code>或者<code>:w</code>就会把 VIM 编辑器里的内容写回相应的输入框。</p>
+<figure data-type="image" tabindex="6"><img src="https://cloud.githubusercontent.com/assets/288207/17644219/75a72b2e-61b3-11e6-8ce2-06c9cc94aeca.gif" alt="" loading="lazy"></figure>
+<p>对于多行输入框<code>textarea</code>，打开的 VIM 编辑器有多行，在你完成编辑之后，按<code>Ctrl-Enter</code>或者<code>:w</code>就会把 VIM 编辑器里的内容写回相应的输入框。</p>
+<figure data-type="image" tabindex="7"><img src="https://cloud.githubusercontent.com/assets/288207/17644217/75a27e44-61b3-11e6-8f21-9cd79d3c5776.gif" alt="" loading="lazy"></figure>
+<p>对于下拉列表<code>select</code>，打开的 VIM 编辑器有多行，但你不能编辑其中的文本，你只能搜索你需要的选项，跳到那一行，然后按<code>Enter</code>选中它。这对那种有几十个以上选项的下拉列表尤其有用。</p>
+<figure data-type="image" tabindex="8"><img src="https://cloud.githubusercontent.com/assets/288207/17644218/75a458a4-61b3-11e6-8ce7-eedcc996745c.gif" alt="" loading="lazy"></figure>
+<p>按键<code>Esc</code>或<code>:q</code>可退出 VIM 编辑器，不写回输入。</p>
+<p><code>Tab</code>键可以从当前页面上搜索匹配的词组，然后按空格键补齐。</p>
+<p>如果你是通过按键<code>i</code>或者鼠标点击进入一个输入框的，你可以正常修改输入框中的文本，也可以随时按<code>Ctrl-i</code>打开一个 VIM 编辑器。</p>
+<p>记住在插入模式，按<code>Ctrl-i</code>打开 VIM 编辑器。</p>
+<h3 id="编辑-url-并在新标签页打开">编辑 URL 并在新标签页打开</h3>
+<p><code>su</code>可以打开一个 VIM 编辑器来编辑当前 URL，然后按<code>Enter</code>或者<code>:w</code>就会打开编辑后的 URL，就像一个地址栏一样，但这是一个支持 vim 按键的地址栏。</p>
+<p><code>Tab</code>键可以从书签和访问历史中搜索匹配的 URL，然后按空格键补齐。</p>
+<figure data-type="image" tabindex="9"><img src="https://cloud.githubusercontent.com/assets/288207/17644220/75f8eedc-61b3-11e6-9630-da2250ac5f10.gif" alt="" loading="lazy"></figure>
+<h3 id="编辑设置">编辑设置</h3>
+<p><code>se</code>打开设置编辑器, <code>:w</code>保存设置。</p>
+<h2 id="点命令重复前一个操作">点命令重复前一个操作</h2>
+<p><a href="https://github.com/brookhong/Surfingkeys/issues/67">重复前一个操作</a></p>
+<p>所有 normal 模式下的按键都可以由点来重复，除了那些在创建时指定<code>repeatIgnore</code>为<code>true</code>的按键，如</p>
+<pre><code class="language-JavaScript">map('&lt;Ctrl-i&gt;', '&lt;Alt-s&gt;'); // 热键只能是一个按键，但可以带辅助按键，不能是`gg`这样的一串按键。
+</code></pre>
+<p>这样，<code>.</code>就不会往上翻页，即使你刚刚按了<code>e</code>。</p>
+<h2 id="markdown-预览">Markdown 预览</h2>
+<ol>
+<li>复制 markdown 代码到系统剪贴板。</li>
+<li><code>sm</code>预览剪贴板里的 markdown。</li>
+<li>在预览页，再按<code>sm</code>会打开 vim 编辑器编辑 markdown。</li>
+<li><code>:wp</code>刷新预览。</li>
+<li><code>r</code>可以从系统剪贴板里重新加载 markdown.</li>
+</ol>
+<figure data-type="image" tabindex="10"><img src="https://cloud.githubusercontent.com/assets/288207/17669897/0b6fbaf6-6342-11e6-8583-86eb8691190d.gif" alt="" loading="lazy"></figure>
+<p>Surfingkeys 默认使用<a href="https://github.com/chjj/marked">这个 markdown 分析器</a>，如果你想用 <a href="https://developer.github.com/v3/markdown/">github 提供的 API</a>，可以设置：</p>
+<pre><code class="language-JavaScript">&quot;blacklist&quot;: {
+    &quot;https://github.com&quot;: 1
+},
+</code></pre>
+<h2 id="配置参考">配置参考</h2>
+<h3 id="添加一个按键映射">添加一个按键映射</h3>
+<pre><code>setProxy 192.168.1.100:8080
+  setProxy 127.0.0.1:1080 SOCKS5
+</code></pre>
+<table><thead><tr><th>参数</th><th>含义</th></tr></thead><tbody><tr><td><strong>keystroke</strong></td><td>字符串，触发某个操作的按键</td></tr><tr><td><strong>help_string</strong></td><td>字符串，帮助描述，会自动出现在<code>u</code>打开的帮助小窗里。</td></tr><tr><td><strong>action_code</strong></td><td>字符串或者函数，一段 Javascript 代码，或者一个 Javascript 函数。</td></tr><tr><td><strong>options</strong></td><td>object, 字段属性如下</td></tr><tr><td><strong>extra_chars</strong></td><td>布尔值 [可选]，下一个按键是否为 action_code 的参数， 可以参考<code>m</code>或<code>'</code>的设置。</td></tr><tr><td><strong>domain</strong></td><td>正则表达式 [可选]，表明只有当域名匹配时，该按键映射才会生效。比如，<code>/github\.com/i</code> 说明按键映射只在 github.com 上生效。</td></tr><tr><td><strong>repeatIgnore</strong></td><td>布尔值 [可选]，是否可通过点命令重复该按键。</td></tr></tbody></table>
+<p>一个示例，在不同网站上映射相同的按键到不同的操作：</p>
+<pre><code>direct      Chrome 不使用代理访问任何网站。byhost      Chrome 只在访问你通过下面的命令添加的网站时使用代理。always      Chrome 使用代理访问所有网站。
+</code></pre>
+<p>可视化模式下的 mapkey</p>
+<pre><code>addProxySite google.com,facebook.com,twitter.com
+</code></pre>
+<h3 id="映射按键到其他按键">映射按键到其他按键</h3>
+<pre><code>mapkey('e', '#2Scroll a page up', 'Normal.scroll(&quot;pageUp&quot;)', {repeatIgnore: true});
+</code></pre>
+<table><thead><tr><th>参数</th><th>含义</th></tr></thead><tbody><tr><td><strong>new_keystroke</strong></td><td>字符串，将要使用的按键。</td></tr><tr><td><strong>old_keystroke</strong></td><td>字符串，将被替换的按键。</td></tr><tr><td><strong>domain_pattern</strong></td><td>正则表达式 [可选]，表明只有当域名匹配时，该按键映射才会生效。</td></tr><tr><td><strong>new_annotation</strong></td><td>字符串 [可选], 如果提供了就用作帮助描述，否则就用 old_keystroke 对应的帮助描述。</td></tr></tbody></table>
+<h3 id="删除一个按键映射">删除一个按键映射</h3>
+<pre><code>settings.useLocalMarkdownAPI = false;
+</code></pre>
+<table><thead><tr><th>参数</th><th>含义</th></tr></thead><tbody><tr><td><strong>keystroke</strong></td><td>字符串，将要删除的按键。</td></tr><tr><td><strong>domain_pattern</strong></td><td>正则表达式 [可选]，表明只有当域名匹配时，该操作会生效。</td></tr></tbody></table>
+<h3 id="在搜索栏里添加搜索别名">在搜索栏里添加搜索别名</h3>
+<pre><code>mapkey(keystroke, help_string, action_code, [options])
+</code></pre>
+<table><thead><tr><th>参数</th><th>含义</th></tr></thead><tbody><tr><td><strong>alias</strong></td><td>一个以上字符，用作搜索别名。当你在搜索栏里输入它之后，再按空格键，会切换到对应的搜索引擎。</td></tr><tr><td><strong>prompt</strong></td><td>提示符，说明当前所用搜索引擎。</td></tr><tr><td><strong>search_url</strong></td><td>搜索引擎搜索地址。</td></tr><tr><td><strong>suggestion_url[可选]</strong></td><td>搜索自动完成 URL，如果提供的话，搜索栏会列出相关关键字。</td></tr><tr><td><strong>callback_to_parse_suggestion[可选]</strong></td><td>解析 suggestion_url 返回的内容，列出相关关键字。</td></tr></tbody></table>
+<pre><code>mapkey('zz', 'Choose a tab', 'Front.chooseTab()', {domain: /github\.com/i});
+mapkey('zz', 'Show usage', 'Front.showUsage()', {domain: /google\.com/i});
+</code></pre>
+<table><thead><tr><th>参数</th><th>含义</th></tr></thead><tbody><tr><td><strong>search_leader_key</strong></td><td>一个以上字符，如果你不想使用默认的<code>s</code>键。</td></tr><tr><td><strong>only_this_site_key</strong></td><td>一个以上字符，如果你不想使用默认的<code>o</code>键。</td></tr></tbody></table>
+<p>这是一个扩展版本，除了往搜索栏里添加搜索别名，还会创建一个按键映射，由<code>search_leader_key</code>加上<code>alias</code>组成，对应的操作就是搜索选中文本。比如，下面这行，</p>
+<pre><code>vmapkey(keystroke, help_string, action_code, [options])
+</code></pre>
+<p>就相当于</p>
+<pre><code>map(new_keystroke, old_keystroke, [domain_pattern], [new_annotation])
+</code></pre>
+
+            </div>
+
+            
+              <a class="animated fadeInUp p-2 items-center text-sm text-gray-700 border hover:bg-gray-300 leading-none rounded-full flex lg:inline-flex m-4 "
+                href="https://ws.l3on.site/tag/fei-yuan-chuang/">
+                <span class="flex-auto">
+                  非原创
+                </span>
+              </a>
+              
+              <a class="animated fadeInUp p-2 items-center text-sm text-gray-700 border hover:bg-gray-300 leading-none rounded-full flex lg:inline-flex m-4 "
+                href="https://ws.l3on.site/tag/cun-dang/">
+                <span class="flex-auto">
+                  存档
+                </span>
+              </a>
+              
+              <a class="animated fadeInUp p-2 items-center text-sm text-gray-700 border hover:bg-gray-300 leading-none rounded-full flex lg:inline-flex m-4 "
+                href="https://ws.l3on.site/tag/djRIW_izT/">
+                <span class="flex-auto">
+                  软件
+                </span>
+              </a>
+              
+
+
+                <div class="flex justify-between py-8">
+                  
+
+                      
+                </div>
+
+                
+
+<script src="https://giscus.app/client.js"
+    data-repo="LeonWong0609/LeonWong0609.github.io"
+    data-repo-id="MDEwOlJlcG9zaXRvcnkyMjcyODI0NTM="
+    data-category="General"
+    data-category-id="DIC_kwDODYwOFc4COnst"
+    data-mapping="title"
+    data-reactions-enabled="1"
+    data-emit-metadata="1"
+    data-input-position="top"
+    data-theme="transparent_dark"
+    data-lang="zh-CN"
+    data-loading="lazy"
+    crossorigin="anonymous"
+    async>
+</script>
+
+      </div>
+  </div>
+
+  <script src="https://ws.l3on.site/media/prism.js"></script>
+
+<script>
+
+  Prism.highlightAll()
+  let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+
+  // This should probably be throttled.
+  // Especially because it triggers during smooth scrolling.
+  // https://lodash.com/docs/4.17.10#throttle
+  // You could do like...
+  // window.addEventListener("scroll", () => {
+  //    _.throttle(doThatStuff, 100);
+  // });
+  // Only not doing it here to keep this Pen dependency-free.
+
+  window.addEventListener("scroll", event => {
+    let fromTop = window.scrollY;
+
+    mainNavLinks.forEach((link, index) => {
+      let section = document.getElementById(decodeURI(link.hash).substring(1));
+      let nextSection = null
+      if (mainNavLinks[index + 1]) {
+        nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
+      }
+      if (section.offsetTop <= fromTop) {
+        if (nextSection) {
+          if (nextSection.offsetTop > fromTop) {
+            link.classList.add("current");
+          } else {
+            link.classList.remove("current");
+          }
+        } else {
+          link.classList.add("current");
+        }
+      } else {
+        link.classList.remove("current");
+      }
+    });
+  });
+
+
+  document.addEventListener("DOMContentLoaded", function () {
+    var lazyImages = [].slice.call(document.querySelectorAll(".post-feature-image.lazy"));
+
+    if ("IntersectionObserver" in window) {
+      let lazyImageObserver = new IntersectionObserver(function (entries, observer) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            let lazyImage = entry.target
+            lazyImage.style.backgroundImage = `url(${lazyImage.dataset.bg})`
+            lazyImage.classList.remove("lazy")
+            lazyImageObserver.unobserve(lazyImage)
+          }
+        });
+      });
+
+      lazyImages.forEach(function (lazyImage) {
+        lazyImageObserver.observe(lazyImage)
+      })
+    } else {
+      // Possibly fall back to a more compatible method here
+    }
+  });
+
+  const menuContainer = document.querySelector('.menu-container')
+  const menus = document.querySelectorAll('.menu-container .menu')
+  const mask = document.querySelector('.mask')
+  const contentWrapper = document.querySelector('.content-wrapper')
+  const latestArticle = document.querySelector('.latest-article')
+  const readMore = document.querySelector('.read-more')
+  const indexPage = document.querySelector('.index-page')
+
+  const isHome = location.pathname === '/'
+  if (latestArticle) {
+    latestArticle.style.display = isHome ? 'block' : 'none'
+    readMore.style.display = isHome ? 'block' : 'none'
+    indexPage.style.display = isHome ? 'none' : 'block'
+  }
+
+  const openMenu = () => {
+    menuContainer.classList.add('open')
+    menus.forEach(menu => {
+      menu.classList.add('animated', 'fadeInLeft')
+    })
+    mask.classList.add('open')
+    contentWrapper.classList.add('is-second')
+  }
+
+  const closeMenu = () => {
+    menuContainer.classList.remove('open')
+    menus.forEach(menu => {
+      menu.classList.remove('animated', 'fadeInLeft')
+    })
+    mask.classList.remove('open')
+    contentWrapper.classList.remove('is-second')
+  }
+</script>
+</body>
+
+</html>

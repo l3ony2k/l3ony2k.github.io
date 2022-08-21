@@ -1,0 +1,382 @@
+<html>
+
+<head>
+  <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<title>
+  从 Gitalk 迁移到 giscus | Wonder Space 🚀
+</title>
+
+<!-- Chrome, Firefox OS and Opera -->
+<meta name="theme-color" content="#ffffff">
+
+<!-- Apple Safari -->
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<link rel="apple-touch-icon" href="https://ws.l3on.site/images/avatar.png?v=1661055158677">
+<meta name="apple-mobile-web-app-title" content="WS 🚀">
+
+<!-- instant.page -->
+<script src="https://ws.l3on.site/media/instantpage-5.1.0.js" type="module" defer></script>
+
+<!-- dark reader -->
+<script src="https://cdn.jsdelivr.net/npm/darkreader@4.9.26/darkreader.min.js"></script>
+<script>
+  // Enable when system color scheme is dark.
+  DarkReader.auto({
+    //brightness: 105,
+    //contrast: 95,
+    //sepia: 0,
+    //grayscale: 15
+    darkSchemeBackgroundColor: '#000000',
+    darkSchemeTextColor: '#ffffff'
+  });
+</script>
+
+<link rel="shortcut icon" href="https://ws.l3on.site/favicon.ico?v=1661055158677">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,700;1,400;1,700&family=IBM+Plex+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+
+<link rel="stylesheet" href="https://ws.l3on.site/styles/main.css">
+
+<!-- umami -->
+<script async defer data-website-id="3c0f6b3c-27a9-47bd-9558-913f21633e25" src="https://umami.l3on.site/l3on.js"></script>
+
+
+    <meta name="description" content="将静态博客的评论系统从 Gitalk 迁移到 giscus。
+
+从第一天建站起，这里的评论系统就是使用的 Gitalk，老实说 Gitalk 也可以满足我基本的评论需求，我也收到了为数不多的网友通过 Gitalk 发给我的珍贵的留言。但是看..." />
+
+    <!-- OG -->
+    <meta property="og:locale" content="zh_CN">
+    <meta property="og:title" content="从 Gitalk 迁移到 giscus" />
+    <meta property="og:type" content="article" />
+    <meta property="og:description" content="将静态博客的评论系统从 Gitalk 迁移到 giscus。
+
+从第一天建站起，这里的评论系统就是使用的 Gitalk，老实说 Gitalk 也可以满足我基本的评论需求，我也收到了为数不多的网友通过 Gitalk 发给我的珍贵的留言。但是看...">
+    <meta property="og:url" content="https://ws.l3on.site/post/gitalk-to-giscus/" />
+    <meta property="og:site_name" content="Wonder Space 🚀">
+    <meta property="og:updated_time" content="04-17-2022">
+    <meta property="og:image" content="" />
+    <meta property="og:image:secure_url" content="">
+    <meta property="og:image:alt" content="从 Gitalk 迁移到 giscus">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="从 Gitalk 迁移到 giscus">
+    <meta name="twitter:description" content="将静态博客的评论系统从 Gitalk 迁移到 giscus。
+
+从第一天建站起，这里的评论系统就是使用的 Gitalk，老实说 Gitalk 也可以满足我基本的评论需求，我也收到了为数不多的网友通过 Gitalk 发给我的珍贵的留言。但是看...">
+    <meta name="twitter:site" content="@WBoy0609">
+    <meta name="twitter:creator" content="@WBoy0609">
+    <meta name="twitter:image" content="">
+
+</head>
+
+<body>
+
+  <div id="app" class="main px-4 flex flex-col lg:flex-row">
+    <div id="sidebar" class="sidebar-wrapper lg:static lg:w-1/4">
+  <div class="lg:sticky top-0">
+    <div class="sidebar-content">
+      <div class="flex lg:block p-4 lg:px-0 items-center fixed lg:static lg:block top-0 right-0 left-0 bg-white z-50"
+        style="backdrop-filter: blur(7px); background: hsla(0, 0%, 100%, .75); -webkit-backdrop-filter: blur(7px);">
+        <i class="ri-menu-2-line lg:mt-4 text-2xl cursor-pointer animated fadeIn" onclick="openMenu()"></i>
+        <a href="https://ws.l3on.site">
+          <img class="animated fadeInLeft avatar rounded-lg mx-4 lg:mt-32 lg:mx-0 mt-0 lg:w-24 lg:h-24 w-12 w-12"
+            src="https://ws.l3on.site/images/avatar.png?v=1661055158677" alt="">
+        </a>
+        <h1 class="animated fadeInLeft lg:text-2xl font-extrabold lg:mt-8 mt-0 text-xl" style="animation-delay: 0.2s">
+          Wonder Space 🚀
+        </h1>
+      </div>
+      
+          <div class="animated fadeInLeft" style="animation-delay: 0.4s">
+            <p class="my-4 text-gray-600 font-light hidden lg:block">
+              Contents
+            </p>
+            <div class="toc-container hidden lg:block">
+              <ul class="markdownIt-TOC">
+<li>
+<ul>
+<li><a href="#%E5%85%B3%E4%BA%8E-giscus">关于 giscus</a></li>
+<li><a href="#%E8%BF%81%E7%A7%BB">迁移</a></li>
+<li><a href="#%E9%83%A8%E7%BD%B2">部署</a></li>
+<li><a href="#%E6%80%BB%E7%BB%93">总结</a></li>
+</ul>
+</li>
+</ul>
+
+            </div>
+          </div>
+          
+    </div>
+  </div>
+</div>
+
+<div class="menu-container">
+  <i class="ri-arrow-left-line text-2xl cursor-pointer animated fadeIn close-menu-btn" onclick="closeMenu()"></i>
+  <div>
+    
+      
+          <a href="/" class="menu" style="animation-delay: 0s">
+            🏠 首页
+          </a>
+          
+            
+      
+          <a href="/tags" class="menu" style="animation-delay: 0.2s">
+            🏷️ 标签
+          </a>
+          
+            
+      
+          <a href="/archives" class="menu" style="animation-delay: 0.4s">
+            📬 归档
+          </a>
+          
+            
+      
+          <a href="/post/about" class="menu" style="animation-delay: 0.6000000000000001s">
+            😶 关于
+          </a>
+          
+            
+      
+        <a href="https://l3on.site/" class="menu" style="animation-delay: 0.8s" target="_blank">
+          ⌨️ Typecho
+        </a>
+        
+            
+      
+        <a href="https://blog.l3on.site" class="menu" style="animation-delay: 1s" target="_blank">
+          🔼 Nobelium
+        </a>
+        
+            
+  </div>
+  <div class="site-footer">
+    <div class="py-4 text-gray-700">
+      <a href="/post/about">Wonder Space 🚀</a> by Leon is licensed under a <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">Creative Commons BY-NC-SA 4.0 International License</a>. <img src="https://upload.wikimedia.org/wikipedia/commons/1/12/Cc-by-nc-sa_icon.svg" width="30%" style="margin:5 auto;">
+    </div>
+    <a class="rss" href="https://ws.l3on.site/atom.xml" target="_blank" style="margin: 5px;">RSS</a>
+    <button onclick="DarkReader.disable()" style="margin: 5px;">🌖</button>
+    <button onclick="DarkReader.enable({darkSchemeBackgroundColor:'#000000',darkSchemeTextColor:'#ffffff'})"
+      style="margin: 5px;">🌒</button>
+  </div>
+</div>
+<div class="mask" onclick="closeMenu()"
+  style="backdrop-filter: blur(7px); background: hsla(0, 0%, 100%, 0.5); -webkit-backdrop-filter: blur(7px);">
+</div>
+      <div class="content-wrapper py-32 lg:p-8 lg:w-3/4 post-detail animated fadeIn">
+        <h1 class="text-3xl font-bold lg:mt-16">
+          从 Gitalk 迁移到 giscus
+        </h1>
+        <div class="text-sm text-gray-700 lg:my-8">
+          04-17-2022 / 5 min read
+        </div>
+        
+            <div class="post-content yue">
+              <p>将静态博客的评论系统从 <a href="https://github.com/gitalk/gitalk">Gitalk</a> 迁移到 <a href="https://giscus.app/zh-CN">giscus</a>。</p>
+<!-- more -->
+<p>从第一天建站起，这里的评论系统就是使用的 Gitalk，老实说 Gitalk 也可以满足我基本的评论需求，我也收到了为数不多的网友通过 Gitalk 发给我的珍贵的留言。但是看着自己博客的项目里有那么多个开着的 issue，总觉得有点想消除掉红点的那种强迫症。而 GitHub 也早已推出了更加适合留言、讨论的 Discussions 功能，所以我就想着一定会有开发者使用 Discussions 的 API 来提供类似 Gitalk 的功能。前段时间翻看 nobelium 项目的 issue 的时候，就看到 giscus 的开发者建议 nobelium 适配 giscus，今天正好这里的 Gitalk 模块又出了问题，就想着干脆把整个评论系统换掉。</p>
+<h2 id="关于-giscus">关于 giscus</h2>
+<p>可以参考官方文档中关于「它如何运作」的表述：</p>
+<blockquote>
+<p>giscus 加载时，会使用 <a href="https://docs.github.com/en/graphql/guides/using-the-graphql-api-for-discussions#search">GitHub Discussions 搜索 API</a> 根据选定的映射方式（如 URL、<code>pathname</code>、<code>&lt;title&gt;</code> 等）来查找与当前页面关联的 discussion。如果找不到匹配的 discussion，giscus bot 就会在第一次有人留下评论或回应时自动创建一个 discussion。</p>
+<p>要评论，访客必须按 GitHub OAuth 流程授权 <a href="https://github.com/apps/giscus">giscus app</a> <a href="https://docs.github.com/en/developers/apps/identifying-and-authorizing-users-for-github-apps">代表他发帖</a>。或者访客也可以直接在 GitHub Discussion 里评论。你可以在 GitHub 上管理评论。</p>
+</blockquote>
+<h2 id="迁移">迁移</h2>
+<p>如前所说，虽然数量不多，但是网友们给博客的留言是我不愿放弃的，好在我的静态博客始终都存放在一个 GitHub 仓库，而 GitHub 目前是支持从 issue 到 Discussion 的内容转移的（参见 <a href="https://docs.github.com/en/discussions/managing-discussions-for-your-community/managing-discussions#converting-issues-based-on-labels">文档</a>）。</p>
+<p>首先我们打开自己的博客仓库，在 Settings 中确保 Discussions 功能已经开启；</p>
+<figure data-type="image" tabindex="1"><img src="https://vip1.loli.io/2022/04/17/tdbBoXpEhZk4DCn.png" alt="开启 Discussions" loading="lazy"></figure>
+<p>接着在 Discussions 标签选择开始，准备工作就算完成了。</p>
+<p>然后转到 Issues，点击 Labels，Gitalk 生成的 issues 都自带一个 <code>Gitalk</code> 标签，对这个标签选择 <strong>Convert issues</strong>，根据提示选择一个类别（我选择了 General），点击确定即开始转换。</p>
+<figure data-type="image" tabindex="2"><img src="https://vip2.loli.io/2022/04/17/GrDMctCY3fEzs1u.png" alt="Issues - Labels" loading="lazy"></figure>
+<p>等待一会后，再次刷新 Discussions 页面，就可以看到所有的 issue 和回复都迁移成功了。</p>
+<h2 id="部署">部署</h2>
+<p>访问 <a href="https://giscus.app/zh-CN">giscus 首页</a>，里面已经将部署的流程解释清楚。对于仓库的要求有以下三点：</p>
+<blockquote>
+<ol>
+<li><strong>此仓库是 <a href="https://docs.github.com/en/github/administering-a-repository/managing-repository-settings/setting-repository-visibility#making-a-repository-public">公开的</a></strong>，否则访客将无法查看 discussion。</li>
+<li><strong><a href="https://github.com/apps/giscus">giscus app</a> 已安装</strong>否则访客将无法评论和回应。</li>
+<li><strong>Discussions</strong> 功能已 <a href="https://docs.github.com/en/github/administering-a-repository/managing-repository-settings/enabling-or-disabling-github-discussions-for-a-repository">在你的仓库中启用</a>。</li>
+</ol>
+</blockquote>
+<p>我们的仓库已经公开，Discussions 功能也已经启动，但是第二第还没有满足。点击第二条中的 giscus app，安装并授权。至此已经完成所有准备工作。我们将满足条件的仓库以 <code>username/repo</code> 的格式填入网页中。</p>
+<p>接下来只要一边向下滚动页面，一边根据自己的需要选择即可。</p>
+<p>在映射关系这一项，由于是从 Gitalk 迁移而来，Gitalk 生成的 issue 标题就是博客文章的 <code>&lt;title&gt;</code>，所以我们这里选择 title 这一项。分类这一项中，由于我们刚刚迁移时选择了 General，所以这里继续保持一致。</p>
+<p>在特性中，我打开了 reaction，就是类似 Slack 中可以通过一个 emoji 对帖子进行反应。同时开启了评论框置顶（不然要翻到最下面才可以找到评论框），也开启了懒加载。</p>
+<p>主题我选择了 <code>Transparent Dark</code>，这样和我自定义过的网页背景色搭配起来也更加协调。</p>
+<p>完成了所有的设置之后，giscus 网页就已经给我们自动生成好了一段 script 标签，将这段标签放在主题文件夹中 <code>post.ejs</code> 文件的尾部。</p>
+<figure data-type="image" tabindex="3"><img src="https://vip2.loli.io/2022/04/17/vEdptLobzO4kq17.png" alt="修改主题文件" loading="lazy"></figure>
+<p>注意这里的位置不同的主题有所不同，只要和 Gitalk 在同一对标签以内，应该就不会太有问题。</p>
+<p>重启 Gridea，然后在 Gridea 的 <code>远程</code> &gt; <code>评论配置</code> 中关闭评论显示（因为 Gridea 自带的评论显示是 Gitalk 和 Disqus 的，而 giscus 的评论我们已经强行加到 <code>post.ejs</code> 文件中了）预览一下应该就成功了。</p>
+<p>同步，然后手动 push 一下，等待部署完成后访问，效果正如预期，所有原来的评论也都在。</p>
+<h2 id="总结">总结</h2>
+<p>迁移的过程比我想象的简单很多，迁移带来的好处除了消除 issue 越堆越多的感觉之外，还有附加的 reactions 功能。nobelium 那个博客前段时间我也折腾了一下 cusdis 评论系统，选择了在 Vercel 上自建一个，自定义了一些样式让评论风格和主站更加协调。</p>
+<p>最近还开了一台 VPS，在上面用 Typecho 建了一个 PHP 博客，折腾的东西实在有点太多，估计是懒得又写一篇超超长的文章了。在 Typecho 上终于用上了我心水已久的 VOID 主题，欢迎大家去看看：<a href="https://l3on.site/">https://l3on.site/</a>。</p>
+
+            </div>
+
+            
+              <a class="animated fadeInUp p-2 items-center text-sm text-gray-700 border hover:bg-gray-300 leading-none rounded-full flex lg:inline-flex m-4 "
+                href="https://ws.l3on.site/tag/86oOp5QCV/">
+                <span class="flex-auto">
+                  博客
+                </span>
+              </a>
+              
+
+
+                <div class="flex justify-between py-8">
+                  
+                    <div class="prev-post">
+                      <a href="https://ws.l3on.site/post/alist/">
+                        <h3 class="post-title">
+                          <i class="ri-arrow-left-line"></i>
+                          Alist 和观影系统的整理
+                        </h3>
+                      </a>
+                    </div>
+                    
+
+                      
+                        <div class="next-post">
+                          <a href="https://ws.l3on.site/post/grammar/">
+                            <h3 class="post-title">
+                              英文语法简明体系
+                                <i class="ri-arrow-right-line"></i>
+                            </h3>
+                          </a>
+                        </div>
+                        
+                </div>
+
+                
+
+<script src="https://giscus.app/client.js"
+    data-repo="LeonWong0609/LeonWong0609.github.io"
+    data-repo-id="MDEwOlJlcG9zaXRvcnkyMjcyODI0NTM="
+    data-category="General"
+    data-category-id="DIC_kwDODYwOFc4COnst"
+    data-mapping="title"
+    data-reactions-enabled="1"
+    data-emit-metadata="1"
+    data-input-position="top"
+    data-theme="transparent_dark"
+    data-lang="zh-CN"
+    data-loading="lazy"
+    crossorigin="anonymous"
+    async>
+</script>
+
+      </div>
+  </div>
+
+  <script src="https://ws.l3on.site/media/prism.js"></script>
+
+<script>
+
+  Prism.highlightAll()
+  let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+
+  // This should probably be throttled.
+  // Especially because it triggers during smooth scrolling.
+  // https://lodash.com/docs/4.17.10#throttle
+  // You could do like...
+  // window.addEventListener("scroll", () => {
+  //    _.throttle(doThatStuff, 100);
+  // });
+  // Only not doing it here to keep this Pen dependency-free.
+
+  window.addEventListener("scroll", event => {
+    let fromTop = window.scrollY;
+
+    mainNavLinks.forEach((link, index) => {
+      let section = document.getElementById(decodeURI(link.hash).substring(1));
+      let nextSection = null
+      if (mainNavLinks[index + 1]) {
+        nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
+      }
+      if (section.offsetTop <= fromTop) {
+        if (nextSection) {
+          if (nextSection.offsetTop > fromTop) {
+            link.classList.add("current");
+          } else {
+            link.classList.remove("current");
+          }
+        } else {
+          link.classList.add("current");
+        }
+      } else {
+        link.classList.remove("current");
+      }
+    });
+  });
+
+
+  document.addEventListener("DOMContentLoaded", function () {
+    var lazyImages = [].slice.call(document.querySelectorAll(".post-feature-image.lazy"));
+
+    if ("IntersectionObserver" in window) {
+      let lazyImageObserver = new IntersectionObserver(function (entries, observer) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            let lazyImage = entry.target
+            lazyImage.style.backgroundImage = `url(${lazyImage.dataset.bg})`
+            lazyImage.classList.remove("lazy")
+            lazyImageObserver.unobserve(lazyImage)
+          }
+        });
+      });
+
+      lazyImages.forEach(function (lazyImage) {
+        lazyImageObserver.observe(lazyImage)
+      })
+    } else {
+      // Possibly fall back to a more compatible method here
+    }
+  });
+
+  const menuContainer = document.querySelector('.menu-container')
+  const menus = document.querySelectorAll('.menu-container .menu')
+  const mask = document.querySelector('.mask')
+  const contentWrapper = document.querySelector('.content-wrapper')
+  const latestArticle = document.querySelector('.latest-article')
+  const readMore = document.querySelector('.read-more')
+  const indexPage = document.querySelector('.index-page')
+
+  const isHome = location.pathname === '/'
+  if (latestArticle) {
+    latestArticle.style.display = isHome ? 'block' : 'none'
+    readMore.style.display = isHome ? 'block' : 'none'
+    indexPage.style.display = isHome ? 'none' : 'block'
+  }
+
+  const openMenu = () => {
+    menuContainer.classList.add('open')
+    menus.forEach(menu => {
+      menu.classList.add('animated', 'fadeInLeft')
+    })
+    mask.classList.add('open')
+    contentWrapper.classList.add('is-second')
+  }
+
+  const closeMenu = () => {
+    menuContainer.classList.remove('open')
+    menus.forEach(menu => {
+      menu.classList.remove('animated', 'fadeInLeft')
+    })
+    mask.classList.remove('open')
+    contentWrapper.classList.remove('is-second')
+  }
+</script>
+</body>
+
+</html>

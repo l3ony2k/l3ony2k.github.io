@@ -1,0 +1,357 @@
+<html>
+
+<head>
+  <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<title>
+  Wonder Space 🚀
+</title>
+
+<!-- Chrome, Firefox OS and Opera -->
+<meta name="theme-color" content="#ffffff">
+
+<!-- Apple Safari -->
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<link rel="apple-touch-icon" href="https://ws.l3on.site/images/avatar.png?v=1661055158677">
+<meta name="apple-mobile-web-app-title" content="WS 🚀">
+
+<!-- instant.page -->
+<script src="https://ws.l3on.site/media/instantpage-5.1.0.js" type="module" defer></script>
+
+<!-- dark reader -->
+<script src="https://cdn.jsdelivr.net/npm/darkreader@4.9.26/darkreader.min.js"></script>
+<script>
+  // Enable when system color scheme is dark.
+  DarkReader.auto({
+    //brightness: 105,
+    //contrast: 95,
+    //sepia: 0,
+    //grayscale: 15
+    darkSchemeBackgroundColor: '#000000',
+    darkSchemeTextColor: '#ffffff'
+  });
+</script>
+
+<link rel="shortcut icon" href="https://ws.l3on.site/favicon.ico?v=1661055158677">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,700;1,400;1,700&family=IBM+Plex+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+
+<link rel="stylesheet" href="https://ws.l3on.site/styles/main.css">
+
+<!-- umami -->
+<script async defer data-website-id="3c0f6b3c-27a9-47bd-9558-913f21633e25" src="https://umami.l3on.site/l3on.js"></script>
+
+
+</head>
+
+<body>
+  <div id="app" class="main px-4 flex flex-col lg:flex-row">
+    <div id="sidebar" class="sidebar-wrapper lg:static lg:w-1/4">
+  <div class="lg:sticky top-0">
+    <div class="sidebar-content">
+      <div class="flex lg:block p-4 lg:px-0 items-center fixed lg:static lg:block top-0 right-0 left-0 bg-white z-50"
+        style="backdrop-filter: blur(7px); background: hsla(0, 0%, 100%, .75); -webkit-backdrop-filter: blur(7px);">
+        <i class="ri-menu-2-line lg:mt-4 text-2xl cursor-pointer animated fadeIn" onclick="openMenu()"></i>
+        <a href="https://ws.l3on.site">
+          <img class="animated fadeInLeft avatar rounded-lg mx-4 lg:mt-32 lg:mx-0 mt-0 lg:w-24 lg:h-24 w-12 w-12"
+            src="https://ws.l3on.site/images/avatar.png?v=1661055158677" alt="">
+        </a>
+        <h1 class="animated fadeInLeft lg:text-2xl font-extrabold lg:mt-8 mt-0 text-xl" style="animation-delay: 0.2s">
+          Wonder Space 🚀
+        </h1>
+      </div>
+      
+        <div class="animated fadeInLeft" style="animation-delay: 0.4s">
+          <p class="my-4 text-gray-600 font-light hidden lg:block">
+            不可勝在己，可勝在敵
+          </p>
+          <div class="animated fadeInLeft social-container hidden lg:block" style="animation-delay: 0.6s">
+            
+              
+                  
+              
+                  
+              
+                  
+              
+                  
+              
+                  
+              
+                  
+              
+                  
+              
+                  
+              
+                  
+              
+                  
+          </div>
+        </div>
+        
+    </div>
+  </div>
+</div>
+
+<div class="menu-container">
+  <i class="ri-arrow-left-line text-2xl cursor-pointer animated fadeIn close-menu-btn" onclick="closeMenu()"></i>
+  <div>
+    
+      
+          <a href="/" class="menu" style="animation-delay: 0s">
+            🏠 首页
+          </a>
+          
+            
+      
+          <a href="/tags" class="menu" style="animation-delay: 0.2s">
+            🏷️ 标签
+          </a>
+          
+            
+      
+          <a href="/archives" class="menu" style="animation-delay: 0.4s">
+            📬 归档
+          </a>
+          
+            
+      
+          <a href="/post/about" class="menu" style="animation-delay: 0.6000000000000001s">
+            😶 关于
+          </a>
+          
+            
+      
+        <a href="https://l3on.site/" class="menu" style="animation-delay: 0.8s" target="_blank">
+          ⌨️ Typecho
+        </a>
+        
+            
+      
+        <a href="https://blog.l3on.site" class="menu" style="animation-delay: 1s" target="_blank">
+          🔼 Nobelium
+        </a>
+        
+            
+  </div>
+  <div class="site-footer">
+    <div class="py-4 text-gray-700">
+      <a href="/post/about">Wonder Space 🚀</a> by Leon is licensed under a <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">Creative Commons BY-NC-SA 4.0 International License</a>. <img src="https://upload.wikimedia.org/wikipedia/commons/1/12/Cc-by-nc-sa_icon.svg" width="30%" style="margin:5 auto;">
+    </div>
+    <a class="rss" href="https://ws.l3on.site/atom.xml" target="_blank" style="margin: 5px;">RSS</a>
+    <button onclick="DarkReader.disable()" style="margin: 5px;">🌖</button>
+    <button onclick="DarkReader.enable({darkSchemeBackgroundColor:'#000000',darkSchemeTextColor:'#ffffff'})"
+      style="margin: 5px;">🌒</button>
+  </div>
+</div>
+<div class="mask" onclick="closeMenu()"
+  style="backdrop-filter: blur(7px); background: hsla(0, 0%, 100%, 0.5); -webkit-backdrop-filter: blur(7px);">
+</div>
+      <div class="content-wrapper py-32 lg:p-8 lg:w-3/4">
+        <h2 class="text-lg text-gray-700 mb-8">
+          <i class="ri-bookmark-line"></i>
+          非原创
+        </h2>
+        
+  <section class="post-item md:flex pb-12 animated fadeIn" :style="{ 'animation-delay': `${0 * 0.2}s` }">
+    
+        <div class="content">
+          <a href="https://ws.l3on.site/post/telegram-guide/">
+            <h2 class="post-title text-xl font-extrabold mt-5 md:mt-0">
+              庭说：Telegram 新手指南、使用教程及频道推荐
+            </h2>
+          </a>
+          <div class="post-abstract text-gray-700 font-light my-4">
+            <p>最近在网上看到了 <a href="https://tingtalk.me/">庭说</a> 上的一篇 Telegram 使用教程，内容可以说是无微不至，细致认真的程度可以说超过了我在知网上看过的很多论文了。读毕一遍之后发现了很多以前没有在意到的 Telegram 小细节，也学会了很多新的小技巧。好的东西我从来都忍不住想收藏一份，因此这里转载给大家。</p>
+
+          </div>
+          <div class="text-gray-400 text-sm font-light">
+            01-20-2021 / 64 min read
+          </div>
+        </div>
+  </section>
+  
+  <section class="post-item md:flex pb-12 animated fadeIn" :style="{ 'animation-delay': `${1 * 0.2}s` }">
+    
+        <div class="content">
+          <a href="https://ws.l3on.site/post/surfingkeys-cn/">
+            <h2 class="post-title text-xl font-extrabold mt-5 md:mt-0">
+              Surfingkeys – 用 JavaScript 和键盘扩展你的 Chrome
+            </h2>
+          </a>
+          <div class="post-abstract text-gray-700 font-light my-4">
+            
+          </div>
+          <div class="text-gray-400 text-sm font-light">
+            12-08-2020 / 16 min read
+          </div>
+        </div>
+  </section>
+  
+  <section class="post-item md:flex pb-12 animated fadeIn" :style="{ 'animation-delay': `${2 * 0.2}s` }">
+    
+      <a href="https://ws.l3on.site/post/ReflectionOn2019nCoVOutbreak/"
+        class="feature-image-wrapper bg-gray-100 rounded-lg flex-shrink-0 mr-8 w-full h-56 h-32 md:w-56 md:h-40">
+        <div class="post-feature-image lazy w-full h-56 h-32 md:w-56 md:h-40" data-bg="'https://ws.l3on.site/post-images/ReflectionOn2019nCoVOutbreak.png'">
+        </div>
+      </a>
+      
+        <div class="content">
+          <a href="https://ws.l3on.site/post/ReflectionOn2019nCoVOutbreak/">
+            <h2 class="post-title text-xl font-extrabold mt-5 md:mt-0">
+              对本次疫情的结构性反思：谣言、官僚和国家主义
+            </h2>
+          </a>
+          <div class="post-abstract text-gray-700 font-light my-4">
+            <blockquote>
+<p>原文载于 Matters，共分为<a href="https://matters.news/@philosophia/%E5%AF%B9%E6%9C%AC%E6%AC%A1%E7%96%AB%E6%83%85%E7%9A%84%E7%BB%93%E6%9E%84%E6%80%A7%E5%8F%8D%E6%80%9D-%E8%B0%A3%E8%A8%80-%E5%AE%98%E5%83%9A%E5%92%8C%E5%9B%BD%E5%AE%B6%E4%B8%BB%E4%B9%89-%E4%B8%8A-zdpuAzU8UUWBV3sB7c9h6FVbGZSrsc9L9qUEdHBBpDRJzTHzu">上</a><a href="https://matters.news/@philosophia/%E5%AF%B9%E6%9C%AC%E6%AC%A1%E7%96%AB%E6%83%85%E7%9A%84%E7%BB%93%E6%9E%84%E6%80%A7%E5%8F%8D%E6%80%9D-%E8%B0%A3%E8%A8%80-%E5%AE%98%E5%83%9A%E4%B8%8E%E5%9B%BD%E5%AE%B6%E4%B8%BB%E4%B9%89-%E4%B8%8B-zdpuAkyrdUUBRVP43GqFAtWnyfmWEs1ormu9aKHjDdZJy1B7z">下</a>两篇。在众多疫情反思的文章中，这篇是我看到的相对不带过分的情绪色彩，且分析也比较深刻的一篇。在权力体制、新闻传播、国家主义这些方面的分析也是一针见血。因此将这篇文章转到自己博客中，一方面为了留下一个记录，另一方面也希望趁着整理的机会重新阅读一次。为方便阅读，将上下两篇整合在了一起，因此删掉了两篇的头图和中间的分割线，赞赏码和社交媒体引流都放在了文末。</p>
+</blockquote>
+
+          </div>
+          <div class="text-gray-400 text-sm font-light">
+            03-10-2020 / 98 min read
+          </div>
+        </div>
+  </section>
+  
+  <section class="post-item md:flex pb-12 animated fadeIn" :style="{ 'animation-delay': `${3 * 0.2}s` }">
+    
+      <a href="https://ws.l3on.site/post/Fa_Shaozi_de_Ren/"
+        class="feature-image-wrapper bg-gray-100 rounded-lg flex-shrink-0 mr-8 w-full h-56 h-32 md:w-56 md:h-40">
+        <div class="post-feature-image lazy w-full h-56 h-32 md:w-56 md:h-40" data-bg="'https://ws.l3on.site/post-images/Fa_Shaozi_de_Ren.png'">
+        </div>
+      </a>
+      
+        <div class="content">
+          <a href="https://ws.l3on.site/post/Fa_Shaozi_de_Ren/">
+            <h2 class="post-title text-xl font-extrabold mt-5 md:mt-0">
+              《人物》：发哨子的人
+            </h2>
+          </a>
+          <div class="post-abstract text-gray-700 font-light my-4">
+            <blockquote>
+<p>由于特殊国情，我国的审查制度向来没有公开的标准，常常有许多优秀的文章因为不明原因被删除。这次《人物》的这篇任务特稿初问世就遭到全网封杀，有人怀疑是因和今上赴武汉的消息新闻档期冲突。我在此不想揣测原因如何，也无意对删除的行为做任何评价。我单纯觉得这样一篇凝聚作者心血的、我阅读完觉得没有错误立场的、同时展现了一个鲜活人物的文章，不应该就此消失。</p>
+</blockquote>
+
+          </div>
+          <div class="text-gray-400 text-sm font-light">
+            03-10-2020 / 26 min read
+          </div>
+        </div>
+  </section>
+  
+          <div class="pagination-container animated fadeIn">
+  
+      
+</div>
+      </div>
+  </div>
+
+  <script src="https://ws.l3on.site/media/prism.js"></script>
+
+<script>
+
+  Prism.highlightAll()
+  let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+
+  // This should probably be throttled.
+  // Especially because it triggers during smooth scrolling.
+  // https://lodash.com/docs/4.17.10#throttle
+  // You could do like...
+  // window.addEventListener("scroll", () => {
+  //    _.throttle(doThatStuff, 100);
+  // });
+  // Only not doing it here to keep this Pen dependency-free.
+
+  window.addEventListener("scroll", event => {
+    let fromTop = window.scrollY;
+
+    mainNavLinks.forEach((link, index) => {
+      let section = document.getElementById(decodeURI(link.hash).substring(1));
+      let nextSection = null
+      if (mainNavLinks[index + 1]) {
+        nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
+      }
+      if (section.offsetTop <= fromTop) {
+        if (nextSection) {
+          if (nextSection.offsetTop > fromTop) {
+            link.classList.add("current");
+          } else {
+            link.classList.remove("current");
+          }
+        } else {
+          link.classList.add("current");
+        }
+      } else {
+        link.classList.remove("current");
+      }
+    });
+  });
+
+
+  document.addEventListener("DOMContentLoaded", function () {
+    var lazyImages = [].slice.call(document.querySelectorAll(".post-feature-image.lazy"));
+
+    if ("IntersectionObserver" in window) {
+      let lazyImageObserver = new IntersectionObserver(function (entries, observer) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            let lazyImage = entry.target
+            lazyImage.style.backgroundImage = `url(${lazyImage.dataset.bg})`
+            lazyImage.classList.remove("lazy")
+            lazyImageObserver.unobserve(lazyImage)
+          }
+        });
+      });
+
+      lazyImages.forEach(function (lazyImage) {
+        lazyImageObserver.observe(lazyImage)
+      })
+    } else {
+      // Possibly fall back to a more compatible method here
+    }
+  });
+
+  const menuContainer = document.querySelector('.menu-container')
+  const menus = document.querySelectorAll('.menu-container .menu')
+  const mask = document.querySelector('.mask')
+  const contentWrapper = document.querySelector('.content-wrapper')
+  const latestArticle = document.querySelector('.latest-article')
+  const readMore = document.querySelector('.read-more')
+  const indexPage = document.querySelector('.index-page')
+
+  const isHome = location.pathname === '/'
+  if (latestArticle) {
+    latestArticle.style.display = isHome ? 'block' : 'none'
+    readMore.style.display = isHome ? 'block' : 'none'
+    indexPage.style.display = isHome ? 'none' : 'block'
+  }
+
+  const openMenu = () => {
+    menuContainer.classList.add('open')
+    menus.forEach(menu => {
+      menu.classList.add('animated', 'fadeInLeft')
+    })
+    mask.classList.add('open')
+    contentWrapper.classList.add('is-second')
+  }
+
+  const closeMenu = () => {
+    menuContainer.classList.remove('open')
+    menus.forEach(menu => {
+      menu.classList.remove('animated', 'fadeInLeft')
+    })
+    mask.classList.remove('open')
+    contentWrapper.classList.remove('is-second')
+  }
+</script>
+</body>
+
+</html>

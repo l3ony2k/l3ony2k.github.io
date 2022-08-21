@@ -1,0 +1,441 @@
+<html>
+
+<head>
+  <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<title>
+  使用 Markdown Nice 简化微信公众号文章排版过程 | Wonder Space 🚀
+</title>
+
+<!-- Chrome, Firefox OS and Opera -->
+<meta name="theme-color" content="#ffffff">
+
+<!-- Apple Safari -->
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<link rel="apple-touch-icon" href="https://ws.l3on.site/images/avatar.png?v=1661055158677">
+<meta name="apple-mobile-web-app-title" content="WS 🚀">
+
+<!-- instant.page -->
+<script src="https://ws.l3on.site/media/instantpage-5.1.0.js" type="module" defer></script>
+
+<!-- dark reader -->
+<script src="https://cdn.jsdelivr.net/npm/darkreader@4.9.26/darkreader.min.js"></script>
+<script>
+  // Enable when system color scheme is dark.
+  DarkReader.auto({
+    //brightness: 105,
+    //contrast: 95,
+    //sepia: 0,
+    //grayscale: 15
+    darkSchemeBackgroundColor: '#000000',
+    darkSchemeTextColor: '#ffffff'
+  });
+</script>
+
+<link rel="shortcut icon" href="https://ws.l3on.site/favicon.ico?v=1661055158677">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,700;1,400;1,700&family=IBM+Plex+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+
+<link rel="stylesheet" href="https://ws.l3on.site/styles/main.css">
+
+<!-- umami -->
+<script async defer data-website-id="3c0f6b3c-27a9-47bd-9558-913f21633e25" src="https://umami.l3on.site/l3on.js"></script>
+
+
+    <meta name="description" content="Markdown Nice 是一款在线、开源、轻便的小工具。它能帮助你使用 Markdown 语法快速产生一篇排版优美的微信文章，从而让你留出更多的精力放在内容上。
+
+
+
+
+痛点
+什么是 Markdown Nice？
+
+功能齐全的编辑器
+为..." />
+
+    <!-- OG -->
+    <meta property="og:locale" content="zh_CN">
+    <meta property="og:title" content="使用 Markdown Nice 简化微信公众号文章排版过程" />
+    <meta property="og:type" content="article" />
+    <meta property="og:description" content="Markdown Nice 是一款在线、开源、轻便的小工具。它能帮助你使用 Markdown 语法快速产生一篇排版优美的微信文章，从而让你留出更多的精力放在内容上。
+
+
+
+
+痛点
+什么是 Markdown Nice？
+
+功能齐全的编辑器
+为...">
+    <meta property="og:url" content="https://ws.l3on.site/post/markdown-nice/" />
+    <meta property="og:site_name" content="Wonder Space 🚀">
+    <meta property="og:updated_time" content="02-05-2020">
+    <meta property="og:image" content="https://ws.l3on.site/post-images/markdown-nice.png" />
+    <meta property="og:image:secure_url" content="https://ws.l3on.site/post-images/markdown-nice.png">
+    <meta property="og:image:alt" content="使用 Markdown Nice 简化微信公众号文章排版过程">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="使用 Markdown Nice 简化微信公众号文章排版过程">
+    <meta name="twitter:description" content="Markdown Nice 是一款在线、开源、轻便的小工具。它能帮助你使用 Markdown 语法快速产生一篇排版优美的微信文章，从而让你留出更多的精力放在内容上。
+
+
+
+
+痛点
+什么是 Markdown Nice？
+
+功能齐全的编辑器
+为...">
+    <meta name="twitter:site" content="@WBoy0609">
+    <meta name="twitter:creator" content="@WBoy0609">
+    <meta name="twitter:image" content="https://ws.l3on.site/post-images/markdown-nice.png">
+
+</head>
+
+<body>
+
+  <div id="app" class="main px-4 flex flex-col lg:flex-row">
+    <div id="sidebar" class="sidebar-wrapper lg:static lg:w-1/4">
+  <div class="lg:sticky top-0">
+    <div class="sidebar-content">
+      <div class="flex lg:block p-4 lg:px-0 items-center fixed lg:static lg:block top-0 right-0 left-0 bg-white z-50"
+        style="backdrop-filter: blur(7px); background: hsla(0, 0%, 100%, .75); -webkit-backdrop-filter: blur(7px);">
+        <i class="ri-menu-2-line lg:mt-4 text-2xl cursor-pointer animated fadeIn" onclick="openMenu()"></i>
+        <a href="https://ws.l3on.site">
+          <img class="animated fadeInLeft avatar rounded-lg mx-4 lg:mt-32 lg:mx-0 mt-0 lg:w-24 lg:h-24 w-12 w-12"
+            src="https://ws.l3on.site/images/avatar.png?v=1661055158677" alt="">
+        </a>
+        <h1 class="animated fadeInLeft lg:text-2xl font-extrabold lg:mt-8 mt-0 text-xl" style="animation-delay: 0.2s">
+          Wonder Space 🚀
+        </h1>
+      </div>
+      
+          <div class="animated fadeInLeft" style="animation-delay: 0.4s">
+            <p class="my-4 text-gray-600 font-light hidden lg:block">
+              Contents
+            </p>
+            <div class="toc-container hidden lg:block">
+              <ul class="markdownIt-TOC">
+<li>
+<ul>
+<li><a href="#%E7%97%9B%E7%82%B9">痛点</a></li>
+<li><a href="#%E4%BB%80%E4%B9%88%E6%98%AF-markdown-nice">什么是 Markdown Nice？</a>
+<ul>
+<li><a href="#%E5%8A%9F%E8%83%BD%E9%BD%90%E5%85%A8%E7%9A%84%E7%BC%96%E8%BE%91%E5%99%A8">功能齐全的编辑器</a></li>
+<li><a href="#%E4%B8%BA%E5%BE%AE%E4%BF%A1%E6%8E%92%E7%89%88%E4%BC%98%E5%8C%96">为微信排版优化</a></li>
+<li><a href="#%E4%B8%B0%E5%AF%8C%E7%9A%84%E4%B8%BB%E9%A2%98">丰富的主题</a></li>
+<li><a href="#%E7%AE%80%E5%8D%95%E7%9A%84%E5%86%85%E5%AE%B9%E8%BF%81%E7%A7%BB%E6%93%8D%E4%BD%9C">简单的内容迁移操作</a></li>
+</ul>
+</li>
+<li><a href="#%E6%88%91%E7%9B%AE%E5%89%8D%E7%9A%84%E5%B7%A5%E4%BD%9C%E6%B5%81">我目前的工作流</a></li>
+<li><a href="#%E7%9F%AD%E6%9D%BF">短板</a></li>
+<li><a href="#summary">Summary</a></li>
+<li><a href="#%E6%9B%B4%E5%A4%9A%E8%AF%B7%E9%98%85">更多请阅：</a></li>
+</ul>
+</li>
+</ul>
+
+            </div>
+          </div>
+          
+    </div>
+  </div>
+</div>
+
+<div class="menu-container">
+  <i class="ri-arrow-left-line text-2xl cursor-pointer animated fadeIn close-menu-btn" onclick="closeMenu()"></i>
+  <div>
+    
+      
+          <a href="/" class="menu" style="animation-delay: 0s">
+            🏠 首页
+          </a>
+          
+            
+      
+          <a href="/tags" class="menu" style="animation-delay: 0.2s">
+            🏷️ 标签
+          </a>
+          
+            
+      
+          <a href="/archives" class="menu" style="animation-delay: 0.4s">
+            📬 归档
+          </a>
+          
+            
+      
+          <a href="/post/about" class="menu" style="animation-delay: 0.6000000000000001s">
+            😶 关于
+          </a>
+          
+            
+      
+        <a href="https://l3on.site/" class="menu" style="animation-delay: 0.8s" target="_blank">
+          ⌨️ Typecho
+        </a>
+        
+            
+      
+        <a href="https://blog.l3on.site" class="menu" style="animation-delay: 1s" target="_blank">
+          🔼 Nobelium
+        </a>
+        
+            
+  </div>
+  <div class="site-footer">
+    <div class="py-4 text-gray-700">
+      <a href="/post/about">Wonder Space 🚀</a> by Leon is licensed under a <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">Creative Commons BY-NC-SA 4.0 International License</a>. <img src="https://upload.wikimedia.org/wikipedia/commons/1/12/Cc-by-nc-sa_icon.svg" width="30%" style="margin:5 auto;">
+    </div>
+    <a class="rss" href="https://ws.l3on.site/atom.xml" target="_blank" style="margin: 5px;">RSS</a>
+    <button onclick="DarkReader.disable()" style="margin: 5px;">🌖</button>
+    <button onclick="DarkReader.enable({darkSchemeBackgroundColor:'#000000',darkSchemeTextColor:'#ffffff'})"
+      style="margin: 5px;">🌒</button>
+  </div>
+</div>
+<div class="mask" onclick="closeMenu()"
+  style="backdrop-filter: blur(7px); background: hsla(0, 0%, 100%, 0.5); -webkit-backdrop-filter: blur(7px);">
+</div>
+      <div class="content-wrapper py-32 lg:p-8 lg:w-3/4 post-detail animated fadeIn">
+        <h1 class="text-3xl font-bold lg:mt-16">
+          使用 Markdown Nice 简化微信公众号文章排版过程
+        </h1>
+        <div class="text-sm text-gray-700 lg:my-8">
+          02-05-2020 / 8 min read
+        </div>
+        
+          <img class="post-feature-image rounded-lg mx-auto my-4" src="https://ws.l3on.site/post-images/markdown-nice.png" alt="">
+          
+            <div class="post-content yue">
+              <p>Markdown Nice 是一款在线、开源、轻便的小工具。它能帮助你使用 Markdown 语法快速产生一篇排版优美的微信文章，从而让你留出更多的精力放在内容上。</p>
+<!-- more -->
+<p><ul class="markdownIt-TOC">
+<li>
+<ul>
+<li><a href="#%E7%97%9B%E7%82%B9">痛点</a></li>
+<li><a href="#%E4%BB%80%E4%B9%88%E6%98%AF-markdown-nice">什么是 Markdown Nice？</a>
+<ul>
+<li><a href="#%E5%8A%9F%E8%83%BD%E9%BD%90%E5%85%A8%E7%9A%84%E7%BC%96%E8%BE%91%E5%99%A8">功能齐全的编辑器</a></li>
+<li><a href="#%E4%B8%BA%E5%BE%AE%E4%BF%A1%E6%8E%92%E7%89%88%E4%BC%98%E5%8C%96">为微信排版优化</a></li>
+<li><a href="#%E4%B8%B0%E5%AF%8C%E7%9A%84%E4%B8%BB%E9%A2%98">丰富的主题</a></li>
+<li><a href="#%E7%AE%80%E5%8D%95%E7%9A%84%E5%86%85%E5%AE%B9%E8%BF%81%E7%A7%BB%E6%93%8D%E4%BD%9C">简单的内容迁移操作</a></li>
+</ul>
+</li>
+<li><a href="#%E6%88%91%E7%9B%AE%E5%89%8D%E7%9A%84%E5%B7%A5%E4%BD%9C%E6%B5%81">我目前的工作流</a></li>
+<li><a href="#%E7%9F%AD%E6%9D%BF">短板</a></li>
+<li><a href="#summary">Summary</a></li>
+<li><a href="#%E6%9B%B4%E5%A4%9A%E8%AF%B7%E9%98%85">更多请阅：</a></li>
+</ul>
+</li>
+</ul>
+</p>
+<h2 id="痛点">痛点</h2>
+<p>做推送的时候总是要和微信公众平台打交道。但用过平台的人都知道，纯粹使用平台的富文本编辑功能很难做到满意的效果，这时候我们往往会选择一些插件或者第三方编辑器。但是由于这些工具提供的模板常常灵活程度有限，而且我也不知道如何直接修改模板的源代码，很多时候使用模板会遇到各种细节问题，出现各种难以解决的瑕疵。这样增加了许多无谓的工作量，消耗了许多本该花费在内容上的精力。</p>
+<p>而 Markdown 恰好又是一个轻便、简易、让我更加专注内容的标记语言，曾经有一种解决办法就是使用一个叫做 <a href="https://markdown-here.com/">Markdown Here</a> 的 Chrome 插件，这个插件本来是为写邮件计的，但因为邮件和微信文章一样都支持 HTML，所以同样的办法对微信文章也通用。只需要将带有 Markdown 标记的纯文本粘贴到微信后台的编辑区域内，然后执行 Markdown Here，它会自动将编辑区域内的纯文本按照定义的 CSS 渲染成 HTML。虽然也能一定程度上发挥 Markdown 的优势，但是一旦渲染后，后台编辑区域内的文本样式实际上就被某种程度上「写死」了，要想再调整各别内容的标记，只能全选删除后再处理原文本文件，再复制粘贴，再渲染。而且渲染的结果也不能实时可见，更增加了出现问题的几率。因此也不能算是一个理想的方法。</p>
+<p>直到最近我才了解到了 Markdown Nice，可以说这个「神器」的出现很好地解决了我当前遇到的痛点。</p>
+<h2 id="什么是-markdown-nice">什么是 Markdown Nice？</h2>
+<p>先 <a href="https://www.mdnice.com/">前往 Markdown Nice</a> 亲自看看吧。没错，Markdown Nice 的全部功能都可以在网页上使用。</p>
+<h3 id="功能齐全的编辑器">功能齐全的编辑器</h3>
+<p>可以看到，Markdown Nice 的界面很简单，和许多 Markdown 编辑器一样分为左右两栏，左栏是源文本，右栏是效果预览。上方的选项栏提供了各种操作选项，包括导入导出、调整格式、调整主题等基本操作，也有调整视图、查阅历史等内容以外的功能。基本上能包含我对一个在线 Markdown 编辑器的所有需求。</p>
+<figure data-type="image" tabindex="1"><img src="https://ws.l3on.site/post-images/1580914148687.png" alt="Markdown Nice 主界面" loading="lazy"></figure>
+<p>我们甚至可以在 <code>功能</code> 选项卡下找到 <code>本地历史</code> 选项，不仅能看到全部的本地历史记录，还能将历史记录与当前内容进行对比。</p>
+<figure data-type="image" tabindex="2"><img src="https://ws.l3on.site/post-images/1580914183569.png" alt="本地历史" loading="lazy"></figure>
+<h3 id="为微信排版优化">为微信排版优化</h3>
+<p>第一次打开 Markdown Nice 默认打开的是一个<a href="https://leonwong0609.github.io/post/mdnicedocument/">类似说明文档的内容</a>，也包括了一些简单的 Markdown 教程。从中我们得知，除了支持主流的 Markdown 语法，Markdown Nice 还有一些特殊的语法，例如使用 <code>&lt;![](url),![](url)&gt;</code> 可以设置横向滑动的图片，可以为连续图片节省版面空间。由于微信文章主要是在手机屏幕上阅读，Markdown Nice 很贴心地默认提供窄屏的效果预览，我们可以通过右上角的三个图标的最下方一个切换宽窄屏幕效果预览。</p>
+<figure data-type="image" tabindex="3"><img src="https://ws.l3on.site/post-images/1580914297729.png" alt="特殊语法" loading="lazy"></figure>
+<h3 id="丰富的主题">丰富的主题</h3>
+<p>Markdown Nice 还提供了丰富的预设主题，包括全局的主题，也有单独代码块的主题。如果没有称心的或者有自己惯用的主题，Markdown Nice 还支持自定义 CSS。可以在 <code>查看</code> 或者 <code>主题</code> 选项卡中打开第三栏 CSS 编辑区域，在里面进行修改也可以实时看到 CSS 效果。</p>
+<figure data-type="image" tabindex="4"><img src="https://ws.l3on.site/post-images/1580914311022.png" alt="丰富主题" loading="lazy"></figure>
+<h3 id="简单的内容迁移操作">简单的内容迁移操作</h3>
+<p>最后，将内容从 Markdown Nice 迁移到公众平台，只需要单击右上角的微信图标，带着格式的内容就自动复制到剪贴板中了，我们只需要在公众平台的编辑器内粘贴即可。同时我们发现 Markdown Nice 同样支持知乎。</p>
+<h2 id="我目前的工作流">我目前的工作流</h2>
+<p>总的来说，Markdown Nice 这样一个小工具已经能解决我处理微信文章的绝大部分操作了。使用简易的标记语言就可以获得一篇排版漂亮的文章，不用再为内容的外观过分操心了，也有更多的精力专注于内容。我目前工作流程大概如下：</p>
+<ol>
+<li>和同事在<a href="https://shimo.im/">石墨文档</a>写稿子；</li>
+<li>稿件确认后，在石墨文档中将稿件导出为 Markdown 文件；</li>
+<li>在本地使用 Typora 对刚才的文件进行最后语法上的修改；</li>
+<li>打开 Typora 的 <code>源代码模式</code>，将源码复制粘贴至 Markdown Nice；</li>
+<li>在 Markdown Nice 上选择合适的主题，确认无误后粘贴到微信后台。</li>
+</ol>
+<p>这样的一种过程目前看来还是比较合适的。主要是石墨文档本身有富文本编辑的选项，这样不需要同事们都会 Markdown 语法。同时从石墨文档导出的 Markdown 文件中的图片也有了图片地址，不需要自己再上传到图床。目前我还不知道这个地址是否是长期有效的地址，不过放心，一旦内容被转移到微信公众平台后，所有的图片都是进入了公众号的素材库，也就是腾讯自己的 CDN 里了。</p>
+<p>所以目前只要是我负责排版的文章，我都会遵守这个流程。</p>
+<h2 id="短板">短板</h2>
+<p>当然，世界上没有十全十美的解决方案，Markdown Nice 固然优秀，但是也难以避免地有短板。</p>
+<p>首先，Markdown Nice 每次打开都会记住你上一次编辑的文章，而且我也没有发现切换文章的方式，也就是说目前我只能一次使用 Markdown Nice 编辑一篇文章。我不清楚这是否是因为我不会操作，但我觉得如果 Markdown Nice 将来能支持多篇文章切换，体验一定更棒。好在大部分文章我们都会有文件在本地，所以我一般都是排完了一篇再排下一篇，如果上一篇需要修改，再将本地文件中的文本复制上去即可。</p>
+<p>Markdown 语法本身简洁，这也注定了 Markdown Nice 的「花里胡哨」程度无法与市面上的各种插件或第三方编辑器相比。这本来是一个让我们更专注内容的优点，但是架不住哪天甲方或上级会提出「把这段话放大」、或者「把这句话换个颜色」之类的奇怪请求，好在 Markdown Nice 的编辑器内是支持 HTML 的，可以直接在内容里使用 HTML 标签修改或者修改主题的 CSS。但是如果哪天甲方觉得 Markdown Nice 里的十几个主题都太素了效果都不够华丽，那可能只能想办法创造 CSS 或者向其他各种编辑器屈服了……</p>
+<h2 id="summary">Summary</h2>
+<p>总之，Markdown Nice 很好地将 Markdown 语法的优点带到了微信文章的编辑上。发现它使我在美观与方便中间找到了一个比较好的平衡。虽然可以说有些「短板」，但其实都有很简单的解决方法。很感谢 Markdown Nice 的开发者给我们提供了这么赞的工具！如果你也有编辑微信文章的需求，同时也喜欢 Markdown 语法，十分推荐尝试一下这款免费、开源、简单、在线的小工具。</p>
+<h2 id="更多请阅">更多请阅：</h2>
+<ul>
+<li>mdnice 在 Github 上的仓库：<a href="https://github.com/mdnice/markdown-nice">mdnice/markdown-nice</a>（快去点 Star）</li>
+<li>Markdown Nice 的文档：<a href="https://docs.mdnice.com/#/">Markdown Nice Docs</a></li>
+<li>中文维基百科条目：<a href="https://zh.wikipedia.org/zh-hans/Markdown">Markdown</a></li>
+<li>菜鸟教程：<a href="https://www.runoob.com/markdown/md-tutorial.html">Markdown 教程</a></li>
+<li>如果了解 HTML 强烈推荐阅读这个教程：<a href="https://www.markdown.cn/">MarkDown: 教程</a></li>
+</ul>
+
+            </div>
+
+            
+              <a class="animated fadeInUp p-2 items-center text-sm text-gray-700 border hover:bg-gray-300 leading-none rounded-full flex lg:inline-flex m-4 "
+                href="https://ws.l3on.site/tag/djRIW_izT/">
+                <span class="flex-auto">
+                  软件
+                </span>
+              </a>
+              
+
+
+                <div class="flex justify-between py-8">
+                  
+                    <div class="prev-post">
+                      <a href="https://ws.l3on.site/post/PureCustomizedCSS/">
+                        <h3 class="post-title">
+                          <i class="ri-arrow-left-line"></i>
+                          用自定义 CSS 解决文章内单词词内折行问题
+                        </h3>
+                      </a>
+                    </div>
+                    
+
+                      
+                        <div class="next-post">
+                          <a href="https://ws.l3on.site/post/you-review/">
+                            <h3 class="post-title">
+                              为了爱，我们能做多少？—— YOU 安眠书店观剧笔记
+                                <i class="ri-arrow-right-line"></i>
+                            </h3>
+                          </a>
+                        </div>
+                        
+                </div>
+
+                
+
+<script src="https://giscus.app/client.js"
+    data-repo="LeonWong0609/LeonWong0609.github.io"
+    data-repo-id="MDEwOlJlcG9zaXRvcnkyMjcyODI0NTM="
+    data-category="General"
+    data-category-id="DIC_kwDODYwOFc4COnst"
+    data-mapping="title"
+    data-reactions-enabled="1"
+    data-emit-metadata="1"
+    data-input-position="top"
+    data-theme="transparent_dark"
+    data-lang="zh-CN"
+    data-loading="lazy"
+    crossorigin="anonymous"
+    async>
+</script>
+
+      </div>
+  </div>
+
+  <script src="https://ws.l3on.site/media/prism.js"></script>
+
+<script>
+
+  Prism.highlightAll()
+  let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+
+  // This should probably be throttled.
+  // Especially because it triggers during smooth scrolling.
+  // https://lodash.com/docs/4.17.10#throttle
+  // You could do like...
+  // window.addEventListener("scroll", () => {
+  //    _.throttle(doThatStuff, 100);
+  // });
+  // Only not doing it here to keep this Pen dependency-free.
+
+  window.addEventListener("scroll", event => {
+    let fromTop = window.scrollY;
+
+    mainNavLinks.forEach((link, index) => {
+      let section = document.getElementById(decodeURI(link.hash).substring(1));
+      let nextSection = null
+      if (mainNavLinks[index + 1]) {
+        nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
+      }
+      if (section.offsetTop <= fromTop) {
+        if (nextSection) {
+          if (nextSection.offsetTop > fromTop) {
+            link.classList.add("current");
+          } else {
+            link.classList.remove("current");
+          }
+        } else {
+          link.classList.add("current");
+        }
+      } else {
+        link.classList.remove("current");
+      }
+    });
+  });
+
+
+  document.addEventListener("DOMContentLoaded", function () {
+    var lazyImages = [].slice.call(document.querySelectorAll(".post-feature-image.lazy"));
+
+    if ("IntersectionObserver" in window) {
+      let lazyImageObserver = new IntersectionObserver(function (entries, observer) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            let lazyImage = entry.target
+            lazyImage.style.backgroundImage = `url(${lazyImage.dataset.bg})`
+            lazyImage.classList.remove("lazy")
+            lazyImageObserver.unobserve(lazyImage)
+          }
+        });
+      });
+
+      lazyImages.forEach(function (lazyImage) {
+        lazyImageObserver.observe(lazyImage)
+      })
+    } else {
+      // Possibly fall back to a more compatible method here
+    }
+  });
+
+  const menuContainer = document.querySelector('.menu-container')
+  const menus = document.querySelectorAll('.menu-container .menu')
+  const mask = document.querySelector('.mask')
+  const contentWrapper = document.querySelector('.content-wrapper')
+  const latestArticle = document.querySelector('.latest-article')
+  const readMore = document.querySelector('.read-more')
+  const indexPage = document.querySelector('.index-page')
+
+  const isHome = location.pathname === '/'
+  if (latestArticle) {
+    latestArticle.style.display = isHome ? 'block' : 'none'
+    readMore.style.display = isHome ? 'block' : 'none'
+    indexPage.style.display = isHome ? 'none' : 'block'
+  }
+
+  const openMenu = () => {
+    menuContainer.classList.add('open')
+    menus.forEach(menu => {
+      menu.classList.add('animated', 'fadeInLeft')
+    })
+    mask.classList.add('open')
+    contentWrapper.classList.add('is-second')
+  }
+
+  const closeMenu = () => {
+    menuContainer.classList.remove('open')
+    menus.forEach(menu => {
+      menu.classList.remove('animated', 'fadeInLeft')
+    })
+    mask.classList.remove('open')
+    contentWrapper.classList.remove('is-second')
+  }
+</script>
+</body>
+
+</html>

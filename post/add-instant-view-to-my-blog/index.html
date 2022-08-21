@@ -1,0 +1,407 @@
+<html>
+
+<head>
+  <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<title>
+  给博客增加 Telegram Instant View (即时预览) | Wonder Space 🚀
+</title>
+
+<!-- Chrome, Firefox OS and Opera -->
+<meta name="theme-color" content="#ffffff">
+
+<!-- Apple Safari -->
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<link rel="apple-touch-icon" href="https://ws.l3on.site/images/avatar.png?v=1661055158677">
+<meta name="apple-mobile-web-app-title" content="WS 🚀">
+
+<!-- instant.page -->
+<script src="https://ws.l3on.site/media/instantpage-5.1.0.js" type="module" defer></script>
+
+<!-- dark reader -->
+<script src="https://cdn.jsdelivr.net/npm/darkreader@4.9.26/darkreader.min.js"></script>
+<script>
+  // Enable when system color scheme is dark.
+  DarkReader.auto({
+    //brightness: 105,
+    //contrast: 95,
+    //sepia: 0,
+    //grayscale: 15
+    darkSchemeBackgroundColor: '#000000',
+    darkSchemeTextColor: '#ffffff'
+  });
+</script>
+
+<link rel="shortcut icon" href="https://ws.l3on.site/favicon.ico?v=1661055158677">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,700;1,400;1,700&family=IBM+Plex+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+
+<link rel="stylesheet" href="https://ws.l3on.site/styles/main.css">
+
+<!-- umami -->
+<script async defer data-website-id="3c0f6b3c-27a9-47bd-9558-913f21633e25" src="https://umami.l3on.site/l3on.js"></script>
+
+
+    <meta name="description" content="Instant View 是 Telegram 一个独特的链接预览功能，今天花了一点时间写了一下模板，给自己的博客也加上了 Instant View。这里记录一下过程。
+
+之前一直都以为 Instant View 是 Telegram 自动..." />
+
+    <!-- OG -->
+    <meta property="og:locale" content="zh_CN">
+    <meta property="og:title" content="给博客增加 Telegram Instant View (即时预览)" />
+    <meta property="og:type" content="article" />
+    <meta property="og:description" content="Instant View 是 Telegram 一个独特的链接预览功能，今天花了一点时间写了一下模板，给自己的博客也加上了 Instant View。这里记录一下过程。
+
+之前一直都以为 Instant View 是 Telegram 自动...">
+    <meta property="og:url" content="https://ws.l3on.site/post/add-instant-view-to-my-blog/" />
+    <meta property="og:site_name" content="Wonder Space 🚀">
+    <meta property="og:updated_time" content="05-06-2020">
+    <meta property="og:image" content="https://ws.l3on.site/post-images/add-instant-view-to-my-blog.png" />
+    <meta property="og:image:secure_url" content="https://ws.l3on.site/post-images/add-instant-view-to-my-blog.png">
+    <meta property="og:image:alt" content="给博客增加 Telegram Instant View (即时预览)">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="给博客增加 Telegram Instant View (即时预览)">
+    <meta name="twitter:description" content="Instant View 是 Telegram 一个独特的链接预览功能，今天花了一点时间写了一下模板，给自己的博客也加上了 Instant View。这里记录一下过程。
+
+之前一直都以为 Instant View 是 Telegram 自动...">
+    <meta name="twitter:site" content="@WBoy0609">
+    <meta name="twitter:creator" content="@WBoy0609">
+    <meta name="twitter:image" content="https://ws.l3on.site/post-images/add-instant-view-to-my-blog.png">
+
+</head>
+
+<body>
+
+  <div id="app" class="main px-4 flex flex-col lg:flex-row">
+    <div id="sidebar" class="sidebar-wrapper lg:static lg:w-1/4">
+  <div class="lg:sticky top-0">
+    <div class="sidebar-content">
+      <div class="flex lg:block p-4 lg:px-0 items-center fixed lg:static lg:block top-0 right-0 left-0 bg-white z-50"
+        style="backdrop-filter: blur(7px); background: hsla(0, 0%, 100%, .75); -webkit-backdrop-filter: blur(7px);">
+        <i class="ri-menu-2-line lg:mt-4 text-2xl cursor-pointer animated fadeIn" onclick="openMenu()"></i>
+        <a href="https://ws.l3on.site">
+          <img class="animated fadeInLeft avatar rounded-lg mx-4 lg:mt-32 lg:mx-0 mt-0 lg:w-24 lg:h-24 w-12 w-12"
+            src="https://ws.l3on.site/images/avatar.png?v=1661055158677" alt="">
+        </a>
+        <h1 class="animated fadeInLeft lg:text-2xl font-extrabold lg:mt-8 mt-0 text-xl" style="animation-delay: 0.2s">
+          Wonder Space 🚀
+        </h1>
+      </div>
+      
+          <div class="animated fadeInLeft" style="animation-delay: 0.4s">
+            <p class="my-4 text-gray-600 font-light hidden lg:block">
+              Contents
+            </p>
+            <div class="toc-container hidden lg:block">
+              <ul class="markdownIt-TOC">
+<li>
+<ul>
+<li><a href="#%E5%88%9B%E5%BB%BA%E6%A8%A1%E6%9D%BF">创建模板</a></li>
+<li><a href="#%E4%BF%AE%E6%94%B9%E6%A8%A1%E6%9D%BF">修改模板</a></li>
+<li><a href="#%E5%8F%82%E8%80%83%E5%86%85%E5%AE%B9">参考内容</a></li>
+</ul>
+</li>
+</ul>
+
+            </div>
+          </div>
+          
+    </div>
+  </div>
+</div>
+
+<div class="menu-container">
+  <i class="ri-arrow-left-line text-2xl cursor-pointer animated fadeIn close-menu-btn" onclick="closeMenu()"></i>
+  <div>
+    
+      
+          <a href="/" class="menu" style="animation-delay: 0s">
+            🏠 首页
+          </a>
+          
+            
+      
+          <a href="/tags" class="menu" style="animation-delay: 0.2s">
+            🏷️ 标签
+          </a>
+          
+            
+      
+          <a href="/archives" class="menu" style="animation-delay: 0.4s">
+            📬 归档
+          </a>
+          
+            
+      
+          <a href="/post/about" class="menu" style="animation-delay: 0.6000000000000001s">
+            😶 关于
+          </a>
+          
+            
+      
+        <a href="https://l3on.site/" class="menu" style="animation-delay: 0.8s" target="_blank">
+          ⌨️ Typecho
+        </a>
+        
+            
+      
+        <a href="https://blog.l3on.site" class="menu" style="animation-delay: 1s" target="_blank">
+          🔼 Nobelium
+        </a>
+        
+            
+  </div>
+  <div class="site-footer">
+    <div class="py-4 text-gray-700">
+      <a href="/post/about">Wonder Space 🚀</a> by Leon is licensed under a <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">Creative Commons BY-NC-SA 4.0 International License</a>. <img src="https://upload.wikimedia.org/wikipedia/commons/1/12/Cc-by-nc-sa_icon.svg" width="30%" style="margin:5 auto;">
+    </div>
+    <a class="rss" href="https://ws.l3on.site/atom.xml" target="_blank" style="margin: 5px;">RSS</a>
+    <button onclick="DarkReader.disable()" style="margin: 5px;">🌖</button>
+    <button onclick="DarkReader.enable({darkSchemeBackgroundColor:'#000000',darkSchemeTextColor:'#ffffff'})"
+      style="margin: 5px;">🌒</button>
+  </div>
+</div>
+<div class="mask" onclick="closeMenu()"
+  style="backdrop-filter: blur(7px); background: hsla(0, 0%, 100%, 0.5); -webkit-backdrop-filter: blur(7px);">
+</div>
+      <div class="content-wrapper py-32 lg:p-8 lg:w-3/4 post-detail animated fadeIn">
+        <h1 class="text-3xl font-bold lg:mt-16">
+          给博客增加 Telegram Instant View (即时预览)
+        </h1>
+        <div class="text-sm text-gray-700 lg:my-8">
+          05-06-2020 / 5 min read
+        </div>
+        
+          <img class="post-feature-image rounded-lg mx-auto my-4" src="https://ws.l3on.site/post-images/add-instant-view-to-my-blog.png" alt="">
+          
+            <div class="post-content yue">
+              <p><a href="https://instantview.telegram.org/">Instant View</a> 是 Telegram 一个独特的链接预览功能，今天花了一点时间写了一下模板，给自己的博客也加上了 Instant View。这里记录一下过程。</p>
+<!-- more -->
+<p>之前一直都以为 Instant View 是 Telegram 自动生成的，但是我关注到少数派的文章没有「生成」 Instant View，然后我自己博客的文章也从来没有显示过，于是我就上网查了一下，发现要想让网站适配 Instant View 是要写模板的。很早我就开始折腾了，但是一直没有成功，前段时间正好也比较忙，就把这件事也忘记了。今天白天看了一天的论文，晚上就想着折腾一下，正好就想到了这个。</p>
+<p>我上网看了几篇其他人的博文，终于有了点头绪，下面介绍详细步骤。</p>
+<h2 id="创建模板">创建模板</h2>
+<p>首先登录<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup> <a href="https://instantview.telegram.org/">Instant View 的官方项目页面</a>，初次登录需要点击右下角的 <code>Login</code> 通过自己的 Telegram 账号登录，验证成功后点击右侧边栏的 <code>My Templates</code> 进入自己的模板，然后将自己的博客地址粘贴到页面中的输入框，即可新建一个模板。</p>
+<figure data-type="image" tabindex="1"><img src="https://ws.l3on.site/post-images/1588779434282.png" alt="成功创建模板" loading="lazy"></figure>
+<p>如上，我们就成功创建了一个模板。</p>
+<h2 id="修改模板">修改模板</h2>
+<p>点击模板进入模板界面后，选取一篇文章的 URL 加入到模板中，确认后会进入到模板的编辑页面：</p>
+<figure data-type="image" tabindex="2"><img src="https://ws.l3on.site/post-images/1588780034748.png" alt="模板编辑界面" loading="lazy"></figure>
+<p>如图，我们可以看到左栏是原网页的预览，中间是模板的编辑区，右侧是 Instant View 生成效果的预览。具体的模板编写语法可以参考 <a href="https://instantview.telegram.org/docs">官方 Manual</a>，下面贴上我自己的：</p>
+<pre><code class="language-shell">#先是一些基本的信息
+~version: &quot;2.1&quot; #声明版本号
+site_name: &quot;Wonder Space 🚀&quot;
+#网站的名字
+author: &quot;Leon Wong&quot;
+#作者名字，会显示在文章标题下
+author_url:&quot;https://leonwong0609.github.io/post/about/&quot;
+#点击作者名字后跳转的 URL，我这里定向到博客的关于页
+channel: &quot;@leonwong0609&quot;
+#相关的 Telegram Channel，可以显示在文章标题上，有个 Join 按钮
+
+#然后是关于文章的
+$main: //div[has-class(&quot;content-wrapper py-32 lg:p-8 lg:w-3/4 post-detail animated fadeIn __reader_view_article_wrap_22107290973894766__&quot;)]
+# 这里的 $main 是一个 Variable，我的理解就是相当于用 $main 来代替后面的一长串
+title: $main//h1
+#我的博文中需要的标题就是 $main 中的 h1
+body: //div[has-class(&quot;post-content yue&quot;)]
+#我的博文正文内容就是一个 class 为 post-content yue 的 div
+@remove: //ul[has-class(&quot;markdownIt-TOC&quot;)]
+#不需要目录所以删除掉 class 为 markdownIt-TOC 的无序列表
+@remove: //iframe
+#Instant View 不支持 iframe，所以将其从模板中去掉
+
+#最后是关于封面和略缩图
+cover: //img[has-class(&quot;post-feature-image rounded-lg mx-auto my-4&quot;)]
+#设置封面，会显示在 Instant View 页面顶部，我这里是特定 class 的 img 标签
+image_url: //img[has-class(&quot;post-feature-image rounded-lg mx-auto my-4&quot;)]
+#设置在对话气泡中的预览图，我这里设置的和封面相同
+</code></pre>
+<p>具体的网页情况可能和我这个会有不同，但是都大同小异，只要通过浏览器的检查工具找到对应内容的标签和 class 或者 id 就可以了，设置成功后，一般右侧栏就会自动出现效果的预览，我们还可以点击右上角的 <code>VIEW IN TELEGRAM</code> 将 IV 页面发送到 Telegram 中预览。预览无误后，可以点击右上角的 <code>MARK AS CHECKED</code>。</p>
+<figure data-type="image" tabindex="3"><img src="https://ws.l3on.site/post-images/1588782033026.png" alt="IV 效果" loading="lazy"></figure>
+<p>效果如上图，加载速度比起博客快了很多。</p>
+<p>可以看出这个模板的设置和网页上的标签相关，所以看来以后不能那么勤快给博客换主题了。</p>
+<p>到这一步基本上就完成了，但是我还没有弄清楚怎么样才能像 Telegra.ph 或者 Medium 那样直接输入链接就能出现 Instant View 选项。现在只有通过替换预览链接中的 URL 来实现 Instant View。例如我刚才生成的预览链接是：</p>
+<pre><code class="language-text">https://t.me/iv?url=https%3A%2F%2Fleonwong0609.github.io%2Fpost%2Fhello-world%2F&amp;rhash=c8c9ddf4bad078
+</code></pre>
+<p>那么我就可以将 <code>url=</code> 后面和 <code>&amp;rhash</code> 前面的内容替换成我们自己的博文 URL (经过 URL encode 的) 就可以了。像我的博文 URL 都是只会改变 <code>post%2F</code> 后面的东西，所以相对比较方便更改。但是无论如何这种方法只能说是曲线救国，真的发送这样的在聊天框会显得太长，我们可以通过给文字增加超链接来改变这点。当然因为我身边完全没有人用 Telegram，我也完全不需要把 Instant View 链接发给谁，所以我就没有这个忧虑。</p>
+<p>等等，既然这样我还折腾这个干嘛？</p>
+<h2 id="参考内容">参考内容</h2>
+<ul>
+<li>壮壮博客：<a href="https://zhuangzhuang.cf/2019-04-23/instant-view/">Telegram 即时预览</a></li>
+<li>方寸间：<a href="https://10101.io/2019/05/23/telegtam-instant-view">为网站添加 Telegram 即时预览</a></li>
+<li>bovasjohn @ Medium: <a href="https://medium.com/@bovasjohn/what-is-instant-view-and-how-can-i-get-it-for-my-domain-in-telegram-messenger-6064efb1ed15">What Is Instant View And How can I get It for My domain? in Telegram Messenger</a></li>
+</ul>
+<hr class="footnotes-sep">
+<section class="footnotes">
+<ol class="footnotes-list">
+<li id="fn1" class="footnote-item"><p>需要使用电脑或者显示器分辨率较高的设备登录。 <a href="#fnref1" class="footnote-backref">↩︎</a></p>
+</li>
+</ol>
+</section>
+
+            </div>
+
+            
+              <a class="animated fadeInUp p-2 items-center text-sm text-gray-700 border hover:bg-gray-300 leading-none rounded-full flex lg:inline-flex m-4 "
+                href="https://ws.l3on.site/tag/86oOp5QCV/">
+                <span class="flex-auto">
+                  博客
+                </span>
+              </a>
+              
+
+
+                <div class="flex justify-between py-8">
+                  
+                    <div class="prev-post">
+                      <a href="https://ws.l3on.site/post/20/">
+                        <h3 class="post-title">
+                          <i class="ri-arrow-left-line"></i>
+                          写在 20 岁生日的反思 🎂
+                        </h3>
+                      </a>
+                    </div>
+                    
+
+                      
+                        <div class="next-post">
+                          <a href="https://ws.l3on.site/post/why-do-you-love-cinema/">
+                            <h3 class="post-title">
+                              Why do you love cinema?
+                                <i class="ri-arrow-right-line"></i>
+                            </h3>
+                          </a>
+                        </div>
+                        
+                </div>
+
+                
+
+<script src="https://giscus.app/client.js"
+    data-repo="LeonWong0609/LeonWong0609.github.io"
+    data-repo-id="MDEwOlJlcG9zaXRvcnkyMjcyODI0NTM="
+    data-category="General"
+    data-category-id="DIC_kwDODYwOFc4COnst"
+    data-mapping="title"
+    data-reactions-enabled="1"
+    data-emit-metadata="1"
+    data-input-position="top"
+    data-theme="transparent_dark"
+    data-lang="zh-CN"
+    data-loading="lazy"
+    crossorigin="anonymous"
+    async>
+</script>
+
+      </div>
+  </div>
+
+  <script src="https://ws.l3on.site/media/prism.js"></script>
+
+<script>
+
+  Prism.highlightAll()
+  let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+
+  // This should probably be throttled.
+  // Especially because it triggers during smooth scrolling.
+  // https://lodash.com/docs/4.17.10#throttle
+  // You could do like...
+  // window.addEventListener("scroll", () => {
+  //    _.throttle(doThatStuff, 100);
+  // });
+  // Only not doing it here to keep this Pen dependency-free.
+
+  window.addEventListener("scroll", event => {
+    let fromTop = window.scrollY;
+
+    mainNavLinks.forEach((link, index) => {
+      let section = document.getElementById(decodeURI(link.hash).substring(1));
+      let nextSection = null
+      if (mainNavLinks[index + 1]) {
+        nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
+      }
+      if (section.offsetTop <= fromTop) {
+        if (nextSection) {
+          if (nextSection.offsetTop > fromTop) {
+            link.classList.add("current");
+          } else {
+            link.classList.remove("current");
+          }
+        } else {
+          link.classList.add("current");
+        }
+      } else {
+        link.classList.remove("current");
+      }
+    });
+  });
+
+
+  document.addEventListener("DOMContentLoaded", function () {
+    var lazyImages = [].slice.call(document.querySelectorAll(".post-feature-image.lazy"));
+
+    if ("IntersectionObserver" in window) {
+      let lazyImageObserver = new IntersectionObserver(function (entries, observer) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            let lazyImage = entry.target
+            lazyImage.style.backgroundImage = `url(${lazyImage.dataset.bg})`
+            lazyImage.classList.remove("lazy")
+            lazyImageObserver.unobserve(lazyImage)
+          }
+        });
+      });
+
+      lazyImages.forEach(function (lazyImage) {
+        lazyImageObserver.observe(lazyImage)
+      })
+    } else {
+      // Possibly fall back to a more compatible method here
+    }
+  });
+
+  const menuContainer = document.querySelector('.menu-container')
+  const menus = document.querySelectorAll('.menu-container .menu')
+  const mask = document.querySelector('.mask')
+  const contentWrapper = document.querySelector('.content-wrapper')
+  const latestArticle = document.querySelector('.latest-article')
+  const readMore = document.querySelector('.read-more')
+  const indexPage = document.querySelector('.index-page')
+
+  const isHome = location.pathname === '/'
+  if (latestArticle) {
+    latestArticle.style.display = isHome ? 'block' : 'none'
+    readMore.style.display = isHome ? 'block' : 'none'
+    indexPage.style.display = isHome ? 'none' : 'block'
+  }
+
+  const openMenu = () => {
+    menuContainer.classList.add('open')
+    menus.forEach(menu => {
+      menu.classList.add('animated', 'fadeInLeft')
+    })
+    mask.classList.add('open')
+    contentWrapper.classList.add('is-second')
+  }
+
+  const closeMenu = () => {
+    menuContainer.classList.remove('open')
+    menus.forEach(menu => {
+      menu.classList.remove('animated', 'fadeInLeft')
+    })
+    mask.classList.remove('open')
+    contentWrapper.classList.remove('is-second')
+  }
+</script>
+</body>
+
+</html>

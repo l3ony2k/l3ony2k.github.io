@@ -1,0 +1,384 @@
+<html>
+
+<head>
+  <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<title>
+  用自定义 CSS 解决文章内单词词内折行问题 | Wonder Space 🚀
+</title>
+
+<!-- Chrome, Firefox OS and Opera -->
+<meta name="theme-color" content="#ffffff">
+
+<!-- Apple Safari -->
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<link rel="apple-touch-icon" href="https://ws.l3on.site/images/avatar.png?v=1661055158677">
+<meta name="apple-mobile-web-app-title" content="WS 🚀">
+
+<!-- instant.page -->
+<script src="https://ws.l3on.site/media/instantpage-5.1.0.js" type="module" defer></script>
+
+<!-- dark reader -->
+<script src="https://cdn.jsdelivr.net/npm/darkreader@4.9.26/darkreader.min.js"></script>
+<script>
+  // Enable when system color scheme is dark.
+  DarkReader.auto({
+    //brightness: 105,
+    //contrast: 95,
+    //sepia: 0,
+    //grayscale: 15
+    darkSchemeBackgroundColor: '#000000',
+    darkSchemeTextColor: '#ffffff'
+  });
+</script>
+
+<link rel="shortcut icon" href="https://ws.l3on.site/favicon.ico?v=1661055158677">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,700;1,400;1,700&family=IBM+Plex+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+
+<link rel="stylesheet" href="https://ws.l3on.site/styles/main.css">
+
+<!-- umami -->
+<script async defer data-website-id="3c0f6b3c-27a9-47bd-9558-913f21633e25" src="https://umami.l3on.site/l3on.js"></script>
+
+
+    <meta name="description" content="最近给博客换了身新皮，叫做 Pure，主题设计得特别赞，整体简洁大方，细节也十分到位，一些小动画也特别顺畅优雅。之前的主题 Walker 存在 Title 一直不会变的问题，换上这个主题就没有发现这个问题了。然而使用过程中发现另外一个问题，..." />
+
+    <!-- OG -->
+    <meta property="og:locale" content="zh_CN">
+    <meta property="og:title" content="用自定义 CSS 解决文章内单词词内折行问题" />
+    <meta property="og:type" content="article" />
+    <meta property="og:description" content="最近给博客换了身新皮，叫做 Pure，主题设计得特别赞，整体简洁大方，细节也十分到位，一些小动画也特别顺畅优雅。之前的主题 Walker 存在 Title 一直不会变的问题，换上这个主题就没有发现这个问题了。然而使用过程中发现另外一个问题，...">
+    <meta property="og:url" content="https://ws.l3on.site/post/PureCustomizedCSS/" />
+    <meta property="og:site_name" content="Wonder Space 🚀">
+    <meta property="og:updated_time" content="02-18-2020">
+    <meta property="og:image" content="https://ws.l3on.site/post-images/PureCustomizedCSS.png" />
+    <meta property="og:image:secure_url" content="https://ws.l3on.site/post-images/PureCustomizedCSS.png">
+    <meta property="og:image:alt" content="用自定义 CSS 解决文章内单词词内折行问题">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="用自定义 CSS 解决文章内单词词内折行问题">
+    <meta name="twitter:description" content="最近给博客换了身新皮，叫做 Pure，主题设计得特别赞，整体简洁大方，细节也十分到位，一些小动画也特别顺畅优雅。之前的主题 Walker 存在 Title 一直不会变的问题，换上这个主题就没有发现这个问题了。然而使用过程中发现另外一个问题，...">
+    <meta name="twitter:site" content="@WBoy0609">
+    <meta name="twitter:creator" content="@WBoy0609">
+    <meta name="twitter:image" content="https://ws.l3on.site/post-images/PureCustomizedCSS.png">
+
+</head>
+
+<body>
+
+  <div id="app" class="main px-4 flex flex-col lg:flex-row">
+    <div id="sidebar" class="sidebar-wrapper lg:static lg:w-1/4">
+  <div class="lg:sticky top-0">
+    <div class="sidebar-content">
+      <div class="flex lg:block p-4 lg:px-0 items-center fixed lg:static lg:block top-0 right-0 left-0 bg-white z-50"
+        style="backdrop-filter: blur(7px); background: hsla(0, 0%, 100%, .75); -webkit-backdrop-filter: blur(7px);">
+        <i class="ri-menu-2-line lg:mt-4 text-2xl cursor-pointer animated fadeIn" onclick="openMenu()"></i>
+        <a href="https://ws.l3on.site">
+          <img class="animated fadeInLeft avatar rounded-lg mx-4 lg:mt-32 lg:mx-0 mt-0 lg:w-24 lg:h-24 w-12 w-12"
+            src="https://ws.l3on.site/images/avatar.png?v=1661055158677" alt="">
+        </a>
+        <h1 class="animated fadeInLeft lg:text-2xl font-extrabold lg:mt-8 mt-0 text-xl" style="animation-delay: 0.2s">
+          Wonder Space 🚀
+        </h1>
+      </div>
+      
+          <div class="animated fadeInLeft" style="animation-delay: 0.4s">
+            <p class="my-4 text-gray-600 font-light hidden lg:block">
+              Contents
+            </p>
+            <div class="toc-container hidden lg:block">
+              
+            </div>
+          </div>
+          
+    </div>
+  </div>
+</div>
+
+<div class="menu-container">
+  <i class="ri-arrow-left-line text-2xl cursor-pointer animated fadeIn close-menu-btn" onclick="closeMenu()"></i>
+  <div>
+    
+      
+          <a href="/" class="menu" style="animation-delay: 0s">
+            🏠 首页
+          </a>
+          
+            
+      
+          <a href="/tags" class="menu" style="animation-delay: 0.2s">
+            🏷️ 标签
+          </a>
+          
+            
+      
+          <a href="/archives" class="menu" style="animation-delay: 0.4s">
+            📬 归档
+          </a>
+          
+            
+      
+          <a href="/post/about" class="menu" style="animation-delay: 0.6000000000000001s">
+            😶 关于
+          </a>
+          
+            
+      
+        <a href="https://l3on.site/" class="menu" style="animation-delay: 0.8s" target="_blank">
+          ⌨️ Typecho
+        </a>
+        
+            
+      
+        <a href="https://blog.l3on.site" class="menu" style="animation-delay: 1s" target="_blank">
+          🔼 Nobelium
+        </a>
+        
+            
+  </div>
+  <div class="site-footer">
+    <div class="py-4 text-gray-700">
+      <a href="/post/about">Wonder Space 🚀</a> by Leon is licensed under a <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">Creative Commons BY-NC-SA 4.0 International License</a>. <img src="https://upload.wikimedia.org/wikipedia/commons/1/12/Cc-by-nc-sa_icon.svg" width="30%" style="margin:5 auto;">
+    </div>
+    <a class="rss" href="https://ws.l3on.site/atom.xml" target="_blank" style="margin: 5px;">RSS</a>
+    <button onclick="DarkReader.disable()" style="margin: 5px;">🌖</button>
+    <button onclick="DarkReader.enable({darkSchemeBackgroundColor:'#000000',darkSchemeTextColor:'#ffffff'})"
+      style="margin: 5px;">🌒</button>
+  </div>
+</div>
+<div class="mask" onclick="closeMenu()"
+  style="backdrop-filter: blur(7px); background: hsla(0, 0%, 100%, 0.5); -webkit-backdrop-filter: blur(7px);">
+</div>
+      <div class="content-wrapper py-32 lg:p-8 lg:w-3/4 post-detail animated fadeIn">
+        <h1 class="text-3xl font-bold lg:mt-16">
+          用自定义 CSS 解决文章内单词词内折行问题
+        </h1>
+        <div class="text-sm text-gray-700 lg:my-8">
+          02-18-2020 / 2 min read
+        </div>
+        
+          <img class="post-feature-image rounded-lg mx-auto my-4" src="https://ws.l3on.site/post-images/PureCustomizedCSS.png" alt="">
+          
+            <div class="post-content yue">
+              <p>最近给博客换了身新皮，叫做 Pure，主题设计得特别赞，整体简洁大方，细节也十分到位，一些小动画也特别顺畅优雅。之前的主题 Walker 存在 <code>Title</code> 一直不会变的问题，换上这个主题就没有发现这个问题了。然而使用过程中发现另外一个问题，英文单词会行内折行，而且也没有折行的连字符。</p>
+<!-- more -->
+<p>如下图：</p>
+<p><img src="https://ws.l3on.site/post-images/1582039747497.png" alt="存在词内折行问题的正文内容" loading="lazy"><br>
+<small>* 第三行末尾的 Markd-own</small></p>
+<p>上网查阅后发现可以用 CSS 来规定英文单词的换行规则，正常情况下会让单词内不折行，直接整个单词排到下一行，所以我们只在 CSS 中加上 <code>word-break: normal;</code> 就可以了。具体在这个主题中，对正文内容生效，也就是：</p>
+<pre><code class="language-CSS">.gt-post-content {
+word-break: normal;
+}
+</code></pre>
+<p>我们将这段 CSS 片段加入自定义 CSS 中，效果如下：</p>
+<figure data-type="image" tabindex="1"><img src="https://ws.l3on.site/post-images/1582040070916.png" alt="词内折行问题解决" loading="lazy"></figure>
+<p>虽然效果有点粗暴，但是起码是更加符合规范了。</p>
+<p>前后对比图：</p>
+<figure data-type="image" tabindex="2"><img src="https://ws.l3on.site/post-images/1582042028701.png" alt="" loading="lazy"></figure>
+<p>我们在 w3school 上可以看到更多有关 <code>word-break</code> 的属性，摘录部分如下：</p>
+<p><strong>CSS Syntax</strong></p>
+<pre><code class="language-CSS">word-break: normal|break-all|keep-all|break-word|initial|inherit;
+</code></pre>
+<p><strong>Property Values</strong></p>
+<table>
+<thead>
+<tr>
+<th>Value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>normal</code></td>
+<td>Default value. Uses default line break rules</td>
+</tr>
+<tr>
+<td><code>break-all</code></td>
+<td>To prevent overflow, word may be broken at any character</td>
+</tr>
+<tr>
+<td><code>keep-all</code></td>
+<td>Word breaks should not be used for Chinese/Japanese/Korean (CJK) text. Non-CJK text behavior is the same as value &quot;normal&quot;</td>
+</tr>
+<tr>
+<td><code>break-word</code></td>
+<td>To prevent overflow, word may be broken at arbitrary points</td>
+</tr>
+<tr>
+<td><code>initial</code></td>
+<td>Sets this property to its default value. <a href="https://www.w3schools.com/cssref/css_initial.asp">Read about <code>initial</code></a></td>
+</tr>
+<tr>
+<td><code>inherit</code></td>
+<td>Inherits this property from its parent element. <a href="https://www.w3schools.com/cssref/css_inherit.asp">Read about <code>inherit</code></a></td>
+</tr>
+</tbody>
+</table>
+<p>后来在主题作者的博客摸到作者的微博，从微博简介中发现，这个主题的作者竟然就是我初中时候就在用的那个天气应用 Pure 天气的开发者。虽然看到这个主题名字就应该能猜到，但只有真的看到时才会觉得原来如此、理所当然。不知是这个圈子真小还是缘分真的奇妙呢。</p>
+
+            </div>
+
+            
+              <a class="animated fadeInUp p-2 items-center text-sm text-gray-700 border hover:bg-gray-300 leading-none rounded-full flex lg:inline-flex m-4 "
+                href="https://ws.l3on.site/tag/86oOp5QCV/">
+                <span class="flex-auto">
+                  博客
+                </span>
+              </a>
+              
+
+
+                <div class="flex justify-between py-8">
+                  
+                    <div class="prev-post">
+                      <a href="https://ws.l3on.site/post/ChineseQuotationMark/">
+                        <h3 class="post-title">
+                          <i class="ri-arrow-left-line"></i>
+                          开始用「中文引号」
+                        </h3>
+                      </a>
+                    </div>
+                    
+
+                      
+                        <div class="next-post">
+                          <a href="https://ws.l3on.site/post/markdown-nice/">
+                            <h3 class="post-title">
+                              使用 Markdown Nice 简化微信公众号文章排版过程
+                                <i class="ri-arrow-right-line"></i>
+                            </h3>
+                          </a>
+                        </div>
+                        
+                </div>
+
+                
+
+<script src="https://giscus.app/client.js"
+    data-repo="LeonWong0609/LeonWong0609.github.io"
+    data-repo-id="MDEwOlJlcG9zaXRvcnkyMjcyODI0NTM="
+    data-category="General"
+    data-category-id="DIC_kwDODYwOFc4COnst"
+    data-mapping="title"
+    data-reactions-enabled="1"
+    data-emit-metadata="1"
+    data-input-position="top"
+    data-theme="transparent_dark"
+    data-lang="zh-CN"
+    data-loading="lazy"
+    crossorigin="anonymous"
+    async>
+</script>
+
+      </div>
+  </div>
+
+  <script src="https://ws.l3on.site/media/prism.js"></script>
+
+<script>
+
+  Prism.highlightAll()
+  let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+
+  // This should probably be throttled.
+  // Especially because it triggers during smooth scrolling.
+  // https://lodash.com/docs/4.17.10#throttle
+  // You could do like...
+  // window.addEventListener("scroll", () => {
+  //    _.throttle(doThatStuff, 100);
+  // });
+  // Only not doing it here to keep this Pen dependency-free.
+
+  window.addEventListener("scroll", event => {
+    let fromTop = window.scrollY;
+
+    mainNavLinks.forEach((link, index) => {
+      let section = document.getElementById(decodeURI(link.hash).substring(1));
+      let nextSection = null
+      if (mainNavLinks[index + 1]) {
+        nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
+      }
+      if (section.offsetTop <= fromTop) {
+        if (nextSection) {
+          if (nextSection.offsetTop > fromTop) {
+            link.classList.add("current");
+          } else {
+            link.classList.remove("current");
+          }
+        } else {
+          link.classList.add("current");
+        }
+      } else {
+        link.classList.remove("current");
+      }
+    });
+  });
+
+
+  document.addEventListener("DOMContentLoaded", function () {
+    var lazyImages = [].slice.call(document.querySelectorAll(".post-feature-image.lazy"));
+
+    if ("IntersectionObserver" in window) {
+      let lazyImageObserver = new IntersectionObserver(function (entries, observer) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            let lazyImage = entry.target
+            lazyImage.style.backgroundImage = `url(${lazyImage.dataset.bg})`
+            lazyImage.classList.remove("lazy")
+            lazyImageObserver.unobserve(lazyImage)
+          }
+        });
+      });
+
+      lazyImages.forEach(function (lazyImage) {
+        lazyImageObserver.observe(lazyImage)
+      })
+    } else {
+      // Possibly fall back to a more compatible method here
+    }
+  });
+
+  const menuContainer = document.querySelector('.menu-container')
+  const menus = document.querySelectorAll('.menu-container .menu')
+  const mask = document.querySelector('.mask')
+  const contentWrapper = document.querySelector('.content-wrapper')
+  const latestArticle = document.querySelector('.latest-article')
+  const readMore = document.querySelector('.read-more')
+  const indexPage = document.querySelector('.index-page')
+
+  const isHome = location.pathname === '/'
+  if (latestArticle) {
+    latestArticle.style.display = isHome ? 'block' : 'none'
+    readMore.style.display = isHome ? 'block' : 'none'
+    indexPage.style.display = isHome ? 'none' : 'block'
+  }
+
+  const openMenu = () => {
+    menuContainer.classList.add('open')
+    menus.forEach(menu => {
+      menu.classList.add('animated', 'fadeInLeft')
+    })
+    mask.classList.add('open')
+    contentWrapper.classList.add('is-second')
+  }
+
+  const closeMenu = () => {
+    menuContainer.classList.remove('open')
+    menus.forEach(menu => {
+      menu.classList.remove('animated', 'fadeInLeft')
+    })
+    mask.classList.remove('open')
+    contentWrapper.classList.remove('is-second')
+  }
+</script>
+</body>
+
+</html>
